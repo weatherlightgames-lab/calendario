@@ -57,5 +57,14 @@ for dname,dlabel,iso,tz,evs in days:
 chips="".join(f'<button type="button" class="f" data-g="{k}" aria-pressed="false">{v}</button>' for k,v in games.items())
 tpl=open('tpl.html').read()
 out=tpl.replace('%%LD%%',json.dumps(ld,ensure_ascii=False,indent=1)).replace('%%DAYS%%',rows).replace('%%CHIPS%%',chips)
+# todos os links externos abrem num separador novo
+out=re.sub(r'<a href="(https?://[^"]+)"(?![^>]*target=)',r'<a href="\1" target="_blank" rel="noopener"',out)
 open('eventos-weatherlight.html','w').write(out)
+# versão do site (documento HTML completo) para o GitHub Pages
+i=out.index('<title>'); j=out.index('</style>')+len('</style>')
+site=('<!doctype html>\n<html lang="pt">\n<head>\n<meta charset="utf-8">\n'
+      '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+      +out[i:j]+'\n<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n'
+      '</head>\n<body>\n'+out[j:]+'\n</body>\n</html>\n')
+open('index.html','w').write(site)
 print(len(ld))
