@@ -1,0 +1,261 @@
+{
+ "semana": "Semana de 21 a 25 de outubro",
+ "introducao": [
+  "Outubro continua com eventos especiais e lançamentos que não podes perder! 👀",
+  "De Pokémon a One Piece, com Riftbound, Magic, Yu-Gi-Oh, Digimon, Gundam e Cyberpunk a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
+ ],
+ "destaques": [
+  "Sábado temos casa cheia para um evento muito especial (e esgotado!) no One Piece Card Game! 🏴‍☠️",
+  "Domingo é dia de Prerelease no Pokémon com a chegada de Delta Reign! 🐉",
+  "Gundam Assemble está a chegar e temos também o primeiro Demo Event! 🚀"
+ ],
+ "dias": [
+  {
+   "dia": "Quarta-feira",
+   "data": "21 de outubro",
+   "iso": "2026-10-21",
+   "fuso": "+01:00",
+   "eventos": [
+    {
+     "hora": "16:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Commander Afternoon",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "commander",
+     "story": "4759834b",
+     "recorte": [
+      0.5,
+      0.46,
+      1.0
+     ]
+    },
+    {
+     "hora": "20:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Modern",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "modern",
+     "story": "cd7a083a",
+     "recorte": [
+      0.65,
+      0.44,
+      0.86
+     ],
+     "modelo": "Store Credit (Modern)"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Duelist Lounge",
+     "preco": 5,
+     "esgotado": false,
+     "arte": "duelist",
+     "story": "4f76556a",
+     "recorte": [
+      0.6,
+      0.45,
+      0.98
+     ]
+    },
+    {
+     "hora": "20:30",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate",
+     "story": "2bc779b6",
+     "recorte": [
+      0.6,
+      0.455,
+      0.83
+     ],
+     "modelo": "Pirate Party (Standard)"
+    }
+   ]
+  },
+  {
+   "dia": "Sexta-feira",
+   "data": "23 de outubro",
+   "iso": "2026-10-23",
+   "fuso": "+01:00",
+   "eventos": [
+    {
+     "hora": "20:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Standard Store Championship",
+     "preco": 13,
+     "esgotado": false,
+     "arte": "mtg-sc",
+     "story": "c468fd61",
+     "recorte": [
+      0.3,
+      0.45,
+      0.95
+     ],
+     "modelo": "Store Championship (Magic)"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Night",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-night",
+     "story": "5c360207",
+     "recorte": [
+      0.3,
+      0.44,
+      0.92
+     ]
+    },
+    {
+     "hora": "20:00",
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Tamer Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "tamer",
+     "story": "f4679d8d",
+     "recorte": [
+      0.68,
+      0.46,
+      0.98
+     ]
+    },
+    {
+     "hora": "21:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-lounge",
+     "story": "f24a8e74",
+     "recorte": [
+      0.35,
+      0.48,
+      0.98
+     ]
+    }
+   ]
+  },
+  {
+   "dia": "Sábado",
+   "data": "24 de outubro",
+   "iso": "2026-10-24",
+   "fuso": "+01:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Store Championship",
+     "preco": 20,
+     "esgotado": true,
+     "arte": "op-sc",
+     "story": "3fedd117",
+     "recorte": [
+      0.45,
+      0.44,
+      0.8
+     ],
+     "modelo": "Store Championship (One Piece)"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "cyber",
+     "nome_jogo": "Cyberpunk TCG",
+     "evento": "Night City Brawl",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nightcity",
+     "story": "83b29333",
+     "recorte": [
+      0.42,
+      0.45,
+      0.95
+     ]
+    },
+    {
+     "hora": "18:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-party",
+     "story": "a0759e78",
+     "recorte": [
+      0.66,
+      0.46,
+      0.98
+     ]
+    }
+   ]
+  },
+  {
+   "dia": "Domingo",
+   "data": "25 de outubro",
+   "iso": "2026-10-25",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "Prerelease Delta Reign",
+     "preco": 32,
+     "esgotado": false,
+     "arte": "delta",
+     "story": "fa825c3f",
+     "recorte": [
+      0.5,
+      0.45,
+      0.97
+     ],
+     "modelo": "Prerelease (Pokémon)"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Assemble",
+     "evento": "Demo Event #1 - Learn to Play",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "assemble",
+     "story": "a3cb4183",
+     "recorte": [
+      0.45,
+      0.47,
+      1.0
+     ]
+    },
+    {
+     "hora": "15:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Afternoon",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-afternoon",
+     "story": "541d99c1",
+     "recorte": [
+      0.7,
+      0.43,
+      0.82
+     ]
+    }
+   ]
+  }
+ ]
+}
