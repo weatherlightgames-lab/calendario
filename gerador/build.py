@@ -4,6 +4,11 @@ import json, html, re, os
 AQUI=os.path.dirname(os.path.abspath(__file__)); RAIZ=os.path.dirname(AQUI)
 S=json.load(open(os.path.join(AQUI,'semana.json')))
 DET=json.load(open(os.path.join(AQUI,'details.json')))
+SER=json.load(open(os.path.join(AQUI,'series.json')))
+def serie_de(e):
+    for s in SER:
+        if s['jogo']==e['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo']): return s
+    return None
 BASE='https://eventos.weatherlightgames.pt/'
 DISCORD='https://discord.gg/HTCZeJZuVk'
 ADDR={"@type":"Place","name":"Weatherlight Games & Collectibles","address":{"@type":"PostalAddress","streetAddress":"Rua Frei José Maria Évora, Nº2","postalCode":"7005-495","addressLocality":"Évora","addressCountry":"PT"}}
@@ -18,18 +23,19 @@ def modelo(e):
     c=[k for k in DET if k.startswith(e['evento']+' (')]
     return DET[c[0]] if len(c)==1 else None
 
-def det(txt):
+def det(txt,s=None):
     if txt:
         return ('<details class="det"><summary>Ver detalhes</summary><div class="txt">'+html.escape(txt)+
                 '<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario">Glossário</a> '
-                'ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight">Central de Ajuda</a>.</span></div></details>')
+                'ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight">Central de Ajuda</a>.</span>'+
+                (f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+'</div></details>')
     return f'<p class="det none">Detalhes no nosso <a href="{DISCORD}">Discord</a>.</p>'
 
 ld=[]; rows=""; usados=[]; sem_modelo=[]
 for d in S['dias']:
     items=""
     for e in d['eventos']:
-        g=e['jogo']; usados.append(g); txt=modelo(e); art=e.get('arte'); preco=float(e['preco'])
+        g=e['jogo']; usados.append(g); txt=modelo(e); s=serie_de(e); art=e.get('arte'); preco=float(e['preco'])
         if not txt: sem_modelo.append(f"{d['dia']} {e['hora']} {e['evento']}")
         ld.append({"@context":"https://schema.org","@type":"Event","name":f"{e['nome_jogo']} - {e['evento']}",
           "startDate":f"{d['iso']}T{e['hora']}:00{d['fuso']}","eventStatus":"https://schema.org/EventScheduled",
@@ -40,18 +46,28 @@ for d in S['dias']:
                     "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
         p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
         sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
-        th=f'<img class="thumb" src="img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
+        th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
         items+=(f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{e["hora"]}</time>'
-                f'<div class="what"><span class="chip c-{g}">{html.escape(e["nome_jogo"])}</span><strong>{html.escape(e["evento"])}</strong>{sp}</div>'
-                f'<span class="price{" free" if preco==0 else ""}">{p}</span>{det(txt)}</li>')
+                f'<div class="what"><span class="chip c-{g}">{html.escape(e["nome_jogo"])}</span>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
+                f'<span class="price{" free" if preco==0 else ""}">{p}</span>{det(txt,s)}</li>')
     rows+=f'<section class="day"><h2><span>{d["dia"]}</span> <small>{d["data"]}</small></h2><ol class="evs">{items}</ol></section>'
 
+DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}
+ORD=list(DIA_PT)
+reg=""
+for k,v in JOGOS.items():
+    ss=[s for s in SER if s['jogo']==k]
+    if not ss: continue
+    ss.sort(key=lambda s:(ORD.index(s['dia']),s['hora']))
+    reg+=f'<div class="rg"><span class="chip c-{k}">{html.escape(ss[0]["nome_jogo"])}</span><ul>'+''.join(
+        f'<li><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{DIA_PT[s["dia"]]} · {s["hora"]}</span></li>' for s in ss)+'</ul></div>'
+regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
 chips="".join(f'<button type="button" class="f" data-g="{k}" aria-pressed="false">{v}</button>' for k,v in JOGOS.items() if k in usados)
 lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introducao'])
 dest="\n        "+"\n        ".join(f'<li>{html.escape(x)}</li>' for x in S['destaques'])+"\n      "
 t=open(os.path.join(AQUI,'tpl.html')).read()
 out=(t.replace('%%LD%%',json.dumps(ld,ensure_ascii=False,indent=1)).replace('%%DAYS%%',rows).replace('%%CHIPS%%',chips)
-      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest))
+      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%REGULARES%%',regulares))
 if not S['destaques']: out=re.sub(r'\s*<aside class="weekend">.*?</aside>','',out,flags=re.S)
 out=re.sub(r'<a href="(https?://[^"]+)"(?![^>]*target=)',r'<a href="\1" target="_blank" rel="noopener"',out)
 i=out.index('<title>'); j=out.index('</style>')+len('</style>')
@@ -60,5 +76,6 @@ site=('<!doctype html>\n<html lang="pt">\n<head>\n<meta charset="utf-8">\n'
       '\n<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n'
       '</head>\n<body>\n'+out[j:]+'\n</body>\n</html>\n')
 open(os.path.join(RAIZ,'index.html'),'w').write(site)
-print(f"{len(ld)} eventos gerados.")
+import sys; sys.path.insert(0,AQUI); import series
+print(f"{len(ld)} eventos gerados; {series.gerar(t,SER,DET,S)} páginas de eventos regulares.")
 if sem_modelo: print("Sem modelo na base de dados:", "; ".join(sem_modelo))

@@ -1,0 +1,172 @@
+[
+ {
+  "slug": "magic/commander-afternoon",
+  "titulo": "Commander Afternoon",
+  "jogo": "magic",
+  "nome_jogo": "Magic: The Gathering",
+  "dia": "Wednesday",
+  "hora": "16:00",
+  "preco": 0,
+  "modelo": "Commander Afternoon",
+  "eventos": [
+   "Commander Afternoon"
+  ],
+  "arte": "commander",
+  "perguntas": []
+ },
+ {
+  "slug": "magic/modern",
+  "titulo": "Modern (Store Credit)",
+  "jogo": "magic",
+  "nome_jogo": "Magic: The Gathering",
+  "dia": "Wednesday",
+  "hora": "20:00",
+  "preco": 6,
+  "modelo": "Store Credit (Modern)",
+  "eventos": [
+   "Modern",
+   "Modern Store Credit"
+  ],
+  "arte": "modern",
+  "perguntas": []
+ },
+ {
+  "slug": "yu-gi-oh/duelist-lounge",
+  "titulo": "Duelist Lounge",
+  "jogo": "ygo",
+  "nome_jogo": "Yu-Gi-Oh!",
+  "dia": "Wednesday",
+  "hora": "20:00",
+  "preco": 5,
+  "modelo": "Duelist Lounge",
+  "eventos": [
+   "Duelist Lounge"
+  ],
+  "arte": "duelist",
+  "perguntas": []
+ },
+ {
+  "slug": "one-piece/pirate-party",
+  "titulo": "Pirate Party",
+  "jogo": "op",
+  "nome_jogo": "One Piece Card Game",
+  "dia": "Wednesday",
+  "hora": "20:30",
+  "preco": 5.5,
+  "modelo": "Pirate Party (Standard)",
+  "eventos": [
+   "Pirate Party",
+   "Pirate Lounge"
+  ],
+  "arte": "pirate",
+  "nota": "Também anunciado como Pirate Lounge. Quando é Extra Regulation, avisamos no calendário.",
+  "perguntas": []
+ },
+ {
+  "slug": "riftbound/nexus-night",
+  "titulo": "Nexus Night",
+  "jogo": "rift",
+  "nome_jogo": "Riftbound: League of Legends TCG",
+  "dia": "Friday",
+  "hora": "20:00",
+  "preco": 6.5,
+  "modelo": "Nexus Night (Semanal)",
+  "eventos": [
+   "Nexus Night"
+  ],
+  "arte": "nexus-night",
+  "perguntas": []
+ },
+ {
+  "slug": "digimon/tamer-party",
+  "titulo": "Tamer Party",
+  "jogo": "digi",
+  "nome_jogo": "Digimon Card Game",
+  "dia": "Friday",
+  "hora": "20:00",
+  "preco": 5.5,
+  "modelo": "Tamer Party",
+  "eventos": [
+   "Tamer Party"
+  ],
+  "arte": "tamer",
+  "perguntas": []
+ },
+ {
+  "slug": "gundam/pilot-lounge",
+  "titulo": "Pilot Lounge",
+  "jogo": "gundam",
+  "nome_jogo": "Gundam Card Game",
+  "dia": "Friday",
+  "hora": "21:00",
+  "preco": 5.5,
+  "modelo": "Pilot Lounge (Semanal)",
+  "eventos": [
+   "Pilot Lounge"
+  ],
+  "arte": "pilot-lounge",
+  "perguntas": []
+ },
+ {
+  "slug": "cyberpunk/night-city-brawl",
+  "titulo": "Night City Brawl",
+  "jogo": "cyber",
+  "nome_jogo": "Cyberpunk TCG",
+  "dia": "Saturday",
+  "hora": "15:00",
+  "preco": 6.5,
+  "modelo": "Night City Brawl (Semanal)",
+  "eventos": [
+   "Night City Brawl"
+  ],
+  "arte": "nightcity",
+  "perguntas": []
+ },
+ {
+  "slug": "gundam/pilot-party",
+  "titulo": "Pilot Party",
+  "jogo": "gundam",
+  "nome_jogo": "Gundam Card Game",
+  "dia": "Saturday",
+  "hora": "18:00",
+  "preco": 5.5,
+  "modelo": "Pilot Party (Fim de semana)",
+  "eventos": [
+   "Pilot Party"
+  ],
+  "arte": "pilot-party",
+  "perguntas": []
+ },
+ {
+  "slug": "pokemon/weekly-league",
+  "titulo": "Weekly League",
+  "jogo": "poke",
+  "nome_jogo": "Pokémon TCG",
+  "dia": "Sunday",
+  "hora": "15:00",
+  "preco": 6.5,
+  "modelo": "Weekly League",
+  "eventos": [
+   "Weekly League",
+   "Weekly League - Standard",
+   "Weekly League — Standard"
+  ],
+  "arte": null,
+  "perguntas": []
+ },
+ {
+  "slug": "riftbound/nexus-afternoon",
+  "titulo": "Nexus Afternoon",
+  "jogo": "rift",
+  "nome_jogo": "Riftbound: League of Legends TCG",
+  "dia": "Sunday",
+  "hora": "15:00",
+  "preco": 6.5,
+  "modelo": "Nexus Afternoon (Fim de semana)",
+  "eventos": [
+   "Nexus Afternoon"
+  ],
+  "arte": "nexus-afternoon",
+  "perguntas": []
+ }
+]

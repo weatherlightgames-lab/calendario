@@ -17,9 +17,9 @@
 :root[data-theme="dark"]{--foam:#0f1d22;--paper:#16272d;--ink:#e6eef0;--muted:#97adb3;--line:#2a3f46;--brass:#d9a54d;--sea:#0b1a1f;--sea-2:#24414b;--c-magic:#d19a63;--c-ygo:#b08ae0;--c-op:#ec7a6d;--c-rift:#5cb7d6;--c-digi:#7aa8f0;--c-gundam:#a3b1bd;--c-poke:#e6bd52;--c-cyber:#ee6fbd;color-scheme:dark}
 body{background:var(--foam);color:var(--ink);font:400 1.0625rem/1.55 var(--body)}
 .wrap{max-width:56rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-header{--hd-ink:#1f3d47;--hd-soft:#33525c;--hd-accent:#8a5f1f;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 60%),url("nuvens.jpg") center 35%/cover no-repeat,#c7dadd;color:var(--hd-ink)}
-:root[data-theme="dark"] header{--hd-ink:#f2f7f7;--hd-soft:#d6e5e8;--hd-accent:#f0c57d;background:linear-gradient(180deg,rgba(11,26,31,.62),rgba(11,26,31,.72)),url("nuvens.jpg") center 35%/cover no-repeat,#24414b}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{--hd-ink:#f2f7f7;--hd-soft:#d6e5e8;--hd-accent:#f0c57d;background:linear-gradient(180deg,rgba(11,26,31,.62),rgba(11,26,31,.72)),url("nuvens.jpg") center 35%/cover no-repeat,#24414b}}
+header{--hd-ink:#1f3d47;--hd-soft:#33525c;--hd-accent:#8a5f1f;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 60%),url("/nuvens.jpg") center 35%/cover no-repeat,#c7dadd;color:var(--hd-ink)}
+:root[data-theme="dark"] header{--hd-ink:#f2f7f7;--hd-soft:#d6e5e8;--hd-accent:#f0c57d;background:linear-gradient(180deg,rgba(11,26,31,.62),rgba(11,26,31,.72)),url("/nuvens.jpg") center 35%/cover no-repeat,#24414b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{--hd-ink:#f2f7f7;--hd-soft:#d6e5e8;--hd-accent:#f0c57d;background:linear-gradient(180deg,rgba(11,26,31,.62),rgba(11,26,31,.72)),url("/nuvens.jpg") center 35%/cover no-repeat,#24414b}}
 header .wrap{padding-block:3.5rem 4rem;display:grid;gap:.75rem;position:relative}
 .eyebrow{font:400 .78rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--hd-soft)}
 h1{font:500 clamp(1.9rem,5.2vw,3.2rem)/1.08 var(--display);margin:0;text-wrap:balance;letter-spacing:.02em;text-transform:uppercase}
@@ -51,6 +51,15 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .det .more a,.det.none a,footer a{color:var(--sea-2)}
 :root[data-theme="dark"] .det .more a,:root[data-theme="dark"] .det.none a,:root[data-theme="dark"] footer a{color:#9fc9d3}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .det .more a,:root:not([data-theme="light"]) .det.none a,:root:not([data-theme="light"]) footer a{color:#9fc9d3}}
+.nm{color:inherit;text-decoration:none}.nm:hover strong,.nm:focus-visible strong{text-decoration:underline;text-underline-offset:3px}
+.det .pg{display:inline-block;margin-top:.6rem;font-size:.9rem;color:var(--sea-2);white-space:normal}
+.regs h2{font:500 1.4rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .3rem}
+.regs-sub{margin:0 0 .9rem;color:var(--muted);font-size:.95rem}
+.rgs{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.6rem}
+.rg{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem}
+.rg ul{list-style:none;margin:.35rem 0 0;padding:0;display:grid;gap:.3rem}
+.rg li{display:flex;justify-content:space-between;gap:.75rem}
+.rg li a{color:var(--ink)}.rg li span{color:var(--muted);font-size:.92rem;white-space:nowrap}
 .day h2{font:500 1.4rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .6rem;display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
 .day h2 small{font:400 .85rem var(--mono);color:var(--muted);letter-spacing:.04em}
 .evs{list-style:none;margin:0;padding:0;background:var(--paper);border:1px solid var(--line);border-radius:8px}
@@ -125,6 +134,7 @@ footer a{color:var(--ink)}
 
     %%DAYS%%
     <p class="empty" id="empty" hidden>Não há eventos deste jogo esta semana.</p>
+    %%REGULARES%%
   </div>
 </main>
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eventos.weatherlightgames.pt/sitemap.xml
