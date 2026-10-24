@@ -14,7 +14,7 @@ from series import (BASE, MAPS, CA, GL, DISCORD, PL, DIA_NOME, MESES, PASTA, MAR
 
 AQUI = os.path.dirname(os.path.abspath(__file__)); RAIZ = os.path.dirname(AQUI)
 FONTE = os.path.join(AQUI, 'fonts', 'Jost.ttf')
-HORARIO = [("Segunda e terça","Encerrados"),("Quarta e sexta","15:00 – 23:00"),("Quinta, sábado e domingo","15:00 – 20:30")]
+HORARIO = [("Segunda e Terça","Encerrados"),("Quarta e Sexta","15:00 – 23:00"),("Quinta, Sábado e Domingo","15:00 – 20:30")]
 LOJA = {"@context": "https://schema.org", "@type": "GameStore", "name": "Weatherlight Games & Collectibles",
         "alternateName": "Weatherlight", "url": "https://www.weatherlightgames.pt/",
         "logo": "https://cdn-shopkit.com/usercontent/weatherlightgames/media/images/6caa56f-180700-logo-weatherlight_site_actualizado_nome_4.jpg",

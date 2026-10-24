@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-10-21-op-pirate-party@eventos.weatherlightgames.pt
-DTSTAMP:20261024T191444Z
+DTSTAMP:20261024T191744Z
 DTSTART:20261021T193000Z
 DTEND:20261021T223000Z
 SUMMARY:Pirate Party · One Piece Card Game (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/pirate-party/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-24-op-store-championship@eventos.weatherlightgames.pt
-DTSTAMP:20261024T191444Z
+DTSTAMP:20261024T191744Z
 DTSTART:20261024T140000Z
 DTEND:20261024T170000Z
 SUMMARY:Store Championship · One Piece Card Game (Weatherlight)
