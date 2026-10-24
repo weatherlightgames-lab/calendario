@@ -7,6 +7,8 @@ DET=json.load(open(os.path.join(AQUI,'details.json')))
 SER=json.load(open(os.path.join(AQUI,'series.json')))
 # Página da marca de cada jogo no site principal (nome do jogo → URL)
 MARCAS=json.load(open(os.path.join(AQUI,'marcas.json')))
+import sys; sys.path.insert(0,AQUI)
+from series import PASTA
 def chip(g,nome):
     u=MARCAS.get(nome)
     return (f'<a class="chip c-{g}" href="{u}" target="_blank" rel="noopener" title="{html.escape(nome)} na loja Weatherlight">{html.escape(nome)}</a>' if u
@@ -111,7 +113,7 @@ def item(d,e,quando=None):
     sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
     th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
     return (f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{quando or ''}{e["hora"]}</time>'
-            f'<div class="what">{chip(g,e["nome_jogo"])}{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
+            f'<div class="what"><a class="chip c-{g}" href="/{PASTA.get(g,g)}/" title="Todos os eventos de {html.escape(e["nome_jogo"])}">{html.escape(e["nome_jogo"])}</a>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
             f'<span class="price{" free" if preco==0 else ""}">{p}</span><div class="acts">{b1}{b2}</div>{f'<div class="det pns">{p1}{p2}</div>' if p1 or p2 else ''}</li>')
 
 for d in S['dias']:
@@ -158,6 +160,6 @@ site=('<!doctype html>\n<html lang="pt">\n<head>\n<meta charset="utf-8">\n'
       '\n<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n'
       '</head>\n<body>\n'+out[j:]+'\n</body>\n</html>\n')
 open(os.path.join(RAIZ,'index.html'),'w').write(site)
-import sys; sys.path.insert(0,AQUI); import series
+import series
 print(f"{len(ld)} eventos gerados; {series.gerar(t,SER,DET,S)} páginas de eventos regulares.")
 if sem_modelo: print("Sem modelo na base de dados:", "; ".join(sem_modelo))
