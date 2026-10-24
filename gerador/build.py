@@ -34,7 +34,7 @@ def det(txt,s=None):
     return (f'<p class="det none">Detalhes no nosso <a href="{DISCORD}">Discord</a>.</p>','')
 
 # Inscrição: link da aplicação do torneio (semana.json "inscricao") e código Companion do Magic ("companion")
-PLAT=[("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound"),("riftbound","Riftbound"),
+PLAT=[("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound Gaming Network"),("riftbound","Riftbound Gaming Network"),
       ("neuron","Neuron"),("konami","Neuron"),("companion.wizards","Companion"),("eventlink","EventLink"),
       ("limitlesstcg","Limitless"),("pokemon","Pokémon"),("digimoncard","Bandai TCG+")]
 def plataforma(u):
@@ -53,7 +53,7 @@ def inscricao(e):
     if c and not e.get('esgotado'):
         h+='<details class="det d2"><summary>Código Companion</summary></details>'
         pn=('<div class="txt p2 cmp">'f'<span class="code">{html.escape(c)}</span>'
-            'Na app <strong>Magic: The Gathering Companion</strong>, carrega em <em>Join Event</em> e introduz este código.</div>')
+            'Na app <strong>Magic: The Gathering Companion</strong>, toca em <em>Enter Event Code</em> e introduz este código.</div>')
     return h,pn
 
 ld=[]; rows=""; usados=[]; sem_modelo=[]
