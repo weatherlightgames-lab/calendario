@@ -191,7 +191,7 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
 <body>
 <header>
   <div class="wrap">
-    <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {(f'<a href="{MARCAS[s["nome_jogo"]]}">'+html.escape(s['nome_jogo'])+'</a>') if s['nome_jogo'] in MARCAS else html.escape(s['nome_jogo'])}</span>
+    <span class="crumbs"><a href="/">Calendário Weatherlight</a> › <a href="/{s['slug'].split('/')[0]}/">{html.escape(s['nome_jogo'])}</a></span>
     <h1>{html.escape(s['titulo'])}</h1>
     <p class="sub">{html.escape(s['nome_jogo'])} em Évora · {quando}</p>
   </div>
@@ -220,7 +220,82 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
         pasta=os.path.join(RAIZ,s['slug']); os.makedirs(pasta,exist_ok=True)
         open(os.path.join(pasta,'index.html'),'w').write(page)
         urls.append(f"{BASE}/{s['slug']}/")
+    urls+=gerar_jogos(SER,DET,S,style,fonts,re.findall(r'<style>.*?</style>',page,re.S)[-1])
     open(os.path.join(RAIZ,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+
         ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls)+'</urlset>\n')
     open(os.path.join(RAIZ,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n')
     return len(SER)
+
+
+# ---------- Página de cada jogo: /<jogo>/ (destino dos links das páginas de marca da loja) ----------
+def gerar_jogos(SER,DET,S,style,fonts,css2):
+    import datetime as dt
+    FP=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FP)) if os.path.exists(FP) else []
+    hoje=dt.date.today().isoformat(); ult=max(d['iso'] for d in S['dias'])
+    pastas={}
+    for s in SER: pastas.setdefault(s['slug'].split('/')[0],(s['jogo'],s['nome_jogo']))
+    urls=[]
+    for pasta,(g,nome) in pastas.items():
+        regs=sorted([s for s in SER if s['jogo']==g],key=lambda s:(list(DIA_ISO).index(s['dia']),s['hora']))
+        def linha(data,hora,ev,preco,slug=None,esg=False):
+            n=f'<a href="/{slug}/">{html.escape(ev)}</a>' if slug else html.escape(ev)
+            return f'<li><span>{data} · {hora}</span><span>{n} · {preco_txt(float(preco))}{" · Esgotado" if esg else ""}</span></li>'
+        def slug_de(e):
+            for s in regs:
+                if e['evento'] in s['eventos'] or e.get('modelo')==s['modelo']: return s['slug']
+        sem=[linha(f"{d['dia']}, {d['data']}",e['hora'],e['evento'],e['preco'],slug_de(e),e.get('esgotado')) for d in S['dias'] for e in d['eventos'] if e['jogo']==g and d['iso']>=hoje]
+        esp=[]
+        for f in sorted(FUT,key=lambda x:(x['iso'],x['hora'])):
+            if f['jogo']!=g or f['iso']<=ult or f['iso']<hoje: continue
+            x=dt.date.fromisoformat(f['iso'])
+            esp.append(linha(f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}",f['hora'],f['evento'] if f['nome_jogo']==nome else f"{f['evento']} ({f['nome_jogo']})",f['preco']))
+        cards=''.join(f'<a class="card" href="/{s["slug"]}/"><strong>{html.escape(s["titulo"])}</strong><span>{PL[s["dia"]]} · {s["hora"]} · {preco_txt(float(s["preco"]))}</span><em>Ver página →</em></a>' for s in regs)
+        cobertos={re.sub(r"\s*\(.*\)$","",n) for o in regs for n in o['eventos']+[o['modelo']]}
+        outros=''
+        for k in BASE_DB.get(g,[]):
+            if k in [o['modelo'] for o in regs] or re.sub(r"\s*\(.*\)$","",k) in cobertos or not DET.get(k): continue
+            t2=DET[k]; info=" · ".join(x for x in [formato(t2), preco_db(t2)] if x)
+            outros+=(f'<details class="card ot"><summary><strong>{html.escape(limpar(k))}</strong><span>{html.escape(info)}</span><em>Ver detalhes</em></summary>'
+                     f'<p class="pre">{html.escape(t2)}</p>'+(f'<p class="m fx">{fmt_mtg(formato(t2))[1]}</p>' if g=='magic' and fmt_mtg(formato(t2)) else '')+'</details>')
+        marca=MARCAS.get(nome)
+        desc=f"Eventos de {nome} em Évora na Weatherlight: "+", ".join(f"{s['titulo']} ({PL[s['dia']].lower()} às {s['hora']})" for s in regs)+", e eventos especiais como Prereleases e torneios."
+        bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+            {"@type":"ListItem","position":1,"name":"Calendário Weatherlight","item":BASE+"/"},
+            {"@type":"ListItem","position":2,"name":f"Eventos de {nome}","item":f"{BASE}/{pasta}/"}]}
+        page=f"""<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eventos de {html.escape(nome)} em Évora | Weatherlight</title>
+<meta name="description" content="{html.escape(desc)}">
+<link rel="canonical" href="{BASE}/{pasta}/">
+{fonts}
+<script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>
+{style}
+{css2}
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {html.escape(nome)}</span>
+    <h1>Eventos de {html.escape(nome)}</h1>
+    <p class="sub">Torneios e noites de jogo na Weatherlight, em Évora</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <section class="sec"><h2>Eventos regulares</h2><div class="rel">{cards}</div></section>
+    {f'<section class="box"><h2>Esta semana</h2><ul class="dates">{"".join(sem)}</ul></section>' if sem else ''}
+    {f'<section class="box"><h2>Eventos que não podes perder</h2><ul class="dates">{"".join(esp)}</ul><p class="m small">Detalhes, inscrições e calendário no <a href="/">Calendário Weatherlight</a>.</p></section>' if esp else ''}
+    {f'<section class="sec"><h2>Outros eventos de {html.escape(nome)}</h2><div class="rel">{outros}</div><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></section>' if outros else ''}
+    {f'<p class="m"><a href="{marca}">Ver os produtos de {html.escape(nome)} na loja Weatherlight →</a></p>' if marca else ''}
+  </div>
+</main>
+<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="{CA}">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>!</p></div></footer>
+</body>
+</html>
+"""
+        page=re.sub(r'<a href="(https?://[^"]+)"(?![^>]*target=)',r'<a href="\1" target="_blank" rel="noopener"',page)
+        open(os.path.join(RAIZ,pasta,'index.html'),'w').write(page); urls.append(f"{BASE}/{pasta}/")
+    return urls
