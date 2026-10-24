@@ -10,4 +10,4 @@ Regras: fuso +01:00 até ao último sábado de outubro, +00:00 a partir do últi
 One Piece: Pirate Lounge e Pirate Party são Standard; Extra Regulation só quando o calendário avisa.
 
 - **Adicionar ao calendário:** o `build.py` gera um link Google Calendar e um ficheiro `.ics` (Apple/Outlook) por evento em `ics/` (a pasta é refeita em cada build; duração prevista 3 h). Aparece dentro de "Ver detalhes".
-- **"Preciso de alguma aplicação para jogar?"** nas páginas fixas: textos por jogo em `APPS` (`series.py`), confirmados pela equipa (contas obrigatórias).
+- **"Como me posso inscrever?"** nas páginas fixas: textos por jogo em `APPS` (`series.py`), confirmados pela equipa (contas obrigatórias; pagamento no check-in ao balcão; gratuito quando o preço é 0).
