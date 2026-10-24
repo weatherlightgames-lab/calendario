@@ -24,12 +24,37 @@ def modelo(e):
     return DET[c[0]] if len(c)==1 else None
 
 def det(txt,s=None):
+    """Devolve (botão, painel). O painel abre por baixo da fila de botões (CSS :has)."""
     if txt:
-        return ('<details class="det"><summary>Ver detalhes</summary><div class="txt">'+html.escape(txt)+
+        return ('<details class="det d1"><summary>Ver detalhes</summary></details>',
+                '<div class="txt p1">'+html.escape(txt)+
                 '<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario">Glossário</a> '
                 'ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight">Central de Ajuda</a>.</span>'+
-                (f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+'</div></details>')
-    return f'<p class="det none">Detalhes no nosso <a href="{DISCORD}">Discord</a>.</p>'
+                (f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+'</div>')
+    return (f'<p class="det none">Detalhes no nosso <a href="{DISCORD}">Discord</a>.</p>','')
+
+# Inscrição: link da aplicação do torneio (semana.json "inscricao") e código Companion do Magic ("companion")
+PLAT=[("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound"),("riftbound","Riftbound"),
+      ("neuron","Neuron"),("konami","Neuron"),("companion.wizards","Companion"),("eventlink","EventLink"),
+      ("limitlesstcg","Limitless"),("pokemon","Pokémon"),("digimoncard","Bandai TCG+")]
+def plataforma(u):
+    for k,v in PLAT:
+        if k in u: return v
+    return None
+def inscricao(e):
+    h=""
+    u=e.get('inscricao')
+    if u and not e.get('esgotado'):
+        pl=plataforma(u)
+        h+=(f'<a class="insc" href="{html.escape(u)}" target="_blank" rel="noopener"'
+            f'{f" title=\"Inscrição na {pl}\"" if pl else ""}>Inscrever{f" · {pl}" if pl else ""}<span aria-hidden="true">↗</span></a>')
+    pn=""
+    c=e.get('companion')
+    if c and not e.get('esgotado'):
+        h+='<details class="det d2"><summary>Código Companion</summary></details>'
+        pn=('<div class="txt p2 cmp">'f'<span class="code">{html.escape(c)}</span>'
+            'Na app <strong>Magic: The Gathering Companion</strong>, carrega em <em>Join Event</em> e introduz este código.</div>')
+    return h,pn
 
 ld=[]; rows=""; usados=[]; sem_modelo=[]
 for d in S['dias']:
@@ -42,14 +67,15 @@ for d in S['dias']:
           "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":ADDR,"organizer":ORG,
           **({"image":BASE+f"img/{art}-g.jpg"} if art else {}),
           "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
-          "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":BASE,
+          "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
                     "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
+        b1,p1=det(txt,s); b2,p2=inscricao(e)
         p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
         sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
         th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
         items+=(f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{e["hora"]}</time>'
                 f'<div class="what"><span class="chip c-{g}">{html.escape(e["nome_jogo"])}</span>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
-                f'<span class="price{" free" if preco==0 else ""}">{p}</span>{det(txt,s)}</li>')
+                f'<span class="price{" free" if preco==0 else ""}">{p}</span><div class="acts">{b1}{b2}</div>{f'<div class="det pns">{p1}{p2}</div>' if p1 or p2 else ''}</li>')
     rows+=f'<section class="day"><h2><span>{d["dia"]}</span> <small>{d["data"]}</small></h2><ol class="evs">{items}</ol></section>'
 
 DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}

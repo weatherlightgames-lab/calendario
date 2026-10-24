@@ -1,6 +1,6 @@
 # Gerador do Calendário Weatherlight
 
-1. `semana.json` — a semana: texto (introdução, destaques), dias e eventos (hora, jogo, preço, esgotado, modelo, arte, story, recorte).
+1. `semana.json` — a semana: texto (introdução, destaques), dias e eventos (hora, jogo, preço, esgotado, modelo, arte, story, recorte) e, opcionais, `inscricao` (link do torneio na Melee, Bandai TCG+, Riftbound, Neuron…; mostra o botão "Inscrever") e `companion` (código do Magic Companion; mostra o botão "Código Companion"). Eventos esgotados não mostram estes botões.
 2. `details.json` — textos de detalhes, com o mesmo título dos modelos (###) da Base de Dados Eventos Weatherlight.
 3. `python3 recortar.py <pasta-das-stories>` — miniaturas em ../img/.
 4. `python3 build.py` — gera ../index.html.

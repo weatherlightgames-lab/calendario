@@ -396,7 +396,7 @@
    "@type": "Offer",
    "price": "6.50",
    "priceCurrency": "EUR",
-   "url": "https://eventos.weatherlightgames.pt/",
+   "url": "https://melee.gg/Tournament/View/489955",
    "availability": "https://schema.org/InStock"
   }
  },
@@ -435,7 +435,7 @@
    "@type": "Offer",
    "price": "5.50",
    "priceCurrency": "EUR",
-   "url": "https://eventos.weatherlightgames.pt/",
+   "url": "https://www.bandai-tcg-plus.com/event/7835425",
    "availability": "https://schema.org/InStock"
   }
  },
@@ -552,7 +552,7 @@
    "@type": "Offer",
    "price": "6.50",
    "priceCurrency": "EUR",
-   "url": "https://eventos.weatherlightgames.pt/",
+   "url": "https://playriftbound.com/en-US/events/117478317481661545",
    "availability": "https://schema.org/InStock"
   }
  }
@@ -658,6 +658,21 @@ footer a{color:var(--ink)}
   .det{grid-column:2 / -1;grid-row:3}
   .thumb{grid-row:1 / span 3}
 }
+/* ---- botões: Ver detalhes · Inscrever · Código Companion ---- */
+.acts{grid-column:3 / -1;grid-row:2;display:flex;flex-wrap:wrap;align-items:flex-start;gap:.45rem;margin:.15rem 0 0}
+.acts .det{margin:0}
+.pns{grid-row:3;margin:0}.pns .txt{display:none;margin-top:.55rem}
+.ev:has(.d1[open]) .p1,.ev:has(.d2[open]) .p2{display:block}
+.pns .p1{white-space:pre-line}
+.insc{display:inline-flex;align-items:center;gap:.35rem;font:400 .9rem var(--body);color:#fff;background:var(--sea-2);border:1px solid var(--sea-2);border-radius:999px;padding:.25rem .85rem;text-decoration:none}
+.insc:hover{background:var(--sea)}
+.insc span{font-size:.85em}
+:root[data-theme="dark"] .insc{background:#9fc9d3;border-color:#9fc9d3;color:#0b1a1f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .insc{background:#9fc9d3;border-color:#9fc9d3;color:#0b1a1f}}
+.pns .cmp{white-space:normal}
+.cmp .code{display:block;font:500 1.35rem var(--body);letter-spacing:.08em;margin-bottom:.4rem;user-select:all}
+.ev:has(.acts details[open]) .thumb{align-self:start;height:auto;aspect-ratio:3/4}
+@media (max-width:480px){.acts{grid-column:2 / -1;grid-row:3}.pns{grid-column:2 / -1;grid-row:4}.thumb{grid-row:1 / span 4}}
 </style>
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -693,14 +708,14 @@ footer a{color:var(--ink)}
       <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener"><strong>Não conheces algum termo?</strong><span>Suíço, Sealed, Top X, Prize Pack… está tudo no Glossário</span></a>
     </nav>
 
-    <section class="day"><h2><span>Quarta-feira</span> <small>21 de outubro</small></h2><ol class="evs"><li class="ev" data-game="magic"><img class="thumb" src="/img/commander-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T16:00">16:00</time><div class="what"><span class="chip c-magic">Magic: The Gathering</span><a class="nm" href="/magic/commander-afternoon/"><strong>Commander Afternoon</strong></a></div><span class="price free">Gratuito</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Vem jogar Commander na Weatherlight!
+    <section class="day"><h2><span>Quarta-feira</span> <small>21 de outubro</small></h2><ol class="evs"><li class="ev" data-game="magic"><img class="thumb" src="/img/commander-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T16:00">16:00</time><div class="what"><span class="chip c-magic">Magic: The Gathering</span><a class="nm" href="/magic/commander-afternoon/"><strong>Commander Afternoon</strong></a></div><span class="price free">Gratuito</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Vem jogar Commander na Weatherlight!
 
 Formato: Commander Casual
 
 Preço: Free!
 
 Prémios:
-Promo Packs e Promos a sortear para todas as mesas!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/magic/commander-afternoon/">Página do evento →</a></div></details></li><li class="ev" data-game="magic"><img class="thumb" src="/img/modern-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T20:00">20:00</time><div class="what"><span class="chip c-magic">Magic: The Gathering</span><a class="nm" href="/magic/modern/"><strong>Modern</strong></a></div><span class="price">6,00 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">O Modern continua em força na Weatherlight! 🙌
+Promo Packs e Promos a sortear para todas as mesas!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/magic/commander-afternoon/">Página do evento →</a></div></div></li><li class="ev" data-game="magic"><img class="thumb" src="/img/modern-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T20:00">20:00</time><div class="what"><span class="chip c-magic">Magic: The Gathering</span><a class="nm" href="/magic/modern/"><strong>Modern</strong></a></div><span class="price">6,00 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">O Modern continua em força na Weatherlight! 🙌
 
 Formato: Modern (Suíço)
 
@@ -711,7 +726,7 @@ Prémios:
 - 1 Promo Pack para o segundo lugar;
 - 1 Play Booster de Standard por jogador para o restante Top (os boosters podem ficar acumulados em conta).
 
-Todos os Navegantes estão habilitados ao sorteio de 1 Promo pack!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/magic/modern/">Página do evento →</a></div></details></li><li class="ev" data-game="ygo"><img class="thumb" src="/img/duelist-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T20:00">20:00</time><div class="what"><span class="chip c-ygo">Yu-Gi-Oh!</span><a class="nm" href="/yu-gi-oh/duelist-lounge/"><strong>Duelist Lounge</strong></a></div><span class="price">5,00 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Duelistas!
+Todos os Navegantes estão habilitados ao sorteio de 1 Promo pack!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/magic/modern/">Página do evento →</a></div></div></li><li class="ev" data-game="ygo"><img class="thumb" src="/img/duelist-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T20:00">20:00</time><div class="what"><span class="chip c-ygo">Yu-Gi-Oh!</span><a class="nm" href="/yu-gi-oh/duelist-lounge/"><strong>Duelist Lounge</strong></a></div><span class="price">5,00 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Duelistas!
 Os eventos semanais de Yu-Gi-Oh! passaram também para as Quartas-feiras! 🎉
 
 Junta-te à comunidade da Weatherlight de um dos jogos mais famosos de sempre! 🙌
@@ -724,7 +739,7 @@ Prémios:
 - 1 Booster por jogador para o Top X.
 
 De participação:
-- 1 Ultimate Tournament Pack 01.<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/yu-gi-oh/duelist-lounge/">Página do evento →</a></div></details></li><li class="ev" data-game="op"><img class="thumb" src="/img/pirate-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T20:30">20:30</time><div class="what"><span class="chip c-op">One Piece Card Game</span><a class="nm" href="/one-piece/pirate-party/"><strong>Pirate Party</strong></a></div><span class="price">5,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Pirate! 🏴‍☠️
+- 1 Ultimate Tournament Pack 01.<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/yu-gi-oh/duelist-lounge/">Página do evento →</a></div></div></li><li class="ev" data-game="op"><img class="thumb" src="/img/pirate-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-21T20:30">20:30</time><div class="what"><span class="chip c-op">One Piece Card Game</span><a class="nm" href="/one-piece/pirate-party/"><strong>Pirate Party</strong></a></div><span class="price">5,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Pirate! 🏴‍☠️
 
 O One Piece Card Game não abranda na Weatherlight 🤩
 Junta-te à nossa comunidade e vem descobrir este grande jogo! ⛵️
@@ -742,7 +757,7 @@ Prémios:
 E AINDA!
 - 1 Booster de participação no acto de inscrição;
 - 1 OTP Store Tournament Out-Dez para todos os participantes;
-- 1 OTP Store Tournament Jul-Set para todos os participantes.<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/one-piece/pirate-party/">Página do evento →</a></div></details></li></ol></section><section class="day"><h2><span>Sexta-feira</span> <small>23 de outubro</small></h2><ol class="evs"><li class="ev" data-game="magic"><img class="thumb" src="/img/mtg-sc-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T20:00">20:00</time><div class="what"><span class="chip c-magic">Magic: The Gathering</span><strong>Standard Store Championship</strong></div><span class="price">13,00 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Atenção Jogadores de Magic! 📣
+- 1 OTP Store Tournament Jul-Set para todos os participantes.<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/one-piece/pirate-party/">Página do evento →</a></div></div></li></ol></section><section class="day"><h2><span>Sexta-feira</span> <small>23 de outubro</small></h2><ol class="evs"><li class="ev" data-game="magic"><img class="thumb" src="/img/mtg-sc-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T20:00">20:00</time><div class="what"><span class="chip c-magic">Magic: The Gathering</span><strong>Standard Store Championship</strong></div><span class="price">13,00 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Atenção Jogadores de Magic! 📣
 
 O Store Championship de Reality Fracture está a chegar à Weatherlight em Évora! 🏆
 
@@ -762,7 +777,7 @@ Prémios:
 E AINDA!
 - 1 Thought Scour (Promo de participação), limitado ao stock disponível.
 
-Junta-te à nossa comunidade e vem jogar connosco! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></details></li><li class="ev" data-game="rift"><img class="thumb" src="/img/nexus-night-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T20:00">20:00</time><div class="what"><span class="chip c-rift">Riftbound: League of Legends TCG</span><a class="nm" href="/riftbound/nexus-night/"><strong>Nexus Night</strong></a></div><span class="price">6,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">[EVENTO LIMITADO A 3 RONDAS]
+Junta-te à nossa comunidade e vem jogar connosco! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></div></li><li class="ev" data-game="rift"><img class="thumb" src="/img/nexus-night-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T20:00">20:00</time><div class="what"><span class="chip c-rift">Riftbound: League of Legends TCG</span><a class="nm" href="/riftbound/nexus-night/"><strong>Nexus Night</strong></a></div><span class="price">6,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">[EVENTO LIMITADO A 3 RONDAS]
 
 Navegantes! ⛵️
 
@@ -782,7 +797,7 @@ E AINDA!
 - 1 Nexus Pack de participação;
 - 1 Booster de participação no acto de inscrição.
 
-Junta-te à comunidade deste fantástico jogo! 🤩<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/riftbound/nexus-night/">Página do evento →</a></div></details></li><li class="ev" data-game="digi"><img class="thumb" src="/img/tamer-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T20:00">20:00</time><div class="what"><span class="chip c-digi">Digimon Card Game</span><a class="nm" href="/digimon/tamer-party/"><strong>Tamer Party</strong></a></div><span class="price">5,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Tamer! 📣
+Junta-te à comunidade deste fantástico jogo! 🤩<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/riftbound/nexus-night/">Página do evento →</a></div></div></li><li class="ev" data-game="digi"><img class="thumb" src="/img/tamer-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T20:00">20:00</time><div class="what"><span class="chip c-digi">Digimon Card Game</span><a class="nm" href="/digimon/tamer-party/"><strong>Tamer Party</strong></a></div><span class="price">5,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Tamer! 📣
 
 O Digimon Card Game continua em força na Weatherlight 👾
 
@@ -801,7 +816,7 @@ E AINDA!
 - 1 OTP Store Tournament Out-Dez 2026 para todos os participantes;
 - 1 OTP Store Tournament Jul-Set 2026 para todos os participantes.
 
-Junta-te à nossa comunidade e vem descobrir este grande jogo! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/digimon/tamer-party/">Página do evento →</a></div></details></li><li class="ev" data-game="gundam"><img class="thumb" src="/img/pilot-lounge-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T21:00">21:00</time><div class="what"><span class="chip c-gundam">Gundam Card Game</span><a class="nm" href="/gundam/pilot-lounge/"><strong>Pilot Lounge</strong></a></div><span class="price">5,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Fãs de Gundam! 🤖
+Junta-te à nossa comunidade e vem descobrir este grande jogo! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/digimon/tamer-party/">Página do evento →</a></div></div></li><li class="ev" data-game="gundam"><img class="thumb" src="/img/pilot-lounge-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-23T21:00">21:00</time><div class="what"><span class="chip c-gundam">Gundam Card Game</span><a class="nm" href="/gundam/pilot-lounge/"><strong>Pilot Lounge</strong></a></div><span class="price">5,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Fãs de Gundam! 🤖
 
 Esta é uma excelente oportunidade de te juntares à nossa comunidade em crescimento - num jogo que está a dar que falar! 🦾
 
@@ -821,7 +836,7 @@ E AINDA!
 - 1 Store Tournament Participant Pack 02 para todos os participantes.
 
 Estás interessado em entrar no jogo?
-Temos Starter Decks óptimos para te aventurares!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/gundam/pilot-lounge/">Página do evento →</a></div></details></li></ol></section><section class="day"><h2><span>Sábado</span> <small>24 de outubro</small></h2><ol class="evs"><li class="ev" data-game="op"><img class="thumb" src="/img/op-sc-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-24T15:00">15:00</time><div class="what"><span class="chip c-op">One Piece Card Game</span><strong>Store Championship</strong><span class="sold">Esgotado</span></div><span class="price">20,00 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Pirate! 🏴‍☠️
+Temos Starter Decks óptimos para te aventurares!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/gundam/pilot-lounge/">Página do evento →</a></div></div></li></ol></section><section class="day"><h2><span>Sábado</span> <small>24 de outubro</small></h2><ol class="evs"><li class="ev" data-game="op"><img class="thumb" src="/img/op-sc-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-24T15:00">15:00</time><div class="what"><span class="chip c-op">One Piece Card Game</span><strong>Store Championship</strong><span class="sold">Esgotado</span></div><span class="price">20,00 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Pirate! 🏴‍☠️
 
 O Store Championship de One Piece Card Game está a chegar à Weatherlight em Évora! 🤩
 
@@ -848,7 +863,7 @@ Convites para a Finals Season 2 (de acordo com o número de participantes):
 
 E AINDA!
 - 3 Boosters de participação;
-- 1 Event Pack Vol.9 de participação para todos os participantes!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></details></li><li class="ev" data-game="cyber"><img class="thumb" src="/img/nightcity-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-24T15:00">15:00</time><div class="what"><span class="chip c-cyber">Cyberpunk TCG</span><a class="nm" href="/cyberpunk/night-city-brawl/"><strong>Night City Brawl</strong></a></div><span class="price">6,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">CHOOMS! 🙌
+- 1 Event Pack Vol.9 de participação para todos os participantes!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></div></li><li class="ev" data-game="cyber"><img class="thumb" src="/img/nightcity-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-24T15:00">15:00</time><div class="what"><span class="chip c-cyber">Cyberpunk TCG</span><a class="nm" href="/cyberpunk/night-city-brawl/"><strong>Night City Brawl</strong></a></div><span class="price">6,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details><a class="insc" href="https://melee.gg/Tournament/View/489955" target="_blank" rel="noopener" title="Inscrição na Melee">Inscrever · Melee<span aria-hidden="true">↗</span></a></div><div class="det pns"><div class="txt p1">CHOOMS! 🙌
 
 Os Night City Brawls chegaram à Weatherlight!
 
@@ -869,7 +884,7 @@ E AINDA!
 
 Ainda não tens baralho? Temos em loja decks pré-construídos prontos para te aventurares em Night City! 💪
 
-Junta-te à comunidade Weatherlight! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/cyberpunk/night-city-brawl/">Página do evento →</a></div></details></li><li class="ev" data-game="gundam"><img class="thumb" src="/img/pilot-party-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-24T18:00">18:00</time><div class="what"><span class="chip c-gundam">Gundam Card Game</span><a class="nm" href="/gundam/pilot-party/"><strong>Pilot Party</strong></a></div><span class="price">5,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Fãs de Gundam! 🤖
+Junta-te à comunidade Weatherlight! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/cyberpunk/night-city-brawl/">Página do evento →</a></div></div></li><li class="ev" data-game="gundam"><img class="thumb" src="/img/pilot-party-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-24T18:00">18:00</time><div class="what"><span class="chip c-gundam">Gundam Card Game</span><a class="nm" href="/gundam/pilot-party/"><strong>Pilot Party</strong></a></div><span class="price">5,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details><a class="insc" href="https://www.bandai-tcg-plus.com/event/7835425" target="_blank" rel="noopener" title="Inscrição na Bandai TCG+">Inscrever · Bandai TCG+<span aria-hidden="true">↗</span></a></div><div class="det pns"><div class="txt p1">Fãs de Gundam! 🤖
 
 Vem fechar a semana com mais Gundam Card Game na Weatherlight! 🎉
 Esta é uma excelente oportunidade de te juntares à nossa comunidade em crescimento - num jogo que está a dar que falar! 🦾
@@ -890,7 +905,7 @@ E AINDA!
 - 1 Store Tournament Participant Pack 02 para todos os participantes.
 
 Estás interessado em entrar no jogo?
-Temos Starter Decks óptimos para te aventurares!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/gundam/pilot-party/">Página do evento →</a></div></details></li></ol></section><section class="day"><h2><span>Domingo</span> <small>25 de outubro</small></h2><ol class="evs"><li class="ev" data-game="poke"><img class="thumb" src="/img/delta-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-25T15:00">15:00</time><div class="what"><span class="chip c-poke">Pokémon TCG</span><strong>Prerelease Delta Reign</strong></div><span class="price">32,00 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Treinadores! ⚡
+Temos Starter Decks óptimos para te aventurares!<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/gundam/pilot-party/">Página do evento →</a></div></div></li></ol></section><section class="day"><h2><span>Domingo</span> <small>25 de outubro</small></h2><ol class="evs"><li class="ev" data-game="poke"><img class="thumb" src="/img/delta-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-25T15:00">15:00</time><div class="what"><span class="chip c-poke">Pokémon TCG</span><strong>Prerelease Delta Reign</strong></div><span class="price">32,00 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Treinadores! ⚡
 
 A próxima expansão de Pokémon TCG está quase a chegar!
 
@@ -918,13 +933,13 @@ PARTICIPAÇÃO:
 - 2 Boosters de Delta Reign de participação;
 - 1 Prize Pack S9 de participação.
 
-Se já jogas, esta é a oportunidade perfeita para experimentar novas cartas, descobrir estratégias e celebrar a chegada de Delta Reign com a Weatherlight! 😎<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></details></li><li class="ev" data-game="gundam"><img class="thumb" src="/img/assemble-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-25T15:00">15:00</time><div class="what"><span class="chip c-gundam">Gundam Assemble</span><strong>Demo Event #1 - Learn to Play</strong></div><span class="price free">Gratuito</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Fãs de Miniaturas! Fãs de Gunpla! Fãs de Gundam!
+Se já jogas, esta é a oportunidade perfeita para experimentar novas cartas, descobrir estratégias e celebrar a chegada de Delta Reign com a Weatherlight! 😎<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></div></li><li class="ev" data-game="gundam"><img class="thumb" src="/img/assemble-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-25T15:00">15:00</time><div class="what"><span class="chip c-gundam">Gundam Assemble</span><strong>Demo Event #1 - Learn to Play</strong></div><span class="price free">Gratuito</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details></div><div class="det pns"><div class="txt p1">Fãs de Miniaturas! Fãs de Gunpla! Fãs de Gundam!
 
 O primeiro jogo de miniaturas da Weatherlight está a chegar e temos Demo Events para os nossos Navegantes - bem-vind@s ao Gundam Assemble!
 
 Com um footprint mais pequeno e fast-paced em relação aos outros jogos de miniaturas, a Bandai entra neste incrível mundo e espera surpreender!
 
-Junta-te a nós nos dias 25 e 31 de Outubro e vem aprender e experimentar este novo jogo! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></details></li><li class="ev" data-game="rift"><img class="thumb" src="/img/nexus-afternoon-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-25T15:00">15:00</time><div class="what"><span class="chip c-rift">Riftbound: League of Legends TCG</span><a class="nm" href="/riftbound/nexus-afternoon/"><strong>Nexus Afternoon</strong></a></div><span class="price">6,50 €</span><details class="det"><summary>Ver detalhes</summary><div class="txt">Navegantes! ⛵️
+Junta-te a nós nos dias 25 e 31 de Outubro e vem aprender e experimentar este novo jogo! ⛵️<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span></div></div></li><li class="ev" data-game="rift"><img class="thumb" src="/img/nexus-afternoon-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-10-25T15:00">15:00</time><div class="what"><span class="chip c-rift">Riftbound: League of Legends TCG</span><a class="nm" href="/riftbound/nexus-afternoon/"><strong>Nexus Afternoon</strong></a></div><span class="price">6,50 €</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details><a class="insc" href="https://playriftbound.com/en-US/events/117478317481661545" target="_blank" rel="noopener" title="Inscrição na Riftbound">Inscrever · Riftbound<span aria-hidden="true">↗</span></a></div><div class="det pns"><div class="txt p1">Navegantes! ⛵️
 
 O Riftbound chegou em grande à Weatherlight em Évora e não podiam faltar os eventos semanais - apresentamos as Nexus Afternoon! ⚔️
 
@@ -942,7 +957,7 @@ E AINDA!
 - 1 Nexus Pack de participação;
 - 1 Booster de participação no acto de inscrição.
 
-Junta-te à comunidade deste fantástico jogo! 🤩<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/riftbound/nexus-afternoon/">Página do evento →</a></div></details></li></ol></section>
+Junta-te à comunidade deste fantástico jogo! 🤩<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>.</span><a class="pg" href="/riftbound/nexus-afternoon/">Página do evento →</a></div></div></li></ol></section>
     <p class="empty" id="empty" hidden>Não há eventos deste jogo esta semana.</p>
     <section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs"><div class="rg"><span class="chip c-magic">Magic: The Gathering</span><ul><li><a href="/magic/commander-afternoon/">Commander Afternoon</a><span>Quarta · 16:00</span></li><li><a href="/magic/modern/">Modern (Store Credit)</a><span>Quarta · 20:00</span></li></ul></div><div class="rg"><span class="chip c-poke">Pokémon TCG</span><ul><li><a href="/pokemon/weekly-league/">Weekly League</a><span>Domingo · 15:00</span></li></ul></div><div class="rg"><span class="chip c-op">One Piece Card Game</span><ul><li><a href="/one-piece/pirate-party/">Pirate Party</a><span>Quarta · 20:30</span></li></ul></div><div class="rg"><span class="chip c-ygo">Yu-Gi-Oh!</span><ul><li><a href="/yu-gi-oh/duelist-lounge/">Duelist Lounge</a><span>Quarta · 20:00</span></li></ul></div><div class="rg"><span class="chip c-rift">Riftbound: League of Legends TCG</span><ul><li><a href="/riftbound/nexus-night/">Nexus Night</a><span>Sexta · 20:00</span></li><li><a href="/riftbound/nexus-afternoon/">Nexus Afternoon</a><span>Domingo · 15:00</span></li></ul></div><div class="rg"><span class="chip c-digi">Digimon Card Game</span><ul><li><a href="/digimon/tamer-party/">Tamer Party</a><span>Sexta · 20:00</span></li></ul></div><div class="rg"><span class="chip c-gundam">Gundam Card Game</span><ul><li><a href="/gundam/pilot-lounge/">Pilot Lounge</a><span>Sexta · 21:00</span></li><li><a href="/gundam/pilot-party/">Pilot Party</a><span>Sábado · 18:00</span></li></ul></div><div class="rg"><span class="chip c-cyber">Cyberpunk TCG</span><ul><li><a href="/cyberpunk/night-city-brawl/">Night City Brawl</a><span>Sábado · 15:00</span></li></ul></div></div></section>
   </div>
