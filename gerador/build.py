@@ -89,26 +89,44 @@ def calendario(d,e,s):
             f'<a href="/ics/{nome}" download>Apple / Outlook</a></span>')
 
 ld=[]; rows=""; usados=[]; sem_modelo=[]
+def item(d,e,quando=None):
+    """Um evento (li) + o seu JSON-LD. quando = rótulo da data (eventos futuros)."""
+    g=e['jogo']; usados.append(g); txt=modelo(e); s=serie_de(e); art=e.get('arte'); preco=float(e['preco'])
+    if not txt: sem_modelo.append(f"{d['dia']} {e['hora']} {e['evento']}")
+    ld.append({"@context":"https://schema.org","@type":"Event","name":f"{e['nome_jogo']} - {e['evento']}",
+      "startDate":f"{d['iso']}T{e['hora']}:00{d['fuso']}","eventStatus":"https://schema.org/EventScheduled",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":ADDR,"organizer":ORG,
+      **({"image":BASE+f"img/{art}-g.jpg"} if art else {}),
+      "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
+      "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
+                "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
+    b1,p1=det(txt,s,calendario(d,e,s)); b2,p2=inscricao(e)
+    p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
+    sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
+    th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
+    return (f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{quando or ''}{e["hora"]}</time>'
+            f'<div class="what"><span class="chip c-{g}">{html.escape(e["nome_jogo"])}</span>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
+            f'<span class="price{" free" if preco==0 else ""}">{p}</span><div class="acts">{b1}{b2}</div>{f'<div class="det pns">{p1}{p2}</div>' if p1 or p2 else ''}</li>')
+
 for d in S['dias']:
-    items=""
-    for e in d['eventos']:
-        g=e['jogo']; usados.append(g); txt=modelo(e); s=serie_de(e); art=e.get('arte'); preco=float(e['preco'])
-        if not txt: sem_modelo.append(f"{d['dia']} {e['hora']} {e['evento']}")
-        ld.append({"@context":"https://schema.org","@type":"Event","name":f"{e['nome_jogo']} - {e['evento']}",
-          "startDate":f"{d['iso']}T{e['hora']}:00{d['fuso']}","eventStatus":"https://schema.org/EventScheduled",
-          "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":ADDR,"organizer":ORG,
-          **({"image":BASE+f"img/{art}-g.jpg"} if art else {}),
-          "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
-          "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
-                    "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
-        b1,p1=det(txt,s,calendario(d,e,s)); b2,p2=inscricao(e)
-        p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
-        sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
-        th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
-        items+=(f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{e["hora"]}</time>'
-                f'<div class="what"><span class="chip c-{g}">{html.escape(e["nome_jogo"])}</span>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
-                f'<span class="price{" free" if preco==0 else ""}">{p}</span><div class="acts">{b1}{b2}</div>{f'<div class="det pns">{p1}{p2}</div>' if p1 or p2 else ''}</li>')
+    items="".join(item(d,e) for e in d['eventos'])
     rows+=f'<section class="day"><h2><span>{d["dia"]}</span> <small>{d["data"]}</small></h2><ol class="evs">{items}</ol></section>'
+
+# Eventos que não podes perder: futuros.json (eventos especiais anunciados com antecedência).
+# Aparecem enquanto a data é posterior à semana publicada e ainda não passou; depois entram em semana.json.
+from zoneinfo import ZoneInfo
+from datetime import date
+FUT_P=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FUT_P)) if os.path.exists(FUT_P) else []
+ULT=max(d['iso'] for d in S['dias']); HOJE=date.today().isoformat()
+DS=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"]
+fit=""
+for e in sorted(FUT,key=lambda x:(x['iso'],x['hora'])):
+    if e['iso']<=ULT or e['iso']<HOJE: continue
+    y,mo,da=map(int,e['iso'].split('-')); h,mi=map(int,e['hora'].split(':'))
+    fz=datetime(y,mo,da,h,mi,tzinfo=ZoneInfo('Europe/Lisbon')).strftime('%z'); fz=fz[:3]+':'+fz[3:]
+    dd={'iso':e['iso'],'fuso':fz,'dia':DS[date(y,mo,da).weekday()]}
+    fit+=item(dd,e,f'<span class="dt">{dd["dia"]} {da:02d}/{mo:02d}</span>')
+if fit: rows+=f'<section class="day fut"><h2><span>Eventos que não podes perder</span> <small>próximas semanas</small></h2><ol class="evs">{fit}</ol></section>'
 
 DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}
 ORD=list(DIA_PT)

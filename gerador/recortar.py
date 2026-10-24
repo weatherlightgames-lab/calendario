@@ -1,4 +1,4 @@
-"""Recorta a arte das stories (9:16) para cada evento de semana.json.
+"""Recorta a arte das stories (9:16) para cada evento de semana.json e futuros.json.
 Uso: python3 recortar.py <pasta-das-stories>
 Cada evento tem "story" (início do nome do ficheiro) e "recorte": [centro_x, topo_y, base_y] em frações (0–1).
 Gera ../img/<arte>-v.jpg (miniatura 180x240) e ../img/<arte>-g.jpg (720x960, para o Google)."""
@@ -7,8 +7,10 @@ from PIL import Image
 AQUI=os.path.dirname(os.path.abspath(__file__)); IMG=os.path.join(os.path.dirname(AQUI),'img')
 pasta=sys.argv[1]; os.makedirs(IMG,exist_ok=True)
 S=json.load(open(os.path.join(AQUI,'semana.json')))
-for d in S['dias']:
-    for e in d['eventos']:
+FUT=os.path.join(AQUI,'futuros.json')
+EVS=[e for d in S['dias'] for e in d['eventos']]+(json.load(open(FUT)) if os.path.exists(FUT) else [])
+if True:
+    for e in EVS:
         if not e.get('story'): continue
         f=sorted(glob.glob(os.path.join(pasta,e['story']+'*')))
         if not f: print('Falta a story de',e['evento']); continue

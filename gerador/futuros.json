@@ -1,0 +1,28 @@
+[
+ {
+  "iso": "2026-10-30",
+  "hora": "21:00",
+  "jogo": "gundam",
+  "nome_jogo": "Gundam Card Game",
+  "evento": "GD06 Stardust Trails Release Event",
+  "preco": 32,
+  "modelo": "Release Event",
+  "arte": "gd06",
+  "story": "gd06",
+  "recorte": [
+   0.55,
+   0.56,
+   1.0
+  ]
+ },
+ {
+  "iso": "2026-10-31",
+  "hora": "15:00",
+  "jogo": "gundam",
+  "nome_jogo": "Gundam Assemble",
+  "evento": "Demo Event #2 - Learn to Play",
+  "preco": 0,
+  "modelo": "Demo Event",
+  "arte": "assemble"
+ }
+]
