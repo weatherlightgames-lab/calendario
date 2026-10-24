@@ -14,6 +14,7 @@ from series import (BASE, MAPS, CA, GL, DISCORD, PL, DIA_NOME, MESES, PASTA, MAR
 
 AQUI = os.path.dirname(os.path.abspath(__file__)); RAIZ = os.path.dirname(AQUI)
 FONTE = os.path.join(AQUI, 'fonts', 'Jost.ttf')
+HORARIO = [("Segunda e terça","Encerrados"),("Quarta e sexta","15:00 – 23:00"),("Quinta, sábado e domingo","15:00 – 20:30")]
 LOJA = {"@context": "https://schema.org", "@type": "GameStore", "name": "Weatherlight Games & Collectibles",
         "alternateName": "Weatherlight", "url": "https://www.weatherlightgames.pt/",
         "logo": "https://cdn-shopkit.com/usercontent/weatherlightgames/media/images/6caa56f-180700-logo-weatherlight_site_actualizado_nome_4.jpg",
@@ -165,9 +166,11 @@ def primeira_vez(SER):
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in perg]}
     desc = "Vais ao teu primeiro evento na Weatherlight, em Évora? Como funciona o check-in, que aplicações precisas para cada jogo, o que levar e respostas às dúvidas mais comuns."
     css = (".passos{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;counter-reset:p}"
-           ".passos li{counter-increment:p;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem .8rem 3.2rem;position:relative}"
-           ".passos li::before{content:counter(p);position:absolute;left:1rem;top:.75rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--sea-2);color:#fff;display:grid;place-items:center;font-size:.9rem}"
-           ".passos li>strong{display:block;font-weight:500;margin-bottom:.15rem}.passos p strong{font-weight:500;color:var(--ink)}.passos p{margin:0;color:var(--muted)}.passos a{color:var(--sea-2)}"
+           ".passos li{counter-increment:p;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;display:grid;grid-template-columns:1.6rem minmax(0,1fr);column-gap:.9rem;align-items:center}"
+           ".passos li::before{content:counter(p);grid-row:1;grid-column:1;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--sea-2);color:#fff;display:grid;place-items:center;font-size:.9rem;line-height:1}"
+           ".passos li>strong{grid-row:1;grid-column:2;font-weight:500}.passos li>p{grid-row:2;grid-column:2;margin-top:.15rem}"
+           ".horario li span:last-child{color:var(--muted)}"
+           ".passos p strong{font-weight:500;color:var(--ink)}.passos p{margin:0;color:var(--muted)}.passos a{color:var(--sea-2)}"
            ".apps li{display:grid;grid-template-columns:minmax(9rem,15rem) 1fr;gap:.2rem 1rem}.apps li span:last-child{color:var(--muted)}"
            "@media (max-width:560px){.apps li{grid-template-columns:1fr}}")
     page = cabeca("Primeira vez num evento? | Weatherlight, Évora", desc, url, [faq], css) + f"""
@@ -184,6 +187,8 @@ def primeira_vez(SER):
     <section class="sec"><h2>Como funciona</h2><ol class="passos">{''.join(f'<li><strong>{t}</strong><p>{p}</p></li>' for t, p in passos)}</ol></section>
     <section class="box"><h2>Que aplicação preciso?</h2><ul class="dates apps">{apps}</ul>
       <p class="m small">Em caso de dúvida, pergunta-nos no balcão ou no <a href="{DISCORD}">Discord</a>.</p></section>
+    <section class="box"><h2>Horário da loja</h2><ul class="dates horario">{''.join(f'<li><span>{d}</span><span>{h}</span></li>' for d, h in HORARIO)}</ul>
+      <p class="m small">Rua Frei José Maria Évora, Nº2, Évora · <a href="{MAPS}">Ver no mapa</a> · 266 735 119</p></section>
     <section class="box"><h2>O que levar</h2>
       <p class="m">Nos eventos <strong>Constructed</strong> trazes o teu baralho. Nos <strong>Sealed</strong>, <strong>Draft</strong> e <strong>Prereleases</strong> recebes as cartas no próprio evento e constróis o baralho na hora, por isso não precisas de trazer nada.</p>
       <p class="m" style="margin-top:.7rem">Ainda não tens baralho? Temos decks pré-construídos prontos para começares: pergunta-nos na loja.</p></section>
@@ -228,7 +233,7 @@ def llms(SER, FUT, S):
          "> Weatherlight é uma loja de jogos (Local Game Store) em Évora, Portugal, com Trading Card Games, TTRPGs, Model Kits e colecionáveis. "
          "Organiza eventos semanais e especiais de Magic: The Gathering, Pokémon TCG, One Piece Card Game, Yu-Gi-Oh!, Riftbound, Digimon, Gundam Card Game, Gundam Assemble e Cyberpunk TCG.", "",
          "## Loja", "- Morada: Rua Frei José Maria Évora, Nº2, 7005-495 Évora, Portugal", "- Telefone: +351 266 735 119",
-         "- Email: weatherlightgames@gmail.com", "- Loja online: https://www.weatherlightgames.pt/", f"- Mapa: {MAPS}",
+         "- Email: weatherlightgames@gmail.com", "- Horário: " + "; ".join(f"{d}: {h}" for d, h in HORARIO), "- Loja online: https://www.weatherlightgames.pt/", f"- Mapa: {MAPS}",
          "- Instagram: https://www.instagram.com/weatherlightgames/", f"- Discord (comunidade): {DISCORD}", "",
          "## Calendário", f"- [Calendário da semana]({BASE}/): {S['semana']}, atualizado todas as semanas.",
          f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", "",

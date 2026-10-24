@@ -1,0 +1,7 @@
+{
+ "openingHoursSpecification": [
+  {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Friday"], "opens": "15:00", "closes": "23:00"},
+  {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Saturday", "Sunday"], "opens": "15:00", "closes": "20:30"}
+ ],
+ "openingHours": ["We 15:00-23:00", "Th 15:00-20:30", "Fr 15:00-23:00", "Sa 15:00-20:30", "Su 15:00-20:30"]
+}
