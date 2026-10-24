@@ -13,7 +13,8 @@
    0.55,
    0.56,
    1.0
-  ]
+  ],
+  "inscricao": "https://www.bandai-tcg-plus.com/event/6673311"
  },
  {
   "iso": "2026-10-31",
@@ -24,5 +25,54 @@
   "preco": 0,
   "modelo": "Demo Event",
   "arte": "assemble"
+ },
+ {
+  "iso": "2026-10-31",
+  "hora": "15:00",
+  "jogo": "cyber",
+  "nome_jogo": "Cyberpunk TCG",
+  "evento": "Prerelease Welcome to Night City",
+  "preco": 32,
+  "modelo": "Prerelease (Cyberpunk)",
+  "arte": "wtnc",
+  "story": "wtnc",
+  "recorte": [
+   0.5,
+   0.62,
+   1.0
+  ],
+  "inscricao": "https://melee.gg/Tournament/View/472846"
+ },
+ {
+  "iso": "2026-11-01",
+  "hora": "15:00",
+  "jogo": "poke",
+  "nome_jogo": "Pokémon TCG",
+  "evento": "Pokéween",
+  "preco": 6.5,
+  "modelo": "Pokéween",
+  "arte": "pokeween",
+  "story": "pokeween",
+  "recorte": [
+   0.5,
+   0.55,
+   0.95
+  ]
+ },
+ {
+  "iso": "2026-11-06",
+  "hora": "19:00",
+  "jogo": "magic",
+  "nome_jogo": "Magic: The Gathering",
+  "evento": "Prerelease Star Trek",
+  "preco": 39,
+  "modelo": "Prerelease (Magic)",
+  "arte": "startrek",
+  "story": "startrek",
+  "recorte": [
+   0.5,
+   0.6,
+   1.0
+  ]
  }
 ]

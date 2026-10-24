@@ -45,18 +45,20 @@ def proximas(s,S,n=4):
     hoje=dt.date.today(); isos=[dt.date.fromisoformat(d['iso']) for d in S['dias']]
     ini,fim=(min(isos),max(isos)) if isos else (hoje,hoje)
     reais={d['iso']:(d,e) for d in S['dias'] for e in d['eventos'] if e['jogo']==s['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo'])}
+    FP=os.path.join(AQUI,'futuros.json')
+    especiais={f['iso'] for f in (json.load(open(FP)) if os.path.exists(FP) else []) if f['jogo']==s['jogo'] and f['hora']==s['hora']}
     out=[]; x=hoje+dt.timedelta((DIA_ISO[s['dia']]-hoje.weekday())%7)
     while len(out)<n:
         iso=x.isoformat()
         if iso in reais:
             d,e=reais[iso]; out.append((f"{d['dia']}, {d['data']}",e['hora'],float(e['preco']),e.get('esgotado',False),True))
-        elif not (ini<=x<=fim):
+        elif not (ini<=x<=fim) and iso not in especiais:
             out.append((f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}",s['hora'],float(s['preco']),False,False))
         x+=dt.timedelta(7)
     return out
 
 BASE_DB=json.load(open(os.path.join(AQUI,'base.json')))
-def limpar(k): return re.sub(r"\s*\((Semanal|Fim de semana|Magic|One Piece|Digimon|Pokémon)\)$","",k)
+def limpar(k): return re.sub(r"\s*\((Semanal|Fim de semana|Magic|One Piece|Digimon|Pokémon|Cyberpunk)\)$","",k)
 def preco_db(txt):
     m=re.search(r"Pre[çc]o[^:\n]*:[ \t]*\n?-?[ \t]*([^\n]+)",txt or '')
     if not m: return None
