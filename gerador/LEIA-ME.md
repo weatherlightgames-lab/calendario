@@ -11,3 +11,4 @@ One Piece: Pirate Lounge e Pirate Party são Standard; Extra Regulation só quan
 
 - **Adicionar ao calendário:** o `build.py` gera um link Google Calendar e um ficheiro `.ics` (Apple/Outlook) por evento em `ics/` (a pasta é refeita em cada build; duração prevista 3 h). Aparece dentro de "Ver detalhes".
 - **"Como me posso inscrever?"** nas páginas fixas: textos por jogo em `APPS` (`series.py`), confirmados pela equipa (contas obrigatórias; pagamento no check-in ao balcão; gratuito quando o preço é 0).
+- **Formatos de Magic:** explicação curta + link para as regras no site da Wizards (`FMT_MTG` em `series.py`), na pergunta "Que formato se joga?" e nos cartões de "Outros eventos de Magic".

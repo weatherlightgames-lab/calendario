@@ -64,6 +64,24 @@ def preco_db(txt):
     v=re.sub(r'\s*por Jogador$','',v,flags=re.I)
     return 'Gratuito' if v.lower().startswith('free') else v
 
+# Formatos de Magic: explicação curta + regras no site da Wizards
+W="https://magic.wizards.com/en/formats/"
+FMT_MTG=[
+ (r"commander","Commander","No Commander, cada jogador usa um baralho de 100 cartas, todas diferentes (exceto terrenos básicos), liderado por uma criatura lendária, o comandante. Joga-se normalmente em mesas de 4, com 40 de vida.",W+"commander"),
+ (r"modern","Modern","O Modern é um formato construído, com baralhos de 60 cartas, onde podes usar cartas das expansões desde a 8.ª Edição (2003) até hoje, exceto as banidas.",W+"modern"),
+ (r"standard","Standard","O Standard é um formato construído, com baralhos de 60 cartas, que só usa as expansões mais recentes. As expansões permitidas vão rodando, por isso é o formato que mais muda.",W+"standard"),
+ (r"pauper","Pauper","O Pauper é um formato construído, com baralhos de 60 cartas, em que só podes usar cartas que já tenham sido impressas como comuns.",W+"pauper"),
+ (r"draft","Booster Draft","No Booster Draft, cada jogador abre boosters à mesa, escolhe uma carta e passa as restantes ao lado, até ter cartas para construir um baralho de 40. Não precisas de trazer baralho.",W+"booster-draft"),
+ (r"sealed","Sealed Deck","No Sealed Deck, cada jogador abre os seus boosters e constrói na hora um baralho de 40 cartas só com o que lhe saiu. Não precisas de trazer baralho.",W+"sealed-deck"),
+]
+def fmt_mtg(fmt):
+    """Devolve (texto, html) com a explicação do formato de Magic, ou None."""
+    for rx,nome,exp,url in FMT_MTG:
+        if fmt and re.search(rx,fmt,re.I):
+            t=exp
+            return t+" Regras do formato no site da Wizards.", html.escape(t)+f' <a href="{url}">Regras do formato no site da Wizards</a>.'
+    return None
+
 def formato(txt):
     m=re.search(r'Formato:[ \t]*(.*)',txt or '')
     if not m: return None
@@ -107,7 +125,10 @@ def gerar(tpl, SER, DET, S):
         quando_html=(f"{PL[s['dia']]} às {s['hora']}, aqui na <a href=\"{MAPS}\">Weatherlight</a>, em Évora. "
                      "Em semanas de feriados ou férias o horário pode mudar: confirma sempre no <a href=\"/\">Calendário Weatherlight</a>.")
         perg=[("Quando e onde é?", re.sub(r"<[^>]+>","",quando_html), quando_html)]
-        if fmt: perg.append(("Que formato se joga?", fmt+". Se algum termo for novo para ti, o Glossário explica tudo.", html.escape(fmt)+f". Se algum termo for novo para ti, o <a href=\"{GL}\">Glossário</a> explica tudo."))
+        if fmt:
+            fx=fmt_mtg(fmt) if s['jogo']=='magic' else None
+            perg.append(("Que formato se joga?", fmt+". "+(fx[0]+" " if fx else "")+"Se algum termo for novo para ti, o Glossário explica tudo.",
+                         html.escape(fmt)+". "+(fx[1]+" " if fx else "")+f"Se algum termo for novo para ti, o <a href=\"{GL}\">Glossário</a> explica tudo."))
         if s['jogo'] in APPS:
             ah=APPS[s['jogo']]+(GRATIS if float(s['preco'])==0 else PAGA); perg.append(("Como me posso inscrever?", re.sub(r"<[^>]+>","",ah), ah))
         perg+=[(q,a,html.escape(a)) for q,a in (CENTRAL[k] for k in s.get('faq',[]) if k in CENTRAL)]
@@ -128,7 +149,7 @@ def gerar(tpl, SER, DET, S):
             if not t2: continue
             info=" · ".join(x for x in [formato(t2), preco_db(t2)] if x)
             rel+=(f'<details class="card ot"><summary><strong>{html.escape(nome)}</strong><span>{html.escape(info)}</span><em>Ver detalhes</em></summary>'
-                  f'<p class="pre">{html.escape(t2)}</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details>')
+                  f'<p class="pre">{html.escape(t2)}</p>'+(f'<p class="m fx">{fmt_mtg(formato(t2))[1]}</p>' if s['jogo']=='magic' and fmt_mtg(formato(t2)) else '')+f'<p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details>')
         rel+='<a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a>'
         img=f'<img src="/img/{s["arte"]}-g.jpg" alt="" width="180" height="240">' if s.get('arte') else ''
         page=f'''<!doctype html>
@@ -153,7 +174,7 @@ def gerar(tpl, SER, DET, S):
 .intro img{{width:180px;border-radius:8px;aspect-ratio:3/4;object-fit:cover}}
 .box{{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem;min-width:0}}
 .box h2,.sec h2{{font:500 1.15rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}}
-.pre{{white-space:pre-line;margin:0}}.m{{margin:0}}.small{{font-size:.88rem;color:var(--muted);margin-top:1.1rem}}.nota{{margin:0;color:var(--muted)}}
+.pre{{white-space:pre-line;margin:0}}.m{{margin:0}}.fx{{margin-top:.9rem;font-size:.94rem;color:var(--ans)}}.fx a{{color:inherit}}.small{{font-size:.88rem;color:var(--muted);margin-top:1.1rem}}.nota{{margin:0;color:var(--muted)}}
 .dates{{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}}
 .dates li{{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}}.dates li:first-child{{border-top:0;padding-top:0}}
 .faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0;color:var(--ans);font-size:.94rem;line-height:1.55}}.faq dd a{{color:inherit}}
