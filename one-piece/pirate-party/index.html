@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventSeries", "name": "Pirate Party - One Piece Card Game em Évora", "description": "Pirate Party de One Piece Card Game em Évora: todas as quartas às 20:30 na Weatherlight. 5,50 €. Formato: OP17 Standard (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time.", "url": "https://eventos.weatherlightgames.pt/one-piece/pirate-party/", "location": {"@type": "Place", "name": "Weatherlight Games & Collectibles", "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495", "addressLocality": "Évora", "addressCountry": "PT"}}, "organizer": {"@type": "Organization", "name": "Weatherlight Games & Collectibles", "url": "https://www.weatherlightgames.pt"}, "eventSchedule": {"@type": "Schedule", "repeatFrequency": "P1W", "byDay": "https://schema.org/Wednesday", "startTime": "20:30", "scheduleTimezone": "Europe/Lisbon"}, "image": "https://eventos.weatherlightgames.pt/img/pirate-g.jpg", "subEvent": [{"@type": "Event", "name": "Pirate Party - One Piece Card Game", "startDate": "2026-10-21T20:30:00+01:00", "location": {"@type": "Place", "name": "Weatherlight Games & Collectibles", "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495", "addressLocality": "Évora", "addressCountry": "PT"}}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "offers": {"@type": "Offer", "price": "5.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando é a Pirate Party?", "acceptedAnswer": {"@type": "Answer", "text": "Todas as quartas às 20:30, na Weatherlight Games & Collectibles (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em feriados e férias, confirma no Calendário Weatherlight."}}, {"@type": "Question", "name": "Quanto custa participar?", "acceptedAnswer": {"@type": "Answer", "text": "5,50 €. Todos os participantes recebem: 1 Booster de participação no acto de inscrição; 1 OTP Store Tournament Out-Dez para todos os participantes; 1 OTP Store Tournament Jul-Set para todos os participantes."}}, {"@type": "Question", "name": "Que formato se joga?", "acceptedAnswer": {"@type": "Answer", "text": "OP17 Standard (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando e onde é?", "acceptedAnswer": {"@type": "Answer", "text": "Todas as quartas às 20:30, aqui na Weatherlight, em Évora (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight."}}, {"@type": "Question", "name": "Quanto custa e o que recebo?", "acceptedAnswer": {"@type": "Answer", "text": "A inscrição custa 5,50 €. Além dos prémios, todos os participantes levam para casa: 1 Booster de participação no acto de inscrição; 1 OTP Store Tournament Out-Dez para todos os participantes; 1 OTP Store Tournament Jul-Set para todos os participantes."}}, {"@type": "Question", "name": "Que formato se joga?", "acceptedAnswer": {"@type": "Answer", "text": "OP17 Standard (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time. Se algum termo for novo para ti, o Glossário explica tudo."}}, {"@type": "Question", "name": "Nunca participei num evento. Posso aparecer na mesma?", "acceptedAnswer": {"@type": "Answer", "text": "Claro! Muitas pessoas participam nos nossos eventos pela primeira vez e não é preciso ter um deck perfeito ou muita experiência para desfrutar do hobby. Cada evento é uma oportunidade para aprender, conhecer a comunidade e passar um bom momento à volta da mesa."}}, {"@type": "Question", "name": "Posso usar Sleeves ilustradas?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Desde que todas as sleeves do deck sejam iguais, estejam em bom estado e cumpram as regras do jogo. Muitos jogadores protegem-nas com Outer Sleeves para reduzir o desgaste."}}, {"@type": "Question", "name": "Como sei quando há eventos?", "acceptedAnswer": {"@type": "Answer", "text": "Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum."}}]}</script>
 <style>
 /* Layout: diário de bordo — cabeçalho tipo mar, depois uma "folha" por dia com linhas hora · jogo · evento · preço */
 :root{
@@ -55,7 +55,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .det .more a,.det.none a,footer a{color:var(--sea-2)}
 :root[data-theme="dark"] .det .more a,:root[data-theme="dark"] .det.none a,:root[data-theme="dark"] footer a{color:#9fc9d3}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .det .more a,:root:not([data-theme="light"]) .det.none a,:root:not([data-theme="light"]) footer a{color:#9fc9d3}}
-.nm{color:inherit;text-decoration:none}.nm:hover strong,.nm:focus-visible strong{text-decoration:underline;text-underline-offset:3px}
+.nm{color:inherit;text-decoration:none}.nm strong{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:4px}.nm strong::after{content:" ›";color:var(--brass);font-weight:500}.nm:hover strong,.nm:focus-visible strong{text-decoration-color:var(--sea-2)}
 .det .pg{display:inline-block;margin-top:.6rem;font-size:.9rem;color:var(--sea-2);white-space:normal}
 .regs h2{font:500 1.4rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .3rem}
 .regs-sub{margin:0 0 .9rem;color:var(--muted);font-size:.95rem}
@@ -120,14 +120,14 @@ footer a{color:var(--ink)}
 .intro img{width:180px;border-radius:8px;aspect-ratio:3/4;object-fit:cover}
 .box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem;min-width:0}
 .box h2,.sec h2{font:500 1.15rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}
-.pre{white-space:pre-line;margin:0}.m{margin:0}.nota{margin:0;color:var(--muted)}
+.pre{white-space:pre-line;margin:0}.small{font-size:.88rem;color:var(--muted);margin-top:.7rem}.m{margin:0}.nota{margin:0;color:var(--muted)}
 .dates{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
 .dates li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}.dates li:first-child{border-top:0;padding-top:0}
 .faq dl{margin:0}.faq dt{font-weight:500;margin-top:.7rem}.faq dt:first-child{margin-top:0}.faq dd{margin:.2rem 0 0}
 .rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}
-.rel a{display:grid;gap:.1rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem}
-.rel a:hover{border-color:var(--sea-2)}.rel strong{font-weight:500}.rel span{font-size:.9rem;color:var(--muted)}
-main a:not(.rel a),footer a{color:var(--sea-2)}
+.rel{align-items:start}.card{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}.card em{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}.ot summary{display:grid;gap:.15rem;cursor:pointer;list-style:none}.ot summary::-webkit-details-marker{display:none}.ot[open]{grid-column:1/-1}.ot[open] em{display:none}.ot .pre{margin-top:.7rem;font-size:.97rem}
+.card:hover{border-color:var(--sea-2)}.card strong{font-weight:500}.card span{font-size:.9rem;color:var(--muted)}
+main a:not(.card),footer a{color:var(--sea-2)}
 @media (max-width:560px){.intro{grid-template-columns:1fr}.intro img{width:150px}}
 </style>
 </head>
@@ -167,10 +167,83 @@ E AINDA!
 - 1 Booster de participação no acto de inscrição;
 - 1 OTP Store Tournament Out-Dez para todos os participantes;
 - 1 OTP Store Tournament Jul-Set para todos os participantes.</p></div><img src="/img/pirate-g.jpg" alt="" width="180" height="240"></section>
-    <section class="box"><h2>Esta semana</h2><ul class="dates"><li><span>Quarta-feira, 21 de outubro</span><span>20:30 · 5,50 €</span></li></ul></section>
-    <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando é a Pirate Party?</dt><dd>Todas as quartas às 20:30, na Weatherlight Games &amp; Collectibles (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em feriados e férias, confirma no Calendário Weatherlight.</dd><dt>Quanto custa participar?</dt><dd>5,50 €. Todos os participantes recebem: 1 Booster de participação no acto de inscrição; 1 OTP Store Tournament Out-Dez para todos os participantes; 1 OTP Store Tournament Jul-Set para todos os participantes.</dd><dt>Que formato se joga?</dt><dd>OP17 Standard (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time.</dd></dl>
-      <p class="m" style="margin-top:.9rem">Mais dúvidas? Vê a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> e o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
-    <section class="sec"><h2>Mais eventos</h2><div class="rel"><a href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span></a></div></section>
+    <section class="box"><h2>Próximas datas</h2><ul class="dates"><li><span>Quarta-feira, 28 de outubro</span><span>20:30 · 5,50 € · previsto</span></li><li><span>Quarta-feira, 4 de novembro</span><span>20:30 · 5,50 € · previsto</span></li><li><span>Quarta-feira, 11 de novembro</span><span>20:30 · 5,50 € · previsto</span></li><li><span>Quarta-feira, 18 de novembro</span><span>20:30 · 5,50 € · previsto</span></li></ul><p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p></section>
+    <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando e onde é?</dt><dd>Todas as quartas às 20:30, aqui na Weatherlight, em Évora (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight.</dd><dt>Quanto custa e o que recebo?</dt><dd>A inscrição custa 5,50 €. Além dos prémios, todos os participantes levam para casa: 1 Booster de participação no acto de inscrição; 1 OTP Store Tournament Out-Dez para todos os participantes; 1 OTP Store Tournament Jul-Set para todos os participantes.</dd><dt>Que formato se joga?</dt><dd>OP17 Standard (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time. Se algum termo for novo para ti, o Glossário explica tudo.</dd><dt>Nunca participei num evento. Posso aparecer na mesma?</dt><dd>Claro! Muitas pessoas participam nos nossos eventos pela primeira vez e não é preciso ter um deck perfeito ou muita experiência para desfrutar do hobby. Cada evento é uma oportunidade para aprender, conhecer a comunidade e passar um bom momento à volta da mesa.</dd><dt>Posso usar Sleeves ilustradas?</dt><dd>Sim. Desde que todas as sleeves do deck sejam iguais, estejam em bom estado e cumpram as regras do jogo. Muitos jogadores protegem-nas com Outer Sleeves para reduzir o desgaste.</dd><dt>Como sei quando há eventos?</dt><dd>Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum.</dd></dl>
+      <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>. Vê também o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
+    <section class="sec"><h2>Outros eventos de One Piece Card Game</h2><div class="rel"><details class="card ot"><summary><strong>Prerelease</strong><span>Sealed Deck · 32€</span><em>Ver detalhes</em></summary><p class="pre">Pirate!
+
+O mais recente set de One Piece está a chegar!
+
+E na Weatherlight em Évora temos de comemorar da melhor maneira com o evento especial de lançamento de OP14-EB04 Azure Sea&#x27;s Seven!
+
+Preço: 32€ - Inclui 6 Boosters de OP14-EB04 Azure Sea&#x27;s Seven para montar um deck.
+
+Formato: Sealed Deck
+
+Prémios:
+1º 1 P-096 Girl Winner Card + 1 Winner Pack Store Tournament Jan-Mar para o vencedor;
+2º 1 P-096 Girl Winner Card + 1 Winner Pack Store Tournament Out-Dez;
+3º 1 Winner Pack Store Tournament Jul-Set;
+
+E AINDA!
+- 1 Booster de OP14-EB04 Azure Sea&#x27;s Seven de participação por jogador a entregar no final do evento;
+- 1 OTP Store Tournament Jul-Set para todos os participantes;
+- 1 OTP Store Tournament Abr-Jun para todos os participantes;
+- 1 OTP Store Tournament Jan-Mar para todos os participantes;
+- 1 OTP Store Tournament Out-Dez para todos os participantes;
+- 1 P-096 Girl de participação para cada jogador;
+- 1 P-043 Monkey.D.Luffy de participação para cada jogador.</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Store Championship</strong><span>OP17 Standard (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time · 20.00€</span><em>Ver detalhes</em></summary><p class="pre">Pirate! 🏴‍☠️
+
+O Store Championship de One Piece Card Game está a chegar à Weatherlight em Évora! 🤩
+
+Junta-te a nós e vem lutar pelos convites para a Finals Season 2 e pelas promos exclusivas deste evento! ⛵️
+
+Check-in: 14:30h - 15:00h
+Reserva de vagas através da Bandai TCG+
+
+Formato:
+OP17 Standard (Suíço)
+Best-of-1, 30 minutos/ronda + 5 minutos extra time
+
+Preço: 20.00€
+
+Prémios:
+
+1º Lugar - 1 CS26-27 Regionals Season 2 Top 16 Alt-Art Card;
+Top 2 - 1 Regionals Finalist Card Set Vol.2;
+Top X - 1 Booster por jogador.
+
+Convites para a Finals Season 2 (de acordo com o número de participantes):
+- 1 a 23 jogadores: 1 convite;
+- 24 a 47 jogadores: 2 convites.
+
+E AINDA!
+- 3 Boosters de participação;
+- 1 Event Pack Vol.9 de participação para todos os participantes!</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Extra Grand Battle</strong><span>Extra Regulation (Suíço) · Best-of-1, 30 minutos/ronda + 5 minutos extra time · 13.00€</span><em>Ver detalhes</em></summary><p class="pre">Pirate! 🏴‍☠️
+
+A Extra Grand Battle está a chegar à Weatherlight em Évora! 🤩
+
+Junta-te à nossa comunidade e vem disputar a promo exclusiva deste evento! ⛵️
+
+Check-in: 14:30h - 15:00h
+Reserva de vagas através da Bandai TCG+
+
+Formato:
+Extra Regulation (Suíço)
+Best-of-1, 30 minutos/ronda + 5 minutos extra time
+
+Preço: 13.00€
+
+Prémios:
+
+1º Lugar -  1 Perona OP14-033 (Extra Grand Battle Promo);
+Top 4 -  Promo Sleeves (Ms. All Sunday);
+Top 8 -  1 Event Pack Vol.9;
+Top X -  1 Booster por jogador.
+
+E AINDA!
+- 1 Booster de participação;
+- 1 Event Pack Vol.9 de participação para todos os participantes!</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a></div></section>
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Se nenhum dos eventos é o que procuras, temos uma <a href="https://maps.app.goo.gl/GnKdFUwrm1J6o46P9" target="_blank" rel="noopener">loja inteira ao teu dispor</a> — vem visitar-nos ☁️</p></div></footer>

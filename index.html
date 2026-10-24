@@ -603,7 +603,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .det .more a,.det.none a,footer a{color:var(--sea-2)}
 :root[data-theme="dark"] .det .more a,:root[data-theme="dark"] .det.none a,:root[data-theme="dark"] footer a{color:#9fc9d3}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .det .more a,:root:not([data-theme="light"]) .det.none a,:root:not([data-theme="light"]) footer a{color:#9fc9d3}}
-.nm{color:inherit;text-decoration:none}.nm:hover strong,.nm:focus-visible strong{text-decoration:underline;text-underline-offset:3px}
+.nm{color:inherit;text-decoration:none}.nm strong{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:4px}.nm strong::after{content:" ›";color:var(--brass);font-weight:500}.nm:hover strong,.nm:focus-visible strong{text-decoration-color:var(--sea-2)}
 .det .pg{display:inline-block;margin-top:.6rem;font-size:.9rem;color:var(--sea-2);white-space:normal}
 .regs h2{font:500 1.4rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .3rem}
 .regs-sub{margin:0 0 .9rem;color:var(--muted);font-size:.95rem}

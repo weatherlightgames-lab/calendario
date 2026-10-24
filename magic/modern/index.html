@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventSeries", "name": "Modern (Store Credit) - Magic: The Gathering em Évora", "description": "Modern (Store Credit) de Magic: The Gathering em Évora: todas as quartas às 20:00 na Weatherlight. 6,00 €. Formato: Modern (Suíço).", "url": "https://eventos.weatherlightgames.pt/magic/modern/", "location": {"@type": "Place", "name": "Weatherlight Games & Collectibles", "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495", "addressLocality": "Évora", "addressCountry": "PT"}}, "organizer": {"@type": "Organization", "name": "Weatherlight Games & Collectibles", "url": "https://www.weatherlightgames.pt"}, "eventSchedule": {"@type": "Schedule", "repeatFrequency": "P1W", "byDay": "https://schema.org/Wednesday", "startTime": "20:00", "scheduleTimezone": "Europe/Lisbon"}, "image": "https://eventos.weatherlightgames.pt/img/modern-g.jpg", "subEvent": [{"@type": "Event", "name": "Modern (Store Credit) - Magic: The Gathering", "startDate": "2026-10-21T20:00:00+01:00", "location": {"@type": "Place", "name": "Weatherlight Games & Collectibles", "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495", "addressLocality": "Évora", "addressCountry": "PT"}}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "offers": {"@type": "Offer", "price": "6.00", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando é a Modern (Store Credit)?", "acceptedAnswer": {"@type": "Answer", "text": "Todas as quartas às 20:00, na Weatherlight Games & Collectibles (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em feriados e férias, confirma no Calendário Weatherlight."}}, {"@type": "Question", "name": "Quanto custa participar?", "acceptedAnswer": {"@type": "Answer", "text": "6,00 €."}}, {"@type": "Question", "name": "Que formato se joga?", "acceptedAnswer": {"@type": "Answer", "text": "Modern (Suíço)."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando e onde é?", "acceptedAnswer": {"@type": "Answer", "text": "Todas as quartas às 20:00, aqui na Weatherlight, em Évora (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight."}}, {"@type": "Question", "name": "Quanto custa e o que recebo?", "acceptedAnswer": {"@type": "Answer", "text": "A inscrição custa 6,00 €."}}, {"@type": "Question", "name": "Que formato se joga?", "acceptedAnswer": {"@type": "Answer", "text": "Modern (Suíço). Se algum termo for novo para ti, o Glossário explica tudo."}}, {"@type": "Question", "name": "Os eventos são muito competitivos?", "acceptedAnswer": {"@type": "Answer", "text": "Existem eventos para diferentes tipos de jogadores: alguns mais competitivos, outros pensados para experimentar estratégias num ambiente descontraído. Para nós, cada evento é mais do que uma competição."}}, {"@type": "Question", "name": "Posso jogar com cartas em inglês?", "acceptedAnswer": {"@type": "Answer", "text": "Na maioria dos torneios oficiais em Portugal, as cartas em inglês são permitidas. Alguns eventos podem ter regras específicas de idioma; se tiveres dúvidas, pergunta-nos antes do evento."}}, {"@type": "Question", "name": "Como sei quando há eventos?", "acceptedAnswer": {"@type": "Answer", "text": "Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum."}}]}</script>
 <style>
 /* Layout: diário de bordo — cabeçalho tipo mar, depois uma "folha" por dia com linhas hora · jogo · evento · preço */
 :root{
@@ -55,7 +55,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .det .more a,.det.none a,footer a{color:var(--sea-2)}
 :root[data-theme="dark"] .det .more a,:root[data-theme="dark"] .det.none a,:root[data-theme="dark"] footer a{color:#9fc9d3}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .det .more a,:root:not([data-theme="light"]) .det.none a,:root:not([data-theme="light"]) footer a{color:#9fc9d3}}
-.nm{color:inherit;text-decoration:none}.nm:hover strong,.nm:focus-visible strong{text-decoration:underline;text-underline-offset:3px}
+.nm{color:inherit;text-decoration:none}.nm strong{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:4px}.nm strong::after{content:" ›";color:var(--brass);font-weight:500}.nm:hover strong,.nm:focus-visible strong{text-decoration-color:var(--sea-2)}
 .det .pg{display:inline-block;margin-top:.6rem;font-size:.9rem;color:var(--sea-2);white-space:normal}
 .regs h2{font:500 1.4rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .3rem}
 .regs-sub{margin:0 0 .9rem;color:var(--muted);font-size:.95rem}
@@ -120,14 +120,14 @@ footer a{color:var(--ink)}
 .intro img{width:180px;border-radius:8px;aspect-ratio:3/4;object-fit:cover}
 .box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem;min-width:0}
 .box h2,.sec h2{font:500 1.15rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}
-.pre{white-space:pre-line;margin:0}.m{margin:0}.nota{margin:0;color:var(--muted)}
+.pre{white-space:pre-line;margin:0}.small{font-size:.88rem;color:var(--muted);margin-top:.7rem}.m{margin:0}.nota{margin:0;color:var(--muted)}
 .dates{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
 .dates li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}.dates li:first-child{border-top:0;padding-top:0}
 .faq dl{margin:0}.faq dt{font-weight:500;margin-top:.7rem}.faq dt:first-child{margin-top:0}.faq dd{margin:.2rem 0 0}
 .rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}
-.rel a{display:grid;gap:.1rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem}
-.rel a:hover{border-color:var(--sea-2)}.rel strong{font-weight:500}.rel span{font-size:.9rem;color:var(--muted)}
-main a:not(.rel a),footer a{color:var(--sea-2)}
+.rel{align-items:start}.card{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}.card em{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}.ot summary{display:grid;gap:.15rem;cursor:pointer;list-style:none}.ot summary::-webkit-details-marker{display:none}.ot[open]{grid-column:1/-1}.ot[open] em{display:none}.ot .pre{margin-top:.7rem;font-size:.97rem}
+.card:hover{border-color:var(--sea-2)}.card strong{font-weight:500}.card span{font-size:.9rem;color:var(--muted)}
+main a:not(.card),footer a{color:var(--sea-2)}
 @media (max-width:560px){.intro{grid-template-columns:1fr}.intro img{width:150px}}
 </style>
 </head>
@@ -160,10 +160,87 @@ Prémios:
 - 1 Play Booster de Standard por jogador para o restante Top (os boosters podem ficar acumulados em conta).
 
 Todos os Navegantes estão habilitados ao sorteio de 1 Promo pack!</p></div><img src="/img/modern-g.jpg" alt="" width="180" height="240"></section>
-    <section class="box"><h2>Esta semana</h2><ul class="dates"><li><span>Quarta-feira, 21 de outubro</span><span>20:00 · 6,00 €</span></li></ul></section>
-    <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando é a Modern (Store Credit)?</dt><dd>Todas as quartas às 20:00, na Weatherlight Games &amp; Collectibles (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em feriados e férias, confirma no Calendário Weatherlight.</dd><dt>Quanto custa participar?</dt><dd>6,00 €.</dd><dt>Que formato se joga?</dt><dd>Modern (Suíço).</dd></dl>
-      <p class="m" style="margin-top:.9rem">Mais dúvidas? Vê a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> e o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
-    <section class="sec"><h2>Mais eventos</h2><div class="rel"><a href="/magic/commander-afternoon/"><strong>Commander Afternoon</strong><span>Todas as quartas · 16:00</span></a><a href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span></a></div></section>
+    <section class="box"><h2>Próximas datas</h2><ul class="dates"><li><span>Quarta-feira, 28 de outubro</span><span>20:00 · 6,00 € · previsto</span></li><li><span>Quarta-feira, 4 de novembro</span><span>20:00 · 6,00 € · previsto</span></li><li><span>Quarta-feira, 11 de novembro</span><span>20:00 · 6,00 € · previsto</span></li><li><span>Quarta-feira, 18 de novembro</span><span>20:00 · 6,00 € · previsto</span></li></ul><p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p></section>
+    <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando e onde é?</dt><dd>Todas as quartas às 20:00, aqui na Weatherlight, em Évora (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight.</dd><dt>Quanto custa e o que recebo?</dt><dd>A inscrição custa 6,00 €.</dd><dt>Que formato se joga?</dt><dd>Modern (Suíço). Se algum termo for novo para ti, o Glossário explica tudo.</dd><dt>Os eventos são muito competitivos?</dt><dd>Existem eventos para diferentes tipos de jogadores: alguns mais competitivos, outros pensados para experimentar estratégias num ambiente descontraído. Para nós, cada evento é mais do que uma competição.</dd><dt>Posso jogar com cartas em inglês?</dt><dd>Na maioria dos torneios oficiais em Portugal, as cartas em inglês são permitidas. Alguns eventos podem ter regras específicas de idioma; se tiveres dúvidas, pergunta-nos antes do evento.</dd><dt>Como sei quando há eventos?</dt><dd>Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum.</dd></dl>
+      <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>. Vê também o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
+    <section class="sec"><h2>Outros eventos de Magic: The Gathering</h2><div class="rel"><a class="card" href="/magic/commander-afternoon/"><strong>Commander Afternoon</strong><span>Todas as quartas · 16:00 · Gratuito</span><em>Ver página →</em></a><details class="card ot"><summary><strong>Booster Draft</strong><span>Booster Draft - Reality Fracture (Suíço) · 17.50€</span><em>Ver detalhes</em></summary><p class="pre">Os Booster Drafts voltam à Weatherlight já este Domingo!
+
+A solução de Jace pode ser o problema de todo o universo - há uma realidade alternativa a explorar em Reality Fracture! 💔
+
+Formato: Booster Draft - Reality Fracture (Suíço)
+
+Preço: 17.50€
+
+Prémios:
+- 1 Promo Pack Foil para o vencedor;
+- 1 Promo Pack para o 2º lugar;
+- 1 Play Booster de Reality Fracture por jogador para o Top X.
+
+Todos os jogadores estão ainda habilitados ao sorteio de 1 Promo Pack!</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Prerelease</strong><span>Reality Fracture Sealed Deck (Suíço) · 32€</span><em>Ver detalhes</em></summary><p class="pre">EVENTO LIMITADO A 4 RONDAS.
+
+A solução de Jace pode ser o problema de todo o universo - há uma realidade alternativa a explorar em Reality Fracture! 💔
+
+Junta-te à Weatherlight para experienciar o fim (ou início) de um novo arco multiplanar - com dois eventos de Pré-lançamento! 🌟
+
+Estes são ideais para todo o tipo de jogadores de Magic - iniciantes, a recomeçar e veteranos! ☺️
+
+Junta-te à nossa comunidade nesta nova viagem deste grande jogo ⛵️
+
+Formato: Reality Fracture Sealed Deck (Suíço)
+
+Todos os jogadores recebem 1 Kit de Prerelease para construir os seus baralhos, que contêm:
+
+- 6 Play Boosters de Reality Fracture;
+- 1 Foil Card do Set;
+- 1 Deckbox;
+- 1 Dado Spindown (20 lados).
+
+Preço:
+- 32€ por Jogador.
+
+Prémios:
+- 2 Play Boosters de Reality Fracture por jogador para o Top.</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Store Championship</strong><span>Standard (Suíço) · 13.00€</span><em>Ver detalhes</em></summary><p class="pre">Atenção Jogadores de Magic! 📣
+
+O Store Championship de Reality Fracture está a chegar à Weatherlight em Évora! 🏆
+
+Vem pôr à prova o teu melhor baralho de Standard e lutar pelas promos exclusivas! 🔥
+
+Check-in: 19:30h - 20:00h
+
+Formato: Standard (Suíço)
+
+Preço: 13.00€
+
+Prémios:
+- 1 Jace Reawakened (Promo de Vencedor) para o vencedor;
+- 1 Mastermind&#x27;s Acquisition (Promo de Top 8) para o Top 8;
+- 2 Play Boosters de Reality Fracture por jogador para o Top X.
+
+E AINDA!
+- 1 Thought Scour (Promo de participação), limitado ao stock disponível.
+
+Junta-te à nossa comunidade e vem jogar connosco! ⛵️</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Liga Portuguesa de Pauper (LPP)</strong><span>Pauper (Suíço + Top Cut) · 12.00€</span><em>Ver detalhes</em></summary><p class="pre">Atenção Jogadores de Magic! 📣
+
+A próxima etapa da Liga Portuguesa de Pauper é na Weatherlight em Évora! ⛵️
+
+Vem jogar este mega formato eterno enquanto te qualificas ou somas pontos para a grande final do circuito 🔥
+
+Check-in: 10:00h - 10:30h
+Vagas limitadas! Envia-nos mensagem pelas redes sociais para assegurar o teu lugar.
+
+Formato: Pauper (Suíço + Top Cut)
+
+Decklist obrigatória, a enviar de acordo com as orientações da LPP.
+
+Preço: 12.00€
+
+Prémios:
+- 2 Thoughtseize Borderless (Double Masters Box Topper) para o vencedor;
+- Store Credit a dividir pelo Top 8 (segundo o regulamento da LPP).
+
+Marca na tua agenda e vem garantir a tua vaga na grande final connosco! ☺️
+
+Vem jogar connosco! ⛵️</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a></div></section>
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Se nenhum dos eventos é o que procuras, temos uma <a href="https://maps.app.goo.gl/GnKdFUwrm1J6o46P9" target="_blank" rel="noopener">loja inteira ao teu dispor</a> — vem visitar-nos ☁️</p></div></footer>

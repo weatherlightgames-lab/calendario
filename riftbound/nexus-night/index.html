@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "EventSeries", "name": "Nexus Night - Riftbound: League of Legends TCG em Évora", "description": "Nexus Night de Riftbound: League of Legends TCG em Évora: todas as sextas às 20:00 na Weatherlight. 6,50 €. Formato: Standard Constructed (Suíço).", "url": "https://eventos.weatherlightgames.pt/riftbound/nexus-night/", "location": {"@type": "Place", "name": "Weatherlight Games & Collectibles", "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495", "addressLocality": "Évora", "addressCountry": "PT"}}, "organizer": {"@type": "Organization", "name": "Weatherlight Games & Collectibles", "url": "https://www.weatherlightgames.pt"}, "eventSchedule": {"@type": "Schedule", "repeatFrequency": "P1W", "byDay": "https://schema.org/Friday", "startTime": "20:00", "scheduleTimezone": "Europe/Lisbon"}, "image": "https://eventos.weatherlightgames.pt/img/nexus-night-g.jpg", "subEvent": [{"@type": "Event", "name": "Nexus Night - Riftbound: League of Legends TCG", "startDate": "2026-10-23T20:00:00+01:00", "location": {"@type": "Place", "name": "Weatherlight Games & Collectibles", "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495", "addressLocality": "Évora", "addressCountry": "PT"}}, "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled", "offers": {"@type": "Offer", "price": "6.50", "priceCurrency": "EUR", "availability": "https://schema.org/InStock"}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando é a Nexus Night?", "acceptedAnswer": {"@type": "Answer", "text": "Todas as sextas às 20:00, na Weatherlight Games & Collectibles (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em feriados e férias, confirma no Calendário Weatherlight."}}, {"@type": "Question", "name": "Quanto custa participar?", "acceptedAnswer": {"@type": "Answer", "text": "6,50 €. Todos os participantes recebem: 1 Nexus Pack de participação; 1 Booster de participação no acto de inscrição."}}, {"@type": "Question", "name": "Que formato se joga?", "acceptedAnswer": {"@type": "Answer", "text": "Standard Constructed (Suíço)."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quando e onde é?", "acceptedAnswer": {"@type": "Answer", "text": "Todas as sextas às 20:00, aqui na Weatherlight, em Évora (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight."}}, {"@type": "Question", "name": "Quanto custa e o que recebo?", "acceptedAnswer": {"@type": "Answer", "text": "A inscrição custa 6,50 €. Além dos prémios, todos os participantes levam para casa: 1 Nexus Pack de participação; 1 Booster de participação no acto de inscrição."}}, {"@type": "Question", "name": "Que formato se joga?", "acceptedAnswer": {"@type": "Answer", "text": "Standard Constructed (Suíço). Se algum termo for novo para ti, o Glossário explica tudo."}}, {"@type": "Question", "name": "Posso participar mesmo sendo iniciante?", "acceptedAnswer": {"@type": "Answer", "text": "Claro. Os encontros semanais são pensados precisamente para jogar, aprender e divertir-se. Se for a tua primeira experiência, não hesites em pedir ajuda: a comunidade costuma ser bastante acolhedora."}}, {"@type": "Question", "name": "Posso usar Sleeves ilustradas?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Desde que todas as sleeves do deck sejam iguais, estejam em bom estado e cumpram as regras do jogo. Muitos jogadores protegem-nas com Outer Sleeves para reduzir o desgaste."}}, {"@type": "Question", "name": "Como sei quando há eventos?", "acceptedAnswer": {"@type": "Answer", "text": "Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum."}}]}</script>
 <style>
 /* Layout: diário de bordo — cabeçalho tipo mar, depois uma "folha" por dia com linhas hora · jogo · evento · preço */
 :root{
@@ -55,7 +55,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .det .more a,.det.none a,footer a{color:var(--sea-2)}
 :root[data-theme="dark"] .det .more a,:root[data-theme="dark"] .det.none a,:root[data-theme="dark"] footer a{color:#9fc9d3}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .det .more a,:root:not([data-theme="light"]) .det.none a,:root:not([data-theme="light"]) footer a{color:#9fc9d3}}
-.nm{color:inherit;text-decoration:none}.nm:hover strong,.nm:focus-visible strong{text-decoration:underline;text-underline-offset:3px}
+.nm{color:inherit;text-decoration:none}.nm strong{text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:4px}.nm strong::after{content:" ›";color:var(--brass);font-weight:500}.nm:hover strong,.nm:focus-visible strong{text-decoration-color:var(--sea-2)}
 .det .pg{display:inline-block;margin-top:.6rem;font-size:.9rem;color:var(--sea-2);white-space:normal}
 .regs h2{font:500 1.4rem/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .3rem}
 .regs-sub{margin:0 0 .9rem;color:var(--muted);font-size:.95rem}
@@ -120,14 +120,14 @@ footer a{color:var(--ink)}
 .intro img{width:180px;border-radius:8px;aspect-ratio:3/4;object-fit:cover}
 .box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem;min-width:0}
 .box h2,.sec h2{font:500 1.15rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}
-.pre{white-space:pre-line;margin:0}.m{margin:0}.nota{margin:0;color:var(--muted)}
+.pre{white-space:pre-line;margin:0}.small{font-size:.88rem;color:var(--muted);margin-top:.7rem}.m{margin:0}.nota{margin:0;color:var(--muted)}
 .dates{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
 .dates li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}.dates li:first-child{border-top:0;padding-top:0}
 .faq dl{margin:0}.faq dt{font-weight:500;margin-top:.7rem}.faq dt:first-child{margin-top:0}.faq dd{margin:.2rem 0 0}
 .rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}
-.rel a{display:grid;gap:.1rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem}
-.rel a:hover{border-color:var(--sea-2)}.rel strong{font-weight:500}.rel span{font-size:.9rem;color:var(--muted)}
-main a:not(.rel a),footer a{color:var(--sea-2)}
+.rel{align-items:start}.card{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}.card em{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}.ot summary{display:grid;gap:.15rem;cursor:pointer;list-style:none}.ot summary::-webkit-details-marker{display:none}.ot[open]{grid-column:1/-1}.ot[open] em{display:none}.ot .pre{margin-top:.7rem;font-size:.97rem}
+.card:hover{border-color:var(--sea-2)}.card strong{font-weight:500}.card span{font-size:.9rem;color:var(--muted)}
+main a:not(.card),footer a{color:var(--sea-2)}
 @media (max-width:560px){.intro{grid-template-columns:1fr}.intro img{width:150px}}
 </style>
 </head>
@@ -169,10 +169,61 @@ E AINDA!
 - 1 Booster de participação no acto de inscrição.
 
 Junta-te à comunidade deste fantástico jogo! 🤩</p></div><img src="/img/nexus-night-g.jpg" alt="" width="180" height="240"></section>
-    <section class="box"><h2>Esta semana</h2><ul class="dates"><li><span>Sexta-feira, 23 de outubro</span><span>20:00 · 6,50 €</span></li></ul></section>
-    <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando é a Nexus Night?</dt><dd>Todas as sextas às 20:00, na Weatherlight Games &amp; Collectibles (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em feriados e férias, confirma no Calendário Weatherlight.</dd><dt>Quanto custa participar?</dt><dd>6,50 €. Todos os participantes recebem: 1 Nexus Pack de participação; 1 Booster de participação no acto de inscrição.</dd><dt>Que formato se joga?</dt><dd>Standard Constructed (Suíço).</dd></dl>
-      <p class="m" style="margin-top:.9rem">Mais dúvidas? Vê a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> e o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
-    <section class="sec"><h2>Mais eventos</h2><div class="rel"><a href="/riftbound/nexus-afternoon/"><strong>Nexus Afternoon</strong><span>Todos os domingos · 15:00</span></a><a href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span></a></div></section>
+    <section class="box"><h2>Próximas datas</h2><ul class="dates"><li><span>Sexta-feira, 30 de outubro</span><span>20:00 · 6,50 € · previsto</span></li><li><span>Sexta-feira, 6 de novembro</span><span>20:00 · 6,50 € · previsto</span></li><li><span>Sexta-feira, 13 de novembro</span><span>20:00 · 6,50 € · previsto</span></li><li><span>Sexta-feira, 20 de novembro</span><span>20:00 · 6,50 € · previsto</span></li></ul><p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p></section>
+    <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando e onde é?</dt><dd>Todas as sextas às 20:00, aqui na Weatherlight, em Évora (Rua Frei José Maria Évora, Nº2, 7005-495 Évora). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight.</dd><dt>Quanto custa e o que recebo?</dt><dd>A inscrição custa 6,50 €. Além dos prémios, todos os participantes levam para casa: 1 Nexus Pack de participação; 1 Booster de participação no acto de inscrição.</dd><dt>Que formato se joga?</dt><dd>Standard Constructed (Suíço). Se algum termo for novo para ti, o Glossário explica tudo.</dd><dt>Posso participar mesmo sendo iniciante?</dt><dd>Claro. Os encontros semanais são pensados precisamente para jogar, aprender e divertir-se. Se for a tua primeira experiência, não hesites em pedir ajuda: a comunidade costuma ser bastante acolhedora.</dd><dt>Posso usar Sleeves ilustradas?</dt><dd>Sim. Desde que todas as sleeves do deck sejam iguais, estejam em bom estado e cumpram as regras do jogo. Muitos jogadores protegem-nas com Outer Sleeves para reduzir o desgaste.</dd><dt>Como sei quando há eventos?</dt><dd>Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum.</dd></dl>
+      <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>. Vê também o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
+    <section class="sec"><h2>Outros eventos de Riftbound: League of Legends TCG</h2><div class="rel"><a class="card" href="/riftbound/nexus-afternoon/"><strong>Nexus Afternoon</strong><span>Todos os domingos · 15:00 · 6,50 €</span><em>Ver página →</em></a><details class="card ot"><summary><strong>Pre-Rift</strong><span>Radiance Sealed (Suíço) · 35.00€</span><em>Ver detalhes</em></summary><p class="pre">[EVENTO LIMITADO A 4 RONDAS]
+
+Navegantes! ⛵️
+
+Vem celebrar o 1º Aniversário de Riftbound na Weatherlight em Évora! 🎉
+
+Radiance está a chegar e temos de celebrar da melhor maneira, com dois eventos de Pre-Rift! ⚔️
+
+Estes eventos são ideais para todo o tipo de jogadores de Riftbound, iniciantes e veteranos, e para conheceres as novas cartas do set antes do lançamento! ✨
+
+Formato: Radiance Sealed (Suíço)
+
+Todos os jogadores recebem 1 Pre-Rift Kit para construir o seu deck!
+
+Preço: 35.00€
+
+Vagas limitadas! Reserva já a tua!
+
+Prémios:
+1º 3 Boosters de Radiance;
+2º 2 Boosters de Radiance;
+3º 1 Booster de Radiance.
+
+E AINDA!
+- 1 Booster de Radiance de participação;
+- 1 Vendetta Nexus Pack de participação.
+
+Junta-te à comunidade deste fantástico jogo! 🤩</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Summoner&#x27;s Skirmish</strong><span>Standard Constructed (Suíço + Top Cut) · 13.00€</span><em>Ver detalhes</em></summary><p class="pre">Fãs de Riftbound! ⚔️
+
+Um dos jogos do momento continua a sua mega jornada na Weatherlight em Évora! ⛵️
+
+Com uma comunidade em constante crescimento, vamos voltar a celebrar Vendetta com o Summoner&#x27;s Skirmish de Setembro!
+
+Junta-te a nós para um dia cheio de Riftbound. Há promos exclusivas e prémios muito especiais. Vais ficar de fora? 👀
+
+Check-in: 10:00h - 10:30h
+
+Formato: Standard Constructed (Suíço + Top Cut)
+
+Preço: 13.00€
+
+Prémios:
+1º 1 Vendetta Pre-Rift Kit + 1 Champion Playmat + 1 Kayle (Champion) + Regional Bye;
+2º 1 Vendetta Pre-Rift Kit;
+Top X: 1 Booster por jogador + 1 Kayle Top 8 Promo.
+
+E AINDA!
+- 1 Booster de participação;
+- 1 Nexus Pack de participação;
+- 1 Swain, Visionary Promo de participação.
+
+Junta-te à comunidade deste fantástico jogo! 🤩</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a></div></section>
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Se nenhum dos eventos é o que procuras, temos uma <a href="https://maps.app.goo.gl/GnKdFUwrm1J6o46P9" target="_blank" rel="noopener">loja inteira ao teu dispor</a> — vem visitar-nos ☁️</p></div></footer>

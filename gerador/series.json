@@ -12,7 +12,11 @@
    "Commander Afternoon"
   ],
   "arte": "commander",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "primeira",
+   "sozinho"
+  ]
  },
  {
   "slug": "magic/modern",
@@ -28,7 +32,11 @@
    "Modern Store Credit"
   ],
   "arte": "modern",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "competitivos",
+   "ingles"
+  ]
  },
  {
   "slug": "yu-gi-oh/duelist-lounge",
@@ -43,7 +51,11 @@
    "Duelist Lounge"
   ],
   "arte": "duelist",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "iniciante",
+   "sleeves_ygo"
+  ]
  },
  {
   "slug": "one-piece/pirate-party",
@@ -60,7 +72,11 @@
   ],
   "arte": "pirate",
   "nota": "Também anunciado como Pirate Lounge. Quando é Extra Regulation, avisamos no calendário.",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "primeira",
+   "sleeves_ilustradas"
+  ]
  },
  {
   "slug": "riftbound/nexus-night",
@@ -75,7 +91,11 @@
    "Nexus Night"
   ],
   "arte": "nexus-night",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "iniciante",
+   "sleeves_ilustradas"
+  ]
  },
  {
   "slug": "digimon/tamer-party",
@@ -90,7 +110,11 @@
    "Tamer Party"
   ],
   "arte": "tamer",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "sozinho",
+   "ingles"
+  ]
  },
  {
   "slug": "gundam/pilot-lounge",
@@ -105,7 +129,11 @@
    "Pilot Lounge"
   ],
   "arte": "pilot-lounge",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "primeira",
+   "sleeves_ilustradas"
+  ]
  },
  {
   "slug": "cyberpunk/night-city-brawl",
@@ -120,7 +148,11 @@
    "Night City Brawl"
   ],
   "arte": "nightcity",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "iniciante",
+   "sozinho"
+  ]
  },
  {
   "slug": "gundam/pilot-party",
@@ -135,7 +167,11 @@
    "Pilot Party"
   ],
   "arte": "pilot-party",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "sozinho",
+   "competitivos"
+  ]
  },
  {
   "slug": "pokemon/weekly-league",
@@ -152,7 +188,11 @@
    "Weekly League — Standard"
   ],
   "arte": null,
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "primeira",
+   "ingles"
+  ]
  },
  {
   "slug": "riftbound/nexus-afternoon",
@@ -167,6 +207,10 @@
    "Nexus Afternoon"
   ],
   "arte": "nexus-afternoon",
-  "perguntas": []
+  "perguntas": [],
+  "faq": [
+   "competitivos",
+   "sozinho"
+  ]
  }
 ]

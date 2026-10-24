@@ -11,6 +11,45 @@ ORG={"@type":"Organization","name":"Weatherlight Games & Collectibles","url":"ht
 PL={"Monday":"Todas as segundas","Tuesday":"Todas as terças","Wednesday":"Todas as quartas","Thursday":"Todas as quintas",
     "Friday":"Todas as sextas","Saturday":"Todos os sábados","Sunday":"Todos os domingos"}
 
+# Perguntas da Central de Ajuda (texto da própria Central, ligeiramente encurtado)
+CENTRAL={
+ "primeira":("Nunca participei num evento. Posso aparecer na mesma?","Claro! Muitas pessoas participam nos nossos eventos pela primeira vez e não é preciso ter um deck perfeito ou muita experiência para desfrutar do hobby. Cada evento é uma oportunidade para aprender, conhecer a comunidade e passar um bom momento à volta da mesa."),
+ "sozinho":("Posso aparecer sozinho?","Claro! Muitas pessoas vieram ao seu primeiro evento sem conhecer ninguém. A nossa comunidade está habituada a receber novos jogadores e teremos todo o gosto em ajudar-te a dar os primeiros passos. O mais difícil costuma ser entrar pela porta. Depois disso, o hobby faz o resto."),
+ "iniciante":("Posso participar mesmo sendo iniciante?","Claro. Os encontros semanais são pensados precisamente para jogar, aprender e divertir-se. Se for a tua primeira experiência, não hesites em pedir ajuda: a comunidade costuma ser bastante acolhedora."),
+ "competitivos":("Os eventos são muito competitivos?","Existem eventos para diferentes tipos de jogadores: alguns mais competitivos, outros pensados para experimentar estratégias num ambiente descontraído. Para nós, cada evento é mais do que uma competição."),
+ "ingles":("Posso jogar com cartas em inglês?","Na maioria dos torneios oficiais em Portugal, as cartas em inglês são permitidas. Alguns eventos podem ter regras específicas de idioma; se tiveres dúvidas, pergunta-nos antes do evento."),
+ "sleeves_ilustradas":("Posso usar Sleeves ilustradas?","Sim. Desde que todas as sleeves do deck sejam iguais, estejam em bom estado e cumpram as regras do jogo. Muitos jogadores protegem-nas com Outer Sleeves para reduzir o desgaste."),
+ "sleeves_ygo":("Que Sleeves preciso para Yu-Gi-Oh!?","As cartas de Yu-Gi-Oh! são mais pequenas do que as da maioria dos jogos, por isso precisas de sleeves Japanese Size. Se tiveres dúvidas, teremos todo o gosto em ajudar-te a escolher."),
+}
+DIA_ISO={"Monday":0,"Tuesday":1,"Wednesday":2,"Thursday":3,"Friday":4,"Saturday":5,"Sunday":6}
+DIA_NOME=["Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado","Domingo"]
+MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
+
+def proximas(s,S,n=4):
+    """Próximas n datas: as desta semana vêm do calendário; as seguintes são previstas pelo horário fixo."""
+    import datetime as dt
+    hoje=dt.date.today(); isos=[dt.date.fromisoformat(d['iso']) for d in S['dias']]
+    ini,fim=(min(isos),max(isos)) if isos else (hoje,hoje)
+    reais={d['iso']:(d,e) for d in S['dias'] for e in d['eventos'] if e['jogo']==s['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo'])}
+    out=[]; x=hoje+dt.timedelta((DIA_ISO[s['dia']]-hoje.weekday())%7)
+    while len(out)<n:
+        iso=x.isoformat()
+        if iso in reais:
+            d,e=reais[iso]; out.append((f"{d['dia']}, {d['data']}",e['hora'],float(e['preco']),e.get('esgotado',False),True))
+        elif not (ini<=x<=fim):
+            out.append((f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}",s['hora'],float(s['preco']),False,False))
+        x+=dt.timedelta(7)
+    return out
+
+BASE_DB=json.load(open(os.path.join(AQUI,'base.json')))
+def limpar(k): return re.sub(r"\s*\((Semanal|Fim de semana|Magic|One Piece|Digimon|Pokémon)\)$","",k)
+def preco_db(txt):
+    m=re.search(r"Pre[çc]o[^:\n]*:[ \t]*\n?-?[ \t]*([^\n]+)",txt or '')
+    if not m: return None
+    v=m.group(1).split(' - ')[0].strip().rstrip('.')
+    v=re.sub(r'\s*por Jogador$','',v,flags=re.I)
+    return 'Gratuito' if v.lower().startswith('free') else v
+
 def formato(txt):
     m=re.search(r'Formato:[ \t]*(.*)',txt or '')
     if not m: return None
@@ -46,18 +85,33 @@ def gerar(tpl, SER, DET, S):
             "url":f"{BASE}/{s['slug']}/","location":ADDR,"organizer":ORG,
             "eventSchedule":{"@type":"Schedule","repeatFrequency":"P1W","byDay":f"https://schema.org/{s['dia']}","startTime":s['hora'],"scheduleTimezone":"Europe/Lisbon"},
             **({"image":f"{BASE}/img/{s['arte']}-g.jpg"} if s.get('arte') else {}), **({"subEvent":sub} if sub else {})}
-        perg=[(f"Quando é a {s['titulo']}?", f"{PL[s['dia']]} às {s['hora']}, na Weatherlight Games & Collectibles ({MORADA}). Em feriados e férias, confirma no Calendário Weatherlight."),
-              (f"Quanto custa participar?", f"{pr}."+(" Todos os participantes recebem: "+"; ".join(part)+"." if part else ""))]
-        if fmt: perg.append(("Que formato se joga?", fmt+"."))
-        perg+= [(q['pergunta'],q['resposta']) for q in s.get('perguntas',[])]
-        faq={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in perg]}
-        if datas:
-            prox='<ul class="dates">'+''.join(f'<li><span>{d["dia"]}, {d["data"]}</span><span>{e["hora"]} · {preco_txt(float(e["preco"]))}{" · Esgotado" if e.get("esgotado") else ""}</span></li>' for d,e in datas)+'</ul>'
+        art_='o' if s['titulo'].split()[0] in ('Modern','Duelist','Pilot') else 'a'
+        if float(s['preco'])==0:
+            custo=f"A {s['titulo']} é gratuita!"+(" "+re.sub(r"\s+"," ",re.search(r"Prémios:\s*\n(.+)",txt).group(1)).strip() if txt and re.search(r"Prémios:\s*\n(.+)",txt) else "")
         else:
-            prox=f'<p class="m">Esta semana não há {html.escape(s["titulo"])}. Vê as próximas datas no <a href="/">Calendário Weatherlight</a>.</p>'
+            custo=f"A inscrição custa {pr}."+(" Além dos prémios, todos os participantes levam para casa: "+"; ".join(part)+"." if part else "")
+        perg=[(f"Quando e onde é?", f"{PL[s['dia']]} às {s['hora']}, aqui na Weatherlight, em Évora ({MORADA}). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight."),
+              ("Quanto custa e o que recebo?", custo)]
+        if fmt: perg.append(("Que formato se joga?", fmt+". Se algum termo for novo para ti, o Glossário explica tudo."))
+        perg+=[CENTRAL[k] for k in s.get('faq',[])]
+        perg+=[(q['pergunta'],q['resposta']) for q in s.get('perguntas',[])]
+        perg.append(("Como sei quando há eventos?","Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum."))
+        faq={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in perg]}
+        pd=proximas(s,S)
+        prox='<ul class="dates">'+''.join(f'<li><span>{l}</span><span>{h} · {preco_txt(p)}{" · Esgotado" if esg else ""}{"" if conf else " · previsto"}</span></li>' for l,h,p,esg,conf in pd)+'</ul>'
+        prox+='<p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p>'
         outros=[o for o in SER if o['jogo']==s['jogo'] and o is not s]
-        rel=''.join(f'<a href="/{o["slug"]}/"><strong>{html.escape(o["titulo"])}</strong><span>{PL[o["dia"]]} · {o["hora"]}</span></a>' for o in outros)
-        rel+='<a href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span></a>'
+        rel=''.join(f'<a class="card" href="/{o["slug"]}/"><strong>{html.escape(o["titulo"])}</strong><span>{PL[o["dia"]]} · {o["hora"]} · {preco_txt(float(o["preco"]))}</span><em>Ver página →</em></a>' for o in outros)
+        cobertos={re.sub(r"\s*\(.*\)$","",n) for o in SER if o['jogo']==s['jogo'] for n in o['eventos']+[o['modelo']]}
+        for k in BASE_DB.get(s['jogo'],[]):
+            nome=limpar(k)
+            if k in [o['modelo'] for o in SER] or re.sub(r"\s*\(.*\)$","",k) in cobertos: continue
+            t2=DET.get(k)
+            if not t2: continue
+            info=" · ".join(x for x in [formato(t2), preco_db(t2)] if x)
+            rel+=(f'<details class="card ot"><summary><strong>{html.escape(nome)}</strong><span>{html.escape(info)}</span><em>Ver detalhes</em></summary>'
+                  f'<p class="pre">{html.escape(t2)}</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details>')
+        rel+='<a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a>'
         img=f'<img src="/img/{s["arte"]}-g.jpg" alt="" width="180" height="240">' if s.get('arte') else ''
         page=f'''<!doctype html>
 <html lang="pt">
@@ -80,14 +134,14 @@ def gerar(tpl, SER, DET, S):
 .intro img{{width:180px;border-radius:8px;aspect-ratio:3/4;object-fit:cover}}
 .box{{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem;min-width:0}}
 .box h2,.sec h2{{font:500 1.15rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}}
-.pre{{white-space:pre-line;margin:0}}.m{{margin:0}}.nota{{margin:0;color:var(--muted)}}
+.pre{{white-space:pre-line;margin:0}}.small{{font-size:.88rem;color:var(--muted);margin-top:.7rem}}.m{{margin:0}}.nota{{margin:0;color:var(--muted)}}
 .dates{{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}}
 .dates li{{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}}.dates li:first-child{{border-top:0;padding-top:0}}
 .faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0}}
 .rel{{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}}
-.rel a{{display:grid;gap:.1rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem}}
-.rel a:hover{{border-color:var(--sea-2)}}.rel strong{{font-weight:500}}.rel span{{font-size:.9rem;color:var(--muted)}}
-main a:not(.rel a),footer a{{color:var(--sea-2)}}
+.rel{{align-items:start}}.card{{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}}.card em{{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}}.ot summary{{display:grid;gap:.15rem;cursor:pointer;list-style:none}}.ot summary::-webkit-details-marker{{display:none}}.ot[open]{{grid-column:1/-1}}.ot[open] em{{display:none}}.ot .pre{{margin-top:.7rem;font-size:.97rem}}
+.card:hover{{border-color:var(--sea-2)}}.card strong{{font-weight:500}}.card span{{font-size:.9rem;color:var(--muted)}}
+main a:not(.card),footer a{{color:var(--sea-2)}}
 @media (max-width:560px){{.intro{{grid-template-columns:1fr}}.intro img{{width:150px}}}}
 </style>
 </head>
@@ -109,10 +163,10 @@ main a:not(.rel a),footer a{{color:var(--sea-2)}}
     </ul>
     {f'<p class="nota">{html.escape(s["nota"])}</p>' if s.get('nota') else ''}
     <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes no nosso Discord.")}</p></div>{img}</section>
-    <section class="box"><h2>Esta semana</h2>{prox}</section>
+    <section class="box"><h2>Próximas datas</h2>{prox}</section>
     <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{html.escape(a)}</dd>' for q,a in perg)}</dl>
-      <p class="m" style="margin-top:.9rem">Mais dúvidas? Vê a <a href="{CA}">Central de Ajuda</a> e o <a href="{GL}">Glossário</a>, ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>.</p></section>
-    <section class="sec"><h2>Mais eventos</h2><div class="rel">{rel}</div></section>
+      <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="{CA}">Central de Ajuda</a>. Vê também o <a href="{GL}">Glossário</a>, ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>.</p></section>
+    <section class="sec"><h2>Outros eventos de {html.escape(s["nome_jogo"])}</h2><div class="rel">{rel}</div></section>
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Se nenhum dos eventos é o que procuras, temos uma <a href="{MAPS}">loja inteira ao teu dispor</a> — vem visitar-nos ☁️</p></div></footer>

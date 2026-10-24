@@ -1,0 +1,48 @@
+{
+ "magic": [
+  "Commander Afternoon",
+  "Store Credit (Modern)",
+  "Booster Draft",
+  "Prerelease (Magic)",
+  "Store Championship (Magic)",
+  "Liga Portuguesa de Pauper (LPP)"
+ ],
+ "op": [
+  "Pirate Party (Standard)",
+  "Pirate Lounge (Standard)",
+  "Pirate Party (Extra Regulation)",
+  "Prerelease (One Piece)",
+  "Store Championship (One Piece)",
+  "Extra Grand Battle"
+ ],
+ "digi": [
+  "Tamer Party",
+  "Evolution Cup",
+  "Prerelease (Digimon)"
+ ],
+ "ygo": [
+  "Duelist Lounge",
+  "Core Booster Premiere"
+ ],
+ "poke": [
+  "Weekly League",
+  "League Challenge",
+  "Prerelease (Pokémon)"
+ ],
+ "rift": [
+  "Nexus Night (Semanal)",
+  "Nexus Afternoon (Fim de semana)",
+  "Pre-Rift",
+  "Summoner's Skirmish"
+ ],
+ "cyber": [
+  "Night City Brawl (Semanal)"
+ ],
+ "gundam": [
+  "Pilot Lounge (Semanal)",
+  "Pilot Party (Fim de semana)"
+ ],
+ "assemble": [
+  "Demo Event"
+ ]
+}
