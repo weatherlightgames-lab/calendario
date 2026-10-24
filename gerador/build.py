@@ -5,6 +5,12 @@ AQUI=os.path.dirname(os.path.abspath(__file__)); RAIZ=os.path.dirname(AQUI)
 S=json.load(open(os.path.join(AQUI,'semana.json')))
 DET=json.load(open(os.path.join(AQUI,'details.json')))
 SER=json.load(open(os.path.join(AQUI,'series.json')))
+# Página da marca de cada jogo no site principal (nome do jogo → URL)
+MARCAS=json.load(open(os.path.join(AQUI,'marcas.json')))
+def chip(g,nome):
+    u=MARCAS.get(nome)
+    return (f'<a class="chip c-{g}" href="{u}" target="_blank" rel="noopener" title="{html.escape(nome)} na loja Weatherlight">{html.escape(nome)}</a>' if u
+            else f'<span class="chip c-{g}">{html.escape(nome)}</span>')
 # links/códigos que chegaram antes da semana ser publicada: {"AAAA-MM-DD": {"Evento": {"inscricao": …, "companion": …}}}
 PEND=json.load(open(os.path.join(AQUI,'pendentes.json'))) if os.path.exists(os.path.join(AQUI,'pendentes.json')) else {}
 for _d in S['dias']:
@@ -105,7 +111,7 @@ def item(d,e,quando=None):
     sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
     th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
     return (f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{quando or ''}{e["hora"]}</time>'
-            f'<div class="what"><span class="chip c-{g}">{html.escape(e["nome_jogo"])}</span>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
+            f'<div class="what">{chip(g,e["nome_jogo"])}{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
             f'<span class="price{" free" if preco==0 else ""}">{p}</span><div class="acts">{b1}{b2}</div>{f'<div class="det pns">{p1}{p2}</div>' if p1 or p2 else ''}</li>')
 
 for d in S['dias']:
@@ -135,7 +141,7 @@ for k,v in JOGOS.items():
     ss=[s for s in SER if s['jogo']==k]
     if not ss: continue
     ss.sort(key=lambda s:(ORD.index(s['dia']),s['hora']))
-    reg+=f'<div class="rg"><span class="chip c-{k}">{html.escape(ss[0]["nome_jogo"])}</span><ul>'+''.join(
+    reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(
         f'<li><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{DIA_PT[s["dia"]]} · {s["hora"]}</span></li>' for s in ss)+'</ul></div>'
 regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
 chips="".join(f'<button type="button" class="f" data-g="{k}" aria-pressed="false">{v}</button>' for k,v in JOGOS.items() if k in usados)

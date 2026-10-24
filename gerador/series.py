@@ -58,6 +58,7 @@ def proximas(s,S,n=4):
     return out
 
 BASE_DB=json.load(open(os.path.join(AQUI,'base.json')))
+MARCAS=json.load(open(os.path.join(AQUI,'marcas.json')))
 def limpar(k): return re.sub(r"\s*\((Semanal|Fim de semana|Magic|One Piece|Digimon|Pokémon|Cyberpunk)\)$","",k)
 def preco_db(txt):
     m=re.search(r"Pre[çc]o[^:\n]*:[ \t]*\n?-?[ \t]*([^\n]+)",txt or '')
@@ -190,7 +191,7 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
 <body>
 <header>
   <div class="wrap">
-    <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {html.escape(s['nome_jogo'])}</span>
+    <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {(f'<a href="{MARCAS[s["nome_jogo"]]}">'+html.escape(s['nome_jogo'])+'</a>') if s['nome_jogo'] in MARCAS else html.escape(s['nome_jogo'])}</span>
     <h1>{html.escape(s['titulo'])}</h1>
     <p class="sub">{html.escape(s['nome_jogo'])} em Évora · {quando}</p>
   </div>
