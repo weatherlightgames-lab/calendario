@@ -126,7 +126,7 @@ def gerar(tpl, SER, DET, S):
 <script type="application/ld+json">{json.dumps(ld,ensure_ascii=False)}</script>
 <script type="application/ld+json">{json.dumps(faq,ensure_ascii=False)}</script>
 {style}
-<style>:root{{--ans:#375762}}@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--ans:#9fc9d3}}}}:root[data-theme="dark"]{{--ans:#9fc9d3}}
+<style>:root{{--ans:#4a7c88}}@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--ans:#9fc9d3}}}}:root[data-theme="dark"]{{--ans:#9fc9d3}}
 *,*::before,*::after{{box-sizing:border-box}}body{{margin:0}}img{{max-width:100%}}
 .crumbs{{font-size:.85rem;color:var(--hd-soft)}}.crumbs a{{color:var(--hd-ink)}}
 .facts{{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.6rem;margin:0;padding:0;list-style:none}}
@@ -139,7 +139,7 @@ def gerar(tpl, SER, DET, S):
 .pre{{white-space:pre-line;margin:0}}.m{{margin:0}}.small{{font-size:.88rem;color:var(--muted);margin-top:1.1rem}}.nota{{margin:0;color:var(--muted)}}
 .dates{{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}}
 .dates li{{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}}.dates li:first-child{{border-top:0;padding-top:0}}
-.faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0;color:var(--ans)}}.faq dd a{{color:inherit}}
+.faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0;color:var(--ans);font-size:.94rem;line-height:1.55}}.faq dd a{{color:inherit}}
 .rel{{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}}
 .rel{{align-items:start}}.card{{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}}.card em{{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}}.ot summary{{display:grid;gap:.15rem;cursor:pointer;list-style:none}}.ot summary::-webkit-details-marker{{display:none}}.ot[open]{{grid-column:1/-1}}.ot[open] em{{display:none}}.ot .pre{{margin-top:.7rem;font-size:.97rem}}
 .card:hover{{border-color:var(--sea-2)}}.card strong{{font-weight:500}}.card span{{font-size:.9rem;color:var(--muted)}}
