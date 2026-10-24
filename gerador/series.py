@@ -228,28 +228,40 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
 
 
 # ---------- Página de cada jogo: /<jogo>/ (destino dos links das páginas de marca da loja) ----------
+PASTA={"magic":"magic","poke":"pokemon","op":"one-piece","ygo":"yu-gi-oh","rift":"riftbound","digi":"digimon",
+       "gundam":"gundam","assemble":"gundam-assemble","cyber":"cyberpunk","lorcana":"lorcana","swu":"star-wars"}
 def gerar_jogos(SER,DET,S,style,fonts,css2):
     import datetime as dt
     FP=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FP)) if os.path.exists(FP) else []
     hoje=dt.date.today().isoformat(); ult=max(d['iso'] for d in S['dias'])
-    pastas={}
-    for s in SER: pastas.setdefault(s['slug'].split('/')[0],(s['jogo'],s['nome_jogo']))
+    jogos={}
+    for s in SER: jogos.setdefault(s['jogo'],s['nome_jogo'])
+    for e in [e for d in S['dias'] for e in d['eventos']]+FUT: jogos.setdefault(e['jogo'],e['nome_jogo'])
     urls=[]
-    for pasta,(g,nome) in pastas.items():
-        regs=sorted([s for s in SER if s['jogo']==g],key=lambda s:(list(DIA_ISO).index(s['dia']),s['hora']))
-        def linha(data,hora,ev,preco,slug=None,esg=False):
-            n=f'<a href="/{slug}/">{html.escape(ev)}</a>' if slug else html.escape(ev)
-            return f'<li><span>{data} · {hora}</span><span>{n} · {preco_txt(float(preco))}{" · Esgotado" if esg else ""}</span></li>'
+    for g,nome in jogos.items():
+        pasta=PASTA.get(g,g)
+        regs=sorted([s for s in SER if s['jogo']==g],key=lambda s:(DIA_ISO[s['dia']],s['hora']))
         def slug_de(e):
             for s in regs:
                 if e['evento'] in s['eventos'] or e.get('modelo')==s['modelo']: return s['slug']
-        sem=[linha(f"{d['dia']}, {d['data']}",e['hora'],e['evento'],e['preco'],slug_de(e),e.get('esgotado')) for d in S['dias'] for e in d['eventos'] if e['jogo']==g and d['iso']>=hoje]
-        esp=[]
+        def cartao(arte,topo,titulo,linha,href=None,cta=None):
+            im=f'<img src="/img/{arte}-v.jpg" alt="" width="90" height="120" loading="lazy">' if arte else '<span class="ph"></span>'
+            corpo=(f'{im}<div><small>{topo}</small><strong>{html.escape(titulo)}</strong><span>{linha}</span>'
+                   +(f'<em>{cta}</em>' if cta else '')+'</div>')
+            return f'<a class="card ec" href="{href}">{corpo}</a>' if href else f'<div class="card ec">{corpo}</div>'
+        rc=''.join(cartao(s.get('arte'),PL[s['dia']]+' · '+s['hora'],s['titulo'],preco_txt(float(s['preco'])),f'/{s["slug"]}/','Ver página →') for s in regs)
+        sem=''
+        for d in S['dias']:
+            for e in d['eventos']:
+                if e['jogo']!=g or d['iso']<hoje: continue
+                sl=slug_de(e)
+                sem+=cartao(e.get('arte'),f"{d['dia']}, {d['data']} · {e['hora']}",e['evento'],preco_txt(float(e['preco']))+(' · Esgotado' if e.get('esgotado') else ''),
+                            f'/{sl}/' if sl else '/', 'Ver página →' if sl else 'Ver no calendário →')
+        esp=''
         for f in sorted(FUT,key=lambda x:(x['iso'],x['hora'])):
             if f['jogo']!=g or f['iso']<=ult or f['iso']<hoje: continue
             x=dt.date.fromisoformat(f['iso'])
-            esp.append(linha(f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}",f['hora'],f['evento'] if f['nome_jogo']==nome else f"{f['evento']} ({f['nome_jogo']})",f['preco']))
-        cards=''.join(f'<a class="card" href="/{s["slug"]}/"><strong>{html.escape(s["titulo"])}</strong><span>{PL[s["dia"]]} · {s["hora"]} · {preco_txt(float(s["preco"]))}</span><em>Ver página →</em></a>' for s in regs)
+            esp+=cartao(f.get('arte'),f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]} · {f['hora']}",f['evento'],preco_txt(float(f['preco'])),'/','Detalhes e inscrição →')
         cobertos={re.sub(r"\s*\(.*\)$","",n) for o in regs for n in o['eventos']+[o['modelo']]}
         outros=''
         for k in BASE_DB.get(g,[]):
@@ -258,10 +270,12 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
             outros+=(f'<details class="card ot"><summary><strong>{html.escape(limpar(k))}</strong><span>{html.escape(info)}</span><em>Ver detalhes</em></summary>'
                      f'<p class="pre">{html.escape(t2)}</p>'+(f'<p class="m fx">{fmt_mtg(formato(t2))[1]}</p>' if g=='magic' and fmt_mtg(formato(t2)) else '')+'</details>')
         marca=MARCAS.get(nome)
-        desc=f"Eventos de {nome} em Évora na Weatherlight: "+", ".join(f"{s['titulo']} ({PL[s['dia']].lower()} às {s['hora']})" for s in regs)+", e eventos especiais como Prereleases e torneios."
+        desc=(f"Eventos de {nome} em Évora na Weatherlight"+(": "+", ".join(f"{s['titulo']} ({PL[s['dia']].lower()} às {s['hora']})" for s in regs) if regs else "")
+              +". Não percas os próximos eventos especiais, como Prereleases e torneios.")
         bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
             {"@type":"ListItem","position":1,"name":"Calendário Weatherlight","item":BASE+"/"},
             {"@type":"ListItem","position":2,"name":f"Eventos de {nome}","item":f"{BASE}/{pasta}/"}]}
+        sec=lambda t,c,extra='':f'<section class="sec"><h2>{t}</h2><div class="rel">{c}</div>{extra}</section>' if c else ''
         page=f"""<!doctype html>
 <html lang="pt">
 <head>
@@ -274,28 +288,34 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
 <script type="application/ld+json">{json.dumps(bc,ensure_ascii=False)}</script>
 {style}
 {css2}
+<style>
+.ec{{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}}.ec img,.ec .ph{{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}}
+.ec div{{display:grid;gap:.15rem;min-width:0}}.ec small{{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}}
+.hd-cta{{display:inline-block;justify-self:start;width:max-content;max-width:100%;margin-top:.9rem;font-size:.95rem;color:var(--hd-ink);border:1px solid currentColor;border-radius:999px;padding:.3rem .9rem;text-decoration:none}}.hd-cta:hover{{background:rgba(255,255,255,.35)}}
+</style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {html.escape(nome)}</span>
     <h1>Eventos de {html.escape(nome)}</h1>
-    <p class="sub">Torneios e noites de jogo na Weatherlight, em Évora</p>
+    <p class="sub">Não percas estes eventos na Weatherlight em Évora</p>
+    {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}
   </div>
 </header>
 <main>
   <div class="wrap">
-    <section class="sec"><h2>Eventos regulares</h2><div class="rel">{cards}</div></section>
-    {f'<section class="box"><h2>Esta semana</h2><ul class="dates">{"".join(sem)}</ul></section>' if sem else ''}
-    {f'<section class="box"><h2>Eventos que não podes perder</h2><ul class="dates">{"".join(esp)}</ul><p class="m small">Detalhes, inscrições e calendário no <a href="/">Calendário Weatherlight</a>.</p></section>' if esp else ''}
-    {f'<section class="sec"><h2>Outros eventos de {html.escape(nome)}</h2><div class="rel">{outros}</div><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></section>' if outros else ''}
-    {f'<p class="m"><a href="{marca}">Ver os produtos de {html.escape(nome)} na loja Weatherlight →</a></p>' if marca else ''}
+    {sec("Eventos regulares",rc)}
+    {sec("Esta semana",sem)}
+    {sec("Eventos que não podes perder",esp,'<p class="m small">Detalhes, inscrições e calendário no <a href="/">Calendário Weatherlight</a>.</p>')}
+    {sec(f"Outros eventos de {html.escape(nome)}",outros,'<p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p>')}
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="{CA}">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>!</p></div></footer>
 </body>
 </html>
 """
-        page=re.sub(r'<a href="(https?://[^"]+)"(?![^>]*target=)',r'<a href="\1" target="_blank" rel="noopener"',page)
+        page=re.sub(r'<a (class="[^"]*" )?href="(https?://[^"]+)"(?![^>]*target=)',r'<a \1href="\2" target="_blank" rel="noopener"',page)
+        os.makedirs(os.path.join(RAIZ,pasta),exist_ok=True)
         open(os.path.join(RAIZ,pasta,'index.html'),'w').write(page); urls.append(f"{BASE}/{pasta}/")
     return urls
