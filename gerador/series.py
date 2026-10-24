@@ -24,6 +24,17 @@ DIA_ISO={"Monday":0,"Tuesday":1,"Wednesday":2,"Thursday":3,"Friday":4,"Saturday"
 DIA_NOME=["Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado","Domingo"]
 MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]
 
+# Pergunta "Preciso de alguma aplicação para jogar?" por jogo (confirmado pela equipa a 24/10/2026: contas obrigatórias)
+_BANDAI='Sim. Para participares precisas de uma conta <a href="https://www.bandai-tcg-plus.com/">Bandai TCG+</a> (app gratuita): é lá que te inscreves no evento e acompanhas as rondas e os resultados.'
+APPS={
+ "op":_BANDAI,"digi":_BANDAI,"gundam":_BANDAI,
+ "cyber":'Sim. Para participares precisas de uma conta na <a href="https://melee.gg/">Melee</a>: é lá que te inscreves no evento e acompanhas as rondas e os resultados.',
+ "rift":'Sim. Para participares precisas de uma conta na <a href="https://playriftbound.com/">Riftbound Gaming Network</a>: é lá que te inscreves no evento e acompanhas as rondas e os resultados.',
+ "ygo":"Sim. Para participares precisas da app Neuron, com um KONAMI ID. Se ainda não tens, não há problema: criamos contigo aqui na loja.",
+ "magic":'Sim. Para participares precisas da app Magic: The Gathering Companion, com uma conta Wizards. Para entrares no evento, usas o código que partilhamos no <a href="/">Calendário Weatherlight</a>.',
+ "poke":"Sim. Para participares precisas de um Player ID da Pokémon. Se ainda não tens, fazemos contigo aqui na loja. Recomendamos também a app Pokémon Access, para teres os teus dados de jogador sempre à mão.",
+}
+
 def proximas(s,S,n=4):
     """Próximas n datas: as desta semana vêm do calendário; as seguintes são previstas pelo horário fixo."""
     import datetime as dt
@@ -93,6 +104,8 @@ def gerar(tpl, SER, DET, S):
                      "Em semanas de feriados ou férias o horário pode mudar: confirma sempre no <a href=\"/\">Calendário Weatherlight</a>.")
         perg=[("Quando e onde é?", re.sub(r"<[^>]+>","",quando_html), quando_html)]
         if fmt: perg.append(("Que formato se joga?", fmt+". Se algum termo for novo para ti, o Glossário explica tudo.", html.escape(fmt)+f". Se algum termo for novo para ti, o <a href=\"{GL}\">Glossário</a> explica tudo."))
+        if s['jogo'] in APPS:
+            ah=APPS[s['jogo']]; perg.append(("Preciso de alguma aplicação para jogar?", re.sub(r"<[^>]+>","",ah), ah))
         perg+=[(q,a,html.escape(a)) for q,a in (CENTRAL[k] for k in s.get('faq',[]) if k in CENTRAL)]
         perg+=[(q['pergunta'],q['resposta'],html.escape(q['resposta'])) for q in s.get('perguntas',[])]
         perg.append(("Como sei quando há eventos?","Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum.",

@@ -28,14 +28,14 @@ def modelo(e):
     c=[k for k in DET if k.startswith(e['evento']+' (')]
     return DET[c[0]] if len(c)==1 else None
 
-def det(txt,s=None):
+def det(txt,s=None,cal=''):
     """Devolve (botão, painel). O painel abre por baixo da fila de botões (CSS :has)."""
     if txt:
         return ('<details class="det d1"><summary>Ver detalhes</summary></details>',
                 '<div class="txt p1">'+html.escape(txt)+
                 '<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario">Glossário</a> '
                 'ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight">Central de Ajuda</a>.</span>'+
-                (f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+'</div>')
+                '<span class="lks">'+(f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+cal+'</span></div>')
     return (f'<p class="det none">Detalhes no nosso <a href="{DISCORD}">Discord</a>.</p>','')
 
 # Inscrição: link da aplicação do torneio (semana.json "inscricao") e código Companion do Magic ("companion")
@@ -61,6 +61,33 @@ def inscricao(e):
             'Na app <strong>Magic: The Gathering Companion</strong>, toca em <em>Enter Event Code</em> e cola o código.</div>')
     return h,pn
 
+# Adicionar ao calendário: link Google Calendar + ficheiro .ics (Apple/Outlook) em /ics/
+from datetime import datetime, timedelta, timezone
+import urllib.parse, shutil
+ICS=os.path.join(RAIZ,'ics'); shutil.rmtree(ICS,ignore_errors=True); os.makedirs(ICS)
+MORADA="Weatherlight Games & Collectibles, Rua Frei José Maria Évora, Nº2, 7005-495 Évora"
+def calendario(d,e,s):
+    h,m=map(int,e['hora'].split(':')); sg=-1 if d['fuso'].startswith('-') else 1
+    off=timedelta(hours=int(d['fuso'][1:3]),minutes=int(d['fuso'][4:6]))*sg
+    ini=datetime(*map(int,d['iso'].split('-')),h,m,tzinfo=timezone(off)).astimezone(timezone.utc); fim=ini+timedelta(hours=3)
+    f=lambda x:x.strftime('%Y%m%dT%H%M%SZ')
+    tit=f"{e['evento']} · {e['nome_jogo']} (Weatherlight)"
+    desc=[]
+    if e.get('inscricao'): desc.append("Inscrição: "+e['inscricao'])
+    if e.get('companion'): desc.append("Código Companion: "+e['companion'])
+    desc.append("Detalhes: "+BASE+(s['slug']+'/' if s else ''))
+    g=('https://calendar.google.com/calendar/render?action=TEMPLATE&'+urllib.parse.urlencode(
+        {'text':tit,'dates':f(ini)+'/'+f(fim),'details':"\n".join(desc),'location':MORADA},quote_via=urllib.parse.quote))
+    nome=re.sub(r'[^a-z0-9]+','-',(d['iso']+'-'+e['jogo']+'-'+e['evento']).lower()).strip('-')+'.ics'
+    esc=lambda x:x.replace('\\','\\\\').replace(';','\\;').replace(',','\\,').replace('\n','\\n')
+    ics="\r\n".join(["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Weatherlight//Calendario//PT","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+        "BEGIN:VEVENT",f"UID:{nome[:-4]}@eventos.weatherlightgames.pt",f"DTSTAMP:{f(datetime.now(timezone.utc))}",
+        f"DTSTART:{f(ini)}",f"DTEND:{f(fim)}",f"SUMMARY:{esc(tit)}",f"DESCRIPTION:{esc(chr(10).join(desc))}",
+        f"LOCATION:{esc(MORADA)}",f"URL:{BASE+(s['slug']+'/' if s else '')}","END:VEVENT","END:VCALENDAR",""])
+    open(os.path.join(ICS,nome),'w',newline='').write(ics)
+    return (f'<span class="cal">📅 Adicionar ao calendário: <a href="{html.escape(g)}">Google</a> · '
+            f'<a href="/ics/{nome}" download>Apple / Outlook</a></span>')
+
 ld=[]; rows=""; usados=[]; sem_modelo=[]
 for d in S['dias']:
     items=""
@@ -74,7 +101,7 @@ for d in S['dias']:
           "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
           "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
                     "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
-        b1,p1=det(txt,s); b2,p2=inscricao(e)
+        b1,p1=det(txt,s,calendario(d,e,s)); b2,p2=inscricao(e)
         p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
         sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
         th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
