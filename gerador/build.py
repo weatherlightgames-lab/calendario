@@ -5,6 +5,11 @@ AQUI=os.path.dirname(os.path.abspath(__file__)); RAIZ=os.path.dirname(AQUI)
 S=json.load(open(os.path.join(AQUI,'semana.json')))
 DET=json.load(open(os.path.join(AQUI,'details.json')))
 SER=json.load(open(os.path.join(AQUI,'series.json')))
+# links/códigos que chegaram antes da semana ser publicada: {"AAAA-MM-DD": {"Evento": {"inscricao": …, "companion": …}}}
+PEND=json.load(open(os.path.join(AQUI,'pendentes.json'))) if os.path.exists(os.path.join(AQUI,'pendentes.json')) else {}
+for _d in S['dias']:
+    for _e in _d['eventos']:
+        for _k,_v in PEND.get(_d['iso'],{}).get(_e['evento'],{}).items(): _e.setdefault(_k,_v)
 def serie_de(e):
     for s in SER:
         if s['jogo']==e['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo']): return s
