@@ -97,6 +97,10 @@ def calendario(d,e,s):
             f'<a href="/ics/{nome}" download>Apple / Outlook</a></span>')
 
 ld=[]; rows=""; usados=[]; sem_modelo=[]
+def loja(e):
+    u=MARCAS.get(e['nome_jogo'])
+    return f'<a class="lj" href="{u}" target="_blank" rel="noopener">🛒 Produtos de {html.escape(JOGOS.get(e["jogo"],e["nome_jogo"]))} na loja ↗</a>' if u else ''
+
 def item(d,e,quando=None):
     """Um evento (li) + o seu JSON-LD. quando = rótulo da data (eventos futuros)."""
     g=e['jogo']; usados.append(g); txt=modelo(e); s=serie_de(e); art=e.get('arte'); preco=float(e['preco'])
@@ -108,7 +112,7 @@ def item(d,e,quando=None):
       "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
       "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
                 "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
-    b1,p1=det(txt,s,calendario(d,e,s)); b2,p2=inscricao(e)
+    b1,p1=det(txt,s,calendario(d,e,s)+loja(e)); b2,p2=inscricao(e)
     p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
     sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
     th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
