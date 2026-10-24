@@ -17,7 +17,6 @@ CENTRAL={
  "sozinho":("Posso aparecer sozinho?","Claro! Muitas pessoas vieram ao seu primeiro evento sem conhecer ninguém. A nossa comunidade está habituada a receber novos jogadores e teremos todo o gosto em ajudar-te a dar os primeiros passos. O mais difícil costuma ser entrar pela porta. Depois disso, o hobby faz o resto."),
  "iniciante":("Posso participar mesmo sendo iniciante?","Claro. Os encontros semanais são pensados precisamente para jogar, aprender e divertir-se. Se for a tua primeira experiência, não hesites em pedir ajuda: a comunidade costuma ser bastante acolhedora."),
  "competitivos":("Os eventos são muito competitivos?","Existem eventos para diferentes tipos de jogadores: alguns mais competitivos, outros pensados para experimentar estratégias num ambiente descontraído. Para nós, cada evento é mais do que uma competição."),
- "ingles":("Posso jogar com cartas em inglês?","Na maioria dos torneios oficiais em Portugal, as cartas em inglês são permitidas. Alguns eventos podem ter regras específicas de idioma; se tiveres dúvidas, pergunta-nos antes do evento."),
  "sleeves_ilustradas":("Posso usar Sleeves ilustradas?","Sim. Desde que todas as sleeves do deck sejam iguais, estejam em bom estado e cumpram as regras do jogo. Muitos jogadores protegem-nas com Outer Sleeves para reduzir o desgaste."),
  "sleeves_ygo":("Que Sleeves preciso para Yu-Gi-Oh!?","As cartas de Yu-Gi-Oh! são mais pequenas do que as da maioria dos jogos, por isso precisas de sleeves Japanese Size. Se tiveres dúvidas, teremos todo o gosto em ajudar-te a escolher."),
 }
@@ -90,13 +89,15 @@ def gerar(tpl, SER, DET, S):
             custo=f"A {s['titulo']} é gratuita!"+(" "+re.sub(r"\s+"," ",re.search(r"Prémios:\s*\n(.+)",txt).group(1)).strip() if txt and re.search(r"Prémios:\s*\n(.+)",txt) else "")
         else:
             custo=f"A inscrição custa {pr}."+(" Além dos prémios, todos os participantes levam para casa: "+"; ".join(part)+"." if part else "")
-        perg=[(f"Quando e onde é?", f"{PL[s['dia']]} às {s['hora']}, aqui na Weatherlight, em Évora ({MORADA}). Em semanas de feriados ou férias o horário pode mudar: confirma sempre no Calendário Weatherlight."),
-              ("Quanto custa e o que recebo?", custo)]
-        if fmt: perg.append(("Que formato se joga?", fmt+". Se algum termo for novo para ti, o Glossário explica tudo."))
-        perg+=[CENTRAL[k] for k in s.get('faq',[])]
-        perg+=[(q['pergunta'],q['resposta']) for q in s.get('perguntas',[])]
-        perg.append(("Como sei quando há eventos?","Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum."))
-        faq={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in perg]}
+        quando_html=(f"{PL[s['dia']]} às {s['hora']}, aqui na <a href=\"{MAPS}\">Weatherlight</a>, em Évora. "
+                     "Em semanas de feriados ou férias o horário pode mudar: confirma sempre no <a href=\"/\">Calendário Weatherlight</a>.")
+        perg=[("Quando e onde é?", re.sub(r"<[^>]+>","",quando_html), quando_html)]
+        if fmt: perg.append(("Que formato se joga?", fmt+". Se algum termo for novo para ti, o Glossário explica tudo.", html.escape(fmt)+f". Se algum termo for novo para ti, o <a href=\"{GL}\">Glossário</a> explica tudo."))
+        perg+=[(q,a,html.escape(a)) for q,a in (CENTRAL[k] for k in s.get('faq',[]) if k in CENTRAL)]
+        perg+=[(q['pergunta'],q['resposta'],html.escape(q['resposta'])) for q in s.get('perguntas',[])]
+        perg.append(("Como sei quando há eventos?","Anunciamos todos os eventos no nosso Instagram e no Calendário Weatherlight, atualizado todas as semanas. Segue-nos para não perderes nenhum.",
+                     'Anunciamos todos os eventos no nosso <a href="https://www.instagram.com/weatherlightgames/">Instagram</a> e no <a href="/">Calendário Weatherlight</a>, atualizado todas as semanas. Segue-nos para não perderes nenhum.'))
+        faq={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a,_ in perg]}
         pd=proximas(s,S)
         prox='<ul class="dates">'+''.join(f'<li><span>{l}</span><span>{h} · {preco_txt(p)}{" · Esgotado" if esg else ""}{"" if conf else " · previsto"}</span></li>' for l,h,p,esg,conf in pd)+'</ul>'
         prox+='<p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p>'
@@ -125,7 +126,8 @@ def gerar(tpl, SER, DET, S):
 <script type="application/ld+json">{json.dumps(ld,ensure_ascii=False)}</script>
 <script type="application/ld+json">{json.dumps(faq,ensure_ascii=False)}</script>
 {style}
-<style>*,*::before,*::after{{box-sizing:border-box}}body{{margin:0}}img{{max-width:100%}}
+<style>:root{{--ans:#375762}}@media (prefers-color-scheme:dark){{:root:not([data-theme="light"]){{--ans:#9fc9d3}}}}:root[data-theme="dark"]{{--ans:#9fc9d3}}
+*,*::before,*::after{{box-sizing:border-box}}body{{margin:0}}img{{max-width:100%}}
 .crumbs{{font-size:.85rem;color:var(--hd-soft)}}.crumbs a{{color:var(--hd-ink)}}
 .facts{{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.6rem;margin:0;padding:0;list-style:none}}
 .facts li{{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.7rem .9rem;display:grid;gap:.1rem;min-width:0}}
@@ -134,10 +136,10 @@ def gerar(tpl, SER, DET, S):
 .intro img{{width:180px;border-radius:8px;aspect-ratio:3/4;object-fit:cover}}
 .box{{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.1rem 1.25rem;min-width:0}}
 .box h2,.sec h2{{font:500 1.15rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.04em;margin:0 0 .6rem}}
-.pre{{white-space:pre-line;margin:0}}.small{{font-size:.88rem;color:var(--muted);margin-top:.7rem}}.m{{margin:0}}.nota{{margin:0;color:var(--muted)}}
+.pre{{white-space:pre-line;margin:0}}.m{{margin:0}}.small{{font-size:.88rem;color:var(--muted);margin-top:1.1rem}}.nota{{margin:0;color:var(--muted)}}
 .dates{{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}}
 .dates li{{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}}.dates li:first-child{{border-top:0;padding-top:0}}
-.faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0}}
+.faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0;color:var(--ans)}}.faq dd a{{color:inherit}}
 .rel{{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}}
 .rel{{align-items:start}}.card{{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}}.card em{{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}}.ot summary{{display:grid;gap:.15rem;cursor:pointer;list-style:none}}.ot summary::-webkit-details-marker{{display:none}}.ot[open]{{grid-column:1/-1}}.ot[open] em{{display:none}}.ot .pre{{margin-top:.7rem;font-size:.97rem}}
 .card:hover{{border-color:var(--sea-2)}}.card strong{{font-weight:500}}.card span{{font-size:.9rem;color:var(--muted)}}
@@ -164,7 +166,7 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
     {f'<p class="nota">{html.escape(s["nota"])}</p>' if s.get('nota') else ''}
     <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes no nosso Discord.")}</p></div>{img}</section>
     <section class="box"><h2>Próximas datas</h2>{prox}</section>
-    <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{html.escape(a)}</dd>' for q,a in perg)}</dl>
+    <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{ah}</dd>' for q,a,ah in perg)}</dl>
       <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="{CA}">Central de Ajuda</a>. Vê também o <a href="{GL}">Glossário</a>, ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>.</p></section>
     <section class="sec"><h2>Outros eventos de {html.escape(s["nome_jogo"])}</h2><div class="rel">{rel}</div></section>
   </div>
