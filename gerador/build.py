@@ -52,7 +52,7 @@ def inscricao(e):
     if u and not e.get('esgotado'):
         pl=plataforma(u)
         h+=(f'<a class="insc" href="{html.escape(u)}" target="_blank" rel="noopener"'
-            f'{f" title=\"Inscrição na {pl}\"" if pl else ""}>Inscrever{f" · {pl}" if pl else ""}<span aria-hidden="true">↗</span></a>')
+            f'{f" title=\"Inscreve-te na {pl}\"" if pl else ""}>Inscreve-te{f" · {pl}" if pl else ""}<span aria-hidden="true">↗</span></a>')
     pn=""
     c=e.get('companion')
     if c and not e.get('esgotado'):
