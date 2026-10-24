@@ -1,0 +1,52 @@
+# Weatherlight Games & Collectibles — eventos em Évora
+
+> Weatherlight é uma loja de jogos (Local Game Store) em Évora, Portugal, com Trading Card Games, TTRPGs, Model Kits e colecionáveis. Organiza eventos semanais e especiais de Magic: The Gathering, Pokémon TCG, One Piece Card Game, Yu-Gi-Oh!, Riftbound, Digimon, Gundam Card Game, Gundam Assemble e Cyberpunk TCG.
+
+## Loja
+- Morada: Rua Frei José Maria Évora, Nº2, 7005-495 Évora, Portugal
+- Telefone: +351 266 735 119
+- Email: weatherlightgames@gmail.com
+- Loja online: https://www.weatherlightgames.pt/
+- Mapa: https://maps.app.goo.gl/GnKdFUwrm1J6o46P9
+- Instagram: https://www.instagram.com/weatherlightgames/
+- Discord (comunidade): https://discord.gg/HTCZeJZuVk
+
+## Calendário
+- [Calendário da semana](https://eventos.weatherlightgames.pt/): Semana de 21 a 25 de outubro, atualizado todas as semanas.
+- [Calendário para subscrever (.ics)](https://eventos.weatherlightgames.pt/calendario.ics)
+- [Primeira vez num evento](https://eventos.weatherlightgames.pt/primeira-vez/): check-in, aplicações por jogo, o que levar.
+
+## Eventos regulares (todas as semanas; em feriados e férias confirmar no calendário)
+- [Commander Afternoon — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/commander-afternoon/): todas as quartas às 16:00, Gratuito
+- [Modern (Store Credit) — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/modern/): todas as quartas às 20:00, 6,00 €
+- [Duelist Lounge — Yu-Gi-Oh!](https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/): todas as quartas às 20:00, 5,00 €
+- [Pirate Party — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/pirate-party/): todas as quartas às 20:30, 5,50 €
+- [Nexus Night — Riftbound: League of Legends TCG](https://eventos.weatherlightgames.pt/riftbound/nexus-night/): todas as sextas às 20:00, 6,50 €
+- [Tamer Party — Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/tamer-party/): todas as sextas às 20:00, 5,50 €
+- [Pilot Lounge — Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/pilot-lounge/): todas as sextas às 21:00, 5,50 €
+- [Night City Brawl — Cyberpunk TCG](https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/): todos os sábados às 15:00, 6,50 €
+- [Pilot Party — Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/pilot-party/): todos os sábados às 18:00, 5,50 €
+- [Weekly League — Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/weekly-league/): todos os domingos às 15:00, 6,50 €
+- [Nexus Afternoon — Riftbound: League of Legends TCG](https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/): todos os domingos às 15:00, 6,50 €
+
+## Próximos eventos especiais
+- [GD06 Stardust Trails Release Event — Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/gd06-stardust-trails-release-event/): sexta-feira, 30 de outubro às 21:00, 32,00 €
+- [Demo Event #2 - Learn to Play — Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/demo-event-2-learn-to-play/): sábado, 31 de outubro às 15:00, Gratuito
+- [Prerelease Welcome to Night City — Cyberpunk TCG](https://eventos.weatherlightgames.pt/cyberpunk/prerelease-welcome-to-night-city/): sábado, 31 de outubro às 15:00, 32,00 €
+- [Pokéween — Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/pokeween/): domingo, 1 de novembro às 15:00, 6,50 €
+- [Prerelease Star Trek — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/): sexta-feira, 6 de novembro às 19:00, 39,00 €
+
+## Como participar
+- Inscrição na aplicação oficial de cada jogo (conta obrigatória): Bandai TCG+ (One Piece, Digimon, Gundam Card Game), Melee (Cyberpunk TCG), Riftbound Gaming Network (Riftbound), Neuron com KONAMI ID (Yu-Gi-Oh!), Magic: The Gathering Companion com conta Wizards (Magic), Player ID da Pokémon (Pokémon TCG).
+- O pagamento da inscrição é feito no check-in, no balcão da loja.
+
+## Páginas por jogo
+- [Eventos de Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/)
+- [Eventos de Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/)
+- [Eventos de One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/)
+- [Eventos de Yu-Gi-Oh!](https://eventos.weatherlightgames.pt/yu-gi-oh/)
+- [Eventos de Riftbound](https://eventos.weatherlightgames.pt/riftbound/)
+- [Eventos de Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/)
+- [Eventos de Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/)
+- [Eventos de Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/)
+- [Eventos de Cyberpunk TCG](https://eventos.weatherlightgames.pt/cyberpunk/)

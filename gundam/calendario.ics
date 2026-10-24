@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Weatherlight · Gundam Card Game
+X-WR-TIMEZONE:Europe/Lisbon
+X-WR-CALDESC:Eventos da Weatherlight em Évora
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2026-10-23-gundam-pilot-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261024T185624Z
+DTSTART:20261023T200000Z
+DTEND:20261023T230000Z
+SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-24-gundam-pilot-party@eventos.weatherlightgames.pt
+DTSTAMP:20261024T185624Z
+DTSTART:20261024T170000Z
+DTEND:20261024T200000Z
+SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/7835425\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-party/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/gundam/pilot-party/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-30-gundam-gd06-stardust-trails-release-event@eventos.weatherlightgames.pt
+DTSTAMP:20261024T185624Z
+DTSTART:20261030T210000Z
+DTEND:20261031T000000Z
+SUMMARY:GD06 Stardust Trails Release Event · Gundam Card Game (Weatherlight)
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/6673311\nDetalhes: https://eventos.weatherlightgames.pt/gundam/gd06-stardust-trails-release-event/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/gundam/gd06-stardust-trails-release-event/
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Weatherlight · Gundam Assemble
+X-WR-TIMEZONE:Europe/Lisbon
+X-WR-CALDESC:Eventos da Weatherlight em Évora
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2026-10-25-assemble-demo-event-1-learn-to-play@eventos.weatherlightgames.pt
+DTSTAMP:20261024T185624Z
+DTSTART:20261025T150000Z
+DTEND:20261025T180000Z
+SUMMARY:Demo Event #1 - Learn to Play · Gundam Assemble (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-10-31-assemble-demo-event-2-learn-to-play@eventos.weatherlightgames.pt
+DTSTAMP:20261024T185624Z
+DTSTART:20261031T150000Z
+DTEND:20261031T180000Z
+SUMMARY:Demo Event #2 - Learn to Play · Gundam Assemble (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/gundam-assemble/demo-event-2-learn-to-play/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/gundam-assemble/demo-event-2-learn-to-play/
+END:VEVENT
+END:VCALENDAR

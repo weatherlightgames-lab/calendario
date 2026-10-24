@@ -74,7 +74,8 @@ from datetime import datetime, timedelta, timezone
 import urllib.parse, shutil
 ICS=os.path.join(RAIZ,'ics'); shutil.rmtree(ICS,ignore_errors=True); os.makedirs(ICS)
 MORADA="Weatherlight Games & Collectibles, Rua Frei José Maria Évora, Nº2, 7005-495 Évora"
-def calendario(d,e,s):
+FEED={}  # nome do ficheiro -> (jogo, VEVENT) para os calendários para subscrever
+def calendario(d,e,s,url=None):
     h,m=map(int,e['hora'].split(':')); sg=-1 if d['fuso'].startswith('-') else 1
     off=timedelta(hours=int(d['fuso'][1:3]),minutes=int(d['fuso'][4:6]))*sg
     ini=datetime(*map(int,d['iso'].split('-')),h,m,tzinfo=timezone(off)).astimezone(timezone.utc); fim=ini+timedelta(hours=3)
@@ -83,7 +84,8 @@ def calendario(d,e,s):
     desc=[]
     if e.get('inscricao'): desc.append("Inscrição: "+e['inscricao'])
     if e.get('companion'): desc.append("Código Companion: "+e['companion'])
-    desc.append("Detalhes: "+BASE+(s['slug']+'/' if s else ''))
+    url=url or BASE+(s['slug']+'/' if s else '')
+    desc.append("Detalhes: "+url)
     g=('https://calendar.google.com/calendar/render?action=TEMPLATE&'+urllib.parse.urlencode(
         {'text':tit,'dates':f(ini)+'/'+f(fim),'details':"\n".join(desc),'location':MORADA},quote_via=urllib.parse.quote))
     nome=re.sub(r'[^a-z0-9]+','-',(d['iso']+'-'+e['jogo']+'-'+e['evento']).lower()).strip('-')+'.ics'
@@ -91,19 +93,27 @@ def calendario(d,e,s):
     ics="\r\n".join(["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Weatherlight//Calendario//PT","CALSCALE:GREGORIAN","METHOD:PUBLISH",
         "BEGIN:VEVENT",f"UID:{nome[:-4]}@eventos.weatherlightgames.pt",f"DTSTAMP:{f(datetime.now(timezone.utc))}",
         f"DTSTART:{f(ini)}",f"DTEND:{f(fim)}",f"SUMMARY:{esc(tit)}",f"DESCRIPTION:{esc(chr(10).join(desc))}",
-        f"LOCATION:{esc(MORADA)}",f"URL:{BASE+(s['slug']+'/' if s else '')}","END:VEVENT","END:VCALENDAR",""])
+        f"LOCATION:{esc(MORADA)}",f"URL:{url}","END:VEVENT","END:VCALENDAR",""])
+    FEED[nome]=(e['jogo'],ics.split("BEGIN:VEVENT")[1].split("END:VEVENT")[0])
     open(os.path.join(ICS,nome),'w',newline='').write(ics)
     return (f'<span class="cal">📅 Adicionar ao calendário: <a href="{html.escape(g)}">Google</a> · '
             f'<a href="/ics/{nome}" download>Apple / Outlook</a></span>')
 
+FUT_P=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FUT_P)) if os.path.exists(FUT_P) else []
+import series
 ld=[]; rows=""; usados=[]; sem_modelo=[]
 def loja(e):
     u=MARCAS.get(e['nome_jogo'])
     return f'<a class="lj" href="{u}" target="_blank" rel="noopener">🛒 Produtos de {html.escape(JOGOS.get(e["jogo"],e["nome_jogo"]))} na loja ↗</a>' if u else ''
 
+def especial_de(d,e):
+    for f in FUT:
+        if f['iso']==d['iso'] and f['jogo']==e['jogo'] and f['hora']==e['hora']: return f
 def item(d,e,quando=None):
     """Um evento (li) + o seu JSON-LD. quando = rótulo da data (eventos futuros)."""
     g=e['jogo']; usados.append(g); txt=modelo(e); s=serie_de(e); art=e.get('arte'); preco=float(e['preco'])
+    fe=None if s else especial_de(d,e)
+    if fe: s={'slug':PASTA.get(fe['jogo'],fe['jogo'])+'/'+series.esp_slug(fe)}
     if not txt: sem_modelo.append(f"{d['dia']} {e['hora']} {e['evento']}")
     ld.append({"@context":"https://schema.org","@type":"Event","name":f"{e['nome_jogo']} - {e['evento']}",
       "startDate":f"{d['iso']}T{e['hora']}:00{d['fuso']}","eventStatus":"https://schema.org/EventScheduled",
@@ -128,7 +138,6 @@ for d in S['dias']:
 # Aparecem enquanto a data é posterior à semana publicada e ainda não passou; depois entram em semana.json.
 from zoneinfo import ZoneInfo
 from datetime import date
-FUT_P=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FUT_P)) if os.path.exists(FUT_P) else []
 ULT=max(d['iso'] for d in S['dias']); HOJE=date.today().isoformat()
 DS=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"]
 fit=""
@@ -165,5 +174,14 @@ site=('<!doctype html>\n<html lang="pt">\n<head>\n<meta charset="utf-8">\n'
       '</head>\n<body>\n'+out[j:]+'\n</body>\n</html>\n')
 open(os.path.join(RAIZ,'index.html'),'w').write(site)
 import series
-print(f"{len(ld)} eventos gerados; {series.gerar(t,SER,DET,S)} páginas de eventos regulares.")
+for f in FUT:   # calendário individual de cada evento especial (para a sua página)
+    if f['iso']>=HOJE:
+        y,mo,da=map(int,f['iso'].split('-')); h,mi=map(int,f['hora'].split(':'))
+        fz=datetime(y,mo,da,h,mi,tzinfo=ZoneInfo('Europe/Lisbon')).strftime('%z'); fz=fz[:3]+':'+fz[3:]
+        f['_d']={'iso':f['iso'],'fuso':fz,'dia':''}
+        f['_cal']=calendario(f['_d'],f,None,f"{BASE}{PASTA.get(f['jogo'],f['jogo'])}/{series.esp_slug(f)}/")
+n_reg=series.gerar(t,SER,DET,S)
+import extras
+n_esp=extras.gerar(t,SER,DET,S,FUT,FEED,ld,inscricao)
+print(f"{len(ld)} eventos gerados; {n_reg} páginas de eventos regulares; {n_esp} páginas de eventos especiais.")
 if sem_modelo: print("Sem modelo na base de dados:", "; ".join(sem_modelo))

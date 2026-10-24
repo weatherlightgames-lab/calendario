@@ -39,6 +39,17 @@ APPS={
 PAGA=" O pagamento da inscrição é feito no check-in, no nosso balcão, com um de nós."
 GRATIS=" Este evento é gratuito: não há nada a pagar, basta fazeres o check-in no nosso balcão."
 
+import unicodedata
+def esp_slug(f):
+    """Endereço da página de um evento especial: nome do evento sem acentos nem símbolos."""
+    t=unicodedata.normalize('NFKD',f['evento']).encode('ascii','ignore').decode().lower()
+    return re.sub(r'[^a-z0-9]+','-',t).strip('-')
+
+# Registo para o extras.py: imagens de partilha (Open Graph) e endereços do sitemap
+OG=[]      # (ficheiro html, url, kicker, título, sub, [artes])
+URLS=[]
+SHELL={}
+
 def proximas(s,S,n=4):
     """Próximas n datas: as desta semana vêm do calendário; as seguintes são previstas pelo horário fixo."""
     import datetime as dt
@@ -220,7 +231,10 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
         pasta=os.path.join(RAIZ,s['slug']); os.makedirs(pasta,exist_ok=True)
         open(os.path.join(pasta,'index.html'),'w').write(page)
         urls.append(f"{BASE}/{s['slug']}/")
+        OG.append((os.path.join(pasta,'index.html'),f"{BASE}/{s['slug']}/",s['nome_jogo'],s['titulo'],quando+' · '+pr,[s['arte']] if s.get('arte') else []))
+    SHELL.update(style=style,fonts=fonts,css2=re.findall(r'<style>.*?</style>',page,re.S)[-1])
     urls+=gerar_jogos(SER,DET,S,style,fonts,re.findall(r'<style>.*?</style>',page,re.S)[-1])
+    URLS[:]=urls
     open(os.path.join(RAIZ,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+
         ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls)+'</urlset>\n')
     open(os.path.join(RAIZ,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n')
@@ -261,7 +275,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
         for f in sorted(FUT,key=lambda x:(x['iso'],x['hora'])):
             if f['jogo']!=g or f['iso']<=ult or f['iso']<hoje: continue
             x=dt.date.fromisoformat(f['iso'])
-            esp+=cartao(f.get('arte'),f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]} · {f['hora']}",f['evento'],preco_txt(float(f['preco'])),'/','Detalhes e inscrição →')
+            esp+=cartao(f.get('arte'),f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]} · {f['hora']}",f['evento'],preco_txt(float(f['preco'])),f'/{pasta}/{esp_slug(f)}/','Ver página →')
         cobertos={re.sub(r"\s*\(.*\)$","",n) for o in regs for n in o['eventos']+[o['modelo']]}
         outros=''
         for k in BASE_DB.get(g,[]):
@@ -292,6 +306,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
 .ec{{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}}.ec img,.ec .ph{{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}}
 .ec div{{display:grid;gap:.15rem;min-width:0}}.ec small{{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}}
 .hd-cta{{display:inline-block;justify-self:start;width:max-content;max-width:100%;margin-top:.9rem;font-size:.95rem;color:var(--hd-ink);border:1px solid currentColor;border-radius:999px;padding:.3rem .9rem;text-decoration:none}}.hd-cta:hover{{background:rgba(255,255,255,.35)}}
+.subcal{{margin:.8rem 0 0;font-size:.92rem;color:var(--hd-soft)}}.subcal a{{color:var(--hd-ink)}}
 </style>
 </head>
 <body>
@@ -301,6 +316,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
     <h1>Eventos de {html.escape(nome)}</h1>
     <p class="sub">Não percas estes eventos na Weatherlight em Évora</p>
     {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}
+    <p class="subcal">📅 Subscreve os eventos de {html.escape(nome)}: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2F{pasta}%2Fcalendario.ics">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/{pasta}/calendario.ics">Apple / Outlook</a></p>
   </div>
 </header>
 <main>
@@ -311,11 +327,14 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
     {sec(f"Outros eventos de {html.escape(nome)}",outros,'<p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p>')}
   </div>
 </main>
-<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="{CA}">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>!</p></div></footer>
+<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="/primeira-vez/">página para quem vem pela primeira vez</a>, a <a href="{CA}">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>!</p></div></footer>
 </body>
 </html>
 """
         page=re.sub(r'<a (class="[^"]*" )?href="(https?://[^"]+)"(?![^>]*target=)',r'<a \1href="\2" target="_blank" rel="noopener"',page)
         os.makedirs(os.path.join(RAIZ,pasta),exist_ok=True)
         open(os.path.join(RAIZ,pasta,'index.html'),'w').write(page); urls.append(f"{BASE}/{pasta}/")
+        artes=[x.get('arte') for x in regs]+[e.get('arte') for d in S['dias'] for e in d['eventos'] if e['jogo']==g]+[f.get('arte') for f in FUT if f['jogo']==g]
+        artes=[x for i,x in enumerate(artes) if x and x not in artes[:i]][:3]
+        OG.append((os.path.join(RAIZ,pasta,'index.html'),f"{BASE}/{pasta}/","Eventos em Évora",nome,"Não percas estes eventos na Weatherlight",artes))
     return urls

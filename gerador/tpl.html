@@ -59,6 +59,9 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .regs{margin-top:.5rem}.regs h2{font:500 1.05rem/1.1 var(--display);color:var(--muted);text-transform:uppercase;letter-spacing:.03em;margin:0 0 .3rem}
 .regs-sub{margin:0 0 .7rem;color:var(--muted);font-size:.88rem}
 .rgs{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.45rem;align-items:start}
+.subs{margin-top:2.2rem}.subs h2{font:500 1.05rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.06em;margin:0 0 .4rem;color:var(--muted)}.subs p{margin:.3rem 0}
+.subs-l{display:flex;flex-wrap:wrap;gap:.5rem}.subs-l a{font-size:.92rem;color:var(--sea-2);background:#e3ecee;border:1px solid #bfd1d5;border-radius:999px;padding:.3rem .9rem;text-decoration:none}.subs-l a:hover{background:#d6e3e6}
+:root[data-theme="dark"] .subs-l a{background:#1b3239;border-color:#3a5862;color:#cfe3e8}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .subs-l a{background:#1b3239;border-color:#3a5862;color:#cfe3e8}}
 .rg .todos{display:inline-block;margin-top:.35rem;font-size:.82rem;color:var(--sea-2)}
 .rg{background:transparent;border:1px solid var(--line);border-radius:6px;padding:.5rem .7rem;font-size:.88rem}.rg .chip{font-size:.66rem}
 .rg ul{list-style:none;margin:.25rem 0 0;padding:0;display:grid;gap:.15rem}
@@ -155,13 +158,18 @@ footer a{color:var(--ink)}
     </aside>
 
     <nav class="help" aria-label="Ajuda para novos jogadores">
-      <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight"><strong>Primeira vez num evento?</strong><span>Respostas às dúvidas mais comuns na Central de Ajuda</span></a>
+      <a href="/primeira-vez/"><strong>Primeira vez num evento?</strong><span>Check-in, aplicações, o que levar e as dúvidas mais comuns</span></a>
       <a href="https://www.weatherlightgames.pt/page/glossario"><strong>Não conheces algum termo?</strong><span>Suíço, Sealed, Top X, Prize Pack… está tudo no Glossário</span></a>
+      <a href="#subscrever"><strong>Subscreve o calendário</strong><span>Os eventos novos aparecem sozinhos no teu telemóvel</span></a>
     </nav>
 
     %%DAYS%%
     <p class="empty" id="empty" hidden>Não há eventos deste jogo esta semana.</p>
     %%REGULARES%%
+    <section class="subs" id="subscrever"><h2>Subscreve o calendário</h2>
+      <p>Junta os eventos da Weatherlight ao calendário do teu telemóvel: os eventos novos aparecem sozinhos, todas as semanas.</p>
+      <p class="subs-l"><a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2Fcalendario.ics">📅 Google Calendar</a><a href="webcal://eventos.weatherlightgames.pt/calendario.ics">📅 Apple / Outlook</a></p>
+      <p class="regs-sub">Só queres os eventos de um jogo? Cada página de jogo tem o seu calendário.</p></section>
   </div>
 </main>
 
