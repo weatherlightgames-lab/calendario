@@ -670,6 +670,12 @@ footer a{color:var(--ink)}
 :root[data-theme="dark"] .insc{background:#1b3239;border-color:#3a5862;color:#cfe3e8}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .insc{background:#1b3239;border-color:#3a5862;color:#cfe3e8}}
 .pns .cmp{white-space:normal}
+.cl{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem;margin-bottom:.45rem}.cl .code{margin:0}
+.cp{font:400 .85rem var(--body);color:var(--sea-2);background:#e3ecee;border:1px solid #bfd1d5;border-radius:999px;padding:.2rem .8rem;cursor:pointer}
+.cp:hover{background:#d6e3e6}.cp.ok{color:#fff;background:var(--sea-2);border-color:var(--sea-2)}
+.cp:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+:root[data-theme="dark"] .cp{background:#1b3239;border-color:#3a5862;color:#cfe3e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cp{background:#1b3239;border-color:#3a5862;color:#cfe3e8}}
 .cmp .code{display:block;font:500 1.35rem var(--body);letter-spacing:.08em;margin-bottom:.4rem;user-select:all}
 .ev:has(.acts details[open]) .thumb{align-self:start;height:auto;aspect-ratio:3/4}
 @media (max-width:480px){.acts{grid-column:2 / -1;grid-row:3}.pns{grid-column:2 / -1;grid-row:4}.thumb{grid-row:1 / span 4}}
@@ -984,6 +990,12 @@ Junta-te à comunidade deste fantástico jogo! 🤩<span class="more">Algum term
     document.getElementById('empty').hidden=any;
   }
   btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.g)})});
+  // copiar código Companion
+  document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){
+    var c=b.dataset.code,done=function(){b.textContent='Copiado ✓';b.classList.add('ok');setTimeout(function(){b.textContent='Copiar';b.classList.remove('ok')},2000)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(c).then(done,fb)}else fb();
+    function fb(){var r=document.createRange();r.selectNodeContents(b.previousElementSibling);var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done()}catch(e){}}
+  })});
 
 })();
 </script>

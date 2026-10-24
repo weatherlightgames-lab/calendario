@@ -57,8 +57,8 @@ def inscricao(e):
     c=e.get('companion')
     if c and not e.get('esgotado'):
         h+='<details class="det d2"><summary>Código Companion</summary></details>'
-        pn=('<div class="txt p2 cmp">'f'<span class="code">{html.escape(c)}</span>'
-            'Na app <strong>Magic: The Gathering Companion</strong>, toca em <em>Enter Event Code</em> e introduz este código.</div>')
+        pn=('<div class="txt p2 cmp">'f'<span class="cl"><span class="code">{html.escape(c)}</span><button type="button" class="cp" data-code="{html.escape(c)}">Copiar</button></span>'
+            'Na app <strong>Magic: The Gathering Companion</strong>, toca em <em>Enter Event Code</em> e cola o código.</div>')
     return h,pn
 
 ld=[]; rows=""; usados=[]; sem_modelo=[]
