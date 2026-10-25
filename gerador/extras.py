@@ -312,7 +312,8 @@ def og_tags(fn_html, url, kicker, titulo, sub, artes):
     p = re.sub(r'\n?<meta (property="og:[^"]+"|name="twitter:[^"]+")[^>]*>', '', p)
     t = html.unescape(re.search(r'<title>(.*?)</title>', p, re.S).group(1))
     dsc = re.search(r'<meta name="description" content="([^"]*)"', p); dsc = html.unescape(dsc.group(1)) if dsc else sub
-    img = f"{BASE}/og/{rel}.jpg"
+    import hashlib
+    img = f"{BASE}/og/{rel}.jpg?v=" + hashlib.md5(open(os.path.join(RAIZ, 'og', rel + '.jpg'), 'rb').read()).hexdigest()[:8]
     tags = "".join(f'\n<meta property="{k}" content="{html.escape(v)}">' for k, v in [
         ("og:type", "website"), ("og:site_name", "Calendário Weatherlight"), ("og:locale", "pt_PT"), ("og:title", t),
         ("og:description", dsc), ("og:url", url), ("og:image", img), ("og:image:width", "1200"), ("og:image:height", "630")])
@@ -332,7 +333,11 @@ def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao):
     p = re.sub(r'\n<script type="application/ld\+json" id="loja">.*?</script>', '', p, flags=re.S)
     p = p.replace('</head>', f'\n<script type="application/ld+json" id="loja">{json.dumps(LOJA, ensure_ascii=False)}</script>\n</head>', 1)
     open(fn, 'w').write(p)
-    artes = [e.get('arte') for d in S['dias'] for e in d['eventos'] if e.get('arte') and d['iso'] >= dt.date.today().isoformat()]
+    # imagem de partilha da semana: primeiro os eventos especiais (os que não são regulares), depois os restantes
+    hoje = dt.date.today().isoformat()
+    regs = {s.get('arte') for s in SER}
+    evs = [e for d in S['dias'] for e in d['eventos'] if e.get('arte') and d['iso'] >= hoje]
+    artes = [e['arte'] for e in evs if e['arte'] not in regs] + [e['arte'] for e in evs]
     artes = [a for i, a in enumerate(artes) if a not in artes[:i]][:3]
     og_tags(fn, BASE + '/', S['semana'], "Calendário Weatherlight", "Eventos semanais na tua Local Game Store em Évora", artes)
     for x in series.OG: og_tags(*x)

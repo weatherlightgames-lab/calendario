@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-10-30-gundam-gd06-stardust-trails-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261025T181235Z
+DTSTAMP:20261025T182016Z
 DTSTART:20261030T210000Z
 DTEND:20261031T000000Z
 SUMMARY:GD06 Stardust Trails Release Event · Gundam Card Game (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/gundam/gd06-stardust-trails-release-eve
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-31-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261025T181235Z
+DTSTAMP:20261025T182016Z
 DTSTART:20261031T180000Z
 DTEND:20261031T210000Z
 SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
