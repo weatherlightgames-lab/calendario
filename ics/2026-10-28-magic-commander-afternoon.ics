@@ -4,12 +4,12 @@ PRODID:-//Weatherlight//Calendario//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-10-21-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261024T191744Z
-DTSTART:20261021T150000Z
-DTEND:20261021T180000Z
+UID:2026-10-28-magic-commander-afternoon@eventos.weatherlightgames.pt
+DTSTAMP:20261025T175952Z
+DTSTART:20261028T160000Z
+DTEND:20261028T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/magic/commander-afternoon/
+DESCRIPTION:Código Companion: QMWWDW2\nDetalhes: https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT

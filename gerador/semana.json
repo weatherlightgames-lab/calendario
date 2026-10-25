@@ -1,20 +1,19 @@
 {
- "semana": "Semana de 21 a 25 de outubro",
+ "semana": "Semana de 28 de outubro a 1 de novembro",
  "introducao": [
-  "Outubro continua com eventos especiais e lançamentos que não podes perder! 👀",
-  "De Pokémon a One Piece, com Riftbound, Magic, Yu-Gi-Oh, Digimon, Gundam e Cyberpunk a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
+  "Na Weatherlight já não há semanas sem eventos especiais - e o final de Outubro também promete! 🤩",
+  "De Gundam a Cyberpunk, com Riftbound, Pokémon, One Piece, Magic, Yu-Gi-Oh e Digimon a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
  ],
  "destaques": [
-  "Sábado temos casa cheia para um evento muito especial (e esgotado!) no One Piece Card Game! 🏴‍☠️",
-  "Domingo é dia de Prerelease no Pokémon com a chegada de Delta Reign! 🐉",
-  "Gundam Assemble está a chegar e temos também o primeiro Demo Event! 🚀"
+  "Esta semana há dois lançamentos muito especiais - com GD06 Stardust Trails a chegar ao Gundam Card Game e o Prerelease do primeiro set de Cyberpunk! 🥳",
+  "Pokémon, Digimon, Yu-Gi-Oh e Magic também têm eventos especiais, vais ficar de fora? 👀"
  ],
  "dias": [
   {
    "dia": "Quarta-feira",
-   "data": "21 de outubro",
-   "iso": "2026-10-21",
-   "fuso": "+01:00",
+   "data": "28 de outubro",
+   "iso": "2026-10-28",
+   "fuso": "+00:00",
    "eventos": [
     {
      "hora": "16:00",
@@ -24,10 +23,10 @@
      "preco": 0,
      "esgotado": false,
      "arte": "commander",
-     "story": "4759834b",
+     "story": "e8f55d1c",
      "recorte": [
       0.5,
-      0.46,
+      0.5,
       1.0
      ]
     },
@@ -39,11 +38,11 @@
      "preco": 6,
      "esgotado": false,
      "arte": "modern",
-     "story": "cd7a083a",
+     "story": "cc425580",
      "recorte": [
-      0.65,
-      0.44,
-      0.86
+      0.6,
+      0.5,
+      0.95
      ],
      "modelo": "Store Credit (Modern)"
     },
@@ -55,52 +54,51 @@
      "preco": 5,
      "esgotado": false,
      "arte": "duelist",
-     "story": "4f76556a",
+     "story": "7994088b",
      "recorte": [
-      0.6,
-      0.45,
-      0.98
+      0.55,
+      0.5,
+      0.95
      ]
     },
     {
      "hora": "20:30",
      "jogo": "op",
      "nome_jogo": "One Piece Card Game",
-     "evento": "Pirate Party",
+     "evento": "Pirate Lounge",
      "preco": 5.5,
      "esgotado": false,
      "arte": "pirate",
-     "story": "2bc779b6",
+     "story": "a6440f43",
      "recorte": [
       0.6,
-      0.455,
-      0.83
+      0.48,
+      0.9
      ],
-     "modelo": "Pirate Party (Standard)"
+     "modelo": "Pirate Lounge (Standard)"
     }
    ]
   },
   {
    "dia": "Sexta-feira",
-   "data": "23 de outubro",
-   "iso": "2026-10-23",
-   "fuso": "+01:00",
+   "data": "30 de outubro",
+   "iso": "2026-10-30",
+   "fuso": "+00:00",
    "eventos": [
     {
      "hora": "20:00",
-     "jogo": "magic",
-     "nome_jogo": "Magic: The Gathering",
-     "evento": "Standard Store Championship",
-     "preco": 13,
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Evolution Cup",
+     "preco": 6,
      "esgotado": false,
-     "arte": "mtg-sc",
-     "story": "c468fd61",
+     "arte": "evo-cup",
+     "story": "d7991a29",
      "recorte": [
-      0.3,
+      0.5,
       0.45,
-      0.95
-     ],
-     "modelo": "Store Championship (Magic)"
+      0.9
+     ]
     },
     {
      "hora": "20:00",
@@ -110,82 +108,68 @@
      "preco": 6.5,
      "esgotado": false,
      "arte": "nexus-night",
-     "story": "5c360207",
+     "story": "45b9089c",
      "recorte": [
-      0.3,
-      0.44,
-      0.92
-     ]
-    },
-    {
-     "hora": "20:00",
-     "jogo": "digi",
-     "nome_jogo": "Digimon Card Game",
-     "evento": "Tamer Party",
-     "preco": 5.5,
-     "esgotado": false,
-     "arte": "tamer",
-     "story": "f4679d8d",
-     "recorte": [
-      0.68,
-      0.46,
-      0.98
+      0.55,
+      0.45,
+      0.85
      ]
     },
     {
      "hora": "21:00",
      "jogo": "gundam",
      "nome_jogo": "Gundam Card Game",
-     "evento": "Pilot Lounge",
-     "preco": 5.5,
+     "evento": "GD06 Stardust Trails Release Event",
+     "preco": 32,
      "esgotado": false,
-     "arte": "pilot-lounge",
-     "story": "f24a8e74",
-     "recorte": [
-      0.35,
-      0.48,
-      0.98
-     ]
+     "arte": "gd06",
+     "modelo": "Release Event",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/6673311"
     }
    ]
   },
   {
    "dia": "Sábado",
-   "data": "24 de outubro",
-   "iso": "2026-10-24",
-   "fuso": "+01:00",
+   "data": "31 de outubro",
+   "iso": "2026-10-31",
+   "fuso": "+00:00",
    "eventos": [
-    {
-     "hora": "15:00",
-     "jogo": "op",
-     "nome_jogo": "One Piece Card Game",
-     "evento": "Store Championship",
-     "preco": 20,
-     "esgotado": true,
-     "arte": "op-sc",
-     "story": "3fedd117",
-     "recorte": [
-      0.45,
-      0.44,
-      0.8
-     ],
-     "modelo": "Store Championship (One Piece)"
-    },
     {
      "hora": "15:00",
      "jogo": "cyber",
      "nome_jogo": "Cyberpunk TCG",
-     "evento": "Night City Brawl",
-     "preco": 6.5,
+     "evento": "Prerelease Welcome to Night City",
+     "preco": 32,
      "esgotado": false,
-     "arte": "nightcity",
-     "story": "83b29333",
+     "arte": "wtnc",
+     "modelo": "Prerelease (Cyberpunk)",
+     "inscricao": "https://melee.gg/Tournament/View/472846"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate-party",
+     "story": "2a0c44a4",
      "recorte": [
-      0.42,
-      0.45,
-      0.95
+      0.5,
+      0.47,
+      0.88
      ],
-     "inscricao": "https://melee.gg/Tournament/View/489955"
+     "modelo": "Pirate Party (Standard)"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "assemble",
+     "nome_jogo": "Gundam Assemble",
+     "evento": "Demo Event #2 - Learn to Play",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "assemble",
+     "modelo": "Demo Event"
     },
     {
      "hora": "18:00",
@@ -195,53 +179,36 @@
      "preco": 5.5,
      "esgotado": false,
      "arte": "pilot-party",
-     "story": "a0759e78",
+     "story": "48f56be1",
      "recorte": [
-      0.66,
-      0.46,
-      0.98
-     ],
-     "inscricao": "https://www.bandai-tcg-plus.com/event/7835425"
+      0.5,
+      0.45,
+      0.95
+     ]
     }
    ]
   },
   {
    "dia": "Domingo",
-   "data": "25 de outubro",
-   "iso": "2026-10-25",
+   "data": "1 de novembro",
+   "iso": "2026-11-01",
    "fuso": "+00:00",
    "eventos": [
     {
      "hora": "15:00",
-     "jogo": "poke",
-     "nome_jogo": "Pokémon TCG",
-     "evento": "Prerelease Delta Reign",
-     "preco": 32,
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "OTS Championship Beyond the Brave",
+     "preco": 9,
      "esgotado": false,
-     "arte": "delta",
-     "story": "fa825c3f",
+     "arte": "ots",
+     "story": "1bdf346d",
      "recorte": [
-      0.5,
-      0.45,
-      0.97
-     ],
-     "modelo": "Prerelease (Pokémon)"
-    },
-    {
-     "hora": "15:00",
-     "jogo": "assemble",
-     "nome_jogo": "Gundam Assemble",
-     "evento": "Demo Event #1 - Learn to Play",
-     "preco": 0,
-     "esgotado": false,
-     "arte": "assemble",
-     "story": "a3cb4183",
-     "recorte": [
-      0.45,
+      0.35,
       0.47,
-      1.0
+      0.88
      ],
-     "modelo": "Demo Event"
+     "modelo": "OTS Championship"
     },
     {
      "hora": "15:00",
@@ -251,13 +218,38 @@
      "preco": 6.5,
      "esgotado": false,
      "arte": "nexus-afternoon",
-     "story": "541d99c1",
+     "story": "9cf7872b",
      "recorte": [
-      0.7,
-      0.43,
-      0.82
+      0.5,
+      0.45,
+      0.85
+     ]
+    },
+    {
+     "hora": "15:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "Pokéween",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "pokeween",
+     "modelo": "Pokéween"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "All Leylines' Eve - Lorwyn Draft",
+     "preco": 17.5,
+     "esgotado": false,
+     "arte": "leylines",
+     "story": "bbfd5154",
+     "recorte": [
+      0.55,
+      0.45,
+      0.95
      ],
-     "inscricao": "https://playriftbound.com/en-US/events/117478317481661545"
+     "modelo": "All Leylines' Eve (Booster Draft especial)"
     }
    ]
   }
