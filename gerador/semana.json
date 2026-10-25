@@ -59,7 +59,8 @@
       0.55,
       0.5,
       0.95
-     ]
+     ],
+     "inscricao": "https://neuron.konami.net/link/dez5c3ppd7nh7fmf"
     },
     {
      "hora": "20:30",
@@ -75,7 +76,8 @@
       0.48,
       0.9
      ],
-     "modelo": "Pirate Lounge (Standard)"
+     "modelo": "Pirate Lounge (Standard)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/7691204"
     }
    ]
   },
@@ -98,7 +100,8 @@
       0.5,
       0.45,
       0.9
-     ]
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/7779863"
     },
     {
      "hora": "20:00",
@@ -113,7 +116,8 @@
       0.55,
       0.45,
       0.85
-     ]
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117501220642639208"
     },
     {
      "hora": "21:00",
@@ -159,7 +163,8 @@
       0.47,
       0.88
      ],
-     "modelo": "Pirate Party (Standard)"
+     "modelo": "Pirate Party (Standard)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8891440"
     },
     {
      "hora": "15:00",
@@ -184,7 +189,8 @@
       0.5,
       0.45,
       0.95
-     ]
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/7835430"
     }
    ]
   },
@@ -208,7 +214,8 @@
       0.47,
       0.88
      ],
-     "modelo": "OTS Championship"
+     "modelo": "OTS Championship",
+     "inscricao": "https://neuron.konami.net/link/bgytpt4rdicf6ivz"
     },
     {
      "hora": "15:00",
@@ -223,7 +230,8 @@
       0.5,
       0.45,
       0.85
-     ]
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117501218306456811"
     },
     {
      "hora": "15:00",
@@ -249,7 +257,8 @@
       0.45,
       0.95
      ],
-     "modelo": "All Leylines' Eve (Booster Draft especial)"
+     "modelo": "All Leylines' Eve (Booster Draft especial)",
+     "companion": "YEMM2M2"
     }
    ]
   }

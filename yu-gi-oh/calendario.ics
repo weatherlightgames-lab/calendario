@@ -10,21 +10,21 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-10-28-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261025T175952Z
+DTSTAMP:20261025T181235Z
 DTSTART:20261028T200000Z
 DTEND:20261028T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/dez5c3ppd7nh7fmf\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-01-ygo-ots-championship-beyond-the-brave@eventos.weatherlightgames.pt
-DTSTAMP:20261025T175952Z
+DTSTAMP:20261025T181235Z
 DTSTART:20261101T150000Z
 DTEND:20261101T180000Z
 SUMMARY:OTS Championship Beyond the Brave · Yu-Gi-Oh! (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/bgytpt4rdicf6ivz\nDetalhes: https://eventos.weatherlightgames.pt/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/
 END:VEVENT

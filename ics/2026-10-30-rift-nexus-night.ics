@@ -5,11 +5,11 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:2026-10-30-rift-nexus-night@eventos.weatherlightgames.pt
-DTSTAMP:20261025T175952Z
+DTSTAMP:20261025T181235Z
 DTSTART:20261030T200000Z
 DTEND:20261030T230000Z
 SUMMARY:Nexus Night · Riftbound: League of Legends TCG (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/riftbound/nexus-night/
+DESCRIPTION:Inscrição: https://playriftbound.com/en-US/events/117501220642639208\nDetalhes: https://eventos.weatherlightgames.pt/riftbound/nexus-night/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/riftbound/nexus-night/
 END:VEVENT
