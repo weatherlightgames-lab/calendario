@@ -74,8 +74,8 @@ def especiais(DET, FUT, inscricao):
            ".passou{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:6px;padding:.8rem 1rem;margin:0}"
            ".cal{font-size:.95rem;color:var(--muted)}.cal a{color:var(--sea-2)}.code{font:500 1.2rem var(--body);letter-spacing:.08em}")
     for f in FUT:
-        g = f['jogo']; pasta = PASTA.get(g, g); slug = esp_slug(f); url = f"{BASE}/{pasta}/{slug}/"
-        txt = DET.get(f.get('modelo')) or DET.get(f['evento']); fmt = formato(txt); pr = preco_txt(float(f['preco']))
+        g = f['jogo']; pasta = PASTA.get(g, g); slug = f.get('_slug') or (esp_slug(f) + '-' + f['iso'] if f.get('_slug_sufixo') else esp_slug(f)); url = f"{BASE}/{pasta}/{slug}/"
+        txt = f.get('texto') or DET.get(f.get('modelo')) or DET.get(f['evento']); fmt = formato(txt); pr = preco_txt(float(f['preco']))
         quando = f"{data_longa(f['iso'])} · {f['hora']}"; passou = f['iso'] < hoje
         b2, _ = inscricao(f)
         cal = f.get('_cal', '') if not passou else ''
@@ -116,7 +116,7 @@ def especiais(DET, FUT, inscricao):
 </header>
 <main>
   <div class="wrap">
-    {f'<p class="passou">Este evento já aconteceu. Vê os <a href="/{pasta}/">próximos eventos de {html.escape(f["nome_jogo"])}</a>.</p>' if passou else ''}
+    {f'<p class="passou">Este evento já aconteceu.'+(f' O próximo {html.escape(f["_prox"]["tipo"])} é {("no " if data_longa(f["_prox"]["iso"]).startswith(("Sábado","Domingo")) else "na ")+data_longa(f["_prox"]["iso"]).lower()}: <a href="{f["_prox"]["url"]}">{html.escape(f["_prox"]["evento"])}</a>.' if f.get('_prox') else f' Vê os <a href="/{pasta}/">próximos eventos de {html.escape(f["nome_jogo"])}</a>.')+(f' <a href="{f["_recap"]}">Vê as fotos dessa semana no Instagram ↗</a>' if f.get('_recap') else '')+' · <a href="/arquivo/">Arquivo de eventos</a></p>' if passou else ''}
     <ul class="facts">
       <li><small>Quando</small><strong>{quando}</strong></li>
       <li><small>Preço</small><strong>{pr}</strong></li>
@@ -323,9 +323,142 @@ def og_tags(fn_html, url, kicker, titulo, sub, artes):
 
 
 # ---------------- tudo ----------------
-def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao):
+def recolher(DET, FUT, serie_de, modelo):
+    """Eventos especiais de todas as semanas do histórico + futuros.json (sem repetidos)."""
+    import glob
+    hist = os.path.join(AQUI, 'historico'); semanas = []
+    for fn in sorted(glob.glob(os.path.join(hist, '*.json'))):
+        H = json.load(open(fn)); semanas.append(H)
+    chave = lambda e: (e['iso'], e['jogo'], e['hora'])
+    todos = {chave(f): f for f in FUT}
+    for H in semanas:
+        for d in H['dias']:
+            for e in d['eventos']:
+                if serie_de(e): continue
+                x = dict(e, iso=d['iso'])
+                k = chave(x)
+                if k in todos:
+                    todos[k].setdefault('texto', x.get('texto'))
+                    continue
+                x.setdefault('texto', modelo(e)); x['_slug'] = esp_slug(x) + '-' + d['iso']
+                todos[k] = x
+    return semanas, sorted(todos.values(), key=lambda e: (e['iso'], e['hora']))
+
+
+def tipo(e):
+    if e.get('tipo'): return e['tipo']
+    m = e.get('modelo') or e['evento']
+    return re.sub(r"\s*\(.*\)$", "", m)
+
+
+def url_esp(e): return f"/{PASTA.get(e['jogo'], e['jogo'])}/{e.get('_slug') or (esp_slug(e) + '-' + e['iso'] if e.get('_slug_sufixo') else esp_slug(e))}/"
+
+
+def arquivo(semanas, ESP, RECAP):
+    hoje = dt.date.today().isoformat()
+    sem_por_ini = {H['dias'][0]['iso']: H for H in semanas}
+    def card(e):
+        x = dt.date.fromisoformat(e['iso'])
+        im = f'<img src="/img/{e["arte"]}-v.jpg" alt="" width="90" height="120" loading="lazy">' if e.get('arte') else '<span class="ph"></span>'
+        return (f'<a class="card ec" data-game="{e["jogo"]}" href="{url_esp(e)}">{im}<div><small>{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}</small>'
+                f'<strong>{html.escape(e["evento"])}</strong><span class="chip c-{e["jogo"]}">{html.escape(e["nome_jogo"])}</span></div></a>')
+    passados = [e for e in ESP if e['iso'] < hoje]
+    blocos = ''; mes_atual = None; jogos = []
+    # agrupar por semana (segunda a domingo); título e nº de eventos vêm do histórico quando existe
+    semanas_d = {}
+    for e in passados:
+        x = dt.date.fromisoformat(e['iso']); seg = x - dt.timedelta(x.weekday())
+        semanas_d.setdefault(seg, []).append(e)
+    def hist_de(seg):
+        for H in semanas:
+            x = dt.date.fromisoformat(H['dias'][0]['iso'])
+            if x - dt.timedelta(x.weekday()) == seg: return H
+    for seg in sorted(semanas_d, reverse=True):
+        evs = semanas_d[seg]; H = hist_de(seg); dom = seg + dt.timedelta(6)
+        m0 = dt.date.fromisoformat(min(e['iso'] for e in evs)); mes = f"{MESES[m0.month-1].capitalize()} {m0.year}"
+        if mes != mes_atual: blocos += f'<h2 class="mes">{mes}</h2>'; mes_atual = mes
+        tit = H['semana'] if H else (f"Semana de {seg.day} a {dom.day} de {MESES[dom.month-1]}" if seg.month == dom.month else f"Semana de {seg.day} de {MESES[seg.month-1]} a {dom.day} de {MESES[dom.month-1]}")
+        info = (f"{sum(len(d['eventos']) for d in H['dias'])} eventos · " if H else '') + f"{len(evs)} especia{'is' if len(evs) != 1 else 'l'}"
+        rc = RECAP.get(seg.isoformat()) or (RECAP.get(H['dias'][0]['iso']) if H else None)
+        blocos += (f'<section class="sem"><div class="sem-h"><h3>{html.escape(tit)}</h3><span>{info}'
+                   + (f' · <a href="{rc}">Fotos da semana no Instagram ↗</a>' if rc else '') + '</span></div>'
+                   f'<div class="rel">{"".join(card(e) for e in sorted(evs, key=lambda e: (e["iso"], e["hora"])))}</div></section>')
+        for e in evs:
+            if e['jogo'] not in jogos: jogos.append(e['jogo'])
+    # eventos anteriores ao histórico semanal (enviados pela equipa), em anteriores.json
+    chips = ''.join(f'<button type="button" class="f" data-g="{g}" aria-pressed="false">{html.escape(next(e["nome_jogo"] for e in passados if e["jogo"]==g))}</button>' for g in jogos)
+    url = f"{BASE}/arquivo/"
+    desc = "Arquivo dos eventos especiais da Weatherlight em Évora: Prereleases, Release Events, Store Championships e torneios de Magic, Pokémon, One Piece, Yu-Gi-Oh!, Riftbound, Gundam, Digimon e Cyberpunk."
+    css = (".mes{font:500 1.3rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.05em;margin:1.6rem 0 .2rem;color:var(--brass)}.mes:first-of-type{margin-top:0}"
+           ".sem{margin-top:.9rem}.sem-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.2rem 1rem;margin-bottom:.5rem}"
+           ".sem-h h3{font:500 1rem var(--body);margin:0}.sem-h span{font-size:.88rem;color:var(--muted)}.sem-h a{color:var(--sea-2)}"
+           ".ec{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}.ec img,.ec .ph{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}"
+           ".ec div{display:grid;gap:.2rem;min-width:0}.ec small{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.ec .chip{font-size:.66rem}"
+           ".sem .rel{grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}.filters{margin:0 0 1rem}[hidden]{display:none!important}")
+    page = cabeca("Arquivo de eventos | Weatherlight, Évora", desc, url, [], css) + f"""
+<body>
+<header>
+  <div class="wrap">
+    <span class="crumbs"><a href="/">Calendário Weatherlight</a> › Arquivo</span>
+    <h1>Arquivo de eventos</h1>
+    <p class="sub">Os eventos especiais que já fizemos na Weatherlight, desde o nosso aniversário a 25 de setembro</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filtrar por jogo"><button type="button" class="f" data-g="all" aria-pressed="true">Todos</button>{chips}</div>
+    {blocos or '<p>Ainda não há eventos no arquivo.</p>'}
+    <p class="m small">Os próximos eventos estão no <a href="/">Calendário Weatherlight</a>.</p>
+  </div>
+</main>
+{RODAPE}
+<script>(function(){{var b=[].slice.call(document.querySelectorAll('.f'));function a(g){{b.forEach(function(x){{x.setAttribute('aria-pressed',String(x.dataset.g===g))}});
+document.querySelectorAll('.sem').forEach(function(s){{var v=0;s.querySelectorAll('.card').forEach(function(c){{var on=g==='all'||c.dataset.game===g;c.hidden=!on;if(on)v++}});s.hidden=!v}});
+document.querySelectorAll('.mes').forEach(function(m){{var n=m.nextElementSibling,v=false;while(n&&!n.classList.contains('mes')){{if(!n.hidden&&n.classList.contains('sem'))v=true;n=n.nextElementSibling}}m.hidden=!v}})}}
+b.forEach(function(x){{x.addEventListener('click',function(){{a(x.dataset.g)}})}})}})();</script>
+</body>
+</html>
+"""
+    os.makedirs(os.path.join(RAIZ, 'arquivo'), exist_ok=True)
+    fn = os.path.join(RAIZ, 'arquivo', 'index.html'); open(fn, 'w').write(ALVO(page))
+    series.OG.append((fn, url, "Évora · Weatherlight", "Arquivo de eventos", "Os eventos especiais que já fizemos", [e.get('arte') for e in reversed(passados)][:3]))
+    return url, passados
+
+
+def ja_fizemos(passados):
+    """Secção 'Já fizemos' nas páginas de cada jogo."""
+    for g, pasta in PASTA.items():
+        fn = os.path.join(RAIZ, pasta, 'index.html')
+        if not os.path.exists(fn): continue
+        evs = [e for e in passados if e['jogo'] == g][-4:][::-1]
+        if not evs: continue
+        def c(e):
+            x = dt.date.fromisoformat(e['iso'])
+            im = f'<img src="/img/{e["arte"]}-v.jpg" alt="" width="90" height="120" loading="lazy">' if e.get('arte') else '<span class="ph"></span>'
+            return f'<a class="card ec" href="{url_esp(e)}">{im}<div><small>{x.day} de {MESES[x.month-1]} de {x.year}</small><strong>{html.escape(e["evento"])}</strong><em>Ver página →</em></div></a>'
+        sec = f'<section class="sec"><h2>Já fizemos</h2><div class="rel">{"".join(c(e) for e in evs)}</div><p class="m small">Vê todos no <a href="/arquivo/">Arquivo de eventos</a>.</p></section>\n  </div>\n</main>'
+        p = open(fn).read(); p = p.replace('\n  </div>\n</main>', '\n    ' + sec, 1); open(fn, 'w').write(p)
+
+
+def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao, serie_de=lambda e: None, modelo=lambda e: None):
     urls = list(series.URLS)
-    esp = especiais(DET, FUT, inscricao); urls += esp
+    RP = os.path.join(AQUI, 'recaps.json'); RECAP = json.load(open(RP)) if os.path.exists(RP) else {}
+    semanas, ESP = recolher(DET, FUT, serie_de, modelo)
+    hoje = dt.date.today().isoformat()
+    for H in semanas:
+        isos = [d['iso'] for d in H['dias']]
+        for e in ESP:
+            if isos[0] <= e['iso'] <= isos[-1] and H['dias'][0]['iso'] in RECAP: e['_recap'] = RECAP[H['dias'][0]['iso']]
+    for e in ESP:
+        x = dt.date.fromisoformat(e['iso']); seg = (x - dt.timedelta(x.weekday())).isoformat()
+        if seg in RECAP: e.setdefault('_recap', RECAP[seg])
+    for e in ESP:
+        if e['iso'] < hoje:
+            nx = [f for f in ESP if f['iso'] >= hoje and f['jogo'] == e['jogo'] and tipo(f) == tipo(e)]
+            if nx: e['_prox'] = {"iso": nx[0]['iso'], "evento": nx[0]['evento'], "url": url_esp(nx[0]), "tipo": tipo(e)}
+    esp = especiais(DET, ESP, inscricao); urls += esp
+    u, passados = arquivo(semanas, ESP, RECAP); urls.append(u)
+    ja_fizemos(passados)
     urls += primeira_vez(SER)
     feeds(FEED); llms(SER, FUT, S)
     # dados da loja na página principal

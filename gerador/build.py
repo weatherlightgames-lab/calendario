@@ -180,8 +180,15 @@ for f in FUT:   # calendário individual de cada evento especial (para a sua pá
         fz=datetime(y,mo,da,h,mi,tzinfo=ZoneInfo('Europe/Lisbon')).strftime('%z'); fz=fz[:3]+':'+fz[3:]
         f['_d']={'iso':f['iso'],'fuso':fz,'dia':''}
         f['_cal']=calendario(f['_d'],f,None,f"{BASE}{PASTA.get(f['jogo'],f['jogo'])}/{series.esp_slug(f)}/")
+# histórico: cópia da semana publicada, com o texto dos eventos especiais congelado (o modelo pode mudar depois)
+HIST=os.path.join(AQUI,'historico'); os.makedirs(HIST,exist_ok=True)
+H=json.loads(json.dumps(S))
+for d in H['dias']:
+    for e in d['eventos']:
+        if not serie_de(e) and modelo(e) and 'texto' not in e: e['texto']=modelo(e)
+open(os.path.join(HIST,S['dias'][0]['iso']+'.json'),'w').write(json.dumps(H,ensure_ascii=False,indent=1))
 n_reg=series.gerar(t,SER,DET,S)
 import extras
-n_esp=extras.gerar(t,SER,DET,S,FUT,FEED,ld,inscricao)
+n_esp=extras.gerar(t,SER,DET,S,FUT,FEED,ld,inscricao,serie_de,modelo)
 print(f"{len(ld)} eventos gerados; {n_reg} páginas de eventos regulares; {n_esp} páginas de eventos especiais.")
 if sem_modelo: print("Sem modelo na base de dados:", "; ".join(sem_modelo))

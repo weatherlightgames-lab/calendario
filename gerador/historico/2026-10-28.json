@@ -1,0 +1,275 @@
+{
+ "semana": "Semana de 28 de outubro a 1 de novembro",
+ "introducao": [
+  "Na Weatherlight já não há semanas sem eventos especiais - e o final de Outubro também promete! 🤩",
+  "De Gundam a Cyberpunk, com Riftbound, Pokémon, One Piece, Magic, Yu-Gi-Oh e Digimon a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
+ ],
+ "destaques": [
+  "Esta semana há dois lançamentos muito especiais - com GD06 Stardust Trails a chegar ao Gundam Card Game e o Prerelease do primeiro set de Cyberpunk! 🥳",
+  "Pokémon, Digimon, Yu-Gi-Oh e Magic também têm eventos especiais, vais ficar de fora? 👀"
+ ],
+ "dias": [
+  {
+   "dia": "Quarta-feira",
+   "data": "28 de outubro",
+   "iso": "2026-10-28",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "16:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Commander Afternoon",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "commander",
+     "story": "e8f55d1c",
+     "recorte": [
+      0.5,
+      0.5,
+      1.0
+     ],
+     "companion": "QMWWDW2"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Modern",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "modern",
+     "story": "cc425580",
+     "recorte": [
+      0.6,
+      0.5,
+      0.95
+     ],
+     "modelo": "Store Credit (Modern)",
+     "companion": "56QJGGR"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Duelist Lounge",
+     "preco": 5,
+     "esgotado": false,
+     "arte": "duelist",
+     "story": "7994088b",
+     "recorte": [
+      0.55,
+      0.5,
+      0.95
+     ],
+     "inscricao": "https://neuron.konami.net/link/dez5c3ppd7nh7fmf"
+    },
+    {
+     "hora": "20:30",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate",
+     "story": "a6440f43",
+     "recorte": [
+      0.6,
+      0.48,
+      0.9
+     ],
+     "modelo": "Pirate Lounge (Standard)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/7691204"
+    }
+   ]
+  },
+  {
+   "dia": "Sexta-feira",
+   "data": "30 de outubro",
+   "iso": "2026-10-30",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "20:00",
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Evolution Cup",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "evo-cup",
+     "story": "d7991a29",
+     "recorte": [
+      0.5,
+      0.45,
+      0.9
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/7779863",
+     "texto": "Tamer! 📣\n\nA Evolution Cup está de volta à Weatherlight! 🏆\nHá promos especiais nestes eventos que não podes faltar! ✨\n\nFormato: EX13 Constructed (Suíço)\n\nPreço: 6.00€\n\nPrémios:\n1º 1 Booster + Winner Pack Store Tournament Out-Dez 2026 + 1 BT24-041 Minervamon (Alt-Art) + 1 BT24-051 Merukimon (Alt-Art);\n2º Winner Pack Store Tournament Jul-Set 2026 + 1 BT24-051 Merukimon (Alt-Art);\n3º Winner Pack Store Tournament Abr-Jun 2026 + 1 BT24-051 Merukimon (Alt-Art);\n4º 1 BT24-051 Merukimon (Alt-Art).\n\nE AINDA!\n- 1 Booster de participação no acto de inscrição;\n- 1 BT24-007 Tsunomon (Alt-Art);\n- 1 OTP Store Tournament Abr-Jun 2026 para todos os participantes;\n- 1 OTP Store Tournament Out-Dez 2026 para todos os participantes;\n- 1 OTP Store Tournament Jul-Set 2026 para todos os participantes.\n\nJunta-te à nossa comunidade e vem descobrir este grande jogo! ⛵️"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Night",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-night",
+     "story": "45b9089c",
+     "recorte": [
+      0.55,
+      0.45,
+      0.85
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117501220642639208"
+    },
+    {
+     "hora": "21:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "GD06 Stardust Trails Release Event",
+     "preco": 32,
+     "esgotado": false,
+     "arte": "gd06",
+     "modelo": "Release Event",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/6673311",
+     "texto": "Atenção Pilots! 🚀\n\nAs celebrações do 1º Aniversário de Gundam Card Game continuam na Weatherlight com a chegada de GD06 Stardust Trails! 🙌\n\nE, como manda a tradição, temos de festejar da melhor maneira - com o Release Event! 🥳\n\nJunta-te a nós e à nossa comunidade e vem experimentar as cartas novas num evento que promete! 🤖\n\nCheck-in: 20:30h - 21:00h\n\nFormato:\nGD06 Stardust Trails Sealed (Suíço)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nTodos os jogadores recebem 6 Boosters de GD06 para construir o seu baralho!\n\nPreço: 32.00€\n\nPrémios:\n1º 1 Set de Promos Extra + 1 Booster de GD06 + 1 Winner Pack;\n2º 1 Set de Promos Extra + 1 Winner Pack.\n\nE AINDA!\n- 1 Booster de GD06 de participação;\n- 1 Set de Promos de participação;\n- 1 Store Tournament Participation Pack para todos os participantes.\n\nVais ficar de fora? 🤔\n\nVem começar a viagem neste grande jogo da Bandai connosco! ✨"
+    }
+   ]
+  },
+  {
+   "dia": "Sábado",
+   "data": "31 de outubro",
+   "iso": "2026-10-31",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "cyber",
+     "nome_jogo": "Cyberpunk TCG",
+     "evento": "Prerelease Welcome to Night City",
+     "preco": 32,
+     "esgotado": false,
+     "arte": "wtnc",
+     "modelo": "Prerelease (Cyberpunk)",
+     "inscricao": "https://melee.gg/Tournament/View/472846",
+     "texto": "CHOOMS! 🙌\n\nA aventura por Cyberpunk TCG vai oficialmente começar - vem celebrar com o Prerelease de Welcome to Night City! 🦾\n\nJunta-te à nossa comunidade de Cyberpunk para um evento que não podes perder!\n\nSe já jogas desde a fase Beta, há cartas e alt. arts novas para explorares e juntares à tua coleção 👀\n\nCheck-in: 14:30h - 15:00h\nVagas limitadas!\n\nFormato:\nWelcome to Night City Sealed (Suíço)\n\nTodos os jogadores recebem 1 Prerelease Kit com 6 Boosters para construir o seu baralho!\n\nPreço: 32.00€\n\nPrémios:\n1º 3 Boosters de Welcome to Night City;\n2º 2 Boosters de Welcome to Night City.\n\nE AINDA!\n- 1 Booster de Welcome to Night City de participação;\n- 1 Gorilla Arms Promo de participação.\n\nDe que estás à espera?\nAventura-te em Night City com a Weatherlight! ⚓️"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate-party",
+     "story": "2a0c44a4",
+     "recorte": [
+      0.5,
+      0.47,
+      0.88
+     ],
+     "modelo": "Pirate Party (Standard)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8891440"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "assemble",
+     "nome_jogo": "Gundam Assemble",
+     "evento": "Demo Event #2 - Learn to Play",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "assemble",
+     "modelo": "Demo Event",
+     "texto": "Fãs de Miniaturas! Fãs de Gunpla! Fãs de Gundam!\n\nO primeiro jogo de miniaturas da Weatherlight está a chegar e temos Demo Events para os nossos Navegantes - bem-vind@s ao Gundam Assemble!\n\nCom um footprint mais pequeno e fast-paced em relação aos outros jogos de miniaturas, a Bandai entra neste incrível mundo e espera surpreender!\n\nJunta-te a nós nos dias 25 e 31 de Outubro e vem aprender e experimentar este novo jogo! ⛵️"
+    },
+    {
+     "hora": "18:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-party",
+     "story": "48f56be1",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/7835430"
+    }
+   ]
+  },
+  {
+   "dia": "Domingo",
+   "data": "1 de novembro",
+   "iso": "2026-11-01",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "OTS Championship Beyond the Brave",
+     "preco": 9,
+     "esgotado": false,
+     "arte": "ots",
+     "story": "1bdf346d",
+     "recorte": [
+      0.35,
+      0.47,
+      0.88
+     ],
+     "modelo": "OTS Championship",
+     "inscricao": "https://neuron.konami.net/link/bgytpt4rdicf6ivz",
+     "texto": "Duelista! 🧿\n\nO OTS Championship volta à Weatherlight com Beyond the Brave!\n\nFormato: Advanced Constructed (Suíço)\n\nPreço: 9.00€\n\nPrémios:\n1º Invite WCQ EU Championship + OTS Championship Playmat;\n2º Invite WCQ EU Championship.\n\nE AINDA!\n- 1 Booster por jogador para o Top X;\n- 1 OTS Winner Pack para o Top 4.\n\nDE PARTICIPAÇÃO!\n- 1 Booster de participação no acto da inscrição;\n- 1 Ultimate Pack 01 de participação no acto da inscrição.\n\nVem garantir o teu Invite para o WCQ EU Championship! 🏆"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Afternoon",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-afternoon",
+     "story": "9cf7872b",
+     "recorte": [
+      0.5,
+      0.45,
+      0.85
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117501218306456811"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "Pokéween",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "pokeween",
+     "modelo": "Pokéween",
+     "texto": "Treinadores! 🎃\n\nVem celebrar o Halloween com um evento especial de Pokémon na Weatherlight em Évora - o Pokéween! 👻\n\nCheck-In: 14:30 - 15:00h\n\nFormato: Standard Constructed (Suíço)\n\nNo formato Standard, só podes jogar com cartas de:\n\nTemporal Forces, Twilight Masquerade, Shrouded Fable, Stellar Crown, Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals, Black Bolt / White Flare, Mega Evolution, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising e Pitch Black.\n\nPreço: 6.50€\n\nPrémios:\n1º 2 Prize Packs S9 + 1 Booster Trick or Trade;\n2º 1 Prize Pack S9 + 1 Booster Trick or Trade.\n\nE AINDA!\n- 1 Prize Pack S9 por cada jogador do Top X.\n\nPARTICIPAÇÃO:\n- 1 Booster de Pitch Black de participação;\n- 1 Prize Pack S9 de participação;\n- Promos Pokéween de participação;\n- 2 Boosters Trick or Trade extra para quem jogar com decks de Ghost, Dark ou Psychic!\n\nJunta-te à comunidade de Pokémon da Weatherlight! ⛵️"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "All Leylines' Eve - Lorwyn Draft",
+     "preco": 17.5,
+     "esgotado": false,
+     "arte": "leylines",
+     "story": "bbfd5154",
+     "recorte": [
+      0.55,
+      0.45,
+      0.95
+     ],
+     "modelo": "All Leylines' Eve (Booster Draft especial)",
+     "companion": "YEMM2M2",
+     "texto": "Atenção Jogadores de Magic! 📣\n\nOs Booster Drafts voltam à Weatherlight, desta vez com um evento muito especial: o All Leylines' Eve! 🎃\n\nNeste Booster Draft de Lorwyn Eclipsed as regras mudam: cada jogo começa com uma Leyline of Anticipation em campo para todos os jogadores, por isso todos os feitiços podem ser jogados com Flash, a qualquer momento! ⚡\n\nA Leyline não faz parte do baralho, que continua a ter de cumprir os 40 cards mínimos do Limited.\n\nFormato: Booster Draft - Lorwyn Eclipsed com Leyline of Anticipation (Suíço)\n\nPreço: 17.50€\n\nPrémios:\n- 1 Promo Pack Foil para o vencedor;\n- 1 Promo Pack para o 2º lugar;\n- 1 Play Booster de Lorwyn Eclipsed por jogador para o Top X.\n\nE AINDA!\n- 1 Leyline of Anticipation Promo (Foil) de participação para todos os jogadores, limitado ao stock disponível.\n\nTodos os jogadores estão ainda habilitados ao sorteio de 1 Promo Pack!\n\nJunta-te à nossa comunidade e vem jogar connosco! ⛵️"
+    }
+   ]
+  }
+ ]
+}

@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-10-28-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261025T182016Z
+DTSTAMP:20261027T182306Z
 DTSTART:20261028T160000Z
 DTEND:20261028T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-10-28-magic-modern@eventos.weatherlightgames.pt
-DTSTAMP:20261025T182016Z
+DTSTAMP:20261027T182306Z
 DTSTART:20261028T200000Z
 DTEND:20261028T230000Z
 SUMMARY:Modern · Magic: The Gathering (Weatherlight)
@@ -30,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/magic/modern/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-01-magic-all-leylines-eve-lorwyn-draft@eventos.weatherlightgames.pt
-DTSTAMP:20261025T182016Z
+DTSTAMP:20261027T182306Z
 DTSTART:20261101T150000Z
 DTEND:20261101T180000Z
 SUMMARY:All Leylines' Eve - Lorwyn Draft · Magic: The Gathering (Weatherlight)
@@ -40,7 +40,7 @@ URL:https://eventos.weatherlightgames.pt/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-06-magic-prerelease-star-trek@eventos.weatherlightgames.pt
-DTSTAMP:20261025T182016Z
+DTSTAMP:20261027T182306Z
 DTSTART:20261106T190000Z
 DTEND:20261106T220000Z
 SUMMARY:Prerelease Star Trek · Magic: The Gathering (Weatherlight)

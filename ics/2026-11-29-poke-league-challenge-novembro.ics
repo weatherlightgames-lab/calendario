@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-poke-league-challenge-novembro@eventos.weatherlightgames.pt
+DTSTAMP:20261027T182306Z
+DTSTART:20261129T170000Z
+DTEND:20261129T200000Z
+SUMMARY:League Challenge Novembro · Pokémon TCG (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/pokemon/league-challenge-novembro/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/pokemon/league-challenge-novembro/
+END:VEVENT
+END:VCALENDAR
