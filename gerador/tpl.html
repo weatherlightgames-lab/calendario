@@ -37,6 +37,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .f{font:400 .9rem var(--body);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:.35rem .85rem;cursor:pointer}
 .f[aria-pressed="true"]{background:var(--sea-2);border-color:var(--sea-2);color:#fff}
 .f:focus-visible,a:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.weekend .ant{margin:.8rem 0 0;padding-top:.7rem;border-top:1px dashed var(--line);font-size:.92rem;color:var(--muted)}.weekend .ant strong{color:var(--ink);font-weight:500}.weekend .ant a{color:var(--sea-2)}
 .weekend{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:6px;padding:1rem 1.25rem}
 .weekend h3{margin:0 0 .35rem;font:400 1.1rem var(--display);text-transform:uppercase;letter-spacing:.04em}
 .weekend ul{margin:0;padding-left:1.1rem;font-weight:400}
@@ -144,7 +145,7 @@ footer a{color:var(--ink)}
     <h1>Calendário <em>Weatherlight</em></h1>
     <p class="sub">Eventos semanais na tua Local Game Store em Évora! ⛵️</p>
     %%LEDE%%
-    <div class="info"><span>Rua Frei José Maria Évora, Nº2, 7005-495 Évora</span><span>266 735 119</span><a href="https://www.weatherlightgames.pt">Loja online</a><a href="https://www.instagram.com/weatherlightgames/">Instagram</a><a href="https://www.tiktok.com/@weatherlightcollectibles">TikTok</a></div>
+    <div class="info"><span>Rua Frei José Maria Évora, Nº2, 7005-495 Évora</span><span>266 735 119</span><a href="https://www.weatherlightgames.pt">Loja online</a><a href="https://www.instagram.com/weatherlightgames/">Instagram</a><a href="https://www.tiktok.com/@weatherlightcollectibles">TikTok</a><a href="#subscrever">📅 Subscrever</a></div>
   </div>
 </header>
 
@@ -155,13 +156,12 @@ footer a{color:var(--ink)}
     <aside class="weekend">
       <h3>Destaques da semana</h3>
       <ul>%%DESTAQUES%%</ul>
+      %%ANTERIOR%%
     </aside>
 
     <nav class="help" aria-label="Ajuda para novos jogadores">
       <a href="/primeira-vez/"><strong>Primeira vez num evento?</strong><span>Check-in, aplicações, o que levar e as dúvidas mais comuns</span></a>
       <a href="https://www.weatherlightgames.pt/page/glossario"><strong>Não conheces algum termo?</strong><span>Suíço, Sealed, Top X, Prize Pack… está tudo no Glossário</span></a>
-      <a href="#subscrever"><strong>Subscreve o calendário</strong><span>Os eventos novos aparecem sozinhos no teu telemóvel</span></a>
-      <a href="/arquivo/"><strong>Arquivo de eventos</strong><span>Os eventos especiais que já fizemos desde o aniversário</span></a>
     </nav>
 
     %%DAYS%%

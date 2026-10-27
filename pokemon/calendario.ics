@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-01-poke-pok-ween@eventos.weatherlightgames.pt
-DTSTAMP:20261027T182327Z
+DTSTAMP:20261027T183111Z
 DTSTART:20261101T150000Z
 DTEND:20261101T180000Z
 SUMMARY:Pokéween · Pokémon TCG (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/pokeween/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-cup-1@eventos.weatherlightgames.pt
-DTSTAMP:20261027T182327Z
+DTSTAMP:20261027T183111Z
 DTSTART:20261129T100000Z
 DTEND:20261129T130000Z
 SUMMARY:League Cup #1 · Pokémon TCG (Weatherlight)
@@ -30,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-cup-1/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-challenge-novembro@eventos.weatherlightgames.pt
-DTSTAMP:20261027T182327Z
+DTSTAMP:20261027T183111Z
 DTSTART:20261129T170000Z
 DTEND:20261129T200000Z
 SUMMARY:League Challenge Novembro · Pokémon TCG (Weatherlight)

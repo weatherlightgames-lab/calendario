@@ -44,7 +44,7 @@ def det(txt,s=None,cal=''):
                 '<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario">Glossário</a> '
                 'ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight">Central de Ajuda</a>.</span>'+
                 '<span class="lks">'+(f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+cal+'</span></div>')
-    return (f'<p class="det none">Detalhes no nosso <a href="{DISCORD}">Discord</a>.</p>','')
+    return (f'<p class="det none">Detalhes em breve! Entretanto, acompanha o nosso <a href="{DISCORD}">Discord</a>.</p>','')
 
 # Inscrição: link da aplicação do torneio (semana.json "inscricao") e código Companion do Magic ("companion")
 PLAT=[("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound Gaming Network"),("riftbound","Riftbound Gaming Network"),
@@ -165,6 +165,18 @@ dest="\n        "+"\n        ".join(f'<li>{html.escape(x)}</li>' for x in S['des
 t=open(os.path.join(AQUI,'tpl.html')).read()
 out=(t.replace('%%LD%%',json.dumps(ld,ensure_ascii=False,indent=1)).replace('%%DAYS%%',rows).replace('%%CHIPS%%',chips)
       .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%REGULARES%%',regulares))
+# "Na semana passada": eventos especiais da semana anterior (histórico) + fotos no Instagram + arquivo
+import glob
+ant=''
+_h=[f for f in sorted(glob.glob(os.path.join(AQUI,'historico','*.json'))) if os.path.basename(f)[:10]<S['dias'][0]['iso']]
+if _h:
+    H0=json.load(open(_h[-1])); RC=json.load(open(os.path.join(AQUI,'recaps.json'))) if os.path.exists(os.path.join(AQUI,'recaps.json')) else {}
+    esp=[f"{e['evento']} ({JOGOS.get(e['jogo'],e['nome_jogo'])})" if JOGOS.get(e['jogo'],'') not in e['evento'] else e['evento'] for d in H0['dias'] for e in d['eventos'] if not serie_de(e)]
+    lst=(', '.join(esp[:-1])+' e '+esp[-1]) if len(esp)>1 else ''.join(esp)
+    rc=RC.get(H0['dias'][0]['iso'])
+    ant=('<p class="ant"><strong>Na semana passada</strong> '+(f'tivemos {html.escape(lst)}. ' if esp else '')+
+         (f'<a href="{rc}">Vê as fotos ↗</a> · ' if rc else '')+'<a href="/arquivo/">Arquivo de eventos →</a></p>')
+out=out.replace('%%ANTERIOR%%',ant)
 if not S['destaques']: out=re.sub(r'\s*<aside class="weekend">.*?</aside>','',out,flags=re.S)
 out=re.sub(r'<a href="(https?://[^"]+)"(?![^>]*target=)',r'<a href="\1" target="_blank" rel="noopener"',out)
 i=out.index('<title>'); j=out.index('</style>')+len('</style>')

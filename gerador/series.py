@@ -216,7 +216,7 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
       <li><small>Onde</small><strong><a href="{MAPS}">Weatherlight, Évora</a></strong></li>
     </ul>
     {f'<p class="nota">{html.escape(s["nota"])}</p>' if s.get('nota') else ''}
-    <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes no nosso Discord.")}</p></div>{img}</section>
+    <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes em breve! Entretanto, acompanha o nosso Discord.")}</p></div>{img}</section>
     <section class="box"><h2>Próximas datas</h2>{prox}</section>
     <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{ah}</dd>' for q,a,ah in perg)}</dl>
       <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="{CA}">Central de Ajuda</a>. Vê também o <a href="{GL}">Glossário</a>, ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>.</p></section>
