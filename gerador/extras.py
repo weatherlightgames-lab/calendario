@@ -320,7 +320,7 @@ def og_tags(fn_html, url, kicker, titulo, sub, artes):
         ("og:description", dsc), ("og:url", url), ("og:image", img), ("og:image:width", "1200"), ("og:image:height", "630")])
     tags += f'\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="{img}">'
     tags += ('\n<link rel="manifest" href="/manifest.webmanifest">\n<link rel="icon" type="image/png" sizes="32x32" href="/app/favicon-32.png">'
-             '\n<link rel="apple-touch-icon" href="/app/apple-touch-icon.png">\n<meta name="theme-color" content="#1f3d47">'
+             '\n<link rel="apple-touch-icon" href="/app/apple-touch-icon.png">\n<meta name="theme-color" content="#ffffff">'
              '\n<meta name="apple-mobile-web-app-title" content="Weatherlight">\n<meta name="apple-mobile-web-app-capable" content="yes">'
              '\n<meta name="mobile-web-app-capable" content="yes">')
     i = p.index('</title>') + len('</title>'); p = p[:i] + tags + p[i:]
