@@ -304,7 +304,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
 {css2}
 <style>
 .ec{{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}}.ec img,.ec .ph{{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}}
-.ec div{{display:grid;gap:.15rem;min-width:0}}.ec small{{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}}
+.ec div{{display:grid;gap:.15rem;min-width:0}}.rel:has(.ec){{align-items:stretch}}.ec{{height:100%;min-height:140px}}.ec strong{{font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}.ec small{{font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}.ec .chip,.ec span{{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}}.ec small{{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}}
 .hd-cta{{display:inline-block;justify-self:start;width:max-content;max-width:100%;margin-top:.9rem;font-size:.95rem;color:var(--hd-ink);border:1px solid currentColor;border-radius:999px;padding:.3rem .9rem;text-decoration:none}}.hd-cta:hover{{background:rgba(255,255,255,.35)}}
 .subcal{{margin:.8rem 0 0;font-size:.92rem;color:var(--hd-soft)}}.subcal a{{color:var(--hd-ink)}}
 </style>

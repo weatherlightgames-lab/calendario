@@ -354,14 +354,18 @@ def tipo(e):
 def url_esp(e): return f"/{PASTA.get(e['jogo'], e['jogo'])}/{e.get('_slug') or (esp_slug(e) + '-' + e['iso'] if e.get('_slug_sufixo') else esp_slug(e))}/"
 
 
+CURTO = {"magic": "Magic", "poke": "Pokémon", "op": "One Piece", "ygo": "Yu-Gi-Oh!", "rift": "Riftbound", "digi": "Digimon",
+         "gundam": "Gundam Card Game", "assemble": "Gundam Assemble", "cyber": "Cyberpunk"}
+
+
 def arquivo(semanas, ESP, RECAP):
     hoje = dt.date.today().isoformat()
     sem_por_ini = {H['dias'][0]['iso']: H for H in semanas}
     def card(e):
         x = dt.date.fromisoformat(e['iso'])
         im = f'<img src="/img/{e["arte"]}-v.jpg" alt="" width="90" height="120" loading="lazy">' if e.get('arte') else '<span class="ph"></span>'
-        return (f'<a class="card ec" data-game="{e["jogo"]}" href="{url_esp(e)}">{im}<div><small>{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}</small>'
-                f'<strong>{html.escape(e["evento"])}</strong><span class="chip c-{e["jogo"]}">{html.escape(e["nome_jogo"])}</span></div></a>')
+        return (f'<a class="card ec" data-game="{e["jogo"]}" href="{url_esp(e)}">{im}<div><small>{DIA_NOME[x.weekday()]} · {x.day:02d}/{x.month:02d}</small>'
+                f'<strong>{html.escape(e["evento"])}</strong><span class="chip c-{e["jogo"]}">{html.escape(CURTO.get(e["jogo"], e["nome_jogo"]))}</span></div></a>')
     passados = [e for e in ESP if e['iso'] < hoje]
     blocos = ''; mes_atual = None; jogos = []
     # agrupar por semana (segunda a domingo); título e nº de eventos vêm do histórico quando existe
@@ -394,7 +398,7 @@ def arquivo(semanas, ESP, RECAP):
            ".sem-h h3{font:500 1rem var(--body);margin:0}.sem-h span{font-size:.88rem;color:var(--muted)}.sem-h a{color:var(--sea-2)}"
            ".ec{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}.ec img,.ec .ph{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}"
            ".ec div{display:grid;gap:.2rem;min-width:0}.ec small{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.ec .chip{font-size:.66rem}"
-           ".sem .rel{grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}.filters{margin:0 0 1rem}[hidden]{display:none!important}")
+           ".rel:has(.ec){align-items:stretch}.ec{height:100%;min-height:140px}.ec strong{font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ec small{font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ec .chip,.ec span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.sem .rel{grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}.filters{margin:0 0 1rem}[hidden]{display:none!important}")
     page = cabeca("Arquivo de eventos | Weatherlight, Évora", desc, url, [], css) + f"""
 <body>
 <header>
@@ -435,7 +439,7 @@ def ja_fizemos(passados):
         def c(e):
             x = dt.date.fromisoformat(e['iso'])
             im = f'<img src="/img/{e["arte"]}-v.jpg" alt="" width="90" height="120" loading="lazy">' if e.get('arte') else '<span class="ph"></span>'
-            return f'<a class="card ec" href="{url_esp(e)}">{im}<div><small>{x.day} de {MESES[x.month-1]} de {x.year}</small><strong>{html.escape(e["evento"])}</strong><em>Ver página →</em></div></a>'
+            return f'<a class="card ec" href="{url_esp(e)}">{im}<div><small>{x.day:02d}/{x.month:02d}/{x.year}</small><strong>{html.escape(e["evento"])}</strong><em>Ver página →</em></div></a>'
         sec = f'<section class="sec"><h2>Já fizemos</h2><div class="rel">{"".join(c(e) for e in evs)}</div><p class="m small">Vê todos no <a href="/arquivo/">Arquivo de eventos</a>.</p></section>\n  </div>\n</main>'
         p = open(fn).read(); p = p.replace('\n  </div>\n</main>', '\n    ' + sec, 1); open(fn, 'w').write(p)
 
