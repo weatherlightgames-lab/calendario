@@ -309,7 +309,8 @@ def og_tags(fn_html, url, kicker, titulo, sub, artes):
     rel = url[len(BASE):].strip('/').replace('/', '-') or 'calendario'
     og_img(os.path.join(RAIZ, 'og', rel + '.jpg'), kicker, titulo, sub, artes)
     p = open(fn_html).read()
-    p = re.sub(r'\n?<meta (property="og:[^"]+"|name="twitter:[^"]+")[^>]*>', '', p)
+    p = re.sub(r'\n?<meta (property="og:[^"]+"|name="twitter:[^"]+"|name="theme-color"|name="apple-mobile[^"]+"|name="mobile-web[^"]+")[^>]*>', '', p)
+    p = re.sub(r'\n?<link rel="(manifest|icon|apple-touch-icon)"[^>]*>', '', p)
     t = html.unescape(re.search(r'<title>(.*?)</title>', p, re.S).group(1))
     dsc = re.search(r'<meta name="description" content="([^"]*)"', p); dsc = html.unescape(dsc.group(1)) if dsc else sub
     import hashlib
@@ -318,6 +319,10 @@ def og_tags(fn_html, url, kicker, titulo, sub, artes):
         ("og:type", "website"), ("og:site_name", "Calendário Weatherlight"), ("og:locale", "pt_PT"), ("og:title", t),
         ("og:description", dsc), ("og:url", url), ("og:image", img), ("og:image:width", "1200"), ("og:image:height", "630")])
     tags += f'\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="{img}">'
+    tags += ('\n<link rel="manifest" href="/manifest.webmanifest">\n<link rel="icon" type="image/png" sizes="32x32" href="/app/favicon-32.png">'
+             '\n<link rel="apple-touch-icon" href="/app/apple-touch-icon.png">\n<meta name="theme-color" content="#1f3d47">'
+             '\n<meta name="apple-mobile-web-app-title" content="Weatherlight">\n<meta name="apple-mobile-web-app-capable" content="yes">'
+             '\n<meta name="mobile-web-app-capable" content="yes">')
     i = p.index('</title>') + len('</title>'); p = p[:i] + tags + p[i:]
     open(fn_html, 'w').write(p)
 

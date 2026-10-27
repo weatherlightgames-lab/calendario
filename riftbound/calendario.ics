@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-10-30-rift-nexus-night@eventos.weatherlightgames.pt
-DTSTAMP:20261027T184011Z
+DTSTAMP:20261027T193715Z
 DTSTART:20261030T200000Z
 DTEND:20261030T230000Z
 SUMMARY:Nexus Night · Riftbound: League of Legends TCG (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/riftbound/nexus-night/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-01-rift-nexus-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261027T184011Z
+DTSTAMP:20261027T193715Z
 DTSTART:20261101T150000Z
 DTEND:20261101T180000Z
 SUMMARY:Nexus Afternoon · Riftbound: League of Legends TCG (Weatherlight)
