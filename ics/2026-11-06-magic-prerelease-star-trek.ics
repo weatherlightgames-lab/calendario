@@ -5,11 +5,11 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:2026-11-06-magic-prerelease-star-trek@eventos.weatherlightgames.pt
-DTSTAMP:20261028T105933Z
+DTSTAMP:20261028T150348Z
 DTSTART:20261106T190000Z
 DTEND:20261106T220000Z
 SUMMARY:Prerelease Star Trek · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/
+DESCRIPTION:Código Companion: 86722JZ\nDetalhes: https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/
 END:VEVENT
