@@ -5,11 +5,11 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:2026-11-07-op-one-piece-portuguese-league-etapa-weatherlight@eventos.weatherlightgames.pt
-DTSTAMP:20261028T104027Z
+DTSTAMP:20261028T104635Z
 DTSTART:20261107T110000Z
 DTEND:20261107T140000Z
 SUMMARY:One Piece Portuguese League - Etapa Weatherlight · One Piece Card Game (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349256\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
 END:VEVENT
