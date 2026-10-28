@@ -31,6 +31,7 @@ JOGOS={"magic":"Magic","poke":"Pokémon","op":"One Piece","ygo":"Yu-Gi-Oh!","rif
 
 def modelo(e):
     """Texto de detalhes: 'modelo' explícito, senão o nome do evento, senão um título único 'Evento (…)'."""
+    if e.get('texto'): return e['texto']
     for k in [e.get('modelo'), e['evento']]:
         if k and k in DET: return DET[k]
     c=[k for k in DET if k.startswith(e['evento']+' (')]
