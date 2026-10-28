@@ -62,6 +62,10 @@ def inscricao(e):
         pl=plataforma(u)
         h+=(f'<a class="insc" href="{html.escape(u)}" target="_blank" rel="noopener"'
             f'{f" title=\"Inscreve-te na {pl}\"" if pl else ""}>Inscreve-te{f" · {pl}" if pl else ""}<span aria-hidden="true">↗</span></a>')
+    r=e.get('reserva')
+    if r and not e.get('esgotado'):
+        h+=(f'<a class="insc res" href="https://tally.so/r/{r}" data-tally-open="{r}" data-tally-layout="modal" data-tally-width="520" '
+            f'data-tally-emoji-text="⛵️" data-tally-emoji-animation="wave">Reservar vaga</a>')
     pn=""
     c=e.get('companion')
     if c and not e.get('esgotado'):

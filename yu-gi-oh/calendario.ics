@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-10-28-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261028T104635Z
+DTSTAMP:20261028T105933Z
 DTSTART:20261028T200000Z
 DTEND:20261028T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-01-ygo-ots-championship-beyond-the-brave@eventos.weatherlightgames.pt
-DTSTAMP:20261028T104635Z
+DTSTAMP:20261028T105933Z
 DTSTART:20261101T150000Z
 DTEND:20261101T180000Z
 SUMMARY:OTS Championship Beyond the Brave · Yu-Gi-Oh! (Weatherlight)

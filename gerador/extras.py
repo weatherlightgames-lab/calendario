@@ -135,6 +135,7 @@ def especiais(DET, FUT, inscricao):
   </div>
 </main>
 {RODAPE}
+<script async src="https://tally.so/widgets/embed.js"></script>
 </body>
 </html>
 """
