@@ -153,6 +153,27 @@
   ]
  },
  {
+  "slug": "one-piece/pirate-party",
+  "titulo": "Pirate Party",
+  "jogo": "op",
+  "nome_jogo": "One Piece Card Game",
+  "dia": "Saturday",
+  "hora": "15:00",
+  "preco": 5.5,
+  "modelo": "Pirate Party (Standard)",
+  "eventos": [
+   "Pirate Party"
+  ],
+  "arte": "pirate-party",
+  "pausa": true,
+  "nota": "De momento em pausa: o Pirate Party volta aos sábados quando os eventos especiais abrandarem. As datas são anunciadas no Calendário Weatherlight.",
+  "perguntas": [],
+  "faq": [
+   "primeira",
+   "sleeves_ilustradas"
+  ]
+ },
+ {
   "slug": "gundam/pilot-party",
   "titulo": "Pilot Party",
   "jogo": "gundam",

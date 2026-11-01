@@ -59,11 +59,12 @@ def proximas(s,S,n=4):
     FP=os.path.join(AQUI,'futuros.json')
     especiais={f['iso'] for f in (json.load(open(FP)) if os.path.exists(FP) else []) if f['jogo']==s['jogo'] and f['hora']==s['hora']}
     out=[]; x=hoje+dt.timedelta((DIA_ISO[s['dia']]-hoje.weekday())%7)
-    while len(out)<n:
+    lim=x+dt.timedelta(7*12)
+    while len(out)<n and x<=lim:
         iso=x.isoformat()
         if iso in reais:
             d,e=reais[iso]; out.append((f"{d['dia']}, {d['data']}",e['hora'],float(e['preco']),e.get('esgotado',False),True))
-        elif not (ini<=x<=fim) and iso not in especiais:
+        elif not (ini<=x<=fim) and iso not in especiais and not s.get('pausa'):
             out.append((f"{DIA_NOME[x.weekday()]}, {x.day} de {MESES[x.month-1]}",s['hora'],float(s['preco']),False,False))
         x+=dt.timedelta(7)
     return out
@@ -151,7 +152,8 @@ def gerar(tpl, SER, DET, S):
                      'Anunciamos todos os eventos no nosso <a href="https://www.instagram.com/weatherlightgames/">Instagram</a> e no <a href="/">Calendário Weatherlight</a>, atualizado todas as semanas. Segue-nos para não perderes nenhum.'))
         faq={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a,_ in perg]}
         pd=proximas(s,S)
-        prox='<ul class="dates">'+''.join(f'<li><span>{l}</span><span>{h} · {preco_txt(p)}{" · Esgotado" if esg else ""}{"" if conf else " · previsto"}</span></li>' for l,h,p,esg,conf in pd)+'</ul>'
+        prox='' if pd else '<p class="m">Sem datas marcadas de momento.</p>'
+        prox+='<ul class="dates">'+''.join(f'<li><span>{l}</span><span>{h} · {preco_txt(p)}{" · Esgotado" if esg else ""}{"" if conf else " · previsto"}</span></li>' for l,h,p,esg,conf in pd)+'</ul>'
         prox+='<p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p>'
         outros=[o for o in SER if o['jogo']==s['jogo'] and o is not s]
         rel=''.join(f'<a class="card" href="/{o["slug"]}/"><strong>{html.escape(o["titulo"])}</strong><span>{PL[o["dia"]]} · {o["hora"]} · {preco_txt(float(o["preco"]))}</span><em>Ver página →</em></a>' for o in outros)
@@ -263,7 +265,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
             corpo=(f'{im}<div><small>{topo}</small><strong>{html.escape(titulo)}</strong><span>{linha}</span>'
                    +(f'<em>{cta}</em>' if cta else '')+'</div>')
             return f'<a class="card ec" href="{href}">{corpo}</a>' if href else f'<div class="card ec">{corpo}</div>'
-        rc=''.join(cartao(s.get('arte'),PL[s['dia']]+' · '+s['hora'],s['titulo'],preco_txt(float(s['preco'])),f'/{s["slug"]}/','Ver página →') for s in regs)
+        rc=''.join(cartao(s.get('arte'),(PL[s['dia']]+' · '+s['hora']) if not s.get('pausa') else 'Em pausa',s['titulo'],preco_txt(float(s['preco'])),f'/{s["slug"]}/','Ver página →') for s in regs)
         sem=''
         for d in S['dias']:
             for e in d['eventos']:
