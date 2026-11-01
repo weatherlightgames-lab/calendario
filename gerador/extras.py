@@ -240,7 +240,7 @@ def llms(SER, FUT, S):
          f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", "",
          "## Eventos regulares (todas as semanas; em feriados e férias confirmar no calendário)"]
     for s in sorted(SER, key=lambda s: (list(PL).index(s['dia']), s['hora'])):
-        L.append(f"- [{s['titulo']} — {s['nome_jogo']}]({BASE}/{s['slug']}/): {PL[s['dia']].lower()} às {s['hora']}, {preco_txt(float(s['preco']))}+(" (em pausa de momento)" if s.get('pausa') else ""))
+        L.append(f"- [{s['titulo']} — {s['nome_jogo']}]({BASE}/{s['slug']}/): {PL[s['dia']].lower()} às {s['hora']}, {preco_txt(float(s['preco']))}" + (" (em pausa de momento)" if s.get('pausa') else ""))
     fut = [f for f in sorted(FUT, key=lambda x: (x['iso'], x['hora'])) if f['iso'] >= hoje]
     if fut:
         L += ["", "## Próximos eventos especiais"]
