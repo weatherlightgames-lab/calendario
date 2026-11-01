@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-04-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261101T164038Z
+DTSTAMP:20261101T171047Z
 DTSTART:20261104T203000Z
 DTEND:20261104T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-07-op-one-piece-portuguese-league-etapa-weatherlight@eventos.weatherlightgames.pt
-DTSTAMP:20261101T164038Z
+DTSTAMP:20261101T171047Z
 DTSTART:20261107T110000Z
 DTEND:20261107T140000Z
 SUMMARY:One Piece Portuguese League - Etapa Weatherlight · One Piece Card Game (Weatherlight)
