@@ -199,10 +199,11 @@ for f in FUT:   # calendário individual de cada evento especial (para a sua pá
         f['_cal']=calendario(f['_d'],f,None,f"{BASE}{PASTA.get(f['jogo'],f['jogo'])}/{series.esp_slug(f)}/")
 # histórico: cópia da semana publicada, com o texto dos eventos especiais congelado (o modelo pode mudar depois)
 HIST=os.path.join(AQUI,'historico'); os.makedirs(HIST,exist_ok=True)
+NE=json.load(open(os.path.join(AQUI,'nao_especiais.json'))) if os.path.exists(os.path.join(AQUI,'nao_especiais.json')) else {}
 H=json.loads(json.dumps(S))
 for d in H['dias']:
     for e in d['eventos']:
-        if not serie_de(e) and modelo(e) and 'texto' not in e: e['texto']=modelo(e)
+        if not serie_de(e) and e['evento'] not in NE.get(e['jogo'],[]) and modelo(e) and 'texto' not in e: e['texto']=modelo(e)
 open(os.path.join(HIST,S['dias'][0]['iso']+'.json'),'w').write(json.dumps(H,ensure_ascii=False,indent=1))
 n_reg=series.gerar(t,SER,DET,S)
 import extras

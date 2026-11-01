@@ -21,7 +21,7 @@
 - [Commander Afternoon — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/commander-afternoon/): todas as quartas às 16:00, Gratuito
 - [Modern (Store Credit) — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/modern/): todas as quartas às 20:00, 6,00 €
 - [Duelist Lounge — Yu-Gi-Oh!](https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/): todas as quartas às 20:00, 5,00 €
-- [Pirate Party — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/pirate-party/): todas as quartas às 20:30, 5,50 €
+- [Pirate Lounge — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/): todas as quartas às 20:30, 5,50 €
 - [Nexus Night — Riftbound: League of Legends TCG](https://eventos.weatherlightgames.pt/riftbound/nexus-night/): todas as sextas às 20:00, 6,50 €
 - [Tamer Party — Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/tamer-party/): todas as sextas às 20:00, 5,50 €
 - [Pilot Lounge — Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/pilot-lounge/): todas as sextas às 21:00, 5,50 €
@@ -31,9 +31,6 @@
 - [Nexus Afternoon — Riftbound: League of Legends TCG](https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/): todos os domingos às 15:00, 6,50 €
 
 ## Próximos eventos especiais
-- [GD06 Stardust Trails Release Event — Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/gd06-stardust-trails-release-event/): sexta-feira, 30 de outubro às 21:00, 32,00 €
-- [Demo Event #2 - Learn to Play — Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/demo-event-2-learn-to-play/): sábado, 31 de outubro às 15:00, Gratuito
-- [Prerelease Welcome to Night City — Cyberpunk TCG](https://eventos.weatherlightgames.pt/cyberpunk/prerelease-welcome-to-night-city/): sábado, 31 de outubro às 15:00, 32,00 €
 - [Pokéween — Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/pokeween/): domingo, 1 de novembro às 15:00, 6,50 €
 - [Prerelease Star Trek — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/): sexta-feira, 6 de novembro às 19:00, 39,00 €
 - [One Piece Portuguese League - Etapa Weatherlight — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/): sábado, 7 de novembro às 11:00, 11,00 €

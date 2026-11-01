@@ -58,20 +58,18 @@
   ]
  },
  {
-  "slug": "one-piece/pirate-party",
-  "titulo": "Pirate Party",
+  "slug": "one-piece/pirate-lounge",
+  "titulo": "Pirate Lounge",
   "jogo": "op",
   "nome_jogo": "One Piece Card Game",
   "dia": "Wednesday",
   "hora": "20:30",
   "preco": 5.5,
-  "modelo": "Pirate Party (Standard)",
+  "modelo": "Pirate Lounge (Standard)",
   "eventos": [
-   "Pirate Party",
    "Pirate Lounge"
   ],
   "arte": "pirate",
-  "nota": "Também anunciado como Pirate Lounge. Quando é Extra Regulation, avisamos no calendário.",
   "perguntas": [],
   "faq": [
    "primeira",

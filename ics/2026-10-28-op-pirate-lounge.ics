@@ -5,12 +5,12 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:2026-10-28-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261028T150348Z
+DTSTAMP:20261101T102504Z
 DTSTART:20261028T203000Z
 DTEND:20261028T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/7691204\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-party/
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/7691204\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/one-piece/pirate-party/
+URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 END:VCALENDAR

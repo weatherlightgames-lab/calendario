@@ -333,6 +333,7 @@ def recolher(DET, FUT, serie_de, modelo):
     """Eventos especiais de todas as semanas do histórico + futuros.json (sem repetidos)."""
     import glob
     hist = os.path.join(AQUI, 'historico'); semanas = []
+    NP = os.path.join(AQUI, 'nao_especiais.json'); NE = json.load(open(NP)) if os.path.exists(NP) else {}
     for fn in sorted(glob.glob(os.path.join(hist, '*.json'))):
         H = json.load(open(fn)); semanas.append(H)
     chave = lambda e: (e['iso'], e['jogo'], e['hora'])
@@ -340,7 +341,7 @@ def recolher(DET, FUT, serie_de, modelo):
     for H in semanas:
         for d in H['dias']:
             for e in d['eventos']:
-                if serie_de(e): continue
+                if serie_de(e) or e['evento'] in NE.get(e['jogo'], []): continue
                 x = dict(e, iso=d['iso'])
                 k = chave(x)
                 if k in todos:
@@ -471,6 +472,16 @@ def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao, serie_de=lambda e: None, m
     ja_fizemos(passados)
     urls += primeira_vez(SER)
     feeds(FEED); llms(SER, FUT, S)
+    # páginas antigas que mudaram de endereço (redirects.json: {"antigo": "novo"})
+    RD = os.path.join(AQUI, 'redirects.json')
+    for ant, novo in (json.load(open(RD)).items() if os.path.exists(RD) else []):
+        os.makedirs(os.path.join(RAIZ, ant), exist_ok=True)
+        u = f"{BASE}/{novo}/"
+        open(os.path.join(RAIZ, ant, 'index.html'), 'w').write(
+            f'<!doctype html><html lang="pt"><head><meta charset="utf-8"><title>Página mudou</title>'
+            f'<link rel="canonical" href="{u}"><meta name="robots" content="noindex">'
+            f'<meta http-equiv="refresh" content="0; url=/{novo}/"></head>'
+            f'<body><p>Esta página mudou para <a href="/{novo}/">{u}</a>.</p></body></html>\n')
     # dados da loja na página principal
     fn = os.path.join(RAIZ, 'index.html'); p = open(fn).read()
     p = re.sub(r'\n<script type="application/ld\+json" id="loja">.*?</script>', '', p, flags=re.S)
