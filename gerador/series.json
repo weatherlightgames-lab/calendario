@@ -231,5 +231,25 @@
    "competitivos",
    "sozinho"
   ]
+ },
+ {
+  "slug": "yu-gi-oh/duelist-party",
+  "titulo": "Duelist Party",
+  "jogo": "ygo",
+  "nome_jogo": "Yu-Gi-Oh!",
+  "dia": "Sunday",
+  "hora": "15:00",
+  "preco": 5,
+  "modelo": "Duelist Party",
+  "eventos": [
+   "Duelist Party"
+  ],
+  "arte": "duelist",
+  "perguntas": [],
+  "faq": [
+   "iniciante",
+   "sleeves_ygo"
+  ],
+  "desde": "2026-11-08"
  }
 ]

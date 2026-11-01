@@ -58,7 +58,8 @@ def proximas(s,S,n=4):
     reais={d['iso']:(d,e) for d in S['dias'] for e in d['eventos'] if e['jogo']==s['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo'])}
     FP=os.path.join(AQUI,'futuros.json')
     especiais={f['iso'] for f in (json.load(open(FP)) if os.path.exists(FP) else []) if f['jogo']==s['jogo'] and f['hora']==s['hora']}
-    out=[]; x=hoje+dt.timedelta((DIA_ISO[s['dia']]-hoje.weekday())%7)
+    ini0=max(hoje,dt.date.fromisoformat(s['desde'])) if s.get('desde') else hoje
+    out=[]; x=ini0+dt.timedelta((DIA_ISO[s['dia']]-ini0.weekday())%7)
     lim=x+dt.timedelta(7*12)
     while len(out)<n and x<=lim:
         iso=x.isoformat()
