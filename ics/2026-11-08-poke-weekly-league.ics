@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-poke-weekly-league@eventos.weatherlightgames.pt
+DTSTAMP:20261101T164038Z
+DTSTART:20261108T150000Z
+DTEND:20261108T180000Z
+SUMMARY:Weekly League · Pokémon TCG (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/pokemon/weekly-league/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/pokemon/weekly-league/
+END:VEVENT
+END:VCALENDAR

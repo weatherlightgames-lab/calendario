@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-06-digi-tamer-party@eventos.weatherlightgames.pt
+DTSTAMP:20261101T164038Z
+DTSTART:20261106T200000Z
+DTEND:20261106T230000Z
+SUMMARY:Tamer Party · Digimon Card Game (Weatherlight)
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349261\nDetalhes: https://eventos.weatherlightgames.pt/digimon/tamer-party/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/digimon/tamer-party/
+END:VEVENT
+END:VCALENDAR

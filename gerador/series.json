@@ -206,7 +206,7 @@
    "Weekly League - Standard",
    "Weekly League — Standard"
   ],
-  "arte": null,
+  "arte": "weekly-league",
   "perguntas": [],
   "faq": [
    "primeira",
@@ -244,7 +244,7 @@
   "eventos": [
    "Duelist Party"
   ],
-  "arte": "duelist",
+  "arte": "duelist-party",
   "perguntas": [],
   "faq": [
    "iniciante",

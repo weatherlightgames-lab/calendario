@@ -1,0 +1,263 @@
+{
+ "semana": "Semana de 4 a 8 de novembro",
+ "introducao": [
+  "Novembro começa em grande na Weatherlight - com lançamentos, ligas e estreias para todos os gostos! 🤩",
+  "De Magic a One Piece, com Yu-Gi-Oh, Gundam, Riftbound, Digimon, Cyberpunk e Pokémon a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
+ ],
+ "destaques": [
+  "Na sexta-feira exploramos a fronteira final com o Prerelease de Star Trek em Magic: The Gathering! 🖖",
+  "No sábado a One Piece Portuguese League passa por Évora - reserva já a tua vaga no nosso calendário! 🏴‍☠️"
+ ],
+ "dias": [
+  {
+   "dia": "Quarta-feira",
+   "data": "4 de novembro",
+   "iso": "2026-11-04",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "16:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Commander Afternoon",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "commander",
+     "story": "f70f762f",
+     "recorte": [
+      0.5,
+      0.5,
+      1.0
+     ],
+     "companion": "2PXGGZ6"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Modern",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "modern",
+     "story": "887a6a0e",
+     "recorte": [
+      0.55,
+      0.5,
+      0.95
+     ],
+     "modelo": "Store Credit (Modern)",
+     "companion": "7GN4JJJ"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Duelist Lounge",
+     "preco": 5,
+     "esgotado": false,
+     "arte": "duelist",
+     "story": "cdb3e59e",
+     "recorte": [
+      0.5,
+      0.5,
+      0.95
+     ],
+     "inscricao": "https://neuron.konami.net/link/7d0z5mpockesk60w"
+    },
+    {
+     "hora": "20:30",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate",
+     "story": "d69de00c",
+     "recorte": [
+      0.55,
+      0.47,
+      0.9
+     ],
+     "modelo": "Pirate Lounge (Standard)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349252"
+    }
+   ]
+  },
+  {
+   "dia": "Sexta-feira",
+   "data": "6 de novembro",
+   "iso": "2026-11-06",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "19:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Prerelease Star Trek",
+     "preco": 32,
+     "esgotado": false,
+     "arte": "startrek",
+     "modelo": "Prerelease (Magic)",
+     "companion": "86722JZ",
+     "texto": "EVENTO LIMITADO A 4 RONDAS.\n\nPrepara-te para explorar a fronteira final - Star Trek chega a Magic: The Gathering! 🖖\n\nJunta-te à Weatherlight em Évora para o evento de Pré-lançamento de Star Trek! 🌟\n\nEste evento é ideal para todo o tipo de jogadores de Magic - iniciantes, a recomeçar e veteranos! ☺️\n\nJunta-te à nossa comunidade nesta nova viagem deste grande jogo ⛵️\n\nVagas limitadas!\n\nFormato: Star Trek Sealed Deck (Suíço)\n\nTodos os jogadores recebem 1 Kit de Prerelease para construir os seus baralhos, que contêm:\n\n- 6 Play Boosters de Star Trek;\n- 1 Foil Card do Set;\n- 1 Deckbox;\n- 1 Dado Spindown (20 lados).\n\nPreço:\n- 39.00€ por Jogador.\n\nPrémios:\n- 2 Play Boosters de Star Trek por jogador para o Top X."
+    },
+    {
+     "hora": "20:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Night",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-night",
+     "story": "44df9ebd",
+     "recorte": [
+      0.5,
+      0.45,
+      0.9
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117542137261232095"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Tamer Party",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "tamer",
+     "story": "8d75b47c",
+     "recorte": [
+      0.45,
+      0.5,
+      1.0
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349261"
+    },
+    {
+     "hora": "21:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-lounge",
+     "story": "ee73142b",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349206"
+    }
+   ]
+  },
+  {
+   "dia": "Sábado",
+   "data": "7 de novembro",
+   "iso": "2026-11-07",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "11:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "One Piece Portuguese League - Etapa Weatherlight",
+     "preco": 11,
+     "esgotado": false,
+     "arte": "oppl",
+     "modelo": "One Piece Portuguese League",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349256",
+     "reserva": "QooErX",
+     "texto": "Atenção Pirates! 🏴‍☠️\n\nA One Piece Portuguese League vai passar por Évora com a etapa da Weatherlight! ⚓️\n\nCom os olhos postos na Grand Final recheada de Displays para os qualificados, os nossos Pirates voltam a tentar arrecadar mais uma slot para este evento exclusivo! 🏆\n\nJunta-te a nós para um grande dia de One Piece Card Game em Évora! 🙌\n\nCheck-in: 10:30h - 11:00h\nVagas limitadas! Envia mensagem para as redes sociais da Weatherlight para garantir a tua. ⛵️\n\nFormato:\nEB05 Standard (Suíço + Top Cut)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nDecklist obrigatória, a submeter através da Bandai TCG+.\n\nPreço: 11.00€\n\nPrémios:\n1º Slot na Grand Final da One Piece Portuguese League (Mercadia Games, data a confirmar);\nTop X - 1,5 Boosters por jogador.\n\nRegulamento OPPL:\nhttps://drive.google.com/file/d/1T0Iy_cqZ3YZIcralcmMg4ky7uMRqznYg/view?usp=sharing"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "cyber",
+     "nome_jogo": "Cyberpunk TCG",
+     "evento": "Night City Brawl",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nightcity",
+     "story": "57bb8a1a",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://melee.gg/Tournament/View/495396"
+    },
+    {
+     "hora": "18:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-party",
+     "story": "94fba730",
+     "recorte": [
+      0.45,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349209"
+    }
+   ]
+  },
+  {
+   "dia": "Domingo",
+   "data": "8 de novembro",
+   "iso": "2026-11-08",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Afternoon",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-afternoon",
+     "story": "689562c1",
+     "recorte": [
+      0.45,
+      0.5,
+      0.95
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117542135427887112"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "Weekly League",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "weekly-league",
+     "story": "633588e4",
+     "recorte": [
+      0.4,
+      0.48,
+      0.95
+     ]
+    },
+    {
+     "hora": "15:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Duelist Party",
+     "preco": 5,
+     "esgotado": false,
+     "arte": "duelist-party",
+     "story": "675dcaa6",
+     "recorte": [
+      0.55,
+      0.47,
+      0.92
+     ],
+     "inscricao": "https://neuron.konami.net/link/opq4ti89xpyao65t"
+    }
+   ]
+  }
+ ]
+}
