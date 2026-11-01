@@ -24,3 +24,4 @@ One Piece: Pirate Lounge e Pirate Party são Standard; Extra Regulation só quan
 - **Mudanças de endereço**: `gerador/redirects.json` (`{"antigo": "novo"}`) gera páginas que reencaminham (vazio de momento). `gerador/nao_especiais.json` lista eventos sem página fixa que não são especiais (não entram no arquivo) (vazio de momento).
 - **Eventos regulares em pausa**: `"pausa": true` em `series.json` (ex. Pirate Party de sábado): sem datas previstas, aparece "em pausa" e a `nota` explica. Quando voltar, tirar o `pausa`.
 - **Início de um evento regular**: `"desde": "AAAA-MM-DD"` em `series.json` (ex. Duelist Party, desde 8/11/2026) evita datas previstas antes do arranque.
+- **Texto da semana adiantado**: `gerador/proxima_semana.json` (introdução e destaques já aprovados). Usar na semana indicada e apagar depois.
