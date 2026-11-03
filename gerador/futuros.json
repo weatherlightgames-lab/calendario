@@ -267,5 +267,36 @@
   "modelo": "One Piece Portuguese League",
   "inscricao": "https://www.bandai-tcg-plus.com/event/8349256",
   "reserva": "QooErX"
+ },
+ {
+  "iso": "2026-11-20",
+  "hora": "20:00",
+  "jogo": "op",
+  "nome_jogo": "One Piece Card Game",
+  "evento": "OP18 The Dominance of God Release Event",
+  "preco": 32,
+  "modelo": "Release Event (One Piece)",
+  "arte": "op18",
+  "tipo": "Release Event",
+  "story": "op18",
+  "recorte": [
+   0.55,
+   0.0,
+   1.0
+  ],
+  "texto": "Pirate! 🏴‍☠️\n\nAs celebrações do 4º Aniversário de One Piece Card Game continuam na Weatherlight com a chegada de OP18 The Dominance of God! 🙌\n\nE, como manda a tradição, temos de festejar da melhor maneira - com o Release Event! 🥳\n\nJunta-te a nós e à nossa comunidade e vem experimentar as cartas novas num evento que promete! ⛵️\n\nCheck-in: 19:30h - 20:00h\nVagas limitadas! Reserva de vagas através da Bandai TCG+.\n(Na Bandai TCG+ o evento aparece com a data de 22/11, mas realiza-se a 20/11.)\n\nFormato:\nOP18 The Dominance of God Sealed Deck (Suíço)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nPreço: 32.00€\n\nPrémios:\n1º 1 P-161 Monkey.D.Luffy Winner + 2 Boosters de OP18;\n2º 2 Boosters de OP18;\n3º 1 Booster de OP18.\n\nSorteio:\n1 P-161 Monkey.D.Luffy Winner no final do evento!\n\nE AINDA!\n- 1 Booster de OP18 de participação;\n- Promo DON!! de participação;\n- 1 Release Event Pack para todos os participantes.\n\nVais ficar de fora? 🤔"
+ },
+ {
+  "iso": "2026-11-21",
+  "hora": "15:00",
+  "jogo": "op",
+  "nome_jogo": "One Piece Card Game",
+  "evento": "OP18 The Dominance of God Release Event",
+  "preco": 32,
+  "modelo": "Release Event (One Piece)",
+  "arte": "op18",
+  "tipo": "Release Event",
+  "texto": "Pirate! 🏴‍☠️\n\nAs celebrações do 4º Aniversário de One Piece Card Game continuam na Weatherlight com a chegada de OP18 The Dominance of God! 🙌\n\nE, como manda a tradição, temos de festejar da melhor maneira - com o Release Event! 🥳\n\nJunta-te a nós e à nossa comunidade e vem experimentar as cartas novas num evento que promete! ⛵️\n\nCheck-in: 14:30h - 15:00h\nVagas limitadas! Reserva de vagas através da Bandai TCG+.\n\nFormato:\nOP18 The Dominance of God Sealed Deck (Suíço)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nPreço: 32.00€\n\nPrémios:\n1º 1 P-161 Monkey.D.Luffy Winner + 2 Boosters de OP18;\n2º 2 Boosters de OP18;\n3º 1 Booster de OP18.\n\nSorteio:\n1 P-161 Monkey.D.Luffy Winner no final do evento!\n\nE AINDA!\n- 1 Booster de OP18 de participação;\n- Promo DON!! de participação;\n- 1 Release Event Pack para todos os participantes.\n\nVais ficar de fora? 🤔",
+  "_slug_sufixo": true
  }
 ]

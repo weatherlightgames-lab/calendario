@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-21-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
+DTSTAMP:20261103T190349Z
+DTSTART:20261121T150000Z
+DTEND:20261121T180000Z
+SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
+END:VEVENT
+END:VCALENDAR

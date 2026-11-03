@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-04-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261101T171047Z
+DTSTAMP:20261103T190349Z
 DTSTART:20261104T203000Z
 DTEND:20261104T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
@@ -20,12 +20,32 @@ URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-07-op-one-piece-portuguese-league-etapa-weatherlight@eventos.weatherlightgames.pt
-DTSTAMP:20261101T171047Z
+DTSTAMP:20261103T190349Z
 DTSTART:20261107T110000Z
 DTEND:20261107T140000Z
 SUMMARY:One Piece Portuguese League - Etapa Weatherlight · One Piece Card Game (Weatherlight)
 DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349256\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-20-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
+DTSTAMP:20261103T190349Z
+DTSTART:20261120T200000Z
+DTEND:20261120T230000Z
+SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-21-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
+DTSTAMP:20261103T190349Z
+DTSTART:20261121T150000Z
+DTEND:20261121T180000Z
+SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
 END:VEVENT
 END:VCALENDAR
