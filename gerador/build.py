@@ -127,8 +127,8 @@ def item(d,e,quando=None):
       "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
       "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
                 "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
-    L=e.get('lideres') or next((f.get('lideres') for f in FUT if f['evento']==e['evento'] and f.get('iso')==d.get('iso',e.get('iso'))),None)
-    lid=('<span class="lidt">Leaders permitidas</span>'+series.lideres_html(L)) if L else ''
+    fm=e if e.get('lideres') else next((f for f in FUT if f['evento']==e['evento'] and f.get('iso')==d.get('iso',e.get('iso')) and f.get('lideres')),{})
+    lid=('<span class="lidt">Leaders permitidas</span>'+series.lideres_html(fm['lideres'],fm.get('lideres_fonte'))) if fm else ''
     b1,p1=det(txt,s,calendario(d,e,s)+loja(e),lid); b2,p2=inscricao(e)
     p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
     sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''

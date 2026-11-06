@@ -345,7 +345,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
 # Lista visual de Leaders permitidas (futuros.json "lideres": [[código, nome, "Cor/Cor"], ...])
 CORES_OP={'Red':('#c8372d','Vermelho'),'Green':('#2f8f4e','Verde'),'Blue':('#2c6fb7','Azul'),
           'Purple':('#7d4ea8','Roxo'),'Black':('#2b2b2b','Preto'),'Yellow':('#e0b52a','Amarelo')}
-def lideres_html(L):
+def lideres_html(L,fonte=None):
     if not L: return ''
     out=[]
     for cod,nome,cor in L:
@@ -354,4 +354,4 @@ def lideres_html(L):
         else:
             n=len(cs); bg='linear-gradient('+','.join(f'{c[0]} {i*100//n}% {(i+1)*100//n}%' for i,c in enumerate(cs))+')'
         out.append(f'<li><i style="background:{bg}"></i><strong>{html.escape(nome)}</strong><small>{html.escape(cod)}<span class="cn"> · {"/".join(c[1] for c in cs)}</span></small></li>')
-    return '<ul class="lids">'+''.join(out)+'</ul>'
+    return '<ul class="lids">'+''.join(out)+'</ul>'+(f'<a class="lidf" href="{html.escape(fonte)}">Ver o evento e a lista no site oficial da Bandai ↗</a>' if fonte else '')
