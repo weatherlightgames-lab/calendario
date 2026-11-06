@@ -37,11 +37,11 @@ def modelo(e):
     c=[k for k in DET if k.startswith(e['evento']+' (')]
     return DET[c[0]] if len(c)==1 else None
 
-def det(txt,s=None,cal=''):
+def det(txt,s=None,cal='',lid=''):
     """Devolve (botão, painel). O painel abre por baixo da fila de botões (CSS :has)."""
     if txt:
         return ('<details class="det d1"><summary>Ver detalhes</summary></details>',
-                '<div class="txt p1">'+html.escape(txt)+
+                '<div class="txt p1">'+html.escape(txt)+lid+
                 '<span class="more">Algum termo que não conheces? Vê o <a href="https://www.weatherlightgames.pt/page/glossario">Glossário</a> '
                 'ou a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight">Central de Ajuda</a>.</span>'+
                 '<span class="lks">'+(f'<a class="pg" href="/{s["slug"]}/">Página do evento →</a>' if s else '')+cal+'</span></div>')
@@ -127,7 +127,9 @@ def item(d,e,quando=None):
       "description":re.sub(r"\s+"," ",txt).strip() if txt else f"{e['evento']} de {e['nome_jogo']} na Weatherlight, em Évora.",
       "offers":{"@type":"Offer","price":f"{preco:.2f}","priceCurrency":"EUR","url":e.get('inscricao') or BASE,
                 "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
-    b1,p1=det(txt,s,calendario(d,e,s)+loja(e)); b2,p2=inscricao(e)
+    L=e.get('lideres') or next((f.get('lideres') for f in FUT if f['evento']==e['evento'] and f.get('iso')==d.get('iso',e.get('iso'))),None)
+    lid=('<span class="lidt">Leaders permitidas</span>'+series.lideres_html(L)) if L else ''
+    b1,p1=det(txt,s,calendario(d,e,s)+loja(e),lid); b2,p2=inscricao(e)
     p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
     sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
     th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'

@@ -126,6 +126,7 @@ def especiais(DET, FUT, inscricao):
     {f'<div class="acoes">{b2 if not passou else ""}{cal}</div>' if (b2 and not passou) or cal else ''}
     {f'<p class="m">Código Companion: <span class="code">{html.escape(f["companion"])}</span> (na app, toca em <em>Enter Event Code</em>)</p>' if f.get('companion') and not passou else ''}
     <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes em breve! Entretanto, acompanha o nosso Discord.")}</p></div>{img}</section>
+    {f'<section class="box" style="margin-top:1.2rem"><h2>Leaders permitidas</h2>{series.lideres_html(f["lideres"])}</section>' if f.get('lideres') else ''}
     <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{a}</dd>' for q, a in perg)}</dl></section>
     <section class="sec"><h2>Mais eventos</h2><div class="rel">
       <a class="card" href="/{pasta}/"><strong>Eventos de {html.escape(f['nome_jogo'])}</strong><span>Regulares e especiais</span><em>Ver página →</em></a>

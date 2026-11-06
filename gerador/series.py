@@ -341,3 +341,17 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
         artes=[x for i,x in enumerate(artes) if x and x not in artes[:i]][:3]
         OG.append((os.path.join(RAIZ,pasta,'index.html'),f"{BASE}/{pasta}/","Eventos em Évora",nome,"Não percas estes eventos na Weatherlight",artes))
     return urls
+
+# Lista visual de Leaders permitidas (futuros.json "lideres": [[código, nome, "Cor/Cor"], ...])
+CORES_OP={'Red':('#c8372d','Vermelho'),'Green':('#2f8f4e','Verde'),'Blue':('#2c6fb7','Azul'),
+          'Purple':('#7d4ea8','Roxo'),'Black':('#2b2b2b','Preto'),'Yellow':('#e0b52a','Amarelo')}
+def lideres_html(L):
+    if not L: return ''
+    out=[]
+    for cod,nome,cor in L:
+        cs=[CORES_OP[c] for c in cor.split('/')]
+        if len(cs)==1: bg=cs[0][0]
+        else:
+            n=len(cs); bg='linear-gradient('+','.join(f'{c[0]} {i*100//n}% {(i+1)*100//n}%' for i,c in enumerate(cs))+')'
+        out.append(f'<li><i style="background:{bg}"></i><strong>{html.escape(nome)}</strong><small>{html.escape(cod)}<span class="cn"> · {"/".join(c[1] for c in cs)}</span></small></li>')
+    return '<ul class="lids">'+''.join(out)+'</ul>'
