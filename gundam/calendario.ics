@@ -9,23 +9,13 @@ X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-06-gundam-pilot-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261106T210000Z
-DTEND:20261107T000000Z
+UID:2026-11-12-gundam-pilot-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261112T210000Z
+DTEND:20261113T000000Z
 SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349206\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349210\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-07-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261107T180000Z
-DTEND:20261107T210000Z
-SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349209\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-party/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/gundam/pilot-party/
 END:VEVENT
 END:VCALENDAR

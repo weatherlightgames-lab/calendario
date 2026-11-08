@@ -9,148 +9,38 @@ X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-04-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261104T160000Z
-DTEND:20261104T190000Z
+UID:2026-11-11-magic-commander-afternoon@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261111T160000Z
+DTEND:20261111T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Código Companion: 2PXGGZ6\nDetalhes: https://eventos.weatherlightgames.pt/magic/commander-afternoon/
+DESCRIPTION:Código Companion: QMVGGYG\nDetalhes: https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-04-magic-modern@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261104T200000Z
-DTEND:20261104T230000Z
+UID:2026-11-11-magic-modern@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261111T200000Z
+DTEND:20261111T230000Z
 SUMMARY:Modern · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Código Companion: 7GN4JJJ\nDetalhes: https://eventos.weatherlightgames.pt/magic/modern/
+DESCRIPTION:Código Companion: M7ZGNNP\nDetalhes: https://eventos.weatherlightgames.pt/magic/modern/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/magic/modern/
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-04-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261104T200000Z
-DTEND:20261104T230000Z
+UID:2026-11-11-ygo-duelist-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261111T200000Z
+DTEND:20261111T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
-DESCRIPTION:Inscrição: https://neuron.konami.net/link/7d0z5mpockesk60w\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/abrrkhxtslw7a4gv\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-04-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261104T203000Z
-DTEND:20261104T233000Z
-SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349252\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-06-magic-prerelease-star-trek@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261106T190000Z
-DTEND:20261106T220000Z
-SUMMARY:Prerelease Star Trek · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Código Companion: 86722JZ\nDetalhes: https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/magic/prerelease-star-trek/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-06-rift-nexus-night@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261106T200000Z
-DTEND:20261106T230000Z
-SUMMARY:Nexus Night · Riftbound: League of Legends TCG (Weatherlight)
-DESCRIPTION:Inscrição: https://playriftbound.com/en-US/events/117542137261232095\nDetalhes: https://eventos.weatherlightgames.pt/riftbound/nexus-night/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/riftbound/nexus-night/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-06-digi-tamer-party@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261106T200000Z
-DTEND:20261106T230000Z
-SUMMARY:Tamer Party · Digimon Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349261\nDetalhes: https://eventos.weatherlightgames.pt/digimon/tamer-party/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/digimon/tamer-party/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-06-gundam-pilot-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261106T210000Z
-DTEND:20261107T000000Z
-SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349206\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-07-op-one-piece-portuguese-league-etapa-weatherlight@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261107T110000Z
-DTEND:20261107T140000Z
-SUMMARY:One Piece Portuguese League - Etapa Weatherlight · One Piece Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349256\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/one-piece/one-piece-portuguese-league-etapa-weatherlight/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-07-cyber-night-city-brawl@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261107T150000Z
-DTEND:20261107T180000Z
-SUMMARY:Night City Brawl · Cyberpunk TCG (Weatherlight)
-DESCRIPTION:Inscrição: https://melee.gg/Tournament/View/495396\nDetalhes: https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-07-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261107T180000Z
-DTEND:20261107T210000Z
-SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349209\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-party/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/gundam/pilot-party/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-08-rift-nexus-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261108T150000Z
-DTEND:20261108T180000Z
-SUMMARY:Nexus Afternoon · Riftbound: League of Legends TCG (Weatherlight)
-DESCRIPTION:Inscrição: https://playriftbound.com/en-US/events/117542135427887112\nDetalhes: https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-08-poke-weekly-league@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261108T150000Z
-DTEND:20261108T180000Z
-SUMMARY:Weekly League · Pokémon TCG (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/pokemon/weekly-league/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/pokemon/weekly-league/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-08-ygo-duelist-party@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261108T150000Z
-DTEND:20261108T180000Z
-SUMMARY:Duelist Party · Yu-Gi-Oh! (Weatherlight)
-DESCRIPTION:Inscrição: https://neuron.konami.net/link/opq4ti89xpyao65t\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-party/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-party/
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-11-11-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
+DTSTAMP:20261108T165757Z
 DTSTART:20261111T203000Z
 DTEND:20261111T233000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
@@ -159,8 +49,38 @@ LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\
 URL:https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/
 END:VEVENT
 BEGIN:VEVENT
+UID:2026-11-12-rift-nexus-night@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261112T200000Z
+DTEND:20261112T230000Z
+SUMMARY:Nexus Night · Riftbound: League of Legends TCG (Weatherlight)
+DESCRIPTION:Inscrição: https://playriftbound.com/en-US/events/117581252234999631\nDetalhes: https://eventos.weatherlightgames.pt/riftbound/nexus-night/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/riftbound/nexus-night/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-digi-tamer-party@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261112T200000Z
+DTEND:20261112T230000Z
+SUMMARY:Tamer Party · Digimon Card Game (Weatherlight)
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349262\nDetalhes: https://eventos.weatherlightgames.pt/digimon/tamer-party/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/digimon/tamer-party/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-gundam-pilot-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261108T165757Z
+DTSTART:20261112T210000Z
+DTEND:20261113T000000Z
+SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349210\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-20-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
+DTSTAMP:20261108T165757Z
 DTSTART:20261120T200000Z
 DTEND:20261120T230000Z
 SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
@@ -170,7 +90,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-rel
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
+DTSTAMP:20261108T165757Z
 DTSTART:20261121T150000Z
 DTEND:20261121T180000Z
 SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
@@ -180,7 +100,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-rel
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
+DTSTAMP:20261108T165757Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
@@ -190,7 +110,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-cup-1@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
+DTSTAMP:20261108T165757Z
 DTSTART:20261129T100000Z
 DTEND:20261129T130000Z
 SUMMARY:League Cup #1 · Pokémon TCG (Weatherlight)
@@ -200,7 +120,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-cup-1/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-challenge-novembro@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
+DTSTAMP:20261108T165757Z
 DTSTART:20261129T170000Z
 DTEND:20261129T200000Z
 SUMMARY:League Challenge Novembro · Pokémon TCG (Weatherlight)
