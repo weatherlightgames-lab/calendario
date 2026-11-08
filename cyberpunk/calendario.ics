@@ -8,14 +8,4 @@ X-WR-TIMEZONE:Europe/Lisbon
 X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
-BEGIN:VEVENT
-UID:2026-11-07-cyber-night-city-brawl@eventos.weatherlightgames.pt
-DTSTAMP:20261108T142731Z
-DTSTART:20261107T150000Z
-DTEND:20261107T180000Z
-SUMMARY:Night City Brawl · Cyberpunk TCG (Weatherlight)
-DESCRIPTION:Inscrição: https://melee.gg/Tournament/View/495396\nDetalhes: https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/
-END:VEVENT
 END:VCALENDAR

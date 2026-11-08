@@ -1,18 +1,18 @@
 {
- "semana": "Semana de 4 a 8 de novembro",
+ "semana": "Semana de 11 a 15 de novembro",
  "introducao": [
-  "Novembro começa em grande na Weatherlight - com lançamentos, ligas e estreias para todos os gostos! 🤩",
-  "De Magic a One Piece, com Yu-Gi-Oh, Gundam, Riftbound, Digimon, Cyberpunk e Pokémon a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
+  "Esta semana é mais curta na Weatherlight - de sexta a domingo vamos fazer uma pausa para recarregar energias e preparar meses que os Navegantes não podem perder! ⚡️",
+  "Excecionalmente, os eventos habituais de sexta passam para quinta-feira - para teres a oportunidade de jogar o teu jogo favorito numa semana mais curta! 🃏",
+  "De Magic a One Piece, com Yu-Gi-Oh, Riftbound, Digimon e Gundam a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
  ],
  "destaques": [
-  "Na sexta-feira exploramos a fronteira final com o Prerelease de Star Trek em Magic: The Gathering! 🖖",
-  "No sábado a One Piece Portuguese League passa por Évora - reserva já a tua vaga no nosso calendário! 🏴‍☠️"
+  "Na quarta-feira a Heroines Battle está de volta ao One Piece Card Game - só as Heroínas sobem ao palco! 🏴‍☠️"
  ],
  "dias": [
   {
    "dia": "Quarta-feira",
-   "data": "4 de novembro",
-   "iso": "2026-11-04",
+   "data": "11 de novembro",
+   "iso": "2026-11-11",
    "fuso": "+00:00",
    "eventos": [
     {
@@ -23,11 +23,11 @@
      "preco": 0,
      "esgotado": false,
      "arte": "commander",
-     "story": "f70f762f",
+     "story": "e609afa7",
      "recorte": [
       0.5,
-      0.5,
-      1.0
+      0.47,
+      0.97
      ]
     },
     {
@@ -38,11 +38,11 @@
      "preco": 6,
      "esgotado": false,
      "arte": "modern",
-     "story": "887a6a0e",
+     "story": "83c8bd0d",
      "recorte": [
-      0.55,
-      0.5,
-      0.95
+      0.45,
+      0.47,
+      0.97
      ],
      "modelo": "Store Credit (Modern)"
     },
@@ -54,48 +54,161 @@
      "preco": 5,
      "esgotado": false,
      "arte": "duelist",
-     "story": "cdb3e59e",
+     "story": "113e9422",
      "recorte": [
-      0.5,
-      0.5,
-      0.95
+      0.6,
+      0.47,
+      0.97
      ]
     },
     {
      "hora": "20:30",
      "jogo": "op",
      "nome_jogo": "One Piece Card Game",
-     "evento": "Pirate Lounge",
-     "preco": 5.5,
-     "esgotado": false,
-     "arte": "pirate",
-     "story": "d69de00c",
-     "recorte": [
-      0.55,
-      0.47,
-      0.9
+     "evento": "Heroines Battle Vol.2",
+     "preco": 6.5,
+     "modelo": "Heroines Battle",
+     "arte": "heroines",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/6745740",
+     "texto": "Pirate! 🏴‍☠️\n\nA Heroines Battle está de volta à Weatherlight em Évora para celebrar o lançamento de EB05! 🤩\n\nNeste evento especial só as Heroínas sobem ao palco: escolhe a tua Leader da lista oficial e vem disputar a Nami exclusiva deste evento! ⛵️\n\nCheck-in: 20:00h - 20:30h\nReserva de vagas através da Bandai TCG+\n\nFormato:\nEB05 Standard (Suíço), formato especial só com Leaders Heroines\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nSó podes jogar com as Leaders Heroines da lista abaixo (versões alt-art incluídas).\nEvento e lista oficial no site da Bandai:\nhttps://en.onepiece-cardgame.com/events/heroines-battle-vol2.html\n\nPreço: 6.50€\n\nPrémios:\n1º 1 EB03-006 Nami (Winner) + 1 Booster + 1 Winner Pack Store Tournament Out-Dez;\n2º 1 Winner Pack Store Tournament Jul-Set;\n\nE AINDA!\n- 1 EB03-006 Nami de participação para todos os participantes;\n- 1 Booster de participação no acto de inscrição;\n- 1 OTP Store Tournament Out-Dez para todos os participantes;\n- 1 OTP Store Tournament Jul-Set para todos os participantes.\n\nVais ficar de fora? 🤔",
+     "lideres": [
+      [
+       "OP05-002",
+       "Belo Betty",
+       "Red/Yellow"
+      ],
+      [
+       "OP06-001",
+       "Uta",
+       "Red/Purple"
+      ],
+      [
+       "OP06-021",
+       "Perona",
+       "Green/Black"
+      ],
+      [
+       "OP06-022",
+       "Yamato",
+       "Green/Yellow"
+      ],
+      [
+       "OP06-042",
+       "Vinsmoke Reiju",
+       "Blue/Purple"
+      ],
+      [
+       "OP07-019",
+       "Jewelry Bonney",
+       "Green"
+      ],
+      [
+       "OP07-038",
+       "Boa Hancock",
+       "Blue"
+      ],
+      [
+       "OP08-021",
+       "Carrot",
+       "Green"
+      ],
+      [
+       "OP08-058",
+       "Charlotte Pudding",
+       "Purple/Yellow"
+      ],
+      [
+       "OP09-022",
+       "Lim",
+       "Green/Purple"
+      ],
+      [
+       "OP09-062",
+       "Nico Robin",
+       "Purple/Yellow"
+      ],
+      [
+       "OP10-003",
+       "Sugar",
+       "Red/Purple"
+      ],
+      [
+       "OP11-022",
+       "Shirahoshi",
+       "Green/Yellow"
+      ],
+      [
+       "OP11-041",
+       "Nami",
+       "Blue/Yellow"
+      ],
+      [
+       "OP12-081",
+       "Koala",
+       "Black/Yellow"
+      ],
+      [
+       "OP13-100",
+       "Jewelry Bonney",
+       "Yellow"
+      ],
+      [
+       "OP14-041",
+       "Boa Hancock",
+       "Blue/Yellow"
+      ],
+      [
+       "OP15-039",
+       "Rebecca",
+       "Blue"
+      ],
+      [
+       "OP16-079",
+       "Yamato",
+       "Black"
+      ],
+      [
+       "OP17-099",
+       "Charlotte Linlin",
+       "Yellow"
+      ],
+      [
+       "EB03-001",
+       "Nefeltari Vivi",
+       "Red/Blue"
+      ],
+      [
+       "EB04-001",
+       "Jewelry Bonney",
+       "Red/Yellow"
+      ],
+      [
+       "EB05-010",
+       "Nico Robin",
+       "Green/Yellow"
+      ],
+      [
+       "ST11-001",
+       "Uta",
+       "Green"
+      ],
+      [
+       "P-117",
+       "Nami",
+       "Blue"
+      ]
      ],
-     "modelo": "Pirate Lounge (Standard)"
+     "lideres_fonte": "https://en.onepiece-cardgame.com/events/heroines-battle-vol2.html",
+     "esgotado": false
     }
    ]
   },
   {
-   "dia": "Sexta-feira",
-   "data": "6 de novembro",
-   "iso": "2026-11-06",
+   "dia": "Quinta-feira",
+   "data": "12 de novembro",
+   "iso": "2026-11-12",
    "fuso": "+00:00",
    "eventos": [
-    {
-     "hora": "19:00",
-     "jogo": "magic",
-     "nome_jogo": "Magic: The Gathering",
-     "evento": "Prerelease Star Trek",
-     "preco": 39,
-     "esgotado": false,
-     "arte": "startrek",
-     "modelo": "Prerelease (Magic)",
-     "companion": "86722JZ"
-    },
     {
      "hora": "20:00",
      "jogo": "rift",
@@ -104,11 +217,11 @@
      "preco": 6.5,
      "esgotado": false,
      "arte": "nexus-night",
-     "story": "44df9ebd",
+     "story": "b8f672ef",
      "recorte": [
       0.5,
-      0.45,
-      0.9
+      0.47,
+      0.97
      ]
     },
     {
@@ -116,14 +229,14 @@
      "jogo": "digi",
      "nome_jogo": "Digimon Card Game",
      "evento": "Tamer Party",
-     "preco": 6,
+     "preco": 5.5,
      "esgotado": false,
      "arte": "tamer",
-     "story": "8d75b47c",
+     "story": "4a3bb2cd",
      "recorte": [
-      0.45,
       0.5,
-      1.0
+      0.45,
+      0.95
      ]
     },
     {
@@ -134,116 +247,11 @@
      "preco": 5.5,
      "esgotado": false,
      "arte": "pilot-lounge",
-     "story": "ee73142b",
+     "story": "7a866c5b",
      "recorte": [
       0.5,
       0.45,
       0.95
-     ]
-    }
-   ]
-  },
-  {
-   "dia": "Sábado",
-   "data": "7 de novembro",
-   "iso": "2026-11-07",
-   "fuso": "+00:00",
-   "eventos": [
-    {
-     "hora": "11:00",
-     "jogo": "op",
-     "nome_jogo": "One Piece Card Game",
-     "evento": "One Piece Portuguese League - Etapa Weatherlight",
-     "preco": 11,
-     "esgotado": false,
-     "arte": "oppl",
-     "modelo": "One Piece Portuguese League",
-     "inscricao": "https://www.bandai-tcg-plus.com/event/8349256",
-     "reserva": "QooErX",
-     "texto": "Atenção Pirates! 🏴‍☠️\n\nA One Piece Portuguese League vai passar por Évora com a etapa da Weatherlight! ⚓️\n\nCom os olhos postos na Grand Final recheada de Displays para os qualificados, os nossos Pirates voltam a tentar arrecadar mais uma slot para este evento exclusivo! 🏆\n\nJunta-te a nós para um grande dia de One Piece Card Game em Évora! 🙌\n\nCheck-in: 10:30h - 11:00h\nVagas limitadas! Envia mensagem para as redes sociais da Weatherlight para garantir a tua. ⛵️\n\nFormato:\nEB05 Standard (Suíço + Top Cut)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nDecklist obrigatória, a submeter através da Bandai TCG+.\n\nPreço: 11.00€\n\nPrémios:\n1º Slot na Grand Final da One Piece Portuguese League (Mercadia Games, data a confirmar);\nTop X - 1,5 Boosters por jogador.\n\nRegulamento OPPL:\nhttps://drive.google.com/file/d/1T0Iy_cqZ3YZIcralcmMg4ky7uMRqznYg/view?usp=sharing"
-    },
-    {
-     "hora": "15:00",
-     "jogo": "cyber",
-     "nome_jogo": "Cyberpunk TCG",
-     "evento": "Night City Brawl",
-     "preco": 6.5,
-     "esgotado": false,
-     "arte": "nightcity",
-     "story": "57bb8a1a",
-     "recorte": [
-      0.5,
-      0.45,
-      0.95
-     ]
-    },
-    {
-     "hora": "18:00",
-     "jogo": "gundam",
-     "nome_jogo": "Gundam Card Game",
-     "evento": "Pilot Party",
-     "preco": 5.5,
-     "esgotado": false,
-     "arte": "pilot-party",
-     "story": "94fba730",
-     "recorte": [
-      0.45,
-      0.45,
-      0.95
-     ]
-    }
-   ]
-  },
-  {
-   "dia": "Domingo",
-   "data": "8 de novembro",
-   "iso": "2026-11-08",
-   "fuso": "+00:00",
-   "eventos": [
-    {
-     "hora": "15:00",
-     "jogo": "rift",
-     "nome_jogo": "Riftbound: League of Legends TCG",
-     "evento": "Nexus Afternoon",
-     "preco": 6.5,
-     "esgotado": false,
-     "arte": "nexus-afternoon",
-     "story": "689562c1",
-     "recorte": [
-      0.45,
-      0.5,
-      0.95
-     ]
-    },
-    {
-     "hora": "15:00",
-     "jogo": "poke",
-     "nome_jogo": "Pokémon TCG",
-     "evento": "Weekly League",
-     "preco": 6.5,
-     "esgotado": false,
-     "arte": "weekly-league",
-     "story": "633588e4",
-     "recorte": [
-      0.4,
-      0.48,
-      0.95
-     ],
-     "texto": "Treinador!\n\nVem jogar com outros treinadores no formato Standard e ganhar Prize Packs exclusivos da Play! Pokémon!\n\nFormato: Pitch Black Standard (Suíço)\n\nNo formato Standard, só podes jogar com cartas de:\n\nTemporal Forces, Twilight Masquerade, Shrouded Fable, Stellar Crown, Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals, Black Bolt / White Flare, Mega Evolution, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising e Pitch Black.\n\nPreço de Entrada: 6.50€\n\nPRÉMIOS:\n- 1 Booster de Pitch Black para o vencedor;\n- 1 Prize Pack Season 8 por jogador para o Top X.\n\nGOODIES DE PARTICIPAÇÃO:\n- 1 Booster de Pitch Black de participação;\n- 1 Prize Pack Season 8 de participação;\n- 1 Prize Pack Season 7 de participação.\n\nJunta-te à nossa comunidade de Pokémon e começa esta grande aventura!"
-    },
-    {
-     "hora": "15:00",
-     "jogo": "ygo",
-     "nome_jogo": "Yu-Gi-Oh!",
-     "evento": "Duelist Party",
-     "preco": 5,
-     "esgotado": false,
-     "arte": "duelist-party",
-     "story": "675dcaa6",
-     "recorte": [
-      0.55,
-      0.47,
-      0.92
      ]
     }
    ]
