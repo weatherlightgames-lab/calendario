@@ -55,11 +55,18 @@ def proximas(s,S,n=4):
     import datetime as dt
     hoje=dt.date.today(); isos=[dt.date.fromisoformat(d['iso']) for d in S['dias']]
     ini,fim=(min(isos),max(isos)) if isos else (hoje,hoje)
+    fim=fim+dt.timedelta((6-fim.weekday())%7)   # a semana do calendário vai até domingo: dias sem eventos (pausas) não são previstos
     reais={d['iso']:(d,e) for d in S['dias'] for e in d['eventos'] if e['jogo']==s['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo'])}
     FP=os.path.join(AQUI,'futuros.json')
     especiais={f['iso'] for f in (json.load(open(FP)) if os.path.exists(FP) else []) if f['jogo']==s['jogo'] and f['hora']==s['hora']}
     ini0=max(hoje,dt.date.fromisoformat(s['desde'])) if s.get('desde') else hoje
-    out=[]; x=ini0+dt.timedelta((DIA_ISO[s['dia']]-ini0.weekday())%7)
+    out=[]
+    # eventos desta série mudados de dia nesta semana (ex.: sexta passa para quinta)
+    for iso in sorted(reais):
+        x0=dt.date.fromisoformat(iso)
+        if x0>=hoje and x0.weekday()!=DIA_ISO[s['dia']]:
+            d,e=reais[iso]; out.append((f"{d['dia']}, {d['data']}",e['hora'],float(e['preco']),e.get('esgotado',False),True))
+    x=ini0+dt.timedelta((DIA_ISO[s['dia']]-ini0.weekday())%7)
     lim=x+dt.timedelta(7*12)
     while len(out)<n and x<=lim:
         iso=x.isoformat()

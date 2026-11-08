@@ -1,7 +1,46 @@
 {
  "openingHoursSpecification": [
-  {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday", "Friday"], "opens": "15:00", "closes": "23:00"},
-  {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Saturday", "Sunday"], "opens": "15:00", "closes": "20:30"}
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Wednesday",
+    "Friday"
+   ],
+   "opens": "15:00",
+   "closes": "23:00"
+  },
+  {
+   "@type": "OpeningHoursSpecification",
+   "dayOfWeek": [
+    "Thursday",
+    "Saturday",
+    "Sunday"
+   ],
+   "opens": "15:00",
+   "closes": "20:30"
+  }
  ],
- "openingHours": ["We 15:00-23:00", "Th 15:00-20:30", "Fr 15:00-23:00", "Sa 15:00-20:30", "Su 15:00-20:30"]
+ "openingHours": [
+  "We 15:00-23:00",
+  "Th 15:00-20:30",
+  "Fr 15:00-23:00",
+  "Sa 15:00-20:30",
+  "Su 15:00-20:30"
+ ],
+ "specialOpeningHoursSpecification": [
+  {
+   "@type": "OpeningHoursSpecification",
+   "validFrom": "2026-11-12",
+   "validThrough": "2026-11-12",
+   "opens": "15:00",
+   "closes": "23:00"
+  },
+  {
+   "@type": "OpeningHoursSpecification",
+   "validFrom": "2026-11-13",
+   "validThrough": "2026-11-15",
+   "opens": "00:00",
+   "closes": "00:00"
+  }
+ ]
 }
