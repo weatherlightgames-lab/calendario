@@ -9,13 +9,23 @@ X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-11-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261108T143211Z
-DTSTART:20261111T200000Z
-DTEND:20261111T230000Z
+UID:2026-11-04-ygo-duelist-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261108T142731Z
+DTSTART:20261104T200000Z
+DTEND:20261104T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
-DESCRIPTION:Inscrição: https://neuron.konami.net/link/abrrkhxtslw7a4gv\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/7d0z5mpockesk60w\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-08-ygo-duelist-party@eventos.weatherlightgames.pt
+DTSTAMP:20261108T142731Z
+DTSTART:20261108T150000Z
+DTEND:20261108T180000Z
+SUMMARY:Duelist Party · Yu-Gi-Oh! (Weatherlight)
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/opq4ti89xpyao65t\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-party/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-party/
 END:VEVENT
 END:VCALENDAR

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-08-rift-nexus-afternoon@eventos.weatherlightgames.pt
+DTSTAMP:20261108T142731Z
+DTSTART:20261108T150000Z
+DTEND:20261108T180000Z
+SUMMARY:Nexus Afternoon · Riftbound: League of Legends TCG (Weatherlight)
+DESCRIPTION:Inscrição: https://playriftbound.com/en-US/events/117542135427887112\nDetalhes: https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/
+END:VEVENT
+END:VCALENDAR
