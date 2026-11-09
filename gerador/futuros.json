@@ -142,7 +142,16 @@
   "nome_jogo": "Pokémon TCG",
   "evento": "League Cup #1",
   "preco": 19,
-  "arte": "poke-season"
+  "arte": "league-cup-1",
+  "modelo": "League Cup",
+  "texto": "Treinadores!\n\nA 1ª League Cup da temporada está a chegar à Weatherlight! 🏆\n\nVem lutar pelos Championship Points e pelo Champion Playmat exclusivo da League Cup #1! ⛵️\n\nFormato: Delta Reign Standard (Suíço + Top Cut)\nBest-of-3\n\nNo formato Standard, só podes jogar com cartas de:\n\nTemporal Forces, Twilight Masquerade, Shrouded Fable, Stellar Crown, Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals, Black Bolt / White Flare, Mega Evolution, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising, Pitch Black e Delta Reign.\n\nPreço: 19.00€\n\nCheck-In: 09:30 - 10:00h\n\nPrémios:\n1º 1 Elite Trainer Box 30th Celebration;\n2º 1 Elite Trainer Box Delta Reign;\n\nE AINDA!\n- 1 Booster por jogador para o Top X + 2 Prize Packs S9 para cada jogador do Top X;\n- 1 Champion Playmat League Cup #1 para o vencedor de cada divisão.\n\nPARTICIPAÇÃO:\n- 1 Booster de participação;\n- 2 Prize Packs S9 de participação.\n\nJunta-te à comunidade de Pokémon da Weatherlight! ⛵️",
+  "story": "league-cup-1",
+  "recorte": [
+   0.47,
+   0.03,
+   0.84
+  ],
+  "tipo": "League Cup"
  },
  {
   "iso": "2026-11-29",
@@ -151,8 +160,10 @@
   "nome_jogo": "Pokémon TCG",
   "evento": "League Challenge Novembro",
   "preco": 6.5,
-  "arte": "poke-season",
-  "tipo": "League Challenge"
+  "arte": "league-cup-1",
+  "tipo": "League Challenge",
+  "modelo": "League Challenge",
+  "texto": "Treinadores!\n\nA Season de 2026/2027 de Pokémon TCG continua! 🏆\n\nAgarra os teus Championship Points no League Challenge de Novembro da Weatherlight!\n\nFormato: Delta Reign Standard (Suíço)\nBest-of-1\n\nNo formato Standard, só podes jogar com cartas de:\n\nTemporal Forces, Twilight Masquerade, Shrouded Fable, Stellar Crown, Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals, Black Bolt / White Flare, Mega Evolution, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising, Pitch Black e Delta Reign.\n\nPreço: 6.50€\n\nCheck-In: 16:30 - 17:00h\n\nPrémios:\n1º 1 Booster Bundle de Delta Reign;\n\nE AINDA!\n- 1 Booster + 1 Prize Pack S9 por cada jogador do Top X.\n\nPARTICIPAÇÃO:\n- 2 Prize Packs S9 de participação.\n\nJunta-te à comunidade de Pokémon da Weatherlight! ⛵️"
  },
  {
   "iso": "2026-09-25",
