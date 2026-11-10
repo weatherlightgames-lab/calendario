@@ -171,7 +171,7 @@ lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introduca
 dest="\n        "+"\n        ".join(f'<li>{html.escape(x)}</li>' for x in S['destaques'])+"\n      "
 t=open(os.path.join(AQUI,'tpl.html')).read()
 out=(t.replace('%%LD%%',json.dumps(ld,ensure_ascii=False,indent=1)).replace('%%DAYS%%',rows).replace('%%CHIPS%%',chips)
-      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%AVISO%%',(f'<p class="aviso" role="note">⚠️ <strong>Atenção:</strong> {html.escape(S["aviso"])}</p>' if S.get('aviso') else '')).replace('%%REGULARES%%',regulares))
+      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%AVISO%%',''.join(f'<p class="aviso" role="note">⚠️ <strong>Atenção:</strong> {html.escape(a)}</p>' for a in ([S['aviso']] if isinstance(S.get('aviso'),str) else S.get('aviso',[])))).replace('%%REGULARES%%',regulares))
 # "Na semana passada": eventos especiais da semana anterior (histórico) + fotos no Instagram + arquivo
 import glob
 ant=''

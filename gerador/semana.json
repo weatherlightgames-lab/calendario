@@ -249,5 +249,8 @@
    ]
   }
  ],
- "aviso": "devido ao Alerta Vermelho, a loja está encerrada na quarta-feira, 11 de novembro, e de 13 a 15 de novembro. Todos os eventos de quarta e de sexta passam para quinta-feira, 12 de novembro, no mesmo horário."
+ "aviso": [
+  "devido ao Alerta Vermelho decretado para a nossa região, a loja está encerrada na quarta-feira, 11 de novembro. Os eventos de quarta passam para quinta-feira, 12 de novembro, no mesmo horário.",
+  "de 13 a 15 de novembro a loja está encerrada. Os eventos habituais de sexta passam para quinta-feira, 12 de novembro."
+ ]
 }
