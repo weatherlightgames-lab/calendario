@@ -530,7 +530,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .f[aria-pressed="true"]{background:var(--sea-2);border-color:var(--sea-2);color:#fff}
 .f:focus-visible,a:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
 .weekend .ant{margin:.8rem 0 0;padding-top:.7rem;border-top:1px dashed var(--line);font-size:.92rem;color:var(--muted)}.weekend .ant strong{color:var(--ink);font-weight:500}.weekend .ant a{color:var(--sea-2)}
-.aviso{margin:0;padding:.65rem 1rem;text-align:center;text-wrap:balance;background:#f9eeda;border:1px solid #e6c98f;border-radius:6px;color:#5a4214;font-size:.95rem;line-height:1.45}.aviso strong{font-weight:600}.aviso+.aviso{margin-top:.5rem}
+.aviso{margin:0;padding:.65rem 1rem;text-align:center;text-wrap:balance;background:#f9eeda;border:1px solid #e6c98f;border-radius:6px;color:#5a4214;font-size:.95rem;line-height:1.45}.aviso strong{font-weight:600}.avisos{display:grid;gap:.5rem}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .aviso{background:#3a2f1a;border-color:#6b5426;color:#f1dfb8}}
 .weekend{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:6px;padding:1rem 1.25rem}
 .weekend h3{margin:0 0 .35rem;font:400 1.1rem var(--display);text-transform:uppercase;letter-spacing:.04em}
@@ -653,7 +653,7 @@ footer a{color:var(--ink)}
     <h1>Calendário <em>Weatherlight</em></h1>
     <p class="sub">Eventos semanais na tua Local Game Store em Évora! ⛵️</p>
     <p class="lede">Esta semana é mais curta na Weatherlight - de sexta a domingo vamos fazer uma pausa para recarregar energias e preparar meses que os Navegantes não podem perder! ⚡️</p>
-    <p class="lede">Excecionalmente, os eventos de quarta e de sexta passam todos para quinta-feira, no mesmo horário - para teres a oportunidade de jogar o teu jogo favorito numa semana mais curta! 🃏</p>
+    <p class="lede">Excecionalmente, os eventos habituais de sexta passam para quinta-feira - para teres a oportunidade de jogar o teu jogo favorito numa semana mais curta! 🃏</p>
     <p class="lede">De One Piece a Magic, com Yu-Gi-Oh, Riftbound, Digimon e Gundam a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌</p>
     <div class="info"><span>Rua Frei José Maria Évora, Nº2, 7005-495 Évora</span><span>266 735 119</span><a href="https://www.weatherlightgames.pt" target="_blank" rel="noopener">Loja online</a><a href="https://www.instagram.com/weatherlightgames/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@weatherlightcollectibles" target="_blank" rel="noopener">TikTok</a><a href="#subscrever">📅 Subscrever</a><button type="button" class="inst" id="inst" hidden>📲 Instalar app</button></div>
   </div>
@@ -676,7 +676,7 @@ footer a{color:var(--ink)}
       <a href="/arquivo/"><strong>Eventos passados</strong><span>Os eventos especiais que já fizemos e as fotos de cada semana</span></a>
     </nav>
 
-    <p class="aviso" role="note">⚠️ <strong>Atenção:</strong> devido ao Alerta Vermelho decretado para a nossa região, a loja está encerrada na quarta-feira, 11 de novembro. Os eventos de quarta passam para quinta-feira, 12 de novembro, no mesmo horário.</p><p class="aviso" role="note">⚠️ <strong>Atenção:</strong> de 13 a 15 de novembro a loja está encerrada. Os eventos habituais de sexta passam para quinta-feira, 12 de novembro.</p>
+    <div class="avisos"><p class="aviso" role="note">⚠️ <strong>Atenção:</strong> devido ao Alerta Vermelho decretado para a nossa região, a loja está encerrada na quarta‑feira, 11 de novembro. Os eventos de quarta passam para quinta‑feira, 12 de novembro, no mesmo horário.</p><p class="aviso" role="note">⚠️ <strong>Atenção:</strong> de 13 a 15 de novembro a loja está encerrada. Os eventos habituais de sexta passam para quinta‑feira, 12 de novembro.</p></div>
     <section class="day"><h2><span>Quinta-feira</span> <small>12 de novembro</small></h2><ol class="evs"><li class="ev" data-game="magic"><img class="thumb" src="/img/commander-v.jpg" alt="" width="90" height="120" loading="lazy"><time class="t" datetime="2026-11-12T16:00">16:00</time><div class="what"><a class="chip c-magic" href="/magic/" title="Todos os eventos de Magic: The Gathering">Magic: The Gathering</a><a class="nm" href="/magic/commander-afternoon/"><strong>Commander Afternoon</strong></a></div><span class="price free">Gratuito</span><div class="acts"><details class="det d1"><summary>Ver detalhes</summary></details><details class="det d2"><summary>Código Companion</summary></details></div><div class="det pns"><div class="txt p1">Vem jogar Commander na Weatherlight!
 
 Formato: Commander Casual
