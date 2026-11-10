@@ -48,17 +48,6 @@
    "inscricao": "https://playriftbound.com/en-US/events/117542135427887112"
   }
  },
- "2026-11-11": {
-  "Commander Afternoon": {
-   "companion": "QMVGGYG"
-  },
-  "Modern": {
-   "companion": "M7ZGNNP"
-  },
-  "Duelist Lounge": {
-   "inscricao": "https://neuron.konami.net/link/abrrkhxtslw7a4gv"
-  }
- },
  "2026-11-12": {
   "Nexus Night": {
    "inscricao": "https://playriftbound.com/en-US/events/117581252234999631"
@@ -68,6 +57,15 @@
   },
   "Pilot Lounge": {
    "inscricao": "https://www.bandai-tcg-plus.com/event/8349210"
+  },
+  "Commander Afternoon": {
+   "companion": "QMVGGYG"
+  },
+  "Modern": {
+   "companion": "M7ZGNNP"
+  },
+  "Duelist Lounge": {
+   "inscricao": "https://neuron.konami.net/link/abrrkhxtslw7a4gv"
   }
  }
 }

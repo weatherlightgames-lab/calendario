@@ -2,17 +2,17 @@
  "semana": "Semana de 11 a 15 de novembro",
  "introducao": [
   "Esta semana é mais curta na Weatherlight - de sexta a domingo vamos fazer uma pausa para recarregar energias e preparar meses que os Navegantes não podem perder! ⚡️",
-  "Excecionalmente, os eventos habituais de sexta passam para quinta-feira - para teres a oportunidade de jogar o teu jogo favorito numa semana mais curta! 🃏",
+  "Excecionalmente, os eventos de quarta e de sexta passam todos para quinta-feira, no mesmo horário - para teres a oportunidade de jogar o teu jogo favorito numa semana mais curta! 🃏",
   "De One Piece a Magic, com Yu-Gi-Oh, Riftbound, Digimon e Gundam a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
  ],
  "destaques": [
-  "Na quarta-feira a Heroines Battle está de volta ao One Piece Card Game - só as Heroínas sobem ao palco! 🏴‍☠️"
+  "Na quinta-feira a Heroines Battle está de volta ao One Piece Card Game - só as Heroínas sobem ao palco! 🏴‍☠️"
  ],
  "dias": [
   {
-   "dia": "Quarta-feira",
-   "data": "11 de novembro",
-   "iso": "2026-11-11",
+   "dia": "Quinta-feira",
+   "data": "12 de novembro",
+   "iso": "2026-11-12",
    "fuso": "+00:00",
    "eventos": [
     {
@@ -63,6 +63,38 @@
       0.97
      ],
      "inscricao": "https://neuron.konami.net/link/abrrkhxtslw7a4gv"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Night",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-night",
+     "story": "b8f672ef",
+     "recorte": [
+      0.5,
+      0.47,
+      0.97
+     ],
+     "inscricao": "https://playriftbound.com/en-US/events/117581252234999631"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Tamer Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "tamer",
+     "story": "4a3bb2cd",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349262"
     },
     {
      "hora": "20:30",
@@ -203,46 +235,6 @@
      ],
      "lideres_fonte": "https://en.onepiece-cardgame.com/events/heroines-battle-vol2.html",
      "esgotado": false
-    }
-   ]
-  },
-  {
-   "dia": "Quinta-feira",
-   "data": "12 de novembro",
-   "iso": "2026-11-12",
-   "fuso": "+00:00",
-   "eventos": [
-    {
-     "hora": "20:00",
-     "jogo": "rift",
-     "nome_jogo": "Riftbound: League of Legends TCG",
-     "evento": "Nexus Night",
-     "preco": 6.5,
-     "esgotado": false,
-     "arte": "nexus-night",
-     "story": "b8f672ef",
-     "recorte": [
-      0.5,
-      0.47,
-      0.97
-     ],
-     "inscricao": "https://playriftbound.com/en-US/events/117581252234999631"
-    },
-    {
-     "hora": "20:00",
-     "jogo": "digi",
-     "nome_jogo": "Digimon Card Game",
-     "evento": "Tamer Party",
-     "preco": 5.5,
-     "esgotado": false,
-     "arte": "tamer",
-     "story": "4a3bb2cd",
-     "recorte": [
-      0.5,
-      0.45,
-      0.95
-     ],
-     "inscricao": "https://www.bandai-tcg-plus.com/event/8349262"
     },
     {
      "hora": "21:00",
@@ -263,5 +255,5 @@
    ]
   }
  ],
- "aviso": "de 13 a 15 de novembro a loja está encerrada. Os eventos habituais de sexta passam para quinta-feira, 12 de novembro."
+ "aviso": "devido ao Alerta Vermelho, a loja está encerrada na quarta-feira, 11 de novembro, e de 13 a 15 de novembro. Todos os eventos de quarta e de sexta passam para quinta-feira, 12 de novembro, no mesmo horário."
 }

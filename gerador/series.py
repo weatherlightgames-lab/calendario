@@ -55,6 +55,7 @@ def proximas(s,S,n=4):
     import datetime as dt
     hoje=dt.date.today(); isos=[dt.date.fromisoformat(d['iso']) for d in S['dias']]
     ini,fim=(min(isos),max(isos)) if isos else (hoje,hoje)
+    ini=ini-dt.timedelta((ini.weekday()-2)%7)   # a semana do calendário começa à quarta
     fim=fim+dt.timedelta((6-fim.weekday())%7)   # a semana do calendário vai até domingo: dias sem eventos (pausas) não são previstos
     reais={d['iso']:(d,e) for d in S['dias'] for e in d['eventos'] if e['jogo']==s['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo'])}
     FP=os.path.join(AQUI,'futuros.json')

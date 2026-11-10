@@ -30,6 +30,13 @@
  "specialOpeningHoursSpecification": [
   {
    "@type": "OpeningHoursSpecification",
+   "validFrom": "2026-11-11",
+   "validThrough": "2026-11-11",
+   "opens": "00:00",
+   "closes": "00:00"
+  },
+  {
+   "@type": "OpeningHoursSpecification",
    "validFrom": "2026-11-12",
    "validThrough": "2026-11-12",
    "opens": "15:00",
