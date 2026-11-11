@@ -9,8 +9,18 @@ X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
+UID:2026-11-22-poke-weekly-league@eventos.weatherlightgames.pt
+DTSTAMP:20261111T165756Z
+DTSTART:20261122T150000Z
+DTEND:20261122T180000Z
+SUMMARY:Weekly League · Pokémon TCG (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/pokemon/weekly-league/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/pokemon/weekly-league/
+END:VEVENT
+BEGIN:VEVENT
 UID:2026-11-29-poke-league-cup-1@eventos.weatherlightgames.pt
-DTSTAMP:20261111T121437Z
+DTSTAMP:20261111T165756Z
 DTSTART:20261129T100000Z
 DTEND:20261129T130000Z
 SUMMARY:League Cup #1 · Pokémon TCG (Weatherlight)
@@ -20,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-cup-1/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-challenge-novembro@eventos.weatherlightgames.pt
-DTSTAMP:20261111T121437Z
+DTSTAMP:20261111T165756Z
 DTSTART:20261129T170000Z
 DTEND:20261129T200000Z
 SUMMARY:League Challenge Novembro · Pokémon TCG (Weatherlight)

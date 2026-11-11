@@ -13,7 +13,7 @@
 - Discord (comunidade): https://discord.gg/HTCZeJZuVk
 
 ## Calendário
-- [Calendário da semana](https://eventos.weatherlightgames.pt/): Semana de 11 a 15 de novembro, atualizado todas as semanas.
+- [Calendário da semana](https://eventos.weatherlightgames.pt/): Semana de 18 a 22 de novembro, atualizado todas as semanas.
 - [Calendário para subscrever (.ics)](https://eventos.weatherlightgames.pt/calendario.ics)
 - [Primeira vez num evento](https://eventos.weatherlightgames.pt/primeira-vez/): check-in, aplicações por jogo, o que levar.
 
@@ -35,8 +35,12 @@
 ## Próximos eventos especiais
 - [Heroines Battle Vol.2 — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/): quinta-feira, 12 de novembro às 20:30, 6,50 €
 - [OP18 The Dominance of God Release Event — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/): sexta-feira, 20 de novembro às 20:00, 32,00 €
+- [Tamer Lounge — Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/tamer-lounge/): sexta-feira, 20 de novembro às 20:00, 5,50 €
 - [OP18 The Dominance of God Release Event — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/): sábado, 21 de novembro às 15:00, 32,00 €
+- [Pokémon Champions First Battles — Pokémon Champions](https://eventos.weatherlightgames.pt/pokemon-champions/pokemon-champions-first-battles/): sábado, 21 de novembro às 15:00, Gratuito
 - [Summoner's Skirmish Novembro — Riftbound: League of Legends TCG](https://eventos.weatherlightgames.pt/riftbound/summoner-s-skirmish-novembro/): domingo, 22 de novembro às 10:30, 13,00 €
+- [Release Event Magnificent Maestros — Yu-Gi-Oh!](https://eventos.weatherlightgames.pt/yu-gi-oh/release-event-magnificent-maestros/): domingo, 22 de novembro às 15:00, 5,00 €
+- [Gundam Assemble Friendly Battle — Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/gundam-assemble-friendly-battle/): domingo, 22 de novembro às 15:00, Gratuito
 - [Heroines Battle Vol.2 — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/): sábado, 28 de novembro às 15:00, 6,50 €
 - [League Cup #1 — Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/league-cup-1/): domingo, 29 de novembro às 10:00, 19,00 €
 - [League Challenge Novembro — Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/league-challenge-novembro/): domingo, 29 de novembro às 17:00, 6,50 €
@@ -54,4 +58,5 @@
 - [Eventos de Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/)
 - [Eventos de Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/)
 - [Eventos de Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/)
+- [Eventos de Pokemon Champions](https://eventos.weatherlightgames.pt/pokemon-champions/)
 - [Eventos de Cyberpunk TCG](https://eventos.weatherlightgames.pt/cyberpunk/)

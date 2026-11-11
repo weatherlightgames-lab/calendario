@@ -33,10 +33,10 @@
 :root{
   --sea:#1f3d47; --sea-2:#375762; --foam:#eef3f3; --paper:#ffffff; --ink:#15262c; --muted:#5b7179; --line:#d5e0e1; --brass:#b9852f;
   --display:Futura,"Futura PT","Futura Std",Jost,"Century Gothic",sans-serif; --body:Futura,"Futura PT","Futura Std",Jost,"Century Gothic",sans-serif; --mono:Futura,"Futura PT","Futura Std",Jost,"Century Gothic",sans-serif;
-  --c-magic:#8a5a2b; --c-ygo:#6b3fa0; --c-op:#b23a2e; --c-rift:#1f6f8b; --c-digi:#2c6fd1; --c-gundam:#4d5a66; --c-assemble:#3c55a5; --c-poke:#a8781a; --c-cyber:#b0287a;
+  --c-magic:#8a5a2b; --c-ygo:#6b3fa0; --c-op:#b23a2e; --c-rift:#1f6f8b; --c-digi:#2c6fd1; --c-gundam:#4d5a66; --c-assemble:#3c55a5; --c-champ:#b8860b; --c-poke:#a8781a; --c-cyber:#b0287a;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--foam:#0f1d22;--paper:#16272d;--ink:#e6eef0;--muted:#97adb3;--line:#2a3f46;--brass:#d9a54d;--sea:#0b1a1f;--sea-2:#24414b;--c-magic:#d19a63;--c-ygo:#b08ae0;--c-op:#ec7a6d;--c-rift:#5cb7d6;--c-digi:#7aa8f0;--c-gundam:#a3b1bd;--c-assemble:#93a6ec;--c-poke:#e6bd52;--c-cyber:#ee6fbd;color-scheme:dark}}
-:root[data-theme="dark"]{--foam:#0f1d22;--paper:#16272d;--ink:#e6eef0;--muted:#97adb3;--line:#2a3f46;--brass:#d9a54d;--sea:#0b1a1f;--sea-2:#24414b;--c-magic:#d19a63;--c-ygo:#b08ae0;--c-op:#ec7a6d;--c-rift:#5cb7d6;--c-digi:#7aa8f0;--c-gundam:#a3b1bd;--c-assemble:#93a6ec;--c-poke:#e6bd52;--c-cyber:#ee6fbd;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--foam:#0f1d22;--paper:#16272d;--ink:#e6eef0;--muted:#97adb3;--line:#2a3f46;--brass:#d9a54d;--sea:#0b1a1f;--sea-2:#24414b;--c-magic:#d19a63;--c-ygo:#b08ae0;--c-op:#ec7a6d;--c-rift:#5cb7d6;--c-digi:#7aa8f0;--c-gundam:#a3b1bd;--c-assemble:#93a6ec;--c-champ:#f0c75a;--c-poke:#e6bd52;--c-cyber:#ee6fbd;color-scheme:dark}}
+:root[data-theme="dark"]{--foam:#0f1d22;--paper:#16272d;--ink:#e6eef0;--muted:#97adb3;--line:#2a3f46;--brass:#d9a54d;--sea:#0b1a1f;--sea-2:#24414b;--c-magic:#d19a63;--c-ygo:#b08ae0;--c-op:#ec7a6d;--c-rift:#5cb7d6;--c-digi:#7aa8f0;--c-gundam:#a3b1bd;--c-assemble:#93a6ec;--c-champ:#f0c75a;--c-poke:#e6bd52;--c-cyber:#ee6fbd;color-scheme:dark}
 body{background:var(--foam);color:var(--ink);font:400 1.0625rem/1.55 var(--body)}
 .wrap{max-width:56rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 header{--hd-ink:#1f3d47;--hd-soft:#33525c;--hd-accent:#8a5f1f;background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 60%),url("/nuvens.jpg") center 35%/cover no-repeat,#c7dadd;color:var(--hd-ink)}
@@ -109,7 +109,7 @@ main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
 .what{display:flex;flex-direction:column;gap:.15rem;min-width:0}
 .what strong{font-weight:500;font-size:1.05rem}
 .chip{font:400 .74rem var(--mono);letter-spacing:.06em;text-transform:uppercase}a.chip{text-decoration:none;text-underline-offset:3px}a.chip:hover,a.chip:focus-visible{text-decoration:underline;text-decoration-thickness:1px}
-.c-magic{color:var(--c-magic)}.c-ygo{color:var(--c-ygo)}.c-op{color:var(--c-op)}.c-rift{color:var(--c-rift)}.c-digi{color:var(--c-digi)}.c-gundam{color:var(--c-gundam)}.c-assemble{color:var(--c-assemble)}.c-poke{color:var(--c-poke)}.c-cyber{color:var(--c-cyber)}
+.c-magic{color:var(--c-magic)}.c-ygo{color:var(--c-ygo)}.c-op{color:var(--c-op)}.c-rift{color:var(--c-rift)}.c-digi{color:var(--c-digi)}.c-gundam{color:var(--c-gundam)}.c-assemble{color:var(--c-assemble)}.c-champ{color:var(--c-champ)}.c-poke{color:var(--c-poke)}.c-cyber{color:var(--c-cyber)}
 .price{font:400 .95rem var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
 .sold{align-self:flex-start;font:500 .72rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-op);border:1px solid currentColor;border-radius:4px;padding:.05rem .4rem;margin-top:.2rem}
 .price.free{color:var(--paper);background:var(--brass);padding:.15rem .5rem;border-radius:4px}
@@ -222,7 +222,7 @@ Prémios:
 
 De participação:
 - 1 Ultimate Tournament Pack 01.</p></div><img src="/img/duelist-party-g.jpg" alt="" width="180" height="240"></section>
-    <section class="box"><h2>Próximas datas</h2><ul class="dates"><li><span>Domingo, 22 de novembro</span><span>15:00 · 5,00 € · previsto</span></li><li><span>Domingo, 29 de novembro</span><span>15:00 · 5,00 € · previsto</span></li><li><span>Domingo, 6 de dezembro</span><span>15:00 · 5,00 € · previsto</span></li><li><span>Domingo, 13 de dezembro</span><span>15:00 · 5,00 € · previsto</span></li></ul><p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p></section>
+    <section class="box"><h2>Próximas datas</h2><ul class="dates"><li><span>Domingo, 15 de novembro</span><span>15:00 · 5,00 € · previsto</span></li><li><span>Domingo, 29 de novembro</span><span>15:00 · 5,00 € · previsto</span></li><li><span>Domingo, 6 de dezembro</span><span>15:00 · 5,00 € · previsto</span></li><li><span>Domingo, 13 de dezembro</span><span>15:00 · 5,00 € · previsto</span></li></ul><p class="m small">As datas marcadas como previstas seguem o horário habitual. Férias e feriados são anunciados no <a href="/">Calendário Weatherlight</a>.</p></section>
     <section class="box faq"><h2>Perguntas frequentes</h2><dl><dt>Quando e onde é?</dt><dd>Todos os domingos às 15:00, aqui na <a href="https://maps.app.goo.gl/GnKdFUwrm1J6o46P9" target="_blank" rel="noopener">Weatherlight</a>, em Évora. Em semanas de feriados ou férias o horário pode mudar: confirma sempre no <a href="/">Calendário Weatherlight</a>.</dd><dt>Que formato se joga?</dt><dd>Advanced Constructed (Suíço). Se algum termo for novo para ti, o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a> explica tudo.</dd><dt>Como me posso inscrever?</dt><dd>Precisas de ter a app Neuron e um KONAMI ID, que são obrigatórios para participar. Se ainda não tens, não há problema: criamos contigo aqui na loja. O pagamento da inscrição é feito no check-in, no nosso balcão, com um de nós.</dd><dt>Posso participar mesmo sendo iniciante?</dt><dd>Claro. Os encontros semanais são pensados precisamente para jogar, aprender e divertir-se. Se for a tua primeira experiência, não hesites em pedir ajuda: a comunidade costuma ser bastante acolhedora.</dd><dt>Que Sleeves preciso para Yu-Gi-Oh!?</dt><dd>As cartas de Yu-Gi-Oh! são mais pequenas do que as da maioria dos jogos, por isso precisas de sleeves Japanese Size. Se tiveres dúvidas, teremos todo o gosto em ajudar-te a escolher.</dd><dt>Como sei quando há eventos?</dt><dd>Anunciamos todos os eventos no nosso <a href="https://www.instagram.com/weatherlightgames/" target="_blank" rel="noopener">Instagram</a> e no <a href="/">Calendário Weatherlight</a>, atualizado todas as semanas. Segue-nos para não perderes nenhum.</dd></dl>
       <p class="m" style="margin-top:.9rem">Estas e outras respostas estão na <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a>. Vê também o <a href="https://www.weatherlightgames.pt/page/glossario" target="_blank" rel="noopener">Glossário</a>, ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>.</p></section>
     <section class="sec"><h2>Outros eventos de Yu-Gi-Oh!</h2><div class="rel"><a class="card" href="/yu-gi-oh/duelist-lounge/"><strong>Duelist Lounge</strong><span>Todas as quartas · 20:00 · 5,00 €</span><em>Ver página →</em></a><details class="card ot"><summary><strong>Core Booster Premiere</strong><span>Sealed Deck (Suíço) · 22.00€</span><em>Ver detalhes</em></summary><p class="pre">Duelista! 👁️‍🗨️
@@ -267,7 +267,29 @@ DE PARTICIPAÇÃO!
 - 1 Booster de participação no acto da inscrição;
 - 1 Ultimate Pack 01 de participação no acto da inscrição.
 
-Vem garantir o teu Invite para o WCQ EU Championship! 🏆</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a></div></section>
+Vem garantir o teu Invite para o WCQ EU Championship! 🏆</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><details class="card ot"><summary><strong>Release Event (Yu-Gi-Oh!)</strong><span>Advanced Constructed (Suíço) · 5,00€</span><em>Ver detalhes</em></summary><p class="pre">Duelistas!
+
+Magnificent Maestros chegou e a Weatherlight celebra com um Release Event! 🎉
+
+Junta-te à comunidade da Weatherlight de um dos jogos mais famosos de sempre e vem estrear o novo set! 🙌
+
+Formato: Advanced Constructed (Suíço)
+
+Preço: 5,00€
+
+Prémios:
+1º 1 Winner Pack + 1 Playmat de Magnificent Maestros;
+Top 2: 1 Deckbox de Magnificent Maestros;
+Top X: 1 Booster por jogador.
+
+Sorteio entre todos os participantes:
+- 1 Playmat de Magnificent Maestros;
+- 2 Deckboxes de Magnificent Maestros.
+
+De participação:
+- 1 Ultimate Tournament Pack 01.
+
+Vais ficar de fora? 👀</p><p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details><a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a></div></section>
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Se nenhum dos eventos é o que procuras, temos uma <a href="https://maps.app.goo.gl/GnKdFUwrm1J6o46P9" target="_blank" rel="noopener">loja inteira ao teu dispor</a> — vem visitar-nos ☁️</p></div></footer>

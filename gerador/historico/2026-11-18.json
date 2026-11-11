@@ -1,0 +1,258 @@
+{
+ "semana": "Semana de 18 a 22 de novembro",
+ "introducao": [
+  "(texto da semana por chegar)"
+ ],
+ "destaques": [],
+ "dias": [
+  {
+   "dia": "Quarta-feira",
+   "data": "18 de novembro",
+   "iso": "2026-11-18",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "16:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Commander Afternoon",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "commander",
+     "story": "f60f7b48",
+     "recorte": [
+      0.5,
+      0.5,
+      1.0
+     ]
+    },
+    {
+     "hora": "20:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Modern",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "modern",
+     "story": "53adf1ab",
+     "recorte": [
+      0.5,
+      0.47,
+      0.97
+     ],
+     "modelo": "Store Credit (Modern)"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Duelist Lounge",
+     "preco": 5,
+     "esgotado": false,
+     "arte": "duelist",
+     "story": "0504464b",
+     "recorte": [
+      0.6,
+      0.47,
+      0.97
+     ]
+    },
+    {
+     "hora": "20:30",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate",
+     "story": "5e13fd60",
+     "recorte": [
+      0.5,
+      0.47,
+      0.97
+     ],
+     "modelo": "Pirate Lounge (Standard)"
+    }
+   ]
+  },
+  {
+   "dia": "Sexta-feira",
+   "data": "20 de novembro",
+   "iso": "2026-11-20",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "20:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "OP18 The Dominance of God Release Event",
+     "preco": 32,
+     "modelo": "Release Event (One Piece)",
+     "arte": "op18",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/6811022",
+     "texto": "Pirate! 🏴‍☠️\n\nAs celebrações do 4º Aniversário de One Piece Card Game continuam na Weatherlight com a chegada de OP18 The Dominance of God! 🙌\n\nE, como manda a tradição, temos de festejar da melhor maneira - com o Release Event! 🥳\n\nJunta-te a nós e à nossa comunidade e vem experimentar as cartas novas num evento que promete! ⛵️\n\nCheck-in: 19:30h - 20:00h\nVagas limitadas! Reserva de vagas através da Bandai TCG+.\n(Na Bandai TCG+ o evento aparece com a data de 22/11, mas realiza-se a 20/11.)\n\nFormato:\nOP18 The Dominance of God Sealed Deck (Suíço)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n6 Boosters de OP18 por jogador para construir o deck\n\nPreço: 32.00€ (inclui 6 Boosters de OP18 para construir o deck)\n\nPrémios:\n1º 1 P-161 Monkey.D.Luffy Winner + 2 Boosters de OP18;\n2º 2 Boosters de OP18;\n3º 1 Booster de OP18.\n\nSorteio:\n1 P-161 Monkey.D.Luffy Winner no final do evento!\n\nE AINDA!\n- 1 Booster de OP18 de participação;\n- Promo DON!! de participação;\n- 1 Release Event Pack para todos os participantes.\n\nVais ficar de fora? 🤔",
+     "esgotado": false
+    },
+    {
+     "hora": "20:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Night",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-night",
+     "story": "60d32863",
+     "recorte": [
+      0.6,
+      0.5,
+      1.0
+     ]
+    },
+    {
+     "hora": "20:00",
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Tamer Lounge",
+     "preco": 5.5,
+     "modelo": "Tamer Lounge",
+     "arte": "tamer-lounge",
+     "texto": "Tamer! 📣\n\nEsta Sexta, aventuramo-nos numa nova experiência no Digimon Card Game - está na hora de testar Best-of-One! 👾\n\nFormato: EX13 Constructed (Suíço)\nBest-of-1 - cada ronda é decidida num só jogo!\n\nPreço: 5.50€\n\nPrémios:\n1º 1 Booster + Winner Pack Store Tournament Out-Dez 2026;\n2º Winner Pack Store Tournament Jul-Set 2026;\n3º Winner Pack Store Tournament Abr-Jun 2026;\n\nE AINDA!\n- 1 Booster de participação no acto de inscrição;\n- 1 OTP Store Tournament Abr-Jun 2026 para todos os participantes;\n- 1 OTP Store Tournament Out-Dez 2026 para todos os participantes;\n- 1 OTP Store Tournament Jul-Set 2026 para todos os participantes.\n\nJunta-te à nossa comunidade e vem descobrir este grande jogo! ⛵️",
+     "esgotado": false
+    },
+    {
+     "hora": "21:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-lounge",
+     "story": "193442fe",
+     "recorte": [
+      0.5,
+      0.47,
+      0.97
+     ]
+    }
+   ]
+  },
+  {
+   "dia": "Sábado",
+   "data": "21 de novembro",
+   "iso": "2026-11-21",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "OP18 The Dominance of God Release Event",
+     "preco": 32,
+     "modelo": "Release Event (One Piece)",
+     "arte": "op18",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/6811021",
+     "texto": "Pirate! 🏴‍☠️\n\nAs celebrações do 4º Aniversário de One Piece Card Game continuam na Weatherlight com a chegada de OP18 The Dominance of God! 🙌\n\nE, como manda a tradição, temos de festejar da melhor maneira - com o Release Event! 🥳\n\nJunta-te a nós e à nossa comunidade e vem experimentar as cartas novas num evento que promete! ⛵️\n\nCheck-in: 14:30h - 15:00h\nVagas limitadas! Reserva de vagas através da Bandai TCG+.\n\nFormato:\nOP18 The Dominance of God Sealed Deck (Suíço)\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n6 Boosters de OP18 por jogador para construir o deck\n\nPreço: 32.00€ (inclui 6 Boosters de OP18 para construir o deck)\n\nPrémios:\n1º 1 P-161 Monkey.D.Luffy Winner + 2 Boosters de OP18;\n2º 2 Boosters de OP18;\n3º 1 Booster de OP18.\n\nSorteio:\n1 P-161 Monkey.D.Luffy Winner no final do evento!\n\nE AINDA!\n- 1 Booster de OP18 de participação;\n- Promo DON!! de participação;\n- 1 Release Event Pack para todos os participantes.\n\nVais ficar de fora? 🤔",
+     "esgotado": false
+    },
+    {
+     "hora": "15:00",
+     "jogo": "cyber",
+     "nome_jogo": "Cyberpunk TCG",
+     "evento": "Night City Brawl",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nightcity",
+     "story": "3efb949d",
+     "recorte": [
+      0.45,
+      0.47,
+      0.97
+     ]
+    },
+    {
+     "hora": "15:00",
+     "jogo": "champ",
+     "nome_jogo": "Pokémon Champions",
+     "evento": "Pokémon Champions First Battles",
+     "preco": 0,
+     "modelo": "First Battles",
+     "arte": "champions",
+     "texto": "Treinadores! ⚡️\n\nO Pokémon Champions chegou e a Weatherlight quer começar a construir a sua comunidade - e não há melhor forma do que com as primeiras batalhas! 🙌\n\nTraz a tua Nintendo Switch ou o teu telemóvel com o Pokémon Champions instalado e vem conhecer outros treinadores de Évora, trocar ideias sobre equipas e testar as tuas estratégias.\n\nEvento para todos - quer estejas a começar agora, quer já sejas um treinador experiente!\n\nFormato: Pequeno torneio (Suíço)\nBest-of-3\n\nPreço: Gratuito\n\nDE PARTICIPAÇÃO:\n- 1 Prize Pack Series 9 para todos os jogadores! 🎁\n\nVemo-nos na Weatherlight! ⛵️",
+     "esgotado": false
+    },
+    {
+     "hora": "18:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-party",
+     "story": "b4fc922a",
+     "recorte": [
+      0.6,
+      0.45,
+      0.95
+     ]
+    }
+   ]
+  },
+  {
+   "dia": "Domingo",
+   "data": "22 de novembro",
+   "iso": "2026-11-22",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "10:30",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Summoner's Skirmish Novembro",
+     "preco": 13,
+     "modelo": "Summoner's Skirmish",
+     "arte": "skirmish-radiance",
+     "inscricao": "https://playriftbound.com/en-US/events/117111743559122557",
+     "texto": "Fãs de Riftbound! ⚔️\n\nUm dos jogos do momento continua a sua mega jornada na Weatherlight em Évora! ⛵️\n\nCom uma comunidade em constante crescimento, vamos celebrar Radiance com o Summoner's Skirmish de Novembro!\n\nJunta-te a nós para um dia cheio de Riftbound. Há promos exclusivas e prémios muito especiais. Vais ficar de fora? 👀\n\nCheck-in: 10:00h - 10:30h\n\nFormato: Standard Constructed (Suíço + Top Cut)\n\nPreço: 13.00€\n\nPrémios:\n1º 1 Radiance Vault + 1 Champion Playmat + 1 Akali (Champion) + Regional Bye;\n2º 1 Thousand-Tailed Watcher;\nTop X: 1 Booster por jogador + 1 Akali Top 8 Promo.\n\nE AINDA!\n- 1 Booster de participação;\n- 1 Nexus Pack de participação;\n- 1 Graves, Blasting Through Promo de participação.\n\nJunta-te à comunidade deste fantástico jogo! 🤩",
+     "esgotado": false
+    },
+    {
+     "hora": "15:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Release Event Magnificent Maestros",
+     "preco": 5,
+     "modelo": "Release Event (Yu-Gi-Oh!)",
+     "arte": "maestros",
+     "texto": "Duelistas!\n\nMagnificent Maestros chegou e a Weatherlight celebra com um Release Event! 🎉\n\nJunta-te à comunidade da Weatherlight de um dos jogos mais famosos de sempre e vem estrear o novo set! 🙌\n\nFormato: Advanced Constructed (Suíço)\n\nPreço: 5,00€\n\nPrémios:\n1º 1 Winner Pack + 1 Playmat de Magnificent Maestros;\nTop 2: 1 Deckbox de Magnificent Maestros;\nTop X: 1 Booster por jogador.\n\nSorteio entre todos os participantes:\n- 1 Playmat de Magnificent Maestros;\n- 2 Deckboxes de Magnificent Maestros.\n\nDe participação:\n- 1 Ultimate Tournament Pack 01.\n\nVais ficar de fora? 👀",
+     "esgotado": false
+    },
+    {
+     "hora": "15:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "Weekly League",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "weekly-league",
+     "story": "5dc60960",
+     "recorte": [
+      0.4,
+      0.5,
+      1.0
+     ]
+    },
+    {
+     "hora": "15:00",
+     "jogo": "assemble",
+     "nome_jogo": "Gundam Assemble",
+     "evento": "Gundam Assemble Friendly Battle",
+     "preco": 0,
+     "modelo": "Friendly Battle",
+     "arte": "assemble-friendly",
+     "texto": "Fãs de Gundam! 🤖\n\nDepois das demos, chegou a hora das primeiras Friendly Battles de Gundam Assemble na Weatherlight! ⛵️\n\nUm evento descontraído para quem já conhece as regras básicas e quer jogar, conhecer outros pilotos e fazer crescer a comunidade em Évora.\n\nFormato: Friendly Battle Standard\n3 rondas (Suíço), cada uma decidida num só jogo\n60 minutos por ronda - sem Top Cut nem eliminações, todos jogam as 3 rondas!\n\nO que precisas de trazer:\n- Um Squad legal de 3 Mobile Suits + 9 Tactics Cards (podes mudar de Squad entre rondas);\n- Se só tens o Starter Set, não há problema - também podes jogar só com cartas e miniaturas do Starter Set!\n\nPreço: Gratuito\n\nE AINDA:\n- 1 Tactics Card Pack de participação.\n\nJunta-te a nós e vem construir esta comunidade connosco! 🦾",
+     "esgotado": false
+    }
+   ]
+  }
+ ]
+}

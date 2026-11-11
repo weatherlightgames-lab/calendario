@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Weatherlight · Pokemon Champions
+X-WR-TIMEZONE:Europe/Lisbon
+X-WR-CALDESC:Eventos da Weatherlight em Évora
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VEVENT
+UID:2026-11-21-champ-pok-mon-champions-first-battles@eventos.weatherlightgames.pt
+DTSTAMP:20261111T165756Z
+DTSTART:20261121T150000Z
+DTEND:20261121T180000Z
+SUMMARY:Pokémon Champions First Battles · Pokémon Champions (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/pokemon-champions/pokemon-champions-first-battles/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/pokemon-champions/pokemon-champions-first-battles/
+END:VEVENT
+END:VCALENDAR

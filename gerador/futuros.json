@@ -623,5 +623,77 @@
   "substitui": [
    "Nexus Afternoon"
   ]
+ },
+ {
+  "iso": "2026-11-20",
+  "hora": "20:00",
+  "jogo": "digi",
+  "nome_jogo": "Digimon Card Game",
+  "evento": "Tamer Lounge",
+  "preco": 5.5,
+  "modelo": "Tamer Lounge",
+  "arte": "tamer-lounge",
+  "story": "b5d8963b",
+  "recorte": [
+   0.5,
+   0.47,
+   0.97
+  ],
+  "texto": "Tamer! 📣\n\nEsta Sexta, aventuramo-nos numa nova experiência no Digimon Card Game - está na hora de testar Best-of-One! 👾\n\nFormato: EX13 Constructed (Suíço)\nBest-of-1 - cada ronda é decidida num só jogo!\n\nPreço: 5.50€\n\nPrémios:\n1º 1 Booster + Winner Pack Store Tournament Out-Dez 2026;\n2º Winner Pack Store Tournament Jul-Set 2026;\n3º Winner Pack Store Tournament Abr-Jun 2026;\n\nE AINDA!\n- 1 Booster de participação no acto de inscrição;\n- 1 OTP Store Tournament Abr-Jun 2026 para todos os participantes;\n- 1 OTP Store Tournament Out-Dez 2026 para todos os participantes;\n- 1 OTP Store Tournament Jul-Set 2026 para todos os participantes.\n\nJunta-te à nossa comunidade e vem descobrir este grande jogo! ⛵️",
+  "substitui": [
+   "Tamer Party"
+  ]
+ },
+ {
+  "iso": "2026-11-21",
+  "hora": "15:00",
+  "jogo": "champ",
+  "nome_jogo": "Pokémon Champions",
+  "evento": "Pokémon Champions First Battles",
+  "preco": 0,
+  "modelo": "First Battles",
+  "arte": "champions",
+  "story": "d7384343",
+  "recorte": [
+   0.55,
+   0.55,
+   1.0
+  ],
+  "texto": "Treinadores! ⚡️\n\nO Pokémon Champions chegou e a Weatherlight quer começar a construir a sua comunidade - e não há melhor forma do que com as primeiras batalhas! 🙌\n\nTraz a tua Nintendo Switch ou o teu telemóvel com o Pokémon Champions instalado e vem conhecer outros treinadores de Évora, trocar ideias sobre equipas e testar as tuas estratégias.\n\nEvento para todos - quer estejas a começar agora, quer já sejas um treinador experiente!\n\nFormato: Pequeno torneio (Suíço)\nBest-of-3\n\nPreço: Gratuito\n\nDE PARTICIPAÇÃO:\n- 1 Prize Pack Series 9 para todos os jogadores! 🎁\n\nVemo-nos na Weatherlight! ⛵️"
+ },
+ {
+  "iso": "2026-11-22",
+  "hora": "15:00",
+  "jogo": "ygo",
+  "nome_jogo": "Yu-Gi-Oh!",
+  "evento": "Release Event Magnificent Maestros",
+  "preco": 5,
+  "modelo": "Release Event (Yu-Gi-Oh!)",
+  "arte": "maestros",
+  "story": "ebaf616c",
+  "recorte": [
+   0.45,
+   0.47,
+   0.97
+  ],
+  "texto": "Duelistas!\n\nMagnificent Maestros chegou e a Weatherlight celebra com um Release Event! 🎉\n\nJunta-te à comunidade da Weatherlight de um dos jogos mais famosos de sempre e vem estrear o novo set! 🙌\n\nFormato: Advanced Constructed (Suíço)\n\nPreço: 5,00€\n\nPrémios:\n1º 1 Winner Pack + 1 Playmat de Magnificent Maestros;\nTop 2: 1 Deckbox de Magnificent Maestros;\nTop X: 1 Booster por jogador.\n\nSorteio entre todos os participantes:\n- 1 Playmat de Magnificent Maestros;\n- 2 Deckboxes de Magnificent Maestros.\n\nDe participação:\n- 1 Ultimate Tournament Pack 01.\n\nVais ficar de fora? 👀",
+  "tipo": "Release Event"
+ },
+ {
+  "iso": "2026-11-22",
+  "hora": "15:00",
+  "jogo": "assemble",
+  "nome_jogo": "Gundam Assemble",
+  "evento": "Gundam Assemble Friendly Battle",
+  "preco": 0,
+  "modelo": "Friendly Battle",
+  "arte": "assemble-friendly",
+  "story": "4767791a",
+  "recorte": [
+   0.5,
+   0.45,
+   0.95
+  ],
+  "texto": "Fãs de Gundam! 🤖\n\nDepois das demos, chegou a hora das primeiras Friendly Battles de Gundam Assemble na Weatherlight! ⛵️\n\nUm evento descontraído para quem já conhece as regras básicas e quer jogar, conhecer outros pilotos e fazer crescer a comunidade em Évora.\n\nFormato: Friendly Battle Standard\n3 rondas (Suíço), cada uma decidida num só jogo\n60 minutos por ronda - sem Top Cut nem eliminações, todos jogam as 3 rondas!\n\nO que precisas de trazer:\n- Um Squad legal de 3 Mobile Suits + 9 Tactics Cards (podes mudar de Squad entre rondas);\n- Se só tens o Starter Set, não há problema - também podes jogar só com cartas e miniaturas do Starter Set!\n\nPreço: Gratuito\n\nE AINDA:\n- 1 Tactics Card Pack de participação.\n\nJunta-te a nós e vem construir esta comunidade connosco! 🦾"
  }
 ]

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-18-op-pirate-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261111T165756Z
+DTSTART:20261118T203000Z
+DTEND:20261118T233000Z
+SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
+DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
+END:VEVENT
+END:VCALENDAR
