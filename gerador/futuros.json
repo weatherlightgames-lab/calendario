@@ -601,5 +601,27 @@
   "inscricao": "https://www.bandai-tcg-plus.com/event/6745739",
   "_slug_sufixo": true,
   "lideres_fonte": "https://en.onepiece-cardgame.com/events/heroines-battle-vol2.html"
+ },
+ {
+  "iso": "2026-11-22",
+  "hora": "10:30",
+  "jogo": "rift",
+  "nome_jogo": "Riftbound: League of Legends TCG",
+  "evento": "Summoner's Skirmish Novembro",
+  "preco": 13,
+  "modelo": "Summoner's Skirmish",
+  "arte": "skirmish-radiance",
+  "story": "skirmish-radiance",
+  "recorte": [
+   0.5,
+   0.6,
+   1.0
+  ],
+  "texto": "Fãs de Riftbound! ⚔️\n\nUm dos jogos do momento continua a sua mega jornada na Weatherlight em Évora! ⛵️\n\nCom uma comunidade em constante crescimento, vamos celebrar Radiance com o Summoner's Skirmish de Novembro!\n\nJunta-te a nós para um dia cheio de Riftbound. Há promos exclusivas e prémios muito especiais. Vais ficar de fora? 👀\n\nCheck-in: 10:00h - 10:30h\n\nFormato: Standard Constructed (Suíço + Top Cut)\n\nPreço: 13.00€\n\nPrémios:\n1º 1 Radiance Vault + 1 Champion Playmat + 1 Akali (Champion) + Regional Bye;\n2º 1 Thousand-Tailed Watcher;\nTop X: 1 Booster por jogador + 1 Akali Top 8 Promo.\n\nE AINDA!\n- 1 Booster de participação;\n- 1 Nexus Pack de participação;\n- 1 Graves, Blasting Through Promo de participação.\n\nJunta-te à comunidade deste fantástico jogo! 🤩",
+  "inscricao": "https://playriftbound.com/en-US/events/117111743559122557",
+  "tipo": "Summoner's Skirmish",
+  "substitui": [
+   "Nexus Afternoon"
+  ]
  }
 ]

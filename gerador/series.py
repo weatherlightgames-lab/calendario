@@ -59,7 +59,7 @@ def proximas(s,S,n=4):
     fim=fim+dt.timedelta((6-fim.weekday())%7)   # a semana do calendário vai até domingo: dias sem eventos (pausas) não são previstos
     reais={d['iso']:(d,e) for d in S['dias'] for e in d['eventos'] if e['jogo']==s['jogo'] and (e['evento'] in s['eventos'] or e.get('modelo')==s['modelo'])}
     FP=os.path.join(AQUI,'futuros.json')
-    especiais={f['iso'] for f in (json.load(open(FP)) if os.path.exists(FP) else []) if f['jogo']==s['jogo'] and f['hora']==s['hora']}
+    especiais={f['iso'] for f in (json.load(open(FP)) if os.path.exists(FP) else []) if f['jogo']==s['jogo'] and (f['hora']==s['hora'] or set(f.get('substitui',[]))&set(s['eventos']))}   # "substitui": regulares do mesmo dia que saem (a outra hora)
     ini0=max(hoje,dt.date.fromisoformat(s['desde'])) if s.get('desde') else hoje
     out=[]
     # eventos desta série mudados de dia nesta semana (ex.: sexta passa para quinta)

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-22-rift-summoner-s-skirmish-novembro@eventos.weatherlightgames.pt
+DTSTAMP:20261111T121437Z
+DTSTART:20261122T103000Z
+DTEND:20261122T133000Z
+SUMMARY:Summoner's Skirmish Novembro · Riftbound: League of Legends TCG (Weatherlight)
+DESCRIPTION:Inscrição: https://playriftbound.com/en-US/events/117111743559122557\nDetalhes: https://eventos.weatherlightgames.pt/riftbound/summoner-s-skirmish-novembro/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/riftbound/summoner-s-skirmish-novembro/
+END:VEVENT
+END:VCALENDAR
