@@ -10,21 +10,21 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-18-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261111T165756Z
+DTSTAMP:20261111T170909Z
 DTSTART:20261118T160000Z
 DTEND:20261118T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/magic/commander-afternoon/
+DESCRIPTION:Código Companion: DWMYYEW\nDetalhes: https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-18-magic-modern@eventos.weatherlightgames.pt
-DTSTAMP:20261111T165756Z
+DTSTAMP:20261111T170909Z
 DTSTART:20261118T200000Z
 DTEND:20261118T230000Z
 SUMMARY:Modern · Magic: The Gathering (Weatherlight)
-DESCRIPTION:Detalhes: https://eventos.weatherlightgames.pt/magic/modern/
+DESCRIPTION:Código Companion: XQXZ556\nDetalhes: https://eventos.weatherlightgames.pt/magic/modern/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/magic/modern/
 END:VEVENT

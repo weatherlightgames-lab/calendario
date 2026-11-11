@@ -67,5 +67,37 @@
   "Duelist Lounge": {
    "inscricao": "https://neuron.konami.net/link/abrrkhxtslw7a4gv"
   }
+ },
+ "2026-11-18": {
+  "Commander Afternoon": {
+   "companion": "DWMYYEW"
+  },
+  "Modern": {
+   "companion": "XQXZ556"
+  },
+  "Duelist Lounge": {
+   "inscricao": "https://neuron.konami.net/link/rpnpomgm42eh1y6n"
+  },
+  "Pirate Lounge": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349253"
+  }
+ },
+ "2026-11-20": {
+  "Tamer Lounge": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349263"
+  },
+  "Pilot Lounge": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349207"
+  }
+ },
+ "2026-11-21": {
+  "Pilot Party": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349211"
+  }
+ },
+ "2026-11-22": {
+  "Release Event Magnificent Maestros": {
+   "inscricao": "https://neuron.konami.net/link/0cxvychamoq3mthp"
+  }
  }
 }
