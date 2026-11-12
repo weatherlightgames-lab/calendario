@@ -21,6 +21,7 @@ LOJA = {"@context": "https://schema.org", "@type": "GameStore", "name": "Weather
         "image": BASE + "/og/calendario.jpg", "telephone": "+351266735119", "email": "weatherlightgames@gmail.com",
         "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495",
                     "addressLocality": "Évora", "addressRegion": "Évora", "addressCountry": "PT"},
+        "areaServed": [{"@type": "City", "name": "Évora"}, {"@type": "AdministrativeArea", "name": "Alentejo"}],
         "hasMap": MAPS, "currenciesAccepted": "EUR",
         "sameAs": ["https://www.instagram.com/weatherlightgames/", "https://www.facebook.com/weatherlightgames",
                    "https://www.tiktok.com/@weatherlightcollectibles", "https://www.youtube.com/@weatherlightgames", DISCORD]}
@@ -102,7 +103,7 @@ def especiais(DET, FUT, inscricao):
             {"@type": "ListItem", "position": 1, "name": "Calendário Weatherlight", "item": BASE + "/"},
             {"@type": "ListItem", "position": 2, "name": f"Eventos de {f['nome_jogo']}", "item": f"{BASE}/{pasta}/"},
             {"@type": "ListItem", "position": 3, "name": f['evento'], "item": url}]}
-        desc = f"{f['evento']} de {f['nome_jogo']} na Weatherlight, em Évora: {quando}. {pr}." + (f" Formato: {fmt}." if fmt else "")
+        desc = f"{f['evento']} de {f['nome_jogo']} na Weatherlight, em Évora (Alentejo): {quando}. {pr}." + (f" Formato: {fmt}." if fmt else "")
         img = f'<img src="/img/{f["arte"]}-g.jpg" alt="" width="180" height="240">' if f.get('arte') else ''
         loja = MARCAS.get(f['nome_jogo'])
         page = cabeca(f"{f['evento']} · {f['nome_jogo']} em Évora | Weatherlight", desc, url, [ev_ld, faq, bc], css) + f"""
@@ -166,7 +167,7 @@ def primeira_vez(SER):
     perg = [CENTRAL[k] for k in faq_keys if k in CENTRAL]
     faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in perg]}
-    desc = "Vais ao teu primeiro evento na Weatherlight, em Évora? Como funciona o check-in, que aplicações precisas para cada jogo, o que levar e respostas às dúvidas mais comuns."
+    desc = "Vais ao teu primeiro evento na Weatherlight, em Évora (Alentejo)? Como funciona o check-in, que aplicações precisas para cada jogo, o que levar e respostas às dúvidas mais comuns."
     css = (".passos{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;counter-reset:p}"
            ".passos li{counter-increment:p;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;display:grid;grid-template-columns:1.6rem minmax(0,1fr);column-gap:.9rem;align-items:center}"
            ".passos li::before{content:counter(p);grid-row:1;grid-column:1;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--sea-2);color:#fff;display:grid;place-items:center;font-size:.9rem;line-height:1}"
@@ -231,8 +232,8 @@ def feeds(FEED):
 # ---------------- llms.txt ----------------
 def llms(SER, FUT, S):
     hoje = dt.date.today().isoformat()
-    L = ["# Weatherlight Games & Collectibles — eventos em Évora", "",
-         "> Weatherlight é uma loja de jogos (Local Game Store) em Évora, Portugal, com Trading Card Games, TTRPGs, Model Kits e colecionáveis. "
+    L = ["# Weatherlight Games & Collectibles — eventos em Évora, Alentejo", "",
+         "> Weatherlight é uma loja de jogos (Local Game Store) em Évora, no Alentejo (Portugal), com Trading Card Games, TTRPGs, Model Kits e colecionáveis. "
          "Organiza eventos semanais e especiais de Magic: The Gathering, Pokémon TCG, One Piece Card Game, Yu-Gi-Oh!, Riftbound, Digimon, Gundam Card Game, Gundam Assemble e Cyberpunk TCG.", "",
          "## Loja", "- Morada: Rua Frei José Maria Évora, Nº2, 7005-495 Évora, Portugal", "- Telefone: +351 266 735 119",
          "- Email: weatherlightgames@gmail.com", "- Horário: " + "; ".join(f"{d}: {h}" for d, h in HORARIO), "- Loja online: https://www.weatherlightgames.pt/", f"- Mapa: {MAPS}",
@@ -400,7 +401,7 @@ def arquivo(semanas, ESP, RECAP):
     # eventos anteriores ao histórico semanal (enviados pela equipa), em anteriores.json
     chips = ''.join(f'<button type="button" class="f" data-g="{g}" aria-pressed="false">{html.escape(next(e["nome_jogo"] for e in passados if e["jogo"]==g))}</button>' for g in jogos)
     url = f"{BASE}/arquivo/"
-    desc = "Arquivo dos eventos especiais da Weatherlight em Évora: Prereleases, Release Events, Store Championships e torneios de Magic, Pokémon, One Piece, Yu-Gi-Oh!, Riftbound, Gundam, Digimon e Cyberpunk."
+    desc = "Arquivo dos eventos especiais da Weatherlight em Évora, no Alentejo: Prereleases, Release Events, Store Championships e torneios de Magic, Pokémon, One Piece, Yu-Gi-Oh!, Riftbound, Gundam, Digimon e Cyberpunk."
     css = (".mes{font:500 1.3rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.05em;margin:1.6rem 0 .2rem;color:var(--brass)}.mes:first-of-type{margin-top:0}"
            ".sem{margin-top:.9rem}.sem-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.2rem 1rem;margin-bottom:.5rem}"
            ".sem-h h3{font:500 1rem var(--body);margin:0}.sem-h span{font-size:.88rem;color:var(--muted)}.sem-h a{color:var(--link)}"

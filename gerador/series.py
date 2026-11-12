@@ -141,7 +141,7 @@ def gerar(tpl, SER, DET, S):
         h=s['hora'].replace(':00','h') if s['hora'].endswith(':00') else s['hora'].replace(':','h')
         jg={"Magic: The Gathering":"Magic","Riftbound: League of Legends TCG":"Riftbound"}.get(s['nome_jogo'],s['nome_jogo'])
         titulo_g=(f"{s['titulo']} de {jg} em Évora · "+("Em pausa" if s.get('pausa') else f"{DIAS_CURTO[s['dia']]} às {h} · {pr}"))
-        desc_g=((f"{s['titulo']} de {s['nome_jogo']} na Weatherlight, em Évora, está em pausa" if s.get('pausa') else f"Joga {s['titulo']} de {s['nome_jogo']} na Weatherlight, em Évora: {PL[s['dia']].lower()} às {s['hora']}, {pr.lower() if pr=='Gratuito' else pr}")
+        desc_g=((f"{s['titulo']} de {s['nome_jogo']} na Weatherlight, em Évora (Alentejo), está em pausa" if s.get('pausa') else f"Joga {s['titulo']} de {s['nome_jogo']} na Weatherlight, em Évora (Alentejo): {PL[s['dia']].lower()} às {s['hora']}, {pr.lower() if pr=='Gratuito' else pr}")
                 +"."+(f" Formato: {fmt}." if fmt else "")+" Vê as próximas datas, os prémios e como te inscreves.")
         ld={"@context":"https://schema.org","@type":"EventSeries","name":f"{s['titulo']} - {s['nome_jogo']} em Évora","description":desc,
             "url":f"{BASE}/{s['slug']}/","location":ADDR,"organizer":ORG,
@@ -301,7 +301,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
             outros+=(f'<details class="card ot"><summary><strong>{html.escape(limpar(k))}</strong><span>{html.escape(info)}</span><em>Ver detalhes</em></summary>'
                      f'<p class="pre">{html.escape(t2)}</p>'+(f'<p class="m fx">{fmt_mtg(formato(t2))[1]}</p>' if g=='magic' and fmt_mtg(formato(t2)) else '')+'</details>')
         marca=MARCAS.get(nome)
-        desc=(f"Eventos de {nome} em Évora na Weatherlight"+(": "+", ".join(f"{s['titulo']} ({PL[s['dia']].lower()} às {s['hora']})" for s in regs) if regs else "")
+        desc=(f"Eventos e torneios de {nome} em Évora, no Alentejo, na Weatherlight"+(": "+", ".join(f"{s['titulo']} ({PL[s['dia']].lower()} às {s['hora']})" for s in regs) if regs else "")
               +". Não percas os próximos eventos especiais, como Prereleases e torneios.")
         bc={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
             {"@type":"ListItem","position":1,"name":"Calendário Weatherlight","item":BASE+"/"},
@@ -331,7 +331,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
   <div class="wrap">
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {html.escape(nome)}</span>
     <h1>Eventos de {html.escape(nome)}</h1>
-    <p class="sub">Não percas estes eventos na Weatherlight em Évora</p>
+    <p class="sub">Não percas estes eventos na Weatherlight em Évora, no Alentejo</p>
     {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}
     <p class="subcal">📅 Subscreve os eventos de {html.escape(nome)}: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2F{pasta}%2Fcalendario.ics">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/{pasta}/calendario.ics">Apple / Outlook</a></p>
   </div>
