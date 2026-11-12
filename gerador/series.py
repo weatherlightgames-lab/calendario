@@ -137,6 +137,12 @@ def gerar(tpl, SER, DET, S):
               "offers":{"@type":"Offer","price":f"{float(e['preco']):.2f}","priceCurrency":"EUR",
                         "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}} for d,e in datas]
         desc=f"{s['titulo']} de {s['nome_jogo']} em Évora: {PL[s['dia']].lower()} às {s['hora']} na Weatherlight. {pr}."+(f" Formato: {fmt}." if fmt else "")
+        DIAS_CURTO={"Monday":"Segundas","Tuesday":"Terças","Wednesday":"Quartas","Thursday":"Quintas","Friday":"Sextas","Saturday":"Sábados","Sunday":"Domingos"}
+        h=s['hora'].replace(':00','h') if s['hora'].endswith(':00') else s['hora'].replace(':','h')
+        jg={"Magic: The Gathering":"Magic","Riftbound: League of Legends TCG":"Riftbound"}.get(s['nome_jogo'],s['nome_jogo'])
+        titulo_g=(f"{s['titulo']} de {jg} em Évora · "+("Em pausa" if s.get('pausa') else f"{DIAS_CURTO[s['dia']]} às {h} · {pr}"))
+        desc_g=((f"{s['titulo']} de {s['nome_jogo']} na Weatherlight, em Évora, está em pausa" if s.get('pausa') else f"Joga {s['titulo']} de {s['nome_jogo']} na Weatherlight, em Évora: {PL[s['dia']].lower()} às {s['hora']}, {pr.lower() if pr=='Gratuito' else pr}")
+                +"."+(f" Formato: {fmt}." if fmt else "")+" Vê as próximas datas, os prémios e como te inscreves.")
         ld={"@context":"https://schema.org","@type":"EventSeries","name":f"{s['titulo']} - {s['nome_jogo']} em Évora","description":desc,
             "url":f"{BASE}/{s['slug']}/","location":ADDR,"organizer":ORG,
             "eventSchedule":{"@type":"Schedule","repeatFrequency":"P1W","byDay":f"https://schema.org/{s['dia']}","startTime":s['hora'],"scheduleTimezone":"Europe/Lisbon"},
@@ -182,8 +188,8 @@ def gerar(tpl, SER, DET, S):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{html.escape(s['titulo'])} · {html.escape(s['nome_jogo'])} em Évora | Weatherlight</title>
-<meta name="description" content="{html.escape(desc)}">
+<title>{html.escape(titulo_g)} | Weatherlight</title>
+<meta name="description" content="{html.escape(desc_g)}">
 <link rel="canonical" href="{BASE}/{s['slug']}/">
 {fonts}
 <script type="application/ld+json">{json.dumps(ld,ensure_ascii=False)}</script>
@@ -306,7 +312,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Eventos de {html.escape(nome)} em Évora | Weatherlight</title>
+<title>Eventos e torneios de {html.escape(nome)} em Évora | Weatherlight</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{BASE}/{pasta}/">
 {fonts}
