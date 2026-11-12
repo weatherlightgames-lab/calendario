@@ -37,7 +37,7 @@
 - [OP18 The Dominance of God Release Event — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/): sexta-feira, 20 de novembro às 20:00, 32,00 €
 - [Tamer Lounge — Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/tamer-lounge/): sexta-feira, 20 de novembro às 20:00, 5,50 €
 - [OP18 The Dominance of God Release Event — One Piece Card Game](https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/): sábado, 21 de novembro às 15:00, 32,00 €
-- [Pokémon Champions First Battles — Pokémon Champions](https://eventos.weatherlightgames.pt/pokemon-champions/pokemon-champions-first-battles/): sábado, 21 de novembro às 15:00, Gratuito
+- [Pokémon Champions First Battles — Pokémon Champions](https://eventos.weatherlightgames.pt/champ/pokemon-champions-first-battles/): sábado, 21 de novembro às 15:00, Gratuito
 - [Summoner's Skirmish Novembro — Riftbound: League of Legends TCG](https://eventos.weatherlightgames.pt/riftbound/summoner-s-skirmish-novembro/): domingo, 22 de novembro às 10:30, 13,00 €
 - [Release Event Magnificent Maestros — Yu-Gi-Oh!](https://eventos.weatherlightgames.pt/yu-gi-oh/release-event-magnificent-maestros/): domingo, 22 de novembro às 15:00, 5,00 €
 - [Gundam Assemble Friendly Battle — Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/gundam-assemble-friendly-battle/): domingo, 22 de novembro às 15:00, Gratuito
@@ -58,5 +58,4 @@
 - [Eventos de Digimon Card Game](https://eventos.weatherlightgames.pt/digimon/)
 - [Eventos de Gundam Card Game](https://eventos.weatherlightgames.pt/gundam/)
 - [Eventos de Gundam Assemble](https://eventos.weatherlightgames.pt/gundam-assemble/)
-- [Eventos de Pokemon Champions](https://eventos.weatherlightgames.pt/pokemon-champions/)
 - [Eventos de Cyberpunk TCG](https://eventos.weatherlightgames.pt/cyberpunk/)

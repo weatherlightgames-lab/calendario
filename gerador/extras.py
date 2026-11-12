@@ -72,7 +72,7 @@ def especiais(DET, FUT, inscricao):
     hoje = dt.date.today().isoformat(); urls = []
     css = (".acoes{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin:0}"
            ".passou{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:6px;padding:.8rem 1rem;margin:0}"
-           ".cal{font-size:.95rem;color:var(--muted)}.cal a{color:var(--sea-2)}.code{font:500 1.2rem var(--body);letter-spacing:.08em}")
+           ".cal{font-size:.95rem;color:var(--muted)}.cal a{color:var(--link)}.code{font:500 1.2rem var(--body);letter-spacing:.08em}")
     for f in FUT:
         g = f['jogo']; pasta = PASTA.get(g, g); slug = f.get('_slug') or (esp_slug(f) + '-' + f['iso'] if f.get('_slug_sufixo') else esp_slug(f)); url = f"{BASE}/{pasta}/{slug}/"
         txt = f.get('texto') or DET.get(f.get('modelo')) or DET.get(f['evento']); fmt = formato(txt); pr = preco_txt(float(f['preco']))
@@ -172,7 +172,7 @@ def primeira_vez(SER):
            ".passos li::before{content:counter(p);grid-row:1;grid-column:1;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--sea-2);color:#fff;display:grid;place-items:center;font-size:.9rem;line-height:1}"
            ".passos li>strong{grid-row:1;grid-column:2;font-weight:500}.passos li>p{grid-row:2;grid-column:2;margin-top:.15rem}"
            ".horario li span:last-child{color:var(--muted)}"
-           ".passos p strong{font-weight:500;color:var(--ink)}.passos p{margin:0;color:var(--muted)}.passos a{color:var(--sea-2)}"
+           ".passos p strong{font-weight:500;color:var(--ink)}.passos p{margin:0;color:var(--muted)}.passos a{color:var(--link)}"
            ".apps li{display:grid;grid-template-columns:minmax(9rem,15rem) 1fr;gap:.2rem 1rem}.apps li span:last-child{color:var(--muted)}"
            "@media (max-width:560px){.apps li{grid-template-columns:1fr}}")
     page = cabeca("Primeira vez num evento? | Weatherlight, Évora", desc, url, [faq], css) + f"""
@@ -363,7 +363,7 @@ def url_esp(e): return f"/{PASTA.get(e['jogo'], e['jogo'])}/{e.get('_slug') or (
 
 
 CURTO = {"magic": "Magic", "poke": "Pokémon", "op": "One Piece", "ygo": "Yu-Gi-Oh!", "rift": "Riftbound", "digi": "Digimon",
-         "gundam": "Gundam Card Game", "assemble": "Gundam Assemble", "champ": "Pokémon Champions", "cyber": "Cyberpunk"}
+         "gundam": "Gundam Card Game", "assemble": "Gundam Assemble", "cyber": "Cyberpunk"}
 
 
 def arquivo(semanas, ESP, RECAP):
@@ -403,7 +403,7 @@ def arquivo(semanas, ESP, RECAP):
     desc = "Arquivo dos eventos especiais da Weatherlight em Évora: Prereleases, Release Events, Store Championships e torneios de Magic, Pokémon, One Piece, Yu-Gi-Oh!, Riftbound, Gundam, Digimon e Cyberpunk."
     css = (".mes{font:500 1.3rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.05em;margin:1.6rem 0 .2rem;color:var(--brass)}.mes:first-of-type{margin-top:0}"
            ".sem{margin-top:.9rem}.sem-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.2rem 1rem;margin-bottom:.5rem}"
-           ".sem-h h3{font:500 1rem var(--body);margin:0}.sem-h span{font-size:.88rem;color:var(--muted)}.sem-h a{color:var(--sea-2)}"
+           ".sem-h h3{font:500 1rem var(--body);margin:0}.sem-h span{font-size:.88rem;color:var(--muted)}.sem-h a{color:var(--link)}"
            ".ec{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}.ec img,.ec .ph{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}"
            ".ec div{display:grid;gap:.2rem;min-width:0}.ec small{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.ec .chip{font-size:.66rem}"
            ".rel:has(.ec){align-items:stretch}.ec{height:100%;min-height:140px}.ec strong{font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ec small{font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ec .chip,.ec span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.sem .rel{grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}.filters{margin:0 0 1rem}[hidden]{display:none!important}")

@@ -210,9 +210,9 @@ def gerar(tpl, SER, DET, S):
 .dates li{{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:.4rem}}.dates li:first-child{{border-top:0;padding-top:0}}
 .faq dl{{margin:0}}.faq dt{{font-weight:500;margin-top:.7rem}}.faq dt:first-child{{margin-top:0}}.faq dd{{margin:.2rem 0 0;color:var(--ans);font-size:.94rem;line-height:1.55}}.faq dd a{{color:inherit}}
 .rel{{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}}
-.rel{{align-items:start}}.card{{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}}.card em{{font-style:normal;font-size:.88rem;color:var(--sea-2);margin-top:.2rem}}.ot summary{{display:grid;gap:.15rem;cursor:pointer;list-style:none}}.ot summary::-webkit-details-marker{{display:none}}.ot[open]{{grid-column:1/-1}}.ot[open] em{{display:none}}.ot .pre{{margin-top:.7rem;font-size:.97rem}}
+.rel{{align-items:start}}.card{{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}}.card em{{font-style:normal;font-size:.88rem;color:var(--link);margin-top:.2rem}}.ot summary{{display:grid;gap:.15rem;cursor:pointer;list-style:none}}.ot summary::-webkit-details-marker{{display:none}}.ot[open]{{grid-column:1/-1}}.ot[open] em{{display:none}}.ot .pre{{margin-top:.7rem;font-size:.97rem}}
 .card:hover{{border-color:var(--sea-2)}}.card strong{{font-weight:500}}.card span{{font-size:.9rem;color:var(--muted)}}
-main a:not(.card),footer a{{color:var(--sea-2)}}
+main a:not(.card),footer a{{color:var(--link)}}
 @media (max-width:560px){{.intro{{grid-template-columns:1fr}}.intro img{{width:150px}}}}
 </style>
 </head>
@@ -260,7 +260,7 @@ main a:not(.card),footer a{{color:var(--sea-2)}}
 
 # ---------- Página de cada jogo: /<jogo>/ (destino dos links das páginas de marca da loja) ----------
 PASTA={"magic":"magic","poke":"pokemon","op":"one-piece","ygo":"yu-gi-oh","rift":"riftbound","digi":"digimon",
-       "gundam":"gundam","assemble":"gundam-assemble","champ":"pokemon-champions","cyber":"cyberpunk","lorcana":"lorcana","swu":"star-wars"}
+       "gundam":"gundam","assemble":"gundam-assemble","cyber":"cyberpunk","lorcana":"lorcana","swu":"star-wars"}
 def gerar_jogos(SER,DET,S,style,fonts,css2):
     import datetime as dt
     FP=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FP)) if os.path.exists(FP) else []
