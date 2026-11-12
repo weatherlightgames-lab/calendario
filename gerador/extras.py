@@ -363,7 +363,7 @@ def url_esp(e): return f"/{PASTA.get(e['jogo'], e['jogo'])}/{e.get('_slug') or (
 
 
 CURTO = {"magic": "Magic", "poke": "Pokémon", "op": "One Piece", "ygo": "Yu-Gi-Oh!", "rift": "Riftbound", "digi": "Digimon",
-         "gundam": "Gundam Card Game", "assemble": "Gundam Assemble", "cyber": "Cyberpunk"}
+         "gundam": "Gundam Card Game", "assemble": "Gundam Assemble", "champ": "Pokémon Champions", "cyber": "Cyberpunk"}
 
 
 def arquivo(semanas, ESP, RECAP):
