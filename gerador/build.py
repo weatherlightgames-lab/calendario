@@ -48,7 +48,7 @@ def det(txt,s=None,cal='',lid=''):
     return (f'<p class="det none">Detalhes em breve! Entretanto, acompanha o nosso <a href="{DISCORD}">Discord</a>.</p>','')
 
 # Inscrição: link da aplicação do torneio (semana.json "inscricao") e código Companion do Magic ("companion")
-PLAT=[("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound Gaming Network"),("riftbound","Riftbound Gaming Network"),
+PLAT=[("bandai-tabletop-games","Bandai Tabletop Games"),("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound Gaming Network"),("riftbound","Riftbound Gaming Network"),
       ("neuron","Neuron"),("konami","Neuron"),("companion.wizards","Companion"),("eventlink","EventLink"),
       ("limitlesstcg","Limitless"),("pokemon","Pokémon"),("digimoncard","Bandai TCG+")]
 def plataforma(u):

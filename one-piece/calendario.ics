@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-18-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261112T173618Z
+DTSTAMP:20261112T175002Z
 DTSTART:20261118T203000Z
 DTEND:20261118T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-20-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261112T173618Z
+DTSTAMP:20261112T175003Z
 DTSTART:20261120T200000Z
 DTEND:20261120T230000Z
 SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
@@ -30,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-rel
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261112T173618Z
+DTSTAMP:20261112T175003Z
 DTSTART:20261121T150000Z
 DTEND:20261121T180000Z
 SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
@@ -40,7 +40,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-rel
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261112T173618Z
+DTSTAMP:20261112T175003Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
@@ -50,7 +50,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-12-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261112T173618Z
+DTSTAMP:20261112T175003Z
 DTSTART:20261112T203000Z
 DTEND:20261112T233000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
