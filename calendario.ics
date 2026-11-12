@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-18-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261118T160000Z
 DTEND:20261118T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-18-magic-modern@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261118T200000Z
 DTEND:20261118T230000Z
 SUMMARY:Modern · Magic: The Gathering (Weatherlight)
@@ -30,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/magic/modern/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-18-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261118T200000Z
 DTEND:20261118T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
@@ -40,7 +40,7 @@ URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-18-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261118T203000Z
 DTEND:20261118T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
@@ -50,7 +50,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-20-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261120T200000Z
 DTEND:20261120T230000Z
 SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
@@ -60,7 +60,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-rel
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-20-rift-nexus-night@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261120T200000Z
 DTEND:20261120T230000Z
 SUMMARY:Nexus Night · Riftbound: League of Legends TCG (Weatherlight)
@@ -70,7 +70,7 @@ URL:https://eventos.weatherlightgames.pt/riftbound/nexus-night/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-20-digi-tamer-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261120T200000Z
 DTEND:20261120T230000Z
 SUMMARY:Tamer Lounge · Digimon Card Game (Weatherlight)
@@ -80,7 +80,7 @@ URL:https://eventos.weatherlightgames.pt/digimon/tamer-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-20-gundam-pilot-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261120T210000Z
 DTEND:20261121T000000Z
 SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
@@ -90,7 +90,7 @@ URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261121T150000Z
 DTEND:20261121T180000Z
 SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
@@ -100,7 +100,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-rel
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-cyber-night-city-brawl@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261121T150000Z
 DTEND:20261121T180000Z
 SUMMARY:Night City Brawl · Cyberpunk TCG (Weatherlight)
@@ -110,7 +110,7 @@ URL:https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-champ-pok-mon-champions-first-battles@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261121T150000Z
 DTEND:20261121T180000Z
 SUMMARY:Pokémon Champions First Battles · Pokémon Champions (Weatherlight)
@@ -120,7 +120,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon-champions/pokemon-champions-fir
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-21-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261121T180000Z
 DTEND:20261121T210000Z
 SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
@@ -130,7 +130,7 @@ URL:https://eventos.weatherlightgames.pt/gundam/pilot-party/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-rift-summoner-s-skirmish-novembro@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261122T103000Z
 DTEND:20261122T133000Z
 SUMMARY:Summoner's Skirmish Novembro · Riftbound: League of Legends TCG (Weatherlight)
@@ -140,7 +140,7 @@ URL:https://eventos.weatherlightgames.pt/riftbound/summoner-s-skirmish-novembro/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-ygo-release-event-magnificent-maestros@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261122T150000Z
 DTEND:20261122T180000Z
 SUMMARY:Release Event Magnificent Maestros · Yu-Gi-Oh! (Weatherlight)
@@ -150,7 +150,7 @@ URL:https://eventos.weatherlightgames.pt/yu-gi-oh/release-event-magnificent-maes
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-poke-weekly-league@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261122T150000Z
 DTEND:20261122T180000Z
 SUMMARY:Weekly League · Pokémon TCG (Weatherlight)
@@ -160,7 +160,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/weekly-league/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-assemble-gundam-assemble-friendly-battle@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261122T150000Z
 DTEND:20261122T180000Z
 SUMMARY:Gundam Assemble Friendly Battle · Gundam Assemble (Weatherlight)
@@ -170,7 +170,7 @@ URL:https://eventos.weatherlightgames.pt/gundam-assemble/gundam-assemble-friendl
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
@@ -180,7 +180,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-cup-1@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261129T100000Z
 DTEND:20261129T130000Z
 SUMMARY:League Cup #1 · Pokémon TCG (Weatherlight)
@@ -190,7 +190,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-cup-1/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-challenge-novembro@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261129T170000Z
 DTEND:20261129T200000Z
 SUMMARY:League Challenge Novembro · Pokémon TCG (Weatherlight)
@@ -200,7 +200,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-challenge-novembro/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-12-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261112T175149Z
+DTSTAMP:20261112T183155Z
 DTSTART:20261112T203000Z
 DTEND:20261112T233000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
