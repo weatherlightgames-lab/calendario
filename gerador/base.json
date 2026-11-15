@@ -22,13 +22,15 @@
  "digi": [
   "Tamer Party",
   "Evolution Cup",
-  "Prerelease (Digimon)"
+  "Prerelease (Digimon)",
+  "Tamer Lounge"
  ],
  "ygo": [
   "Duelist Lounge",
   "Duelist Party",
   "Core Booster Premiere",
-  "OTS Championship"
+  "OTS Championship",
+  "Release Event (Yu-Gi-Oh!)"
  ],
  "poke": [
   "Weekly League",
@@ -53,6 +55,10 @@
   "Release Event (Gundam)"
  ],
  "assemble": [
-  "Demo Event"
+  "Demo Event",
+  "Friendly Battle"
+ ],
+ "champ": [
+  "First Battles"
  ]
 }

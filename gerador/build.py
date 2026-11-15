@@ -27,7 +27,7 @@ DISCORD='https://discord.gg/HTCZeJZuVk'
 ADDR={"@type":"Place","name":"Weatherlight Games & Collectibles","address":{"@type":"PostalAddress","streetAddress":"Rua Frei José Maria Évora, Nº2","postalCode":"7005-495","addressLocality":"Évora","addressCountry":"PT"}}
 ORG={"@type":"Organization","name":"Weatherlight Games & Collectibles","url":"https://www.weatherlightgames.pt",
      "sameAs":["https://www.instagram.com/weatherlightgames/","https://www.facebook.com/weatherlightgames","https://www.tiktok.com/@weatherlightcollectibles",DISCORD]}
-JOGOS={"magic":"Magic","poke":"Pokémon","op":"One Piece","ygo":"Yu-Gi-Oh!","rift":"Riftbound","digi":"Digimon","gundam":"Gundam","assemble":"Gundam Assemble","cyber":"Cyberpunk","lorcana":"Lorcana","swu":"Star Wars"}
+JOGOS={"magic":"Magic","poke":"Pokémon","op":"One Piece","ygo":"Yu-Gi-Oh!","rift":"Riftbound","digi":"Digimon","gundam":"Gundam","assemble":"Gundam Assemble","champ":"Pokémon Champions","cyber":"Cyberpunk","lorcana":"Lorcana","swu":"Star Wars"}
 
 def modelo(e):
     """Texto de detalhes: 'modelo' explícito, senão o nome do evento, senão um título único 'Evento (…)'."""
@@ -48,7 +48,7 @@ def det(txt,s=None,cal='',lid=''):
     return (f'<p class="det none">Detalhes em breve! Entretanto, acompanha o nosso <a href="{DISCORD}">Discord</a>.</p>','')
 
 # Inscrição: link da aplicação do torneio (semana.json "inscricao") e código Companion do Magic ("companion")
-PLAT=[("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound Gaming Network"),("riftbound","Riftbound Gaming Network"),
+PLAT=[("bandai-tabletop-games","Bandai Tabletop Games"),("melee.gg","Melee"),("bandai-tcg-plus","Bandai TCG+"),("playriftbound","Riftbound Gaming Network"),("riftbound","Riftbound Gaming Network"),
       ("neuron","Neuron"),("konami","Neuron"),("companion.wizards","Companion"),("eventlink","EventLink"),
       ("limitlesstcg","Limitless"),("pokemon","Pokémon"),("digimoncard","Bandai TCG+")]
 def plataforma(u):

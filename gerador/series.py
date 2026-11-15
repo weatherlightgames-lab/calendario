@@ -260,7 +260,7 @@ main a:not(.card),footer a{{color:var(--link)}}
 
 # ---------- Página de cada jogo: /<jogo>/ (destino dos links das páginas de marca da loja) ----------
 PASTA={"magic":"magic","poke":"pokemon","op":"one-piece","ygo":"yu-gi-oh","rift":"riftbound","digi":"digimon",
-       "gundam":"gundam","assemble":"gundam-assemble","cyber":"cyberpunk","lorcana":"lorcana","swu":"star-wars"}
+       "gundam":"gundam","assemble":"gundam-assemble","champ":"pokemon-champions","cyber":"cyberpunk","lorcana":"lorcana","swu":"star-wars"}
 def gerar_jogos(SER,DET,S,style,fonts,css2):
     import datetime as dt
     FP=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FP)) if os.path.exists(FP) else []
