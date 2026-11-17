@@ -25,3 +25,4 @@ One Piece: Pirate Lounge e Pirate Party são Standard; Extra Regulation só quan
 - **Eventos regulares em pausa**: `"pausa": true` em `series.json` (ex. Pirate Party de sábado): sem datas previstas, aparece "em pausa" e a `nota` explica. Quando voltar, tirar o `pausa`.
 - **Início de um evento regular**: `"desde": "AAAA-MM-DD"` em `series.json` (ex. Duelist Party, desde 8/11/2026) evita datas previstas antes do arranque.
 - **Texto da semana adiantado**: `gerador/proxima_semana.json` (introdução e destaques já aprovados). Usar na semana indicada e apagar depois.
+- **Páginas temáticas do site principal** (ex.: O Universo Gundam na Weatherlight): `gerador/universos.json` (`{"<chave do jogo>": {"titulo", "url", "resumo"}}`) mostra o link no cabeçalho da página do jogo, nas páginas fixas e de eventos especiais desse jogo, nos detalhes dos eventos do calendário e no `/llms.txt`.
