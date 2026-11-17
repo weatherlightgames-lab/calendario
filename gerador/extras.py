@@ -239,7 +239,7 @@ def llms(SER, FUT, S):
          "- Email: weatherlightgames@gmail.com", "- Horário: " + "; ".join(f"{d}: {h}" for d, h in HORARIO), "- Loja online: https://www.weatherlightgames.pt/", f"- Mapa: {MAPS}",
          "- Instagram: https://www.instagram.com/weatherlightgames/", f"- Discord (comunidade): {DISCORD}", "",
          "## Calendário", f"- [Calendário da semana]({BASE}/): {S['semana']}, atualizado todas as semanas.",
-         f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", "",
+         f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", f"- [English page for visitors]({BASE}/en/): weekly events, how to join, opening hours.", "",
          "## Eventos regulares (todas as semanas; em feriados e férias confirmar no calendário)"]
     for s in sorted(SER, key=lambda s: (list(PL).index(s['dia']), s['hora'])):
         L.append(f"- [{s['titulo']} — {s['nome_jogo']}]({BASE}/{s['slug']}/): {PL[s['dia']].lower()} às {s['hora']}, {preco_txt(float(s['preco']))}" + (" (em pausa de momento)" if s.get('pausa') else ""))
@@ -481,6 +481,7 @@ def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao, serie_de=lambda e: None, m
     u, passados = arquivo(semanas, ESP, RECAP); urls.append(u)
     ja_fizemos(passados)
     urls += primeira_vez(SER)
+    import ingles; urls += ingles.pagina(SER, FUT)
     feeds(FEED); llms(SER, FUT, S)
     # páginas antigas que mudaram de endereço (redirects.json: {"antigo": "novo"})
     RD = os.path.join(AQUI, 'redirects.json')

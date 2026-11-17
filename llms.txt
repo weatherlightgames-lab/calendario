@@ -16,6 +16,7 @@
 - [Calendário da semana](https://eventos.weatherlightgames.pt/): Semana de 18 a 22 de novembro, atualizado todas as semanas.
 - [Calendário para subscrever (.ics)](https://eventos.weatherlightgames.pt/calendario.ics)
 - [Primeira vez num evento](https://eventos.weatherlightgames.pt/primeira-vez/): check-in, aplicações por jogo, o que levar.
+- [English page for visitors](https://eventos.weatherlightgames.pt/en/): weekly events, how to join, opening hours.
 
 ## Eventos regulares (todas as semanas; em feriados e férias confirmar no calendário)
 - [Commander Afternoon — Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/commander-afternoon/): todas as quartas às 16:00, Gratuito
