@@ -36,16 +36,20 @@ def data(iso):
     return f"{WD[x.weekday()]}, {MESES[x.month - 1]} {x.day}"
 
 
+def thumb(arte):
+    return (f'<img src="/img/{arte}-v.jpg" alt="" width="48" height="64" loading="lazy">' if arte else '<i></i>')
+
+
 def pagina(SER, FUT):
     url = f"{BASE}/en/"
     hoje = dt.date.today().isoformat()
     regs = sorted([s for s in SER if not s.get('pausa')], key=lambda s: (ORDEM.index(s['dia']), s['hora']))
     linhas = ''.join(
-        f'<li><span>{DIAS[s["dia"]]} · {hora(s["hora"])}</span><span><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a> — {html.escape(s["nome_jogo"])}</span><span>{preco(s["preco"])}</span></li>'
+        f'<li>{thumb(s.get("arte"))}<span>{DIAS[s["dia"]]} · {hora(s["hora"])}</span><span><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a> — {html.escape(s["nome_jogo"])}</span><span>{preco(s["preco"])}</span></li>'
         for s in regs)
     fut = [f for f in sorted(FUT, key=lambda x: (x['iso'], x['hora'])) if f['iso'] >= hoje][:8]
     esp = ''.join(
-        f'<li><span>{data(f["iso"])} · {hora(f["hora"])}</span><span><a href="/{PASTA.get(f["jogo"], f["jogo"])}/{esp_slug(f)}/">{html.escape(f["evento"])}</a> — {html.escape(f["nome_jogo"])}</span><span>{preco(f["preco"])}</span></li>'
+        f'<li>{thumb(f.get("arte"))}<span>{data(f["iso"])} · {hora(f["hora"])}</span><span><a href="/{PASTA.get(f["jogo"], f["jogo"])}/{esp_slug(f)}/">{html.escape(f["evento"])}</a> — {html.escape(f["nome_jogo"])}</span><span>{preco(f["preco"])}</span></li>'
         for f in fut)
     jogos = []
     for s in SER:
@@ -56,12 +60,14 @@ def pagina(SER, FUT):
     ld = {"@context": "https://schema.org", "@type": "WebPage", "inLanguage": "en", "name": "Weatherlight — Game store in Évora, Portugal",
           "url": url, "about": {"@type": "GameStore", "name": "Weatherlight Games & Collectibles", "url": "https://www.weatherlightgames.pt/"}}
     css = (".evl{list-style:none;margin:0;padding:0}"
-           ".evl li{display:grid;grid-template-columns:minmax(10rem,14rem) minmax(0,1fr) auto;gap:.15rem 1rem;padding:.5rem 0;border-top:1px dashed var(--line)}"
-           ".evl li:first-child{border-top:0;padding-top:0}.evl li span:first-child,.evl li span:last-child{color:var(--muted)}"
+           ".evl li{display:grid;grid-template-columns:48px minmax(10rem,13rem) minmax(0,1fr) auto;gap:.15rem 1rem;align-items:center;padding:.55rem 0;border-top:1px dashed var(--line)}"
+           ".evl li:first-child{border-top:0;padding-top:0}.evl li span:nth-of-type(1),.evl li span:nth-of-type(3){color:var(--muted)}"
+           ".evl img,.evl i{width:48px;height:64px;object-fit:cover;border-radius:4px;background:var(--foam);display:block}"
            ".evl a,.box a{color:var(--link)}"
            ".apps li{display:grid;grid-template-columns:minmax(9rem,15rem) 1fr;gap:.2rem 1rem}.apps li span:last-child{color:var(--muted)}"
            ".horario li span:last-child{color:var(--muted)}.box p+p{margin-top:.7rem}"
-           "@media (max-width:560px){.evl li{grid-template-columns:1fr auto}.evl li span:first-child{grid-column:1/-1}.apps li{grid-template-columns:1fr}}")
+           "@media (max-width:560px){.evl li{grid-template-columns:48px minmax(0,1fr) auto;align-items:start}.evl img,.evl i{grid-row:1/3}"
+           ".evl li span:nth-of-type(1){grid-column:2/-1}.evl li span:nth-of-type(2){grid-column:2}.evl li span:nth-of-type(3){grid-column:3;grid-row:2}.apps li{grid-template-columns:1fr}}")
     head = series.SHELL
     page = f"""<!doctype html>
 <html lang="en">
@@ -91,7 +97,7 @@ def pagina(SER, FUT):
   <div class="wrap">
     <section class="box"><h2>Welcome aboard</h2>
       <p class="m">Weatherlight Games &amp; Collectibles is a game store in the centre of Évora, open since 2020. We run around 15 events a week for Magic: The Gathering, Pokémon TCG, One Piece Card Game, Yu-Gi-Oh!, Riftbound, Digimon, Gundam and Cyberpunk TCG, from relaxed weekly events to official tournaments.</p>
-      <p class="m">Visiting Évora? You are welcome to join any event. English cards are allowed in most official tournaments in Portugal, and you can buy boosters, decks, sleeves and other accessories in store.</p></section>
+      <p class="m">Visiting Évora? You are welcome to join any event, and our whole team speaks English. English cards are allowed in most official tournaments in Portugal, and you can buy boosters, decks, sleeves and other accessories in store.</p></section>
     <section class="box"><h2>Weekly events</h2><ul class="evl">{linhas}</ul>
       <p class="m small">Holidays and schedule changes are announced in the <a href="/">weekly calendar</a> (in Portuguese, with dates and times).</p></section>
     {f'<section class="box"><h2>Upcoming special events</h2><ul class="evl">{esp}</ul></section>' if esp else ''}
