@@ -91,6 +91,7 @@ def pagina(SER, FUT):
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › English</span>
     <h1>Game store in Évora, Portugal</h1>
     <p class="sub">Trading card games, tournaments and collectibles at Weatherlight</p>
+    <div class="info"><span>Rua Frei José Maria Évora, Nº2, 7005-495 Évora</span><a href="tel:+351266735119">📞 +351 266 735 119</a><a href="{MAPS}">📍 Map</a><a href="https://www.weatherlightgames.pt/">Online store</a><a href="https://www.instagram.com/weatherlightgames/">Instagram</a><a href="{DISCORD}">Discord</a><a href="/">📅 Weekly calendar</a><a href="/" hreflang="pt" lang="pt">🇵🇹 Português</a></div>
   </div>
 </header>
 <main>
