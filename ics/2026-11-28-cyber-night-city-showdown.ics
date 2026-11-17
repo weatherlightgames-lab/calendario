@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-28-cyber-night-city-showdown@eventos.weatherlightgames.pt
+DTSTAMP:20261117T153721Z
+DTSTART:20261128T150000Z
+DTEND:20261128T180000Z
+SUMMARY:Night City Showdown · Cyberpunk TCG (Weatherlight)
+DESCRIPTION:Inscrição: https://melee.gg/Tournament/View/484776\nDetalhes: https://eventos.weatherlightgames.pt/cyberpunk/night-city-showdown/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/cyberpunk/night-city-showdown/
+END:VEVENT
+END:VCALENDAR

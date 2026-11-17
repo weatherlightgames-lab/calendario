@@ -695,5 +695,27 @@
    0.95
   ],
   "texto": "Fãs de Gundam! 🤖\n\nDepois das demos, chegou a hora das primeiras Friendly Battles de Gundam Assemble na Weatherlight! ⛵️\n\nUm evento descontraído para quem já conhece as regras básicas e quer jogar, conhecer outros pilotos e fazer crescer a comunidade em Évora.\n\nFormato: Friendly Battle Standard\n3 rondas (Suíço), cada uma decidida num só jogo\n60 minutos por ronda - sem Top Cut nem eliminações, todos jogam as 3 rondas!\n\nO que precisas de trazer:\n- Um Squad legal de 3 Mobile Suits + 9 Tactics Cards (podes mudar de Squad entre rondas);\n- Se só tens o Starter Set, não há problema - também podes jogar só com cartas e miniaturas do Starter Set!\n\nPreço: Gratuito\n\nE AINDA:\n- 1 Tactics Card Pack de participação.\n\nJunta-te a nós e vem construir esta comunidade connosco! 🦾"
+ },
+ {
+  "iso": "2026-11-28",
+  "hora": "15:00",
+  "jogo": "cyber",
+  "nome_jogo": "Cyberpunk TCG",
+  "evento": "Night City Showdown",
+  "preco": 15,
+  "modelo": "Night City Showdown",
+  "arte": "ncs-adam",
+  "story": "ncs-adam",
+  "recorte": [
+   0.5,
+   0.12,
+   0.72
+  ],
+  "texto": "CHOOMS! 🙌\n\nO 1º Night City Showdown está a chegar à Weatherlight! 🌃\n\nO primeiro grande torneio oficial de Cyberpunk TCG chegou a Évora - vem defrontar os teus Rivals e lutar pelo título de Showdown Champion! 🦾\n\nCheck-in: 14:30h - 15:00h\nVagas limitadas! Garante a tua no Melee.\n\nFormato:\nConstructed (Suíço)\nBest-of-3 - sem Top Cut, todos jogam as rondas suíças!\n\nPreço: 15.00€\n\nPrémios (cumulativos):\n1º 1 Adam Smasher Alt-Art Showdown Champion Promo + Playmat exclusivo de Showdown Champion;\nTop 4: 1 Sandevistan Foil Alt-Art;\nTop 8: 1 Adam Smasher Foil Alt-Art;\nTop X: 1 Booster por jogador.\n\nE AINDA!\n- 2 Boosters de participação;\n- 1 Sandevistan Non-Foil Alt-Art de participação.\n\nVais ficar de fora? 👀\nAventura-te em Night City com a Weatherlight! ⚓️",
+  "inscricao": "https://melee.gg/Tournament/View/484776",
+  "tipo": "Night City Showdown",
+  "substitui": [
+   "Night City Brawl"
+  ]
  }
 ]
