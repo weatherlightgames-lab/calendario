@@ -80,6 +80,11 @@ def proximas(s,S,n=4):
 
 BASE_DB=json.load(open(os.path.join(AQUI,'base.json')))
 MARCAS=json.load(open(os.path.join(AQUI,'marcas.json')))
+# Páginas-pilar no site principal por jogo (ex.: O Universo Gundam na Weatherlight), em universos.json
+_UP=os.path.join(AQUI,'universos.json'); UNIVERSOS=json.load(open(_UP)) if os.path.exists(_UP) else {}
+def universo_card(g):
+    u=UNIVERSOS.get(g)
+    return (f'<a class="card" href="{u["url"]}" target="_blank" rel="noopener"><strong>{html.escape(u["titulo"])}</strong><span>{html.escape(u["resumo"])}</span><em>Ver no site ↗</em></a>' if u else '')
 def limpar(k): return re.sub(r"\s*\((Semanal|Fim de semana|Magic|One Piece|Digimon|Pokémon|Cyberpunk)\)$","",k)
 def preco_db(txt):
     m=re.search(r"Pre[çc]o[^:\n]*:[ \t]*\n?-?[ \t]*([^\n]+)",txt or '')
@@ -181,6 +186,7 @@ def gerar(tpl, SER, DET, S):
             info=" · ".join(x for x in [formato(t2), preco_db(t2)] if x)
             rel+=(f'<details class="card ot"><summary><strong>{html.escape(nome)}</strong><span>{html.escape(info)}</span><em>Ver detalhes</em></summary>'
                   f'<p class="pre">{html.escape(t2)}</p>'+(f'<p class="m fx">{fmt_mtg(formato(t2))[1]}</p>' if s['jogo']=='magic' and fmt_mtg(formato(t2)) else '')+f'<p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p></details>')
+        rel+=universo_card(s['jogo'])
         rel+='<a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a>'
         img=f'<img src="/img/{s["arte"]}-g.jpg" alt="" width="180" height="240">' if s.get('arte') else ''
         page=f'''<!doctype html>
@@ -332,7 +338,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {html.escape(nome)}</span>
     <h1>Eventos de {html.escape(nome)}</h1>
     <p class="sub">Não percas estes eventos na Weatherlight em Évora, no Alentejo</p>
-    {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}
+    {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}{f'<a class="hd-cta" href="{UNIVERSOS[g]["url"]}">🤖 {html.escape(UNIVERSOS[g]["titulo"])} ↗</a>' if g in UNIVERSOS else ''}
     <p class="subcal">📅 Subscreve os eventos de {html.escape(nome)}: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2F{pasta}%2Fcalendario.ics">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/{pasta}/calendario.ics">Apple / Outlook</a></p>
   </div>
 </header>

@@ -9,7 +9,7 @@
 import json, os, re, html, datetime as dt
 from PIL import Image, ImageDraw, ImageFont
 import series
-from series import (BASE, MAPS, CA, GL, DISCORD, PL, DIA_NOME, MESES, PASTA, MARCAS, CENTRAL, APPS, PAGA, GRATIS,
+from series import (UNIVERSOS, universo_card, BASE, MAPS, CA, GL, DISCORD, PL, DIA_NOME, MESES, PASTA, MARCAS, CENTRAL, APPS, PAGA, GRATIS,
                     preco_txt, formato, fmt_mtg, esp_slug)
 
 AQUI = os.path.dirname(os.path.abspath(__file__)); RAIZ = os.path.dirname(AQUI)
@@ -132,7 +132,7 @@ def especiais(DET, FUT, inscricao):
     <section class="sec"><h2>Mais eventos</h2><div class="rel">
       <a class="card" href="/{pasta}/"><strong>Eventos de {html.escape(f['nome_jogo'])}</strong><span>Regulares e especiais</span><em>Ver página →</em></a>
       <a class="card" href="/"><strong>Calendário Weatherlight</strong><span>Todos os eventos desta semana</span><em>Ver calendário →</em></a>
-      {f'<a class="card" href="{loja}"><strong>Produtos de {html.escape(f["nome_jogo"])}</strong><span>Na loja Weatherlight</span><em>Ver na loja ↗</em></a>' if loja else ''}
+      {f'<a class="card" href="{loja}"><strong>Produtos de {html.escape(f["nome_jogo"])}</strong><span>Na loja Weatherlight</span><em>Ver na loja ↗</em></a>' if loja else ''}{universo_card(f['jogo'])}
     </div></section>
   </div>
 </main>
@@ -249,7 +249,15 @@ def llms(SER, FUT, S):
         L += [f"- [{f['evento']} — {f['nome_jogo']}]({BASE}/{PASTA.get(f['jogo'], f['jogo'])}/{esp_slug(f)}/): {data_longa(f['iso']).lower()} às {f['hora']}, {preco_txt(float(f['preco']))}" for f in fut]
     L += ["", "## Como participar",
           "- Inscrição na aplicação oficial de cada jogo (conta obrigatória): Bandai TCG+ (One Piece, Digimon, Gundam Card Game), Melee (Cyberpunk TCG), Riftbound Gaming Network (Riftbound), Neuron com KONAMI ID (Yu-Gi-Oh!), Magic: The Gathering Companion com conta Wizards (Magic), Player ID da Pokémon (Pokémon TCG).",
-          "- O pagamento da inscrição é feito no check-in, no balcão da loja.", "", "## Páginas por jogo"]
+          "- O pagamento da inscrição é feito no check-in, no balcão da loja.", ""]
+    vistos = set()
+    for g, u in UNIVERSOS.items():
+        if u['url'] in vistos: continue
+        vistos.add(u['url'])
+        if len(vistos) == 1: L.append("## Páginas temáticas no site da loja")
+        L.append(f"- [{u['titulo']}]({u['url']}): {u['resumo']}.")
+    if vistos: L.append("")
+    L += ["## Páginas por jogo"]
     for g, pasta in PASTA.items():
         if os.path.isdir(os.path.join(RAIZ, pasta)): L.append(f"- [Eventos de {NOMES.get(g, pasta.replace('-', ' ').title())}]({BASE}/{pasta}/)")
     open(os.path.join(RAIZ, 'llms.txt'), 'w').write("\n".join(L) + "\n")

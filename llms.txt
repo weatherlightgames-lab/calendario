@@ -49,6 +49,9 @@
 - Inscrição na aplicação oficial de cada jogo (conta obrigatória): Bandai TCG+ (One Piece, Digimon, Gundam Card Game), Melee (Cyberpunk TCG), Riftbound Gaming Network (Riftbound), Neuron com KONAMI ID (Yu-Gi-Oh!), Magic: The Gathering Companion com conta Wizards (Magic), Player ID da Pokémon (Pokémon TCG).
 - O pagamento da inscrição é feito no check-in, no balcão da loja.
 
+## Páginas temáticas no site da loja
+- [O Universo Gundam na Weatherlight](https://www.weatherlightgames.pt/page/o-universo-gundam-na-weatherlight): Gunpla, Gundam Card Game e Gundam Assemble num só sítio.
+
 ## Páginas por jogo
 - [Eventos de Magic: The Gathering](https://eventos.weatherlightgames.pt/magic/)
 - [Eventos de Pokémon TCG](https://eventos.weatherlightgames.pt/pokemon/)

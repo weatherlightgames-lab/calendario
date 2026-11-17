@@ -8,7 +8,7 @@ SER=json.load(open(os.path.join(AQUI,'series.json')))
 # Página da marca de cada jogo no site principal (nome do jogo → URL)
 MARCAS=json.load(open(os.path.join(AQUI,'marcas.json')))
 import sys; sys.path.insert(0,AQUI)
-from series import PASTA
+from series import PASTA, UNIVERSOS
 def chip(g,nome):
     u=MARCAS.get(nome)
     return (f'<a class="chip c-{g}" href="{u}" target="_blank" rel="noopener" title="{html.escape(nome)} na loja Weatherlight">{html.escape(nome)}</a>' if u
@@ -109,7 +109,9 @@ import series
 ld=[]; rows=""; usados=[]; sem_modelo=[]
 def loja(e):
     u=MARCAS.get(e['nome_jogo'])
-    return f'<a class="lj" href="{u}" target="_blank" rel="noopener">🛒 Produtos de {html.escape(JOGOS.get(e["jogo"],e["nome_jogo"]))} na loja ↗</a>' if u else ''
+    v=UNIVERSOS.get(e['jogo'])
+    return ((f'<a class="lj" href="{u}" target="_blank" rel="noopener">🛒 Produtos de {html.escape(JOGOS.get(e["jogo"],e["nome_jogo"]))} na loja ↗</a>' if u else '')
+            +(f'<a class="lj" href="{v["url"]}" target="_blank" rel="noopener">🤖 {html.escape(v["titulo"])} ↗</a>' if v else ''))
 
 def especial_de(d,e):
     for f in FUT:
