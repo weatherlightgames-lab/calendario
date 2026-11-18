@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-21-cyber-night-city-brawl@eventos.weatherlightgames.pt
-DTSTAMP:20261118T094933Z
+DTSTAMP:20261118T095121Z
 DTSTART:20261121T150000Z
 DTEND:20261121T180000Z
 SUMMARY:Night City Brawl · Cyberpunk TCG (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-cyber-night-city-showdown@eventos.weatherlightgames.pt
-DTSTAMP:20261118T094933Z
+DTSTAMP:20261118T095121Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Night City Showdown · Cyberpunk TCG (Weatherlight)

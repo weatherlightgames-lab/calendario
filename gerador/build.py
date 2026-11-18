@@ -170,7 +170,7 @@ def wk_card(s_):
     meta=('<span class="wk-p">Em pausa</span>' if s_.get('pausa') else f'<span class="wk-p">{"Gratuito" if pr==0 else f"{pr:.2f}".replace(".",",")+" €"}</span>')
     return (f'<a class="wk-ev c-{g}{" pausa" if s_.get("pausa") else ""}" href="/{s_["slug"]}/" data-game="{g}">'
             f'<span class="wk-lg">{logo(g,nm) if g in LOGOS else html.escape(nm)}</span>'
-            f'<strong>{html.escape(s_["titulo"])}</strong><span class="wk-m"><time>{s_["hora"]}</time>{meta}</span></a>')
+            f'<strong title="{html.escape(s_["titulo"])}">{html.escape(s_["titulo"])}</strong><span class="wk-m"><time>{s_["hora"]}</time>{meta}</span></a>')
 cols=""
 for en,pt in DIAS_G:
     ss=sorted([s_ for s_ in SER if s_['dia']==en],key=lambda s_:(s_['hora'],s_['titulo']))
