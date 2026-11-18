@@ -54,7 +54,7 @@ header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72px;b
 header .wrap{z-index:1}
 .info{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-size:.95rem;color:var(--hd-soft);font-weight:400}
 .info a{color:var(--hd-ink)}
-main .wrap{padding-block:1.5rem 3rem;display:grid;gap:1.75rem}
+main .wrap{padding-block:1.5rem 3rem;display:grid;grid-template-columns:minmax(0,1fr);gap:1.75rem}
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
 .filters span{font:400 .75rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:.25rem}
 .f{font:400 .9rem var(--body);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:.35rem .85rem;cursor:pointer}
