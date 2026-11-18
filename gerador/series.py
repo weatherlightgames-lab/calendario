@@ -78,6 +78,29 @@ def proximas(s,S,n=4):
         x+=dt.timedelta(7)
     return out
 
+
+# ---- "Todas as semanas": evento recorrente (Google Calendar + .ics com RRULE) para cada evento regular ----
+MORADA_S="Weatherlight Games & Collectibles, Rua Frei José Maria Évora, Nº2, 7005-495 Évora"
+VTZ="\r\n".join(["BEGIN:VTIMEZONE","TZID:Europe/Lisbon","BEGIN:DAYLIGHT","TZOFFSETFROM:+0000","TZOFFSETTO:+0100","TZNAME:WEST","DTSTART:19700329T010000","RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU","END:DAYLIGHT",
+                 "BEGIN:STANDARD","TZOFFSETFROM:+0100","TZOFFSETTO:+0000","TZNAME:WET","DTSTART:19701025T020000","RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU","END:STANDARD","END:VTIMEZONE"])
+def semanal(s):
+    """Escreve /ics/semanal-<slug>.ics e devolve o HTML dos links (vazio se o evento está em pausa)."""
+    import datetime as dt, urllib.parse
+    if s.get('pausa'): return ''
+    hoje=dt.date.today(); x=hoje+dt.timedelta((DIA_ISO[s['dia']]-hoje.weekday())%7)
+    h,m=map(int,s['hora'].split(':')); ini=dt.datetime(x.year,x.month,x.day,h,m); fim=ini+dt.timedelta(hours=3)
+    f=lambda d:d.strftime('%Y%m%dT%H%M%S'); dia=["MO","TU","WE","TH","FR","SA","SU"][DIA_ISO[s['dia']]]
+    rr=f"RRULE:FREQ=WEEKLY;BYDAY={dia}"; tit=f"{s['titulo']} · {s['nome_jogo']} (Weatherlight)"; url=f"{BASE}/{s['slug']}/"
+    desc=f"Evento semanal. Em feriados e férias o horário pode mudar: confirma sempre em {BASE}/\nDetalhes: {url}"
+    g='https://calendar.google.com/calendar/render?action=TEMPLATE&'+urllib.parse.urlencode({'text':tit,'dates':f(ini)+'/'+f(fim),'ctz':'Europe/Lisbon','recur':rr,'details':desc,'location':MORADA_S},quote_via=urllib.parse.quote)
+    esc=lambda t:t.replace('\\','\\\\').replace(';','\\;').replace(',','\\,').replace('\n','\\n')
+    nome='semanal-'+s['slug'].replace('/','-')+'.ics'
+    ics="\r\n".join(["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Weatherlight//Calendario//PT","CALSCALE:GREGORIAN","METHOD:PUBLISH",VTZ,"BEGIN:VEVENT",
+        f"UID:{nome[:-4]}@eventos.weatherlightgames.pt",f"DTSTAMP:{dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+        f"DTSTART;TZID=Europe/Lisbon:{f(ini)}",f"DTEND;TZID=Europe/Lisbon:{f(fim)}",rr,f"SUMMARY:{esc(tit)}",f"DESCRIPTION:{esc(desc)}",
+        f"LOCATION:{esc(MORADA_S)}",f"URL:{url}","END:VEVENT","END:VCALENDAR",""])
+    d=os.path.join(RAIZ,'ics'); os.makedirs(d,exist_ok=True); open(os.path.join(d,nome),'w',newline='').write(ics)
+    return f'<span class="cal sem">🔁 Todas as semanas no teu calendário: <a href="{html.escape(g)}">Google</a> · <a href="/ics/{nome}" download>Apple / Outlook</a></span>'
 BASE_DB=json.load(open(os.path.join(AQUI,'base.json')))
 MARCAS=json.load(open(os.path.join(AQUI,'marcas.json')))
 # Páginas-pilar no site principal por jogo (ex.: O Universo Gundam na Weatherlight), em universos.json
@@ -219,6 +242,7 @@ def gerar(tpl, SER, DET, S):
 .rel{{align-items:start}}.card{{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}}.card em{{font-style:normal;font-size:.88rem;color:var(--link);margin-top:.2rem}}.ot summary{{display:grid;gap:.15rem;cursor:pointer;list-style:none}}.ot summary::-webkit-details-marker{{display:none}}.ot[open]{{grid-column:1/-1}}.ot[open] em{{display:none}}.ot .pre{{margin-top:.7rem;font-size:.97rem}}
 .card:hover{{border-color:var(--sea-2)}}.card strong{{font-weight:500}}.card span{{font-size:.9rem;color:var(--muted)}}
 main a:not(.card),footer a{{color:var(--link)}}
+.semcal{{margin:0;font-size:.95rem;color:var(--muted)}}.semcal a{{color:var(--link)}}
 @media (max-width:560px){{.intro{{grid-template-columns:1fr}}.intro img{{width:150px}}}}
 </style>
 </head>
@@ -238,6 +262,7 @@ main a:not(.card),footer a{{color:var(--link)}}
       {f'<li><small>Formato</small><strong>{html.escape(fmt)}</strong></li>' if fmt else ''}
       <li><small>Onde</small><strong><a href="{MAPS}">Weatherlight, Évora</a></strong></li>
     </ul>
+    {f'<p class="semcal">{semanal(s)}</p>' if not s.get('pausa') else ''}
     {f'<p class="nota">{html.escape(s["nota"])}</p>' if s.get('nota') else ''}
     <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes em breve! Entretanto, acompanha o nosso Discord.")}</p></div>{img}</section>
     <section class="box"><h2>Próximas datas</h2>{prox}</section>

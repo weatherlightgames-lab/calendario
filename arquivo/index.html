@@ -214,6 +214,13 @@ footer a{color:var(--ink)}
   .hl-dots button{width:.5rem;height:.5rem;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
   .hl-dots button[aria-current="true"]{width:1.2rem;border-radius:999px;background:#4f7a87}
 }
+
+/* ---- v2: etiqueta Especial · avisos nos regulares · todas as semanas · horário ---- */
+.tg{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .5rem}
+.esp{font:500 .64rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:.22rem .5rem .18rem}
+.rg li.av{display:block;margin:-.05rem 0 .15rem;font-size:.78rem;line-height:1.35;color:var(--brass)}
+.cal.sem{display:block}
+.hor{font-size:.88rem}
 /* ---- v2: subscrever ---- */
 .subs{margin-top:1.4rem;display:grid;gap:1rem}
 .subs-c{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:1.4rem;background:linear-gradient(135deg,#1f3d47,#375762 60%,#4f7a87);color:#fff;border-radius:14px;padding:1.4rem 1.6rem 1.4rem 1.2rem;overflow:visible}
@@ -246,6 +253,7 @@ footer a{color:var(--ink)}
 .rel{align-items:start}.card{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}.card em{font-style:normal;font-size:.88rem;color:var(--link);margin-top:.2rem}.ot summary{display:grid;gap:.15rem;cursor:pointer;list-style:none}.ot summary::-webkit-details-marker{display:none}.ot[open]{grid-column:1/-1}.ot[open] em{display:none}.ot .pre{margin-top:.7rem;font-size:.97rem}
 .card:hover{border-color:var(--sea-2)}.card strong{font-weight:500}.card span{font-size:.9rem;color:var(--muted)}
 main a:not(.card),footer a{color:var(--link)}
+.semcal{margin:0;font-size:.95rem;color:var(--muted)}.semcal a{color:var(--link)}
 @media (max-width:560px){.intro{grid-template-columns:1fr}.intro img{width:150px}}
 </style>
 <style>.mes{font:500 1.3rem/1.2 var(--display);text-transform:uppercase;letter-spacing:.05em;margin:1.6rem 0 .2rem;color:var(--brass)}.mes:first-of-type{margin-top:0}.sem{margin-top:.9rem}.sem-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.2rem 1rem;margin-bottom:.5rem}.sem-h h3{font:500 1rem var(--body);margin:0}.sem-h span{font-size:.88rem;color:var(--muted)}.sem-h a{color:var(--link)}.ec{grid-template-columns:72px minmax(0,1fr);align-items:start;gap:.9rem}.ec img,.ec .ph{width:72px;aspect-ratio:3/4;height:auto;border-radius:5px;object-fit:cover;background:var(--foam);display:block}.ec div{display:grid;gap:.2rem;min-width:0}.ec small{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}.ec .chip{font-size:.66rem}.rel:has(.ec){align-items:stretch}.ec{height:100%;min-height:140px}.ec strong{font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ec small{font-size:.7rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ec .chip,.ec span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.sem .rel{grid-template-columns:repeat(auto-fill,minmax(17rem,1fr))}.filters{margin:0 0 1rem}[hidden]{display:none!important}</style>
@@ -265,7 +273,7 @@ main a:not(.card),footer a{color:var(--link)}
     <p class="m small">Os próximos eventos estão no <a href="/">Calendário Weatherlight</a>.</p>
   </div>
 </main>
-<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="/primeira-vez/">página para quem vem pela primeira vez</a>, a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>!</p></div></footer>
+<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="/primeira-vez/">página para quem vem pela primeira vez</a>, a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>!</p><p class="close hor">🕒 Horário da loja: Quarta e Sexta 15:00–23:00 · Quinta, Sábado e Domingo 15:00–20:30 · Segunda e Terça encerrados</p></div></footer>
 <script>(function(){var b=[].slice.call(document.querySelectorAll('.f'));function a(g){b.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.g===g))});
 document.querySelectorAll('.sem').forEach(function(s){var v=0;s.querySelectorAll('.card').forEach(function(c){var on=g==='all'||c.dataset.game===g;c.hidden=!on;if(on)v++});s.hidden=!v});
 document.querySelectorAll('.mes').forEach(function(m){var n=m.nextElementSibling,v=false;while(n&&!n.classList.contains('mes')){if(!n.hidden&&n.classList.contains('sem'))v=true;n=n.nextElementSibling}m.hidden=!v})}

@@ -523,6 +523,18 @@ def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao, serie_de=lambda e: None, m
     artes = [a for i, a in enumerate(artes) if a not in artes[:i]][:3]
     og_tags(fn, BASE + '/', S['semana'], "Calendário Weatherlight", "Eventos semanais na tua Local Game Store em Évora", artes)
     for x in series.OG: og_tags(*x)
+    # horário da loja no rodapé de todas as páginas (exceto a página em inglês, que tem o seu)
+    import glob as _g
+    hor = '<p class="close hor">🕒 Horário da loja: ' + ' · '.join(f'{d} {h.replace(" – ", "–") if h[0].isdigit() else h.lower()}' for d, h in [HORARIO[1], HORARIO[2], HORARIO[0]]) + '</p>'
+    for fn in _g.glob(os.path.join(RAIZ, '**', 'index.html'), recursive=True):
+        if os.sep + 'en' + os.sep in fn or os.sep + 'gerador' + os.sep in fn: continue
+        p = open(fn).read()
+        if 'class="close hor"' in p or '</footer>' not in p: continue
+        k = p.rfind('</div></footer>') if '</div></footer>' in p else -1
+        if k < 0:
+            k = p.find('</footer>'); k = p.rfind('</div>', 0, k)
+            if k < 0: continue
+        open(fn, 'w').write(p[:k] + hor + p[k:])
     series.OG.clear()
     open(os.path.join(RAIZ, 'sitemap.xml'), 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
         ''.join(f'  <url><loc>{u}</loc></url>\n' for u in dict.fromkeys(urls)) + '</urlset>\n')

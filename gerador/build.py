@@ -119,10 +119,12 @@ def loja(e):
 def especial_de(d,e):
     for f in FUT:
         if f['iso']==d['iso'] and f['jogo']==e['jogo'] and f['hora']==e['hora']: return f
+NE0=json.load(open(os.path.join(AQUI,'nao_especiais.json'))) if os.path.exists(os.path.join(AQUI,'nao_especiais.json')) else {}
 def item(d,e,quando=None):
     """Um evento (li) + o seu JSON-LD. quando = rótulo da data (eventos futuros)."""
     g=e['jogo']; usados.append(g); txt=modelo(e); s=serie_de(e); art=e.get('arte'); preco=float(e['preco'])
     fe=None if s else especial_de(d,e)
+    especial=not quando and not serie_de(e) and e['evento'] not in NE0.get(g,[])
     if fe: s={'slug':PASTA.get(fe['jogo'],fe['jogo'])+'/'+series.esp_slug(fe)}
     if not txt: sem_modelo.append(f"{d['dia']} {e['hora']} {e['evento']}")
     ld.append({"@context":"https://schema.org","@type":"Event","name":f"{e['nome_jogo']} - {e['evento']}",
@@ -134,12 +136,12 @@ def item(d,e,quando=None):
                 "availability":"https://schema.org/"+("SoldOut" if e.get('esgotado') else "InStock")}})
     fm=e if e.get('lideres') else next((f for f in FUT if f['evento']==e['evento'] and f.get('iso')==d.get('iso',e.get('iso')) and f.get('lideres')),{})
     lid=('<span class="lidt">Leaders permitidas</span>'+series.lideres_html(fm['lideres'],fm.get('lideres_fonte'))) if fm else ''
-    b1,p1=det(txt,s,calendario(d,e,s)+loja(e),lid); b2,p2=inscricao(e)
+    b1,p1=det(txt,s,calendario(d,e,s)+(series.semanal(s) if s and 'titulo' in s and not quando else '')+loja(e),lid); b2,p2=inscricao(e)
     p="Gratuito" if preco==0 else f"{preco:.2f}".replace('.',',')+" €"
     sp='<span class="sold">Esgotado</span>' if e.get('esgotado') else ''
     th=f'<img class="thumb" src="/img/{art}-v.jpg" alt="" width="90" height="120" loading="lazy">' if art else '<span class="thumb"></span>'
     return (f'<li class="ev" data-game="{g}">{th}<time class="t" datetime="{d["iso"]}T{e["hora"]}">{quando or ''}{e["hora"]}</time>'
-            f'<div class="what"><a class="chip c-{g}" href="/{PASTA.get(g,g)}/" title="Todos os eventos de {html.escape(e["nome_jogo"])}">{html.escape(e["nome_jogo"])}</a>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
+            f'<div class="what"><span class="tg"><a class="chip c-{g}" href="/{PASTA.get(g,g)}/" title="Todos os eventos de {html.escape(e["nome_jogo"])}">{html.escape(e["nome_jogo"])}</a>{'<span class="esp">Especial</span>' if especial else ''}</span>{(f'<a class="nm" href="/{s["slug"]}/"><strong>{html.escape(e["evento"])}</strong></a>' if s else f'<strong>{html.escape(e["evento"])}</strong>')}{sp}</div>'
             f'<span class="price{" free" if preco==0 else ""}">{p}</span><div class="acts">{b1}{b2}</div>{f'<div class="det pns">{p1}{p2}</div>' if p1 or p2 else ''}</li>')
 
 for d in S['dias']:
@@ -165,13 +167,39 @@ DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Q
 ORD=list(DIA_PT)
 DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}
 ORD=list(DIA_PT)
+DIA_LONGO=["segunda","terça","quarta","quinta","sexta","sábado","domingo"]
+_d0=date.fromisoformat(S['dias'][0]['iso']); SEG=_d0-timedelta(_d0.weekday())
+ISOS_SEM={d['iso'] for d in S['dias']}
+def aviso_reg(s_):
+    """Mudança desta semana num evento regular: outro dia/hora, substituído por um especial, ou sem evento."""
+    if s_.get('pausa'): return ''
+    esp_iso=(SEG+timedelta(DIA_ISO_B[s_['dia']])).isoformat()
+    reais=[(d,e) for d in S['dias'] for e in d['eventos'] if serie_de(e) is s_]
+    if any(d['iso']==esp_iso and e['hora']==s_['hora'] for d,e in reais): return ''
+    if reais:
+        d,e=reais[0]; x=date.fromisoformat(d['iso'])
+        return f'Esta semana: às {e["hora"]}' if d['iso']==esp_iso else f'Esta semana: {DIA_LONGO[x.weekday()]} às {e["hora"]}'
+    for d in S['dias']:
+        if d['iso']!=esp_iso: continue
+        for e in d['eventos']:
+            if e['jogo']!=s_['jogo'] or serie_de(e): continue
+            fu=next((f for f in FUT if f['iso']==d['iso'] and f['evento']==e['evento']),{})
+            if e['hora']==s_['hora'] or set(fu.get('substitui',[]))&set(s_['eventos']):
+                return f'Esta semana dá lugar ao {e["evento"]}'
+    return 'Esta semana não há'
+DIA_ISO_B={"Monday":0,"Tuesday":1,"Wednesday":2,"Thursday":3,"Friday":4,"Saturday":5,"Sunday":6}
+def reg_li(s_):
+    av=aviso_reg(s_)
+    dow=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"].index(s_["dia"])
+    li=((f'<li data-dow="{dow}" data-h="{s_["hora"]}">' if not s_.get("pausa") and not av else '<li>')+
+        f'<a href="/{s_["slug"]}/">{html.escape(s_["titulo"])}</a><span>{(DIA_PT[s_["dia"]]+" · "+s_["hora"]) if not s_.get("pausa") else "em pausa"}</span></li>')
+    return li+(f'<li class="av">↪ {html.escape(av)}</li>' if av else '')
 reg=""
 for k,v in JOGOS.items():
-    ss=[s for s in SER if s['jogo']==k]
+    ss=[s_ for s_ in SER if s_['jogo']==k]
     if not ss: continue
-    ss.sort(key=lambda s:(ORD.index(s['dia']),s['hora']))
-    reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(
-        (f'<li data-dow="{["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"].index(s["dia"])}" data-h="{s["hora"]}">' if not s.get("pausa") else '<li>')+f'<a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{(DIA_PT[s["dia"]]+" · "+s["hora"]) if not s.get("pausa") else "em pausa"}</span></li>' for s in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
+    ss.sort(key=lambda s_:(ORD.index(s_['dia']),s_['hora']))
+    reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(reg_li(s_) for s_ in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
 regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
 chips="".join(f'<button type="button" class="f c-{k}" data-g="{k}" aria-pressed="false" title="{html.escape(v)}">{logo(k,v) if k in LOGOS else html.escape(v)}</button>' for k,v in JOGOS.items() if k in usados)
 lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introducao'])

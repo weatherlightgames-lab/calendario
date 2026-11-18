@@ -214,6 +214,13 @@ footer a{color:var(--ink)}
   .hl-dots button{width:.5rem;height:.5rem;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
   .hl-dots button[aria-current="true"]{width:1.2rem;border-radius:999px;background:#4f7a87}
 }
+
+/* ---- v2: etiqueta Especial · avisos nos regulares · todas as semanas · horário ---- */
+.tg{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .5rem}
+.esp{font:500 .64rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--brass);border:1px solid currentColor;border-radius:999px;padding:.22rem .5rem .18rem}
+.rg li.av{display:block;margin:-.05rem 0 .15rem;font-size:.78rem;line-height:1.35;color:var(--brass)}
+.cal.sem{display:block}
+.hor{font-size:.88rem}
 /* ---- v2: subscrever ---- */
 .subs{margin-top:1.4rem;display:grid;gap:1rem}
 .subs-c{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:1.4rem;background:linear-gradient(135deg,#1f3d47,#375762 60%,#4f7a87);color:#fff;border-radius:14px;padding:1.4rem 1.6rem 1.4rem 1.2rem;overflow:visible}
@@ -246,6 +253,7 @@ footer a{color:var(--ink)}
 .rel{align-items:start}.card{display:grid;gap:.15rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.75rem .9rem}.card em{font-style:normal;font-size:.88rem;color:var(--link);margin-top:.2rem}.ot summary{display:grid;gap:.15rem;cursor:pointer;list-style:none}.ot summary::-webkit-details-marker{display:none}.ot[open]{grid-column:1/-1}.ot[open] em{display:none}.ot .pre{margin-top:.7rem;font-size:.97rem}
 .card:hover{border-color:var(--sea-2)}.card strong{font-weight:500}.card span{font-size:.9rem;color:var(--muted)}
 main a:not(.card),footer a{color:var(--link)}
+.semcal{margin:0;font-size:.95rem;color:var(--muted)}.semcal a{color:var(--link)}
 @media (max-width:560px){.intro{grid-template-columns:1fr}.intro img{width:150px}}
 </style>
 <style>
@@ -430,6 +438,6 @@ Vais ficar de fora? 🤔</p></details></div><p class="m small">Datas anunciadas 
     <section class="sec"><h2>Já fizemos</h2><div class="rel"><a class="card ec" href="/one-piece/heroines-battle-vol-2/"><img src="/img/heroines-v.jpg" alt="" width="90" height="120" loading="lazy"><div><small>12/11/2026</small><strong>Heroines Battle Vol.2</strong><em>Ver página →</em></div></a><a class="card ec" href="/one-piece/one-piece-portuguese-league-etapa-weatherlight/"><img src="/img/oppl-v.jpg" alt="" width="90" height="120" loading="lazy"><div><small>07/11/2026</small><strong>One Piece Portuguese League - Etapa Weatherlight</strong><em>Ver página →</em></div></a><a class="card ec" href="/one-piece/store-championship-2026-10-24/"><img src="/img/op-sc-v.jpg" alt="" width="90" height="120" loading="lazy"><div><small>24/10/2026</small><strong>Store Championship</strong><em>Ver página →</em></div></a><a class="card ec" href="/one-piece/extra-grand-battle/"><img src="/img/op-egb-v.jpg" alt="" width="90" height="120" loading="lazy"><div><small>10/10/2026</small><strong>Extra Grand Battle</strong><em>Ver página →</em></div></a></div><p class="m small">Vê todos no <a href="/arquivo/">Arquivo de eventos</a>.</p></section>
   </div>
 </main>
-<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="/primeira-vez/">página para quem vem pela primeira vez</a>, a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>!</p></div></footer>
+<footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="/primeira-vez/">página para quem vem pela primeira vez</a>, a <a href="https://www.weatherlightgames.pt/page/central-de-ajuda-weatherlight" target="_blank" rel="noopener">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="https://discord.gg/HTCZeJZuVk" target="_blank" rel="noopener">Discord</a>!</p><p class="close hor">🕒 Horário da loja: Quarta e Sexta 15:00–23:00 · Quinta, Sábado e Domingo 15:00–20:30 · Segunda e Terça encerrados</p></div></footer>
 </body>
 </html>
