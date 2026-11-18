@@ -163,20 +163,16 @@ if fit: rows+=f'<section class="day fut"><h2><span>Eventos que não podes perder
 
 DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}
 ORD=list(DIA_PT)
-DIAS_G=[("Wednesday","Quarta"),("Thursday","Quinta"),("Friday","Sexta"),("Saturday","Sábado"),("Sunday","Domingo")]
-DOW={"Monday":1,"Tuesday":2,"Wednesday":3,"Thursday":4,"Friday":5,"Saturday":6,"Sunday":0}
-def wk_card(s_):
-    g=s_['jogo']; pr=float(s_.get('preco',0)); nm=JOGOS.get(g,s_['nome_jogo'])
-    meta=('<span class="wk-p">Em pausa</span>' if s_.get('pausa') else f'<span class="wk-p">{"Gratuito" if pr==0 else f"{pr:.2f}".replace(".",",")+" €"}</span>')
-    return (f'<a class="wk-ev c-{g}{" pausa" if s_.get("pausa") else ""}" href="/{s_["slug"]}/" data-game="{g}">'
-            f'<span class="wk-lg">{logo(g,nm) if g in LOGOS else html.escape(nm)}</span>'
-            f'<strong title="{html.escape(s_["titulo"])}">{html.escape(s_["titulo"])}</strong><span class="wk-m"><time>{s_["hora"]}</time>{meta}</span></a>')
-cols=""
-for en,pt in DIAS_G:
-    ss=sorted([s_ for s_ in SER if s_['dia']==en],key=lambda s_:(s_['hora'],s_['titulo']))
-    cols+=(f'<div class="wk-d" data-dow="{DOW[en]}"><h3>{pt}</h3>'+(''.join(wk_card(s_) for s_ in ss) or '<p class="wk-vz">Sem eventos regulares… ainda 👀</p>')+'</div>')
-regulares=('<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima. '
-           'Segunda e terça estamos encerrados.</p><div class="wk">'+cols+'</div></section>')
+DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}
+ORD=list(DIA_PT)
+reg=""
+for k,v in JOGOS.items():
+    ss=[s for s in SER if s['jogo']==k]
+    if not ss: continue
+    ss.sort(key=lambda s:(ORD.index(s['dia']),s['hora']))
+    reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(
+        f'<li><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{(DIA_PT[s["dia"]]+" · "+s["hora"]) if not s.get("pausa") else "em pausa"}</span></li>' for s in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
+regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
 chips="".join(f'<button type="button" class="f c-{k}" data-g="{k}" aria-pressed="false" title="{html.escape(v)}">{logo(k,v) if k in LOGOS else html.escape(v)}</button>' for k,v in JOGOS.items() if k in usados)
 lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introducao'])
 DSEM=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"]
