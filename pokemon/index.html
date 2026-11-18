@@ -168,6 +168,64 @@ footer a{color:var(--ink)}
 .ev:has(.acts details[open]) .thumb{align-self:start;height:auto;aspect-ratio:3/4}
 @media (max-width:480px){.acts{grid-column:2 / -1;grid-row:3}.pns{grid-column:2 / -1;grid-row:4}.thumb{grid-row:1 / span 4}}
 .lids{display:grid;grid-auto-rows:1fr;grid-template-columns:repeat(auto-fill,minmax(8rem,1fr));gap:.45rem;margin:.9rem 0 0;padding:0;list-style:none;white-space:normal}.lids li{position:relative;display:grid;gap:.1rem;min-height:3.6rem;align-content:center;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.45rem .6rem .45rem 1rem;overflow:hidden}.lids i{position:absolute;left:0;top:0;bottom:0;width:6px}.lids strong{font-weight:500;font-size:.95rem;line-height:1.2}.lids small{font-size:.75rem;color:var(--muted)}@media (max-width:640px){.lids{grid-template-columns:repeat(2,minmax(0,1fr))}.lids strong{font-size:.88rem}.lids small{font-size:.72rem}.lids .cn{display:none}}.lidf{display:inline-block;margin-top:.7rem;font-size:.9rem;color:var(--link)}.det .lidt{display:block;margin-top:1.2rem;font-weight:500;white-space:normal}
+
+/* ---- v2: filtros com logos (vários ao mesmo tempo) ---- */
+.f,.wk-ev,.lgc,.lgcard{--gc:var(--sea-2)}.hl{--gc:var(--brass);color:var(--ink)}.c-magic{--gc:var(--c-magic)}.c-ygo{--gc:var(--c-ygo)}.c-op{--gc:var(--c-op)}.c-rift{--gc:var(--c-rift)}.c-digi{--gc:var(--c-digi)}.c-gundam{--gc:var(--c-gundam)}.c-assemble{--gc:var(--c-assemble)}.c-champ{--gc:var(--c-champ)}.c-poke{--gc:var(--c-poke)}.c-cyber{--gc:var(--c-cyber)}
+.flt{display:grid;gap:.55rem}.flt-t{margin:0;text-align:center;font:400 .75rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.flt-t span{text-transform:none;letter-spacing:.02em;font-size:.85rem}
+.filters{justify-content:center;gap:.5rem}
+.f{position:relative;display:flex;align-items:center;justify-content:center;gap:.4rem;width:7.4rem;height:3.6rem;padding:.45rem .7rem;background:#fff;border:2px solid var(--gc);border-radius:10px;color:#1f3d47;font:500 .9rem var(--body);cursor:pointer;transition:opacity .15s,transform .15s,box-shadow .15s,filter .15s}
+.f img{display:block;max-width:100%;max-height:2.15rem;width:auto;height:auto;object-fit:contain}.f-all img{max-height:1.7rem}
+.f:hover{transform:translateY(-1px);box-shadow:0 6px 14px -8px var(--gc)}
+.f[aria-pressed="true"]{background:#fff;border-color:var(--gc);color:#1f3d47;box-shadow:0 0 0 2px var(--gc),0 8px 18px -10px var(--gc)}
+.f[aria-pressed="true"]::after{content:"✓";position:absolute;top:-.5rem;right:-.5rem;width:1.15rem;height:1.15rem;border-radius:50%;background:var(--gc);color:#fff;font:600 .7rem/1.15rem var(--body);text-align:center}
+.filters.sel .f[aria-pressed="false"]{opacity:.5;filter:grayscale(.7)}.filters.sel .f[aria-pressed="false"]:hover{opacity:.85;filter:none}
+@media (max-width:600px){.filters{gap:.4rem}.f{width:calc((100% - 1.2rem)/4);height:2.9rem;padding:.3rem .35rem;border-radius:8px;font-size:.8rem}.f img{max-height:1.55rem}.f-all{gap:.25rem}.f-all img{max-height:1.2rem}.weekend{padding:.9rem .8rem 1rem}}
+/* ---- v2: destaques com contagem decrescente ---- */
+.weekend{border-left:1px solid var(--line);padding:1.1rem 1.25rem 1.25rem}
+.weekend h3{text-align:center;margin-bottom:.8rem}
+.hls{list-style:none;margin:0;padding:0!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:.6rem}
+.hl{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:.9rem;background:var(--foam);border:1px solid var(--line);border-left:4px solid var(--gc);border-radius:8px;padding:.7rem .9rem .7rem .7rem;min-height:7.4rem}
+.hl-art{position:relative;width:64px;height:86px;flex:none}.hl-art img{position:absolute;inset:0;width:64px;height:86px;object-fit:cover;border-radius:5px;box-shadow:0 4px 10px -4px rgba(0,0,0,.35)}
+.hl.duas .hl-art{width:78px}.hl.duas .hl-art img:first-child{transform:rotate(-5deg)}.hl.duas .hl-art img+img{left:16px;transform:rotate(5deg)}
+.hl-b{display:grid;gap:.3rem;min-width:0;align-content:center}.hl-b p{margin:0;font-size:.95rem;line-height:1.4;text-wrap:pretty}
+.hl-cd{justify-self:start;font:500 .74rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--gc);border-radius:999px;padding:.32rem .65rem .28rem}
+.hl-cd.hj{animation:pulse 1.6s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 0 5px color-mix(in srgb,var(--gc) 25%,transparent)}}
+.hl-q{font-size:.8rem;color:var(--muted);letter-spacing:.03em}
+.hl.past{opacity:.6}.hl.past .hl-cd{background:var(--muted)}
+@media (max-width:640px){.hls{grid-template-columns:1fr;grid-auto-rows:auto}.hl{min-height:0}}
+/* ---- v2: o dia de hoje ---- */
+.day.hoje .evs{border:2px solid var(--sea-2);box-shadow:0 14px 32px -14px rgba(31,61,71,.55)}
+.hoje-b{font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--sea-2);border-radius:999px;padding:.35rem .6rem .3rem;align-self:center}
+:root[data-theme="dark"] .day.hoje .evs{border-color:#8cc4d2;box-shadow:0 14px 32px -12px rgba(0,0,0,.8)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .day.hoje .evs{border-color:#8cc4d2;box-shadow:0 14px 32px -12px rgba(0,0,0,.8)}}
+/* ---- v2: grelha semanal dos eventos regulares ---- */
+.regs h2,.regs-sub{text-align:center}
+.wk{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem;align-items:stretch}
+.wk-d{display:grid;gap:.45rem;align-content:start;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.5rem}
+.wk-d h3{margin:0 0 .1rem;text-align:center;font:500 .85rem/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:.35rem 0 .45rem;border-bottom:1px dashed var(--line)}
+.wk-d.hoje{border:2px solid var(--sea-2);box-shadow:0 12px 26px -14px rgba(31,61,71,.55)}.wk-d.hoje h3{color:var(--ink)}.wk-d.hoje h3::after{content:" · hoje";color:var(--brass)}
+.wk-ev{display:grid;grid-template-rows:2.1rem 2.5rem auto;gap:.3rem;text-decoration:none;color:var(--ink);background:var(--foam);border:1px solid var(--line);border-top:3px solid var(--gc);border-radius:6px;padding:.5rem .55rem .45rem;transition:transform .15s,box-shadow .15s,opacity .15s}
+.wk-ev:hover{transform:translateY(-1px);box-shadow:0 6px 14px -8px var(--gc)}
+.wk-lg{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:4px;padding:.2rem .3rem}.wk-lg img{max-height:1.65rem;width:auto;max-width:100%;object-fit:contain}
+.wk-ev strong{font-weight:500;font-size:.88rem;line-height:1.25;text-align:center;align-self:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wk-m{display:flex;justify-content:space-between;gap:.3rem;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}.wk-m time{color:var(--link)}
+.wk-ev.pausa{opacity:.55}.wk-ev.pausa .wk-p{font-style:italic}
+.wk-ev.off{opacity:.3;filter:grayscale(.8)}
+.wk-vz{margin:0;padding:1.2rem .3rem;text-align:center;font-size:.85rem;color:var(--muted)}
+@media (max-width:760px){.wk{grid-template-columns:1fr}.wk-d{grid-template-columns:repeat(2,minmax(0,1fr))}.wk-d h3{grid-column:1/-1}.wk-vz{grid-column:1/-1;padding:.5rem}}
+:root[data-theme="dark"] .wk-d.hoje{border-color:#8cc4d2} :root[data-theme="dark"] .hoje-b{background:#8cc4d2;color:#0f1d22}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wk-d.hoje{border-color:#8cc4d2} :root:not([data-theme="light"]) .hoje-b{background:#8cc4d2;color:#0f1d22}}
+/* ---- v2: subscrever ---- */
+.subs{margin-top:1.4rem;display:grid;gap:1rem}
+.subs-c{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:1.4rem;background:linear-gradient(135deg,#1f3d47,#375762 60%,#4f7a87);color:#fff;border-radius:14px;padding:1.4rem 1.6rem 1.4rem 1.2rem;overflow:visible}
+.subs-aqua{width:150px;height:auto;margin:-2.6rem 0 -1rem;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3));transform:rotate(-6deg)}
+.subs .subs-t h2{color:#fff;font:500 1.35rem/1.2 var(--display);letter-spacing:.04em;margin:0 0 .35rem}.subs-t p{margin:.25rem 0;color:#dbe8eb}
+.subs .subs-l{margin-top:.8rem;gap:.6rem}.subs .subs-l a{background:#fff;border:0;color:#1f3d47;font-weight:500;padding:.5rem 1.1rem;box-shadow:0 4px 12px -6px rgba(0,0,0,.4)}.subs .subs-l a:hover{background:#eef3f3}
+.subs-j{text-align:center}.subs-j p{margin:0 0 .6rem;color:var(--muted);font-size:.92rem}
+.subs-g{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;max-width:36rem;margin:0 auto}
+.lgc{display:flex;align-items:center;justify-content:center;width:6.6rem;height:3rem;padding:.35rem .55rem;background:#fff;border:2px solid var(--gc);border-radius:9px;transition:transform .15s,box-shadow .15s}.lgc:hover{transform:translateY(-1px);box-shadow:0 6px 14px -8px var(--gc)}
+.lgc img{max-height:1.8rem;width:auto;max-width:100%;object-fit:contain}
+:root[data-theme="dark"] .subs-c{background:linear-gradient(135deg,#132a31,#24414b 60%,#2f5562)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .subs-c{background:linear-gradient(135deg,#132a31,#24414b 60%,#2f5562)}}
+:root[data-theme="dark"] .subs .subs-l a{background:#fff;color:#1f3d47}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .subs .subs-l a{background:#fff;color:#1f3d47}}
+@media (max-width:600px){.subs-c{grid-template-columns:1fr;justify-items:center;text-align:center;padding:1rem 1.1rem 1.3rem;margin-top:2.6rem}.subs-aqua{width:120px;margin:-3.6rem 0 -.2rem}.subs .subs-l{justify-content:center}.subs-g{gap:.35rem}.lgc{width:calc((100% - 1.4rem)/5);height:2.5rem;padding:.25rem .3rem;border-radius:7px}.lgc img{max-height:1.3rem}}
 </style>
 <style>:root{--ans:#4a7c88}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ans:#9fc9d3}}:root[data-theme="dark"]{--ans:#9fc9d3}
 *,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}
@@ -203,7 +261,7 @@ main a:not(.card),footer a{color:var(--link)}
     <h1>Eventos de Pokémon TCG</h1>
     <p class="sub">Não percas estes eventos na Weatherlight em Évora, no Alentejo</p>
     <a class="hd-cta" href="https://www.weatherlightgames.pt/brand/pokemon-tcg" target="_blank" rel="noopener">Produtos de Pokémon TCG na loja ↗</a>
-    <p class="subcal">📅 Subscreve os eventos de Pokémon TCG: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2Fpokemon%2Fcalendario.ics" target="_blank" rel="noopener">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/pokemon/calendario.ics">Apple / Outlook</a></p>
+    <p class="subcal" id="subscrever">📅 Subscreve os eventos de Pokémon TCG: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2Fpokemon%2Fcalendario.ics" target="_blank" rel="noopener">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/pokemon/calendario.ics">Apple / Outlook</a></p>
   </div>
 </header>
 <main>

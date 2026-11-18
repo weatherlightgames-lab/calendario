@@ -27,6 +27,9 @@ DISCORD='https://discord.gg/HTCZeJZuVk'
 ADDR={"@type":"Place","name":"Weatherlight Games & Collectibles","address":{"@type":"PostalAddress","streetAddress":"Rua Frei José Maria Évora, Nº2","postalCode":"7005-495","addressLocality":"Évora","addressCountry":"PT"}}
 ORG={"@type":"Organization","name":"Weatherlight Games & Collectibles","url":"https://www.weatherlightgames.pt",
      "sameAs":["https://www.instagram.com/weatherlightgames/","https://www.facebook.com/weatherlightgames","https://www.tiktok.com/@weatherlightcollectibles",DISCORD]}
+LOGOS={"magic":(476,160),"poke":(313,160),"op":(520,134),"ygo":(432,160),"rift":(364,160),"digi":(520,138),"gundam":(348,160),"assemble":(520,160),"champ":(310,160),"cyber":(520,141)}
+def logo(g,alt=''):
+    w,h=LOGOS[g]; return f'<img src="/img/logos/{g}.webp" alt="{html.escape(alt)}" width="{w}" height="{h}" loading="lazy">'
 JOGOS={"magic":"Magic","poke":"Pokémon","op":"One Piece","ygo":"Yu-Gi-Oh!","rift":"Riftbound","digi":"Digimon","gundam":"Gundam","assemble":"Gundam Assemble","champ":"Pokémon Champions","cyber":"Cyberpunk","lorcana":"Lorcana","swu":"Star Wars"}
 
 def modelo(e):
@@ -141,7 +144,7 @@ def item(d,e,quando=None):
 
 for d in S['dias']:
     items="".join(item(d,e) for e in d['eventos'])
-    rows+=f'<section class="day"><h2><span>{d["dia"]}</span> <small>{d["data"]}</small></h2><ol class="evs">{items}</ol></section>'
+    rows+=f'<section class="day" data-iso="{d["iso"]}"><h2><span>{d["dia"]}</span> <small>{d["data"]}</small></h2><ol class="evs">{items}</ol></section>'
 
 # Eventos que não podes perder: futuros.json (eventos especiais anunciados com antecedência).
 # Aparecem enquanto a data é posterior à semana publicada e ainda não passou; depois entram em semana.json.
@@ -160,20 +163,48 @@ if fit: rows+=f'<section class="day fut"><h2><span>Eventos que não podes perder
 
 DIA_PT={"Monday":"Segunda","Tuesday":"Terça","Wednesday":"Quarta","Thursday":"Quinta","Friday":"Sexta","Saturday":"Sábado","Sunday":"Domingo"}
 ORD=list(DIA_PT)
-reg=""
-for k,v in JOGOS.items():
-    ss=[s for s in SER if s['jogo']==k]
-    if not ss: continue
-    ss.sort(key=lambda s:(ORD.index(s['dia']),s['hora']))
-    reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(
-        f'<li><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{(DIA_PT[s["dia"]]+" · "+s["hora"]) if not s.get("pausa") else "em pausa"}</span></li>' for s in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
-regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
-chips="".join(f'<button type="button" class="f" data-g="{k}" aria-pressed="false">{v}</button>' for k,v in JOGOS.items() if k in usados)
+DIAS_G=[("Wednesday","Quarta"),("Thursday","Quinta"),("Friday","Sexta"),("Saturday","Sábado"),("Sunday","Domingo")]
+DOW={"Monday":1,"Tuesday":2,"Wednesday":3,"Thursday":4,"Friday":5,"Saturday":6,"Sunday":0}
+def wk_card(s_):
+    g=s_['jogo']; pr=float(s_.get('preco',0)); nm=JOGOS.get(g,s_['nome_jogo'])
+    meta=('<span class="wk-p">Em pausa</span>' if s_.get('pausa') else f'<span class="wk-p">{"Gratuito" if pr==0 else f"{pr:.2f}".replace(".",",")+" €"}</span>')
+    return (f'<a class="wk-ev c-{g}{" pausa" if s_.get("pausa") else ""}" href="/{s_["slug"]}/" data-game="{g}">'
+            f'<span class="wk-lg">{logo(g,nm) if g in LOGOS else html.escape(nm)}</span>'
+            f'<strong>{html.escape(s_["titulo"])}</strong><span class="wk-m"><time>{s_["hora"]}</time>{meta}</span></a>')
+cols=""
+for en,pt in DIAS_G:
+    ss=sorted([s_ for s_ in SER if s_['dia']==en],key=lambda s_:(s_['hora'],s_['titulo']))
+    cols+=(f'<div class="wk-d" data-dow="{DOW[en]}"><h3>{pt}</h3>'+(''.join(wk_card(s_) for s_ in ss) or '<p class="wk-vz">Sem eventos regulares</p>')+'</div>')
+regulares=('<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima. '
+           'Segunda e terça estamos encerrados.</p><div class="wk">'+cols+'</div></section>')
+chips="".join(f'<button type="button" class="f c-{k}" data-g="{k}" aria-pressed="false" title="{html.escape(v)}">{logo(k,v) if k in LOGOS else html.escape(v)}</button>' for k,v in JOGOS.items() if k in usados)
 lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introducao'])
-dest="\n        "+"\n        ".join(f'<li>{html.escape(x)}</li>' for x in S['destaques'])+"\n      "
+DSEM=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"]
+SEMANA_EV=[(d,e) for d in S['dias'] for e in d['eventos']]
+PARAGENS={"release","event","evento","battle","battles","first","friendly","party","lounge","novembro","dezembro","outubro","janeiro","fevereiro","março","weekly","league","store","tournament","torneio"}
+def refs(x):
+    """Eventos da semana a que um destaque se refere: {"texto":…, "eventos":[nomes]} ou, num texto simples, palavras do nome do evento."""
+    if isinstance(x,dict): return [(d,e) for d,e in SEMANA_EV if e['evento'] in x.get('eventos',[])]
+    t=x.lower(); r=[]
+    for d,e in SEMANA_EV:
+        if serie_de(e): continue
+        ws=[w for w in re.findall(r"[\w']+",e['evento'].lower()) if len(w)>=4 and w not in PARAGENS]
+        if any(re.search(r'\b'+re.escape(w)+r'\b',t) for w in ws) or JOGOS.get(e['jogo'],'#').lower() in t and e['jogo'] in ('champ','assemble'): r.append((d,e))
+    return r
+def destaque(x):
+    txt=x['texto'] if isinstance(x,dict) else x; R=refs(x)
+    isos=sorted({d['iso'] for d,_ in R}); gs=list(dict.fromkeys(e['jogo'] for _,e in R)); arts=list(dict.fromkeys(e['arte'] for _,e in R if e.get('arte')))[:2]
+    def rot(i): y,m,dd=map(int,i.split('-')); return f"{DSEM[date(y,m,dd).weekday()]} {dd:02d}/{m:02d}"
+    quando=' e '.join(rot(i) for i in isos)
+    img=''.join(f'<img src="/img/{a}-v.jpg" alt="" width="90" height="120" loading="lazy">' for a in arts)
+    return (f'<li class="hl{" c-"+gs[0] if gs else ""}{" duas" if len(arts)>1 else ""}"'+(f' data-isos="{" ".join(isos)}"' if isos else '')+'>'
+            +(f'<span class="hl-art">{img}</span>' if img else '')+
+            '<div class="hl-b">'+('<span class="hl-cd" hidden></span>' if isos else '')+f'<p>{html.escape(txt)}</p>'
+            +(f'<span class="hl-q">{quando}</span>' if isos else '')+'</div></li>')
+dest="".join(destaque(x) for x in S['destaques'])
 t=open(os.path.join(AQUI,'tpl.html')).read()
 out=(t.replace('%%LD%%',json.dumps(ld,ensure_ascii=False,indent=1)).replace('%%DAYS%%',rows).replace('%%CHIPS%%',chips)
-      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%AVISO%%',(lambda L: ('<div class="avisos">'+''.join(f'<p class="aviso" role="note">⚠️ <strong>Atenção:</strong> {html.escape(a).replace("-feira","\u2011feira")}</p>' for a in L)+'</div>') if L else '')([S['aviso']] if isinstance(S.get('aviso'),str) else S.get('aviso',[]))).replace('%%REGULARES%%',regulares))
+      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%AVISO%%',(lambda L: ('<div class="avisos">'+''.join(f'<p class="aviso" role="note">⚠️ <strong>Atenção:</strong> {html.escape(a).replace("-feira","\u2011feira")}</p>' for a in L)+'</div>') if L else '')([S['aviso']] if isinstance(S.get('aviso'),str) else S.get('aviso',[]))).replace('%%REGULARES%%',regulares).replace('%%SUBS_JOGOS%%',''.join(f'<a class="lgc c-{k}" href="/{PASTA[k]}/#subscrever">{logo(k,JOGOS[k])}</a>' for k in ['magic','poke','op','ygo','rift','digi','gundam','cyber','champ','assemble'])))
 # "Na semana passada": eventos especiais da semana anterior (histórico) + fotos no Instagram + arquivo
 import glob
 ant=''

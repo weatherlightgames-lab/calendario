@@ -339,7 +339,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
     <h1>Eventos de {html.escape(nome)}</h1>
     <p class="sub">Não percas estes eventos na Weatherlight em Évora, no Alentejo</p>
     {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}{f'<a class="hd-cta" href="{UNIVERSOS[g]["url"]}">🤖 {html.escape(UNIVERSOS[g]["titulo"])} ↗</a>' if g in UNIVERSOS else ''}
-    <p class="subcal">📅 Subscreve os eventos de {html.escape(nome)}: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2F{pasta}%2Fcalendario.ics">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/{pasta}/calendario.ics">Apple / Outlook</a></p>
+    <p class="subcal" id="subscrever">📅 Subscreve os eventos de {html.escape(nome)}: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2F{pasta}%2Fcalendario.ics">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/{pasta}/calendario.ics">Apple / Outlook</a></p>
   </div>
 </header>
 <main>

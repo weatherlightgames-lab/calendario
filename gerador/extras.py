@@ -149,6 +149,8 @@ def especiais(DET, FUT, inscricao):
 
 
 # ---------------- página "Primeira vez na Weatherlight" ----------------
+STARTER_URL = None   # pesquisa de Starter Decks no site da loja (a enviar pelo Guilherme)
+LOGO_DIM = {"magic":(476,160),"poke":(313,160),"op":(520,134),"ygo":(432,160),"rift":(364,160),"digi":(520,138),"gundam":(348,160),"assemble":(520,160),"champ":(310,160),"cyber":(520,141)}
 NOMES = {"magic": "Magic: The Gathering", "poke": "Pokémon TCG", "op": "One Piece Card Game", "digi": "Digimon Card Game",
          "gundam": "Gundam Card Game", "ygo": "Yu-Gi-Oh!", "rift": "Riftbound", "cyber": "Cyberpunk TCG"}
 
@@ -158,8 +160,11 @@ def primeira_vez(SER):
     jogos = []
     for s in SER:
         if s['jogo'] not in [j for j, _ in jogos]: jogos.append((s['jogo'], s['nome_jogo']))
+    jogos_l = [(g, NOMES.get(g, g)) for g in ['magic','poke','op','ygo','rift','digi','gundam','cyber','champ','assemble']]
     apps = ''.join(f'<li><span><a href="/{PASTA[g]}/">{html.escape(n)}</a></span><span>{html.escape(PRECISA[g])}</span></li>' for g, n in jogos if g in PRECISA)
+    pergunta = (f'<a href="{STARTER_URL}">Vê os Starter Decks no nosso site</a> ou pergunta-nos na loja' if STARTER_URL else 'Pergunta-nos na loja')
     passos = [("Escolhe o evento", 'Vê o <a href="/">Calendário Weatherlight</a> ou a página do teu jogo. Os eventos semanais são os ideais para começar: são pensados para jogar, aprender e divertir-te.'),
+              ("Arranja um deck", f'Nos eventos <strong>Constructed</strong> jogas com o teu baralho. Se ainda não tens, um <strong>Starter Deck</strong> é a forma mais fácil de começar: vem pronto a jogar. {pergunta}. Nos <strong>Sealed</strong>, <strong>Draft</strong> e <strong>Prereleases</strong> recebes as cartas no próprio evento.'),
               ("Prepara a aplicação do jogo", "A maioria dos jogos usa uma aplicação oficial para as inscrições, as rondas e os resultados. A conta é obrigatória: trata dela antes de vir (vê a lista em baixo)."),
               ("Inscreve-te", "Nos eventos com o botão <strong>Inscreve-te</strong>, a inscrição é feita na aplicação. Nos eventos de Magic, entras com o <strong>Código Companion</strong> que está no calendário."),
               ("Faz o check-in no balcão", "No dia, faz o check-in no nosso balcão com um de nós, dentro do horário indicado nos detalhes do evento. O pagamento da inscrição é feito nesse momento.")]
@@ -175,7 +180,19 @@ def primeira_vez(SER):
            ".horario li span:last-child{color:var(--muted)}"
            ".passos p strong{font-weight:500;color:var(--ink)}.passos p{margin:0;color:var(--muted)}.passos a{color:var(--link)}"
            ".apps li{display:grid;grid-template-columns:minmax(9rem,15rem) 1fr;gap:.2rem 1rem}.apps li span:last-child{color:var(--muted)}"
-           "@media (max-width:560px){.apps li{grid-template-columns:1fr}}")
+           "@media (max-width:560px){.apps li{grid-template-columns:1fr}}"
+           ".passos li{border:0;padding:.9rem 1.1rem;transition:transform .15s}.passos li:nth-child(1){background:#e6eff1}.passos li:nth-child(2){background:#cddde1}.passos li:nth-child(3){background:#a9c3ca}"
+           ".passos li:nth-child(4){background:#4f7a87}.passos li:nth-child(5){background:#2b4a55}"
+           ".passos li:nth-child(n+4)>strong,.passos li:nth-child(n+4) p,.passos li:nth-child(n+4) p strong{color:#fff}.passos li:nth-child(n+4) p{color:#e1ecef}.passos li:nth-child(n+4) a{color:#fff}"
+           ".passos li:nth-child(n+4)::before{background:#fff;color:#2b4a55}.passos li:nth-child(-n+3) p{color:#2c4750}.passos li:nth-child(-n+3)>strong{color:#15262c}"
+           ":root[data-theme=dark] .passos li:nth-child(1){background:#1a2f36}:root[data-theme=dark] .passos li:nth-child(2){background:#1f3a43}:root[data-theme=dark] .passos li:nth-child(3){background:#274752}:root[data-theme=dark] .passos li:nth-child(4){background:#30586a}:root[data-theme=dark] .passos li:nth-child(5){background:#3b6b7e}"
+           ":root[data-theme=dark] .passos li>strong{color:#fff}:root[data-theme=dark] .passos li p{color:#d4e4e8}:root[data-theme=dark] .passos li a{color:#fff}:root[data-theme=dark] .passos li::before{background:#8cc4d2;color:#0f1d22}"
+           "@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .passos li:nth-child(1){background:#1a2f36}:root:not([data-theme=light]) .passos li:nth-child(2){background:#1f3a43}:root:not([data-theme=light]) .passos li:nth-child(3){background:#274752}:root:not([data-theme=light]) .passos li:nth-child(4){background:#30586a}:root:not([data-theme=light]) .passos li:nth-child(5){background:#3b6b7e}"
+           ":root:not([data-theme=light]) .passos li>strong{color:#fff}:root:not([data-theme=light]) .passos li p{color:#d4e4e8}:root:not([data-theme=light]) .passos li a{color:#fff}:root:not([data-theme=light]) .passos li::before{background:#8cc4d2;color:#0f1d22}}"
+           ".lgs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}@media (max-width:760px){.lgs{grid-template-columns:repeat(2,minmax(0,1fr))}}"
+           ".lgcard{display:grid;grid-template-rows:4rem auto;gap:.45rem;justify-items:center;align-items:center;text-decoration:none;background:#fff;border:2px solid var(--gc);border-radius:10px;padding:.8rem .7rem .6rem;transition:transform .15s,box-shadow .15s}"
+           ".lgcard:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px var(--gc)}.lgcard span{display:flex;align-items:center;justify-content:center;height:100%;width:100%}.lgcard img{max-height:3.2rem;max-width:100%;width:auto;height:auto;object-fit:contain}"
+           "main .lgcard em{font-style:normal;font-size:.85rem;color:#375762}")
     page = cabeca("Primeira vez num evento? | Weatherlight, Évora", desc, url, [faq], css) + f"""
 <body>
 <header>
@@ -194,10 +211,10 @@ def primeira_vez(SER):
       <p class="m small">Rua Frei José Maria Évora, Nº2, Évora · <a href="{MAPS}">Ver no mapa</a> · 266 735 119</p></section>
     <section class="box"><h2>O que levar</h2>
       <p class="m">Nos eventos <strong>Constructed</strong> trazes o teu baralho. Nos <strong>Sealed</strong>, <strong>Draft</strong> e <strong>Prereleases</strong> recebes as cartas no próprio evento e constróis o baralho na hora, por isso não precisas de trazer nada.</p>
-      <p class="m" style="margin-top:.7rem">Ainda não tens baralho? Temos decks pré-construídos prontos para começares: pergunta-nos na loja.</p></section>
+      <p class="m" style="margin-top:.7rem">Ainda não tens baralho? Temos decks pré-construídos prontos para começares: {f'<a href="{STARTER_URL}">pergunta-nos na loja</a>' if STARTER_URL else 'pergunta-nos na loja'}.</p></section>
     <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{html.escape(a)}</dd>' for q, a in perg)}</dl>
       <p class="m" style="margin-top:.9rem">Mais respostas na <a href="{CA}">Central de Ajuda</a>. Algum termo novo? Vê o <a href="{GL}">Glossário</a>.</p></section>
-    <section class="sec"><h2>Escolhe o teu jogo</h2><div class="rel">{''.join(f'<a class="card" href="/{PASTA[g]}/"><strong>{html.escape(n)}</strong><em>Ver eventos →</em></a>' for g, n in jogos)}</div></section>
+    <section class="sec"><h2>Escolhe o teu jogo</h2><div class="lgs">{''.join(f'<a class="lgcard c-{g}" href="/{PASTA[g]}/"><span><img src="/img/logos/{g}.webp" alt="{html.escape(n)}" width="{LOGO_DIM[g][0]}" height="{LOGO_DIM[g][1]}" loading="lazy"></span><em>Ver eventos →</em></a>' for g, n in jogos_l)}</div></section>
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Tens dúvidas? Junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>! 👾</p></div></footer>
