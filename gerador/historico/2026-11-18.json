@@ -1,7 +1,7 @@
 {
  "semana": "Semana de 18 a 22 de novembro",
  "introducao": [
-  "ESTAMOS QUASE DE VOLTA! 🎉",
+  "ESTAMOS DE VOLTA! 🎉",
   "O nosso regresso promete - há novos lançamentos, eventos especiais e novas entradas no calendário que não vais querer perder! ⚓️",
   "De One Piece a Riftbound, com Yu-Gi-Oh, Magic, Pokémon, Digimon, Gundam a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
  ],
@@ -272,5 +272,6 @@
     }
    ]
   }
- ]
+ ],
+ "intro_modo": "curta"
 }

@@ -202,7 +202,11 @@ for k,v in JOGOS.items():
     reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(reg_li(s_) for s_ in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
 regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
 chips="".join(f'<button type="button" class="f c-{k}" data-g="{k}" aria-pressed="false" title="{html.escape(v)}">{logo(k,v) if k in LOGOS else html.escape(v)}</button>' for k,v in JOGOS.items() if k in usados)
-lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introducao'])
+# texto da semana: no cabeçalho só a primeira frase; o resto vai para a caixa dos destaques (intro_modo "destaques") ou fica só no Instagram ("curta")
+MODO=S.get('intro_modo','curta')
+lede=f'<p class="lede">{html.escape(S["introducao"][0])}</p>' if S['introducao'] else ''
+intro_dest=''.join(f'<p class="hl-intro">{html.escape(x)}</p>' for x in S['introducao'][1:]) if MODO=='destaques' else ''
+
 DSEM=["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"]
 SEMANA_EV=[(d,e) for d in S['dias'] for e in d['eventos']]
 PARAGENS={"release","event","evento","battle","battles","first","friendly","party","lounge","novembro","dezembro","outubro","janeiro","fevereiro","março","weekly","league","store","tournament","torneio"}
@@ -228,7 +232,7 @@ def destaque(x):
 dest="".join(destaque(x) for x in S['destaques'])
 t=open(os.path.join(AQUI,'tpl.html')).read()
 out=(t.replace('%%LD%%',json.dumps(ld,ensure_ascii=False,indent=1)).replace('%%DAYS%%',rows).replace('%%CHIPS%%',chips)
-      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%AVISO%%',(lambda L: ('<div class="avisos">'+''.join(f'<p class="aviso" role="note">⚠️ <strong>Atenção:</strong> {html.escape(a).replace("-feira","\u2011feira")}</p>' for a in L)+'</div>') if L else '')([S['aviso']] if isinstance(S.get('aviso'),str) else S.get('aviso',[]))).replace('%%REGULARES%%',regulares).replace('%%SUBS_JOGOS%%',''.join(f'<a class="lgc c-{k}" href="/{PASTA[k]}/#subscrever">{logo(k,JOGOS[k])}</a>' for k in ['magic','poke','op','ygo','rift','digi','gundam','cyber','champ','assemble'])))
+      .replace('%%SEMANA%%',html.escape(S['semana'])).replace('%%LEDE%%',lede).replace('%%DESTAQUES%%',dest).replace('%%INTRO_DEST%%',intro_dest).replace('%%AVISO%%',(lambda L: ('<div class="avisos">'+''.join(f'<p class="aviso" role="note">⚠️ <strong>Atenção:</strong> {html.escape(a).replace("-feira","\u2011feira")}</p>' for a in L)+'</div>') if L else '')([S['aviso']] if isinstance(S.get('aviso'),str) else S.get('aviso',[]))).replace('%%REGULARES%%',regulares).replace('%%SUBS_JOGOS%%',''.join(f'<a class="lgc c-{k}" href="/{PASTA[k]}/#subscrever">{logo(k,JOGOS[k])}</a>' for k in ['magic','poke','op','ygo','rift','digi','gundam','cyber','champ','assemble'])))
 # "Na semana passada": eventos especiais da semana anterior (histórico) + fotos no Instagram + arquivo
 import glob
 ant=''
