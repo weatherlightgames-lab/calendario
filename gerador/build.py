@@ -171,7 +171,7 @@ for k,v in JOGOS.items():
     if not ss: continue
     ss.sort(key=lambda s:(ORD.index(s['dia']),s['hora']))
     reg+=f'<div class="rg">{chip(k,ss[0]["nome_jogo"])}<ul>'+''.join(
-        f'<li><a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{(DIA_PT[s["dia"]]+" · "+s["hora"]) if not s.get("pausa") else "em pausa"}</span></li>' for s in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
+        (f'<li data-dow="{["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"].index(s["dia"])}" data-h="{s["hora"]}">' if not s.get("pausa") else '<li>')+f'<a href="/{s["slug"]}/">{html.escape(s["titulo"])}</a><span>{(DIA_PT[s["dia"]]+" · "+s["hora"]) if not s.get("pausa") else "em pausa"}</span></li>' for s in ss)+f'</ul><a class="todos" href="/{ss[0]["slug"].split("/")[0]}/">Todos os eventos →</a></div>'
 regulares=f'<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima.</p><div class="rgs">{reg}</div></section>'
 chips="".join(f'<button type="button" class="f c-{k}" data-g="{k}" aria-pressed="false" title="{html.escape(v)}">{logo(k,v) if k in LOGOS else html.escape(v)}</button>' for k,v in JOGOS.items() if k in usados)
 lede="\n    ".join(f'<p class="lede">{html.escape(x)}</p>' for x in S['introducao'])

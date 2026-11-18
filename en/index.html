@@ -200,6 +200,22 @@ footer a{color:var(--ink)}
 .hoje-b{font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--sea-2);border-radius:999px;padding:.35rem .6rem .3rem;align-self:center}
 :root[data-theme="dark"] .day.hoje .evs{border-color:#8cc4d2;box-shadow:0 14px 32px -12px rgba(0,0,0,.8)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .day.hoje .evs{border-color:#8cc4d2;box-shadow:0 14px 32px -12px rgba(0,0,0,.8)}}
 :root[data-theme="dark"] .hoje-b{background:#8cc4d2;color:#0f1d22}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hoje-b{background:#8cc4d2;color:#0f1d22}}
+
+/* ---- v2: eventos regulares de hoje ---- */
+.rg.hoje{border:2px solid var(--sea-2);box-shadow:0 10px 24px -14px rgba(31,61,71,.55);padding:calc(.5rem - 1px) calc(.7rem - 1px)}
+.rg li.hoje a{font-weight:500}.rg li.hoje span{color:var(--ink);font-weight:500}.rg li.hoje span b{font-weight:500;color:#fff;background:var(--sea-2);border-radius:999px;padding:.08rem .45rem .04rem;margin-right:.3rem;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}
+:root[data-theme="dark"] .rg.hoje{border-color:#8cc4d2}:root[data-theme="dark"] .rg li.hoje span b{background:#8cc4d2;color:#0f1d22}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rg.hoje{border-color:#8cc4d2}:root:not([data-theme="light"]) .rg li.hoje span b{background:#8cc4d2;color:#0f1d22}}
+/* ---- v2: destaques deslizáveis no telemóvel ---- */
+.hl-dots{display:none}
+@media (max-width:640px){
+  .hls{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:.5rem;margin:0 -.8rem!important;padding:0 .8rem!important;scroll-padding:0 .8rem;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .hls::-webkit-scrollbar{display:none}
+  .hl{flex:0 0 86%;scroll-snap-align:start;min-height:5.4rem}
+  .hl-dots{display:flex;justify-content:center;gap:.4rem;margin-top:.6rem}
+  .hl-dots button{width:.5rem;height:.5rem;padding:0;border:0;border-radius:50%;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
+  .hl-dots button[aria-current="true"]{width:1.2rem;border-radius:999px;background:#4f7a87}
+}
 /* ---- v2: subscrever ---- */
 .subs{margin-top:1.4rem;display:grid;gap:1rem}
 .subs-c{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr);align-items:center;gap:1.4rem;background:linear-gradient(135deg,#1f3d47,#375762 60%,#4f7a87);color:#fff;border-radius:14px;padding:1.4rem 1.6rem 1.4rem 1.2rem;overflow:visible}
