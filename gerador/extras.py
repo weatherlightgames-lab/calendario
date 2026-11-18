@@ -149,7 +149,7 @@ def especiais(DET, FUT, inscricao):
 
 
 # ---------------- página "Primeira vez na Weatherlight" ----------------
-STARTER_URL = None   # pesquisa de Starter Decks no site da loja (a enviar pelo Guilherme)
+STARTER_URL = 'https://www.weatherlightgames.pt/search?q=Starter'   # pesquisa de Starter Decks no site da loja
 LOGO_DIM = {"magic":(476,160),"poke":(313,160),"op":(520,134),"ygo":(432,160),"rift":(364,160),"digi":(520,138),"gundam":(348,160),"assemble":(520,160),"champ":(310,160),"cyber":(520,141)}
 NOMES = {"magic": "Magic: The Gathering", "poke": "Pokémon TCG", "op": "One Piece Card Game", "digi": "Digimon Card Game",
          "gundam": "Gundam Card Game", "ygo": "Yu-Gi-Oh!", "rift": "Riftbound", "cyber": "Cyberpunk TCG"}
@@ -190,9 +190,9 @@ def primeira_vez(SER):
            "@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .passos li:nth-child(1){background:#1a2f36}:root:not([data-theme=light]) .passos li:nth-child(2){background:#1f3a43}:root:not([data-theme=light]) .passos li:nth-child(3){background:#274752}:root:not([data-theme=light]) .passos li:nth-child(4){background:#30586a}:root:not([data-theme=light]) .passos li:nth-child(5){background:#3b6b7e}"
            ":root:not([data-theme=light]) .passos li>strong{color:#fff}:root:not([data-theme=light]) .passos li p{color:#d4e4e8}:root:not([data-theme=light]) .passos li a{color:#fff}:root:not([data-theme=light]) .passos li::before{background:#8cc4d2;color:#0f1d22}}"
            ".lgs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem}@media (max-width:760px){.lgs{grid-template-columns:repeat(2,minmax(0,1fr))}}"
-           ".lgcard{display:grid;grid-template-rows:4rem auto;gap:.45rem;justify-items:center;align-items:center;text-decoration:none;background:#fff;border:2px solid var(--gc);border-radius:10px;padding:.8rem .7rem .6rem;transition:transform .15s,box-shadow .15s}"
+           ".lgcard{display:grid;grid-template-rows:4rem auto;gap:.45rem;justify-items:center;align-items:center;text-decoration:none;background:var(--lgbg);border:1.5px solid var(--gc);border-radius:10px;padding:.8rem .7rem .6rem;transition:transform .15s,box-shadow .15s}"
            ".lgcard:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px var(--gc)}.lgcard span{display:flex;align-items:center;justify-content:center;height:100%;width:100%}.lgcard img{max-height:3.2rem;max-width:100%;width:auto;height:auto;object-fit:contain}"
-           "main .lgcard em{font-style:normal;font-size:.85rem;color:#375762}")
+           "main .lgcard em{font-style:normal;font-size:.85rem;color:var(--link)}")
     page = cabeca("Primeira vez num evento? | Weatherlight, Évora", desc, url, [faq], css) + f"""
 <body>
 <header>

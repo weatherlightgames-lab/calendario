@@ -174,7 +174,7 @@ def wk_card(s_):
 cols=""
 for en,pt in DIAS_G:
     ss=sorted([s_ for s_ in SER if s_['dia']==en],key=lambda s_:(s_['hora'],s_['titulo']))
-    cols+=(f'<div class="wk-d" data-dow="{DOW[en]}"><h3>{pt}</h3>'+(''.join(wk_card(s_) for s_ in ss) or '<p class="wk-vz">Sem eventos regulares</p>')+'</div>')
+    cols+=(f'<div class="wk-d" data-dow="{DOW[en]}"><h3>{pt}</h3>'+(''.join(wk_card(s_) for s_ in ss) or '<p class="wk-vz">Sem eventos regulares… ainda 👀</p>')+'</div>')
 regulares=('<section class="regs"><h2>Eventos regulares</h2><p class="regs-sub">Todas as semanas, à mesma hora. Em feriados e férias, confirma no calendário acima. '
            'Segunda e terça estamos encerrados.</p><div class="wk">'+cols+'</div></section>')
 chips="".join(f'<button type="button" class="f c-{k}" data-g="{k}" aria-pressed="false" title="{html.escape(v)}">{logo(k,v) if k in LOGOS else html.escape(v)}</button>' for k,v in JOGOS.items() if k in usados)
