@@ -38,7 +38,11 @@ def produtos_do_sitemap():
         sm = fila.pop()
         if sm in vistos: continue
         vistos.add(sm)
-        root = ET.fromstring(get(sm))
+        txt = get(sm)
+        try:
+            root = ET.fromstring(txt.lstrip("\ufeff \r\n\t"))
+        except ET.ParseError:
+            sys.exit(f"Sitemap {sm} não veio em XML. Início da resposta: {txt[:300]!r}")
         for loc in root.iter(NS + "loc"):
             u = (loc.text or "").strip()
             if root.tag.endswith("sitemapindex"):
