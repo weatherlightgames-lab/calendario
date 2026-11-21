@@ -22,9 +22,9 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:semanal-one-piece-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART;TZID=Europe/Lisbon:20261118T203000
-DTEND;TZID=Europe/Lisbon:20261118T233000
+DTSTAMP:20261122T165814Z
+DTSTART;TZID=Europe/Lisbon:20261125T203000
+DTEND;TZID=Europe/Lisbon:20261125T233000
 RRULE:FREQ=WEEKLY;BYDAY=WE
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
 DESCRIPTION:Evento semanal. Em feriados e férias o horário pode mudar: confirma sempre em https://eventos.weatherlightgames.pt/\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/

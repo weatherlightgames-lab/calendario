@@ -1,0 +1,415 @@
+{
+ "semana": "Semana de 25 a 29 de novembro",
+ "introducao": [
+  "Novembro chega ao fim, mas os eventos especiais não faltam!",
+  "De Pokémon a One Piece, com Cyberpunk, Magic, Riftbound, Yu-Gi-Oh, Digimon e Gundam a juntarem-se à festa, há espaço para todos os teus hobbies favoritos! 🙌"
+ ],
+ "destaques": [
+  "A 1ª League Cup da temporada de Pokémon é já Domingo, seguida de League Challenge! 🏆",
+  "O Heroines Battle está de volta ao One Piece no Sábado! 🏴‍☠️",
+  "Sábado há também o 1º Night City Showdown de Cyberpunk! 🌃",
+  "E no Domingo os Booster Drafts de Reality Fracture regressam ao Magic! ✨"
+ ],
+ "intro_modo": "curta",
+ "dias": [
+  {
+   "dia": "Quarta-feira",
+   "data": "25 de novembro",
+   "iso": "2026-11-25",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "16:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Commander Afternoon",
+     "preco": 0,
+     "esgotado": false,
+     "arte": "commander",
+     "story": "s25-01",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "companion": "4Z255W3"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Modern",
+     "preco": 6,
+     "esgotado": false,
+     "arte": "modern",
+     "story": "s25-02",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Store Credit (Modern)",
+     "companion": "RZJXWWM"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "ygo",
+     "nome_jogo": "Yu-Gi-Oh!",
+     "evento": "Duelist Lounge",
+     "preco": 5,
+     "esgotado": false,
+     "arte": "duelist",
+     "story": "s25-03",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://neuron.konami.net/link/ecx3z9nhjlkjylcu"
+    },
+    {
+     "hora": "20:30",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Pirate Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pirate",
+     "story": "s25-04",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Pirate Lounge (Standard)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349254"
+    }
+   ]
+  },
+  {
+   "dia": "Sexta-feira",
+   "data": "27 de novembro",
+   "iso": "2026-11-27",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "20:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Night",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-night",
+     "story": "s25-05",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Nexus Night (Semanal)",
+     "inscricao": "https://playriftbound.com/en-US/events/117655350570185685"
+    },
+    {
+     "hora": "20:00",
+     "jogo": "digi",
+     "nome_jogo": "Digimon Card Game",
+     "evento": "Tamer Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "tamer",
+     "story": "s25-06",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349264"
+    },
+    {
+     "hora": "21:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Lounge",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-lounge",
+     "story": "s25-07",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Pilot Lounge (Semanal)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349208"
+    }
+   ]
+  },
+  {
+   "dia": "Sábado",
+   "data": "28 de novembro",
+   "iso": "2026-11-28",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "15:00",
+     "jogo": "cyber",
+     "nome_jogo": "Cyberpunk TCG",
+     "evento": "Night City Showdown",
+     "preco": 15,
+     "esgotado": false,
+     "arte": "ncs-adam",
+     "story": "s25-08",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Night City Showdown",
+     "inscricao": "https://melee.gg/Tournament/View/484776",
+     "texto": "CHOOMS! 🙌\n\nO 1º Night City Showdown está a chegar à Weatherlight! 🌃\n\nO primeiro grande torneio oficial de Cyberpunk TCG chegou a Évora - vem defrontar os teus Rivals e lutar pelo título de Showdown Champion! 🦾\n\nCheck-in: 14:30h - 15:00h\nVagas limitadas! Garante a tua no Melee.\n\nFormato:\nConstructed (Suíço)\nBest-of-3 - sem Top Cut, todos jogam as rondas suíças!\n\nPreço: 15.00€\n\nPrémios (cumulativos):\n1º 1 Adam Smasher Alt-Art Showdown Champion Promo + Playmat exclusivo de Showdown Champion;\nTop 4: 1 Sandevistan Foil Alt-Art;\nTop 8: 1 Adam Smasher Foil Alt-Art;\nTop X: 1 Booster por jogador.\n\nE AINDA!\n- 2 Boosters de participação;\n- 1 Sandevistan Non-Foil Alt-Art de participação.\n\nVais ficar de fora? 👀\nAventura-te em Night City com a Weatherlight! ⚓️"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "op",
+     "nome_jogo": "One Piece Card Game",
+     "evento": "Heroines Battle Vol.2",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "heroines",
+     "story": "s25-09",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Heroines Battle",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/6745739",
+     "lideres": [
+      [
+       "OP05-002",
+       "Belo Betty",
+       "Red/Yellow"
+      ],
+      [
+       "OP06-001",
+       "Uta",
+       "Red/Purple"
+      ],
+      [
+       "OP06-021",
+       "Perona",
+       "Green/Black"
+      ],
+      [
+       "OP06-022",
+       "Yamato",
+       "Green/Yellow"
+      ],
+      [
+       "OP06-042",
+       "Vinsmoke Reiju",
+       "Blue/Purple"
+      ],
+      [
+       "OP07-019",
+       "Jewelry Bonney",
+       "Green"
+      ],
+      [
+       "OP07-038",
+       "Boa Hancock",
+       "Blue"
+      ],
+      [
+       "OP08-021",
+       "Carrot",
+       "Green"
+      ],
+      [
+       "OP08-058",
+       "Charlotte Pudding",
+       "Purple/Yellow"
+      ],
+      [
+       "OP09-022",
+       "Lim",
+       "Green/Purple"
+      ],
+      [
+       "OP09-062",
+       "Nico Robin",
+       "Purple/Yellow"
+      ],
+      [
+       "OP10-003",
+       "Sugar",
+       "Red/Purple"
+      ],
+      [
+       "OP11-022",
+       "Shirahoshi",
+       "Green/Yellow"
+      ],
+      [
+       "OP11-041",
+       "Nami",
+       "Blue/Yellow"
+      ],
+      [
+       "OP12-081",
+       "Koala",
+       "Black/Yellow"
+      ],
+      [
+       "OP13-100",
+       "Jewelry Bonney",
+       "Yellow"
+      ],
+      [
+       "OP14-041",
+       "Boa Hancock",
+       "Blue/Yellow"
+      ],
+      [
+       "OP15-039",
+       "Rebecca",
+       "Blue"
+      ],
+      [
+       "OP16-079",
+       "Yamato",
+       "Black"
+      ],
+      [
+       "OP17-099",
+       "Charlotte Linlin",
+       "Yellow"
+      ],
+      [
+       "EB03-001",
+       "Nefeltari Vivi",
+       "Red/Blue"
+      ],
+      [
+       "EB04-001",
+       "Jewelry Bonney",
+       "Red/Yellow"
+      ],
+      [
+       "EB05-010",
+       "Nico Robin",
+       "Green/Yellow"
+      ],
+      [
+       "ST11-001",
+       "Uta",
+       "Green"
+      ],
+      [
+       "P-117",
+       "Nami",
+       "Blue"
+      ]
+     ],
+     "lideres_fonte": "https://en.onepiece-cardgame.com/events/heroines-battle-vol2.html",
+     "texto": "Pirate! 🏴‍☠️\n\nA Heroines Battle está de volta à Weatherlight em Évora para celebrar o lançamento de EB05! 🤩\n\nNeste evento especial só as Heroínas sobem ao palco: escolhe a tua Leader da lista oficial e vem disputar a Nami exclusiva deste evento! ⛵️\n\nCheck-in: 14:30h - 15:00h\nReserva de vagas através da Bandai TCG+\n\nFormato:\nEB05 Standard (Suíço), formato especial só com Leaders Heroines\nBest-of-1, 30 minutos/ronda + 5 minutos extra time\n\nSó podes jogar com as Leaders Heroines da lista oficial (versões alt-art incluídas):\nhttps://en.onepiece-cardgame.com/events/heroines-battle-vol2.html\n\nPreço: 6.50€\n\nPrémios:\n1º 1 EB03-006 Nami (Winner) + 1 Booster + 1 Winner Pack Store Tournament Out-Dez;\n2º 1 Winner Pack Store Tournament Jul-Set;\n\nE AINDA!\n- 1 EB03-006 Nami de participação para todos os participantes;\n- 1 Booster de participação no acto de inscrição;\n- 1 OTP Store Tournament Out-Dez para todos os participantes;\n- 1 OTP Store Tournament Jul-Set para todos os participantes.\n\nVais ficar de fora? 🤔"
+    },
+    {
+     "hora": "18:00",
+     "jogo": "gundam",
+     "nome_jogo": "Gundam Card Game",
+     "evento": "Pilot Party",
+     "preco": 5.5,
+     "esgotado": false,
+     "arte": "pilot-party",
+     "story": "s25-10",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Pilot Party (Fim de semana)",
+     "inscricao": "https://www.bandai-tcg-plus.com/event/8349212"
+    }
+   ]
+  },
+  {
+   "dia": "Domingo",
+   "data": "29 de novembro",
+   "iso": "2026-11-29",
+   "fuso": "+00:00",
+   "eventos": [
+    {
+     "hora": "10:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "League Cup #1",
+     "preco": 19,
+     "esgotado": false,
+     "arte": "league-cup-1",
+     "story": "s25-11",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "League Cup",
+     "reserva": "PRDqyx",
+     "texto": "Treinadores!\n\nA 1ª League Cup da temporada está a chegar à Weatherlight! 🏆\n\nVem lutar pelos Championship Points e pelo Champion Playmat exclusivo da League Cup #1! ⛵️\n\nFormato: Delta Reign Standard (Suíço + Top Cut)\nBest-of-3\n\nNo formato Standard, só podes jogar com cartas de:\n\nTemporal Forces, Twilight Masquerade, Shrouded Fable, Stellar Crown, Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals, Black Bolt / White Flare, Mega Evolution, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising, Pitch Black e Delta Reign.\n\nPreço: 19.00€\n\nCheck-In: 09:30 - 10:00h\n\nDecklist obrigatória! Envia a tua decklist para weatherlightgames@gmail.com antes do evento.\n\nPrémios:\n1º 1 Elite Trainer Box 30th Celebration;\n2º 1 Elite Trainer Box Delta Reign;\n\nE AINDA!\n- 1 Booster por jogador para o Top X + 2 Prize Packs S9 para cada jogador do Top X;\n- 1 Champion Playmat League Cup #1 para o vencedor de cada divisão.\n\nPARTICIPAÇÃO:\n- 1 Booster de participação;\n- 2 Prize Packs S9 de participação.\n\nJunta-te à comunidade de Pokémon da Weatherlight! ⛵️"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "magic",
+     "nome_jogo": "Magic: The Gathering",
+     "evento": "Booster Draft Reality Fracture",
+     "preco": 17.5,
+     "esgotado": false,
+     "arte": "draft-rf",
+     "story": "s25-12",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Booster Draft",
+     "companion": "Y46GW2Z",
+     "texto": "Os Booster Drafts voltam à Weatherlight já este Domingo!\n\nA solução de Jace pode ser o problema de todo o universo - há uma realidade alternativa a explorar em Reality Fracture! 💔\n\nFormato: Booster Draft - Reality Fracture (Suíço)\n\nPreço: 17.50€\n\nPrémios:\n- 1 Promo Pack Foil para o vencedor;\n- 1 Promo Pack para o 2º lugar;\n- 1 Play Booster de Reality Fracture por jogador para o Top X.\n\nTodos os jogadores estão ainda habilitados ao sorteio de 1 Promo Pack!"
+    },
+    {
+     "hora": "15:00",
+     "jogo": "rift",
+     "nome_jogo": "Riftbound: League of Legends TCG",
+     "evento": "Nexus Afternoon",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "nexus-afternoon",
+     "story": "s25-13",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "Nexus Afternoon (Fim de semana)",
+     "inscricao": "https://playriftbound.com/en-US/events/117655356830131115"
+    },
+    {
+     "hora": "17:00",
+     "jogo": "poke",
+     "nome_jogo": "Pokémon TCG",
+     "evento": "League Challenge Novembro",
+     "preco": 6.5,
+     "esgotado": false,
+     "arte": "league-challenge-nov",
+     "story": "s25-14",
+     "recorte": [
+      0.5,
+      0.45,
+      0.95
+     ],
+     "modelo": "League Challenge",
+     "texto": "Treinadores!\n\nA Season de 2026/2027 de Pokémon TCG continua! 🏆\n\nAgarra os teus Championship Points no League Challenge de Novembro da Weatherlight!\n\nFormato: Delta Reign Standard (Suíço)\nBest-of-1\n\nNo formato Standard, só podes jogar com cartas de:\n\nTemporal Forces, Twilight Masquerade, Shrouded Fable, Stellar Crown, Surging Sparks, Prismatic Evolutions, Journey Together, Destined Rivals, Black Bolt / White Flare, Mega Evolution, Phantasmal Flames, Ascended Heroes, Perfect Order, Chaos Rising, Pitch Black e Delta Reign.\n\nPreço: 6.50€\n\nCheck-In: 16:30 - 17:00h\n\nPrémios:\n1º 1 Booster Bundle de Delta Reign;\n\nE AINDA!\n- 1 Booster + 1 Prize Pack S9 por cada jogador do Top X.\n\nPARTICIPAÇÃO:\n- 2 Prize Packs S9 de participação.\n\nJunta-te à comunidade de Pokémon da Weatherlight! ⛵️"
+    }
+   ]
+  }
+ ]
+}

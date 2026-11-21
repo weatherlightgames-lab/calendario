@@ -9,18 +9,18 @@ X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-18-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART:20261118T200000Z
-DTEND:20261118T230000Z
+UID:2026-11-25-ygo-duelist-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261122T165814Z
+DTSTART:20261125T200000Z
+DTEND:20261125T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
-DESCRIPTION:Inscrição: https://neuron.konami.net/link/rpnpomgm42eh1y6n\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/ecx3z9nhjlkjylcu\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-22-ygo-release-event-magnificent-maestros@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
+DTSTAMP:20261122T165814Z
 DTSTART:20261122T150000Z
 DTEND:20261122T180000Z
 SUMMARY:Release Event Magnificent Maestros · Yu-Gi-Oh! (Weatherlight)

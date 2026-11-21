@@ -4,12 +4,12 @@ PRODID:-//Weatherlight//Calendario//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-21-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART:20261121T180000Z
-DTEND:20261121T210000Z
+UID:2026-11-28-gundam-pilot-party@eventos.weatherlightgames.pt
+DTSTAMP:20261122T165814Z
+DTSTART:20261128T180000Z
+DTEND:20261128T210000Z
 SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349211\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-party/
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349212\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-party/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/gundam/pilot-party/
 END:VEVENT

@@ -22,9 +22,9 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:semanal-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART;TZID=Europe/Lisbon:20261121T180000
-DTEND;TZID=Europe/Lisbon:20261121T210000
+DTSTAMP:20261122T165814Z
+DTSTART;TZID=Europe/Lisbon:20261128T180000
+DTEND;TZID=Europe/Lisbon:20261128T210000
 RRULE:FREQ=WEEKLY;BYDAY=SA
 SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
 DESCRIPTION:Evento semanal. Em feriados e férias o horário pode mudar: confirma sempre em https://eventos.weatherlightgames.pt/\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-party/

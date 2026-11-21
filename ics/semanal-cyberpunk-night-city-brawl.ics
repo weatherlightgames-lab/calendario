@@ -22,9 +22,9 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:semanal-cyberpunk-night-city-brawl@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART;TZID=Europe/Lisbon:20261121T150000
-DTEND;TZID=Europe/Lisbon:20261121T180000
+DTSTAMP:20261122T165814Z
+DTSTART;TZID=Europe/Lisbon:20261128T150000
+DTEND;TZID=Europe/Lisbon:20261128T180000
 RRULE:FREQ=WEEKLY;BYDAY=SA
 SUMMARY:Night City Brawl · Cyberpunk TCG (Weatherlight)
 DESCRIPTION:Evento semanal. Em feriados e férias o horário pode mudar: confirma sempre em https://eventos.weatherlightgames.pt/\nDetalhes: https://eventos.weatherlightgames.pt/cyberpunk/night-city-brawl/

@@ -4,12 +4,12 @@ PRODID:-//Weatherlight//Calendario//PT
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:2026-11-20-gundam-pilot-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART:20261120T210000Z
-DTEND:20261121T000000Z
+UID:2026-11-27-gundam-pilot-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261122T165814Z
+DTSTART:20261127T210000Z
+DTEND:20261128T000000Z
 SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349207\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349208\nDetalhes: https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
 END:VEVENT

@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-29-magic-booster-draft-reality-fracture@eventos.weatherlightgames.pt
+DTSTAMP:20261122T165814Z
+DTSTART:20261129T150000Z
+DTEND:20261129T180000Z
+SUMMARY:Booster Draft Reality Fracture · Magic: The Gathering (Weatherlight)
+DESCRIPTION:Código Companion: Y46GW2Z\nDetalhes: https://eventos.weatherlightgames.pt/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/
+END:VEVENT
+END:VCALENDAR

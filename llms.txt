@@ -13,7 +13,7 @@
 - Discord (comunidade): https://discord.gg/HTCZeJZuVk
 
 ## Calendário
-- [Calendário da semana](https://eventos.weatherlightgames.pt/): Semana de 18 a 22 de novembro, atualizado todas as semanas.
+- [Calendário da semana](https://eventos.weatherlightgames.pt/): Semana de 25 a 29 de novembro, atualizado todas as semanas.
 - [Calendário para subscrever (.ics)](https://eventos.weatherlightgames.pt/calendario.ics)
 - [Primeira vez num evento](https://eventos.weatherlightgames.pt/primeira-vez/): check-in, aplicações por jogo, o que levar.
 - [English page for visitors](https://eventos.weatherlightgames.pt/en/): weekly events, how to join, opening hours.

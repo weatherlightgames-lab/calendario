@@ -9,38 +9,18 @@ X-WR-CALDESC:Eventos da Weatherlight em Évora
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
-UID:2026-11-18-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART:20261118T203000Z
-DTEND:20261118T233000Z
+UID:2026-11-25-op-pirate-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261122T165814Z
+DTSTART:20261125T203000Z
+DTEND:20261125T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349253\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/8349254\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
 URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 BEGIN:VEVENT
-UID:2026-11-20-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART:20261120T200000Z
-DTEND:20261120T230000Z
-SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/6811022\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
-END:VEVENT
-BEGIN:VEVENT
-UID:2026-11-21-op-op18-the-dominance-of-god-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
-DTSTART:20261121T150000Z
-DTEND:20261121T180000Z
-SUMMARY:OP18 The Dominance of God Release Event · One Piece Card Game (Weatherlight)
-DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/6811021\nDetalhes: https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
-LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
-URL:https://eventos.weatherlightgames.pt/one-piece/op18-the-dominance-of-god-release-event/
-END:VEVENT
-BEGIN:VEVENT
 UID:2026-11-28-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261118T111759Z
+DTSTAMP:20261122T165814Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
