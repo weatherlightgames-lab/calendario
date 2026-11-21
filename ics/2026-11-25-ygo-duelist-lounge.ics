@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-11-25-ygo-duelist-lounge@eventos.weatherlightgames.pt
+DTSTAMP:20261121T163408Z
+DTSTART:20261125T200000Z
+DTEND:20261125T230000Z
+SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
+DESCRIPTION:Inscrição: https://neuron.konami.net/link/ecx3z9nhjlkjylcu\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
+END:VEVENT
+END:VCALENDAR
