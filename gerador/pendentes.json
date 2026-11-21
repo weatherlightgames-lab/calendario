@@ -108,5 +108,43 @@
   "Gundam Assemble Friendly Battle": {
    "inscricao": "https://www.bandai-tabletop-games.com/user/event/10055?eventSeriesTitle=GUNDAM+ASSEMBLE+FRIENDLY+BATTLE+Vol.1+[Europe]&startAtFrom=2026-11-12T00:00:00Z"
   }
+ },
+ "2026-11-25": {
+  "Commander Afternoon": {
+   "companion": "4Z255W3"
+  },
+  "Modern": {
+   "companion": "RZJXWWM"
+  },
+  "Duelist Lounge": {
+   "inscricao": "https://neuron.konami.net/link/ecx3z9nhjlkjylcu"
+  },
+  "Pirate Lounge": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349254"
+  }
+ },
+ "2026-11-27": {
+  "Nexus Night": {
+   "inscricao": "https://playriftbound.com/en-US/events/117655350570185685"
+  },
+  "Tamer Party": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349264"
+  },
+  "Pilot Lounge": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349208"
+  }
+ },
+ "2026-11-28": {
+  "Pilot Party": {
+   "inscricao": "https://www.bandai-tcg-plus.com/event/8349212"
+  }
+ },
+ "2026-11-29": {
+  "Booster Draft Reality Fracture": {
+   "companion": "Y46GW2Z"
+  },
+  "Nexus Afternoon": {
+   "inscricao": "https://playriftbound.com/en-US/events/117655356830131115"
+  }
  }
 }
