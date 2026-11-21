@@ -256,7 +256,7 @@ def llms(SER, FUT, S):
          "- Email: weatherlightgames@gmail.com", "- Horário: " + "; ".join(f"{d}: {h}" for d, h in HORARIO), "- Loja online: https://www.weatherlightgames.pt/", f"- Mapa: {MAPS}",
          "- Instagram: https://www.instagram.com/weatherlightgames/", f"- Discord (comunidade): {DISCORD}", "",
          "## Calendário", f"- [Calendário da semana]({BASE}/): {S['semana']}, atualizado todas as semanas.",
-         f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", f"- [English page for visitors]({BASE}/en/): weekly events, how to join, opening hours.", "",
+         f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", f"- [English page for visitors]({BASE}/en/): weekly events, how to join, opening hours.", "- [Novidades Weatherlight](https://novidades.weatherlightgames.pt/): produtos que acabaram de chegar à loja (TCG, figuras de anime, blind boxes, Gunpla, peluches), atualizado de hora a hora.", "",
          "## Eventos regulares (todas as semanas; em feriados e férias confirmar no calendário)"]
     for s in sorted(SER, key=lambda s: (list(PL).index(s['dia']), s['hora'])):
         L.append(f"- [{s['titulo']} — {s['nome_jogo']}]({BASE}/{s['slug']}/): {PL[s['dia']].lower()} às {s['hora']}, {preco_txt(float(s['preco']))}" + (" (em pausa de momento)" if s.get('pausa') else ""))
