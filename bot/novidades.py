@@ -64,7 +64,10 @@ def produtos_do_sitemap():
 def dados_produto(url):
     """Nome, preço, imagem e disponibilidade a partir do JSON-LD (Product) da página."""
     html = get(url)
-    d = {"url": url, "nome": None, "preco": None, "imagem": None, "stock": None}
+    d = {"url": url, "nome": None, "preco": None, "imagem": None, "imagens": [], "marca": None, "gtin": None, "stock": None}
+    # a 1.ª foto do site é a do og:image (miniatura "thumb/"); o JSON-LD às vezes começa na 2.ª
+    m = re.search(r'<meta property="og:image" content="([^"]+)"', html)
+    if m: d["imagens"].append(unescape(m.group(1)).replace("/media/images/thumb/", "/media/images/"))
     for bloco in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', html, re.S):
         try:
             j = json.loads(bloco.strip())
@@ -74,7 +77,11 @@ def dados_produto(url):
             if isinstance(x, dict) and x.get("@type") == "Product":
                 d["nome"] = x.get("name")
                 img = x.get("image")
-                d["imagem"] = img[0] if isinstance(img, list) else (img.get("url") if isinstance(img, dict) else img)
+                img = img if isinstance(img, list) else [img.get("url") if isinstance(img, dict) else img]
+                d["imagens"] += [u for u in img if isinstance(u, str) and u]
+                br = x.get("brand")
+                d["marca"] = br.get("name") if isinstance(br, dict) else br
+                d["gtin"] = x.get("gtin13") or x.get("gtin")
                 of = x.get("offers") or {}
                 of = of[0] if isinstance(of, list) else of
                 d["preco"] = of.get("price")
@@ -82,9 +89,9 @@ def dados_produto(url):
     if not d["nome"]:
         m = re.search(r'<meta property="og:title" content="([^"]+)"', html)
         d["nome"] = unescape(m.group(1)) if m else url.rsplit("/", 1)[-1]
-    if not d["imagem"]:
-        m = re.search(r'<meta property="og:image" content="([^"]+)"', html)
-        d["imagem"] = m.group(1) if m else None
+    vistos = set()
+    d["imagens"] = [u for u in d["imagens"] if not (u.rsplit("/", 1)[-1] in vistos or vistos.add(u.rsplit("/", 1)[-1]))]
+    d["imagem"] = d["imagens"][0] if d["imagens"] else None
     return d
 
 

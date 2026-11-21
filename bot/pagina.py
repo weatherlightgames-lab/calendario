@@ -44,11 +44,43 @@ def acrescentar(produtos, quando=None):
     quando = quando or dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes")
     dados = carregar(); urls = {d["url"] for d in dados}
     novos = [{"url": p["url"], "nome": p["nome"], "preco": p.get("preco"), "imagem": p.get("imagem"),
+              "imagens": (p.get("imagens") or [])[:6], "marca": p.get("marca"), "gtin": p.get("gtin"),
               "tipo": tipo(p["nome"]), "data": quando} for p in produtos if p["url"] not in urls]
     dados = (novos + dados)[:MAX_DADOS]
     os.makedirs(os.path.dirname(DADOS), exist_ok=True)
     json.dump(dados, open(DADOS, "w"), ensure_ascii=False, indent=1)
     return len(novos)
+
+
+def quadrado(u):
+    """Versão quadrada de 400 px que a Shopkit já gera (muito mais leve que o original)."""
+    return re.sub(r"/media/images/(?:thumb/|square/)?", "/media/images/square/", u, count=1)
+
+
+def fotos(d):
+    l = d.get("imagens") or ([d["imagem"]] if d.get("imagem") else [])
+    vistos, r = set(), []
+    for u in l:
+        k = u.rsplit("/", 1)[-1]
+        if k not in vistos: vistos.add(k); r.append(u)
+    return r
+
+
+def loja_ld():
+    """Dados da loja (GameStore) tal como estão na página principal do calendário."""
+    try:
+        t = open(os.path.join(RAIZ, "index.html")).read()
+        for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', t, re.S):
+            j = json.loads(b)
+            for x in (j if isinstance(j, list) else j.get("@graph", [j])):
+                if isinstance(x, dict) and x.get("@type") == "GameStore":
+                    x = dict(x); x.pop("@context", None); x.pop("event", None); x.pop("events", None)
+                    return x
+    except Exception:
+        pass
+    return {"@type": "GameStore", "name": "Weatherlight Games & Collectibles", "url": LOJA + "/",
+            "address": {"@type": "PostalAddress", "streetAddress": "Rua Frei José Maria Évora, Nº2", "postalCode": "7005-495",
+                        "addressLocality": "Évora", "addressRegion": "Évora", "addressCountry": "PT"}}
 
 
 def preco(p):
@@ -94,10 +126,13 @@ def gerar():
         f'<button class="chip" data-t="{html.escape(t)}">{html.escape(t)}</button>' for t in presentes)
 
     def card(d):
-        img = (f'<img src="{html.escape(d["imagem"])}" alt="" loading="lazy">'
-               if d.get("imagem") else '<i></i>')
+        fs = fotos(d)
+        alt = html.escape(d["nome"])
+        img = "".join(f'<img src="{html.escape(quadrado(u))}" alt="{alt if i == 0 else ""}" loading="lazy"{" class=on" if i == 0 else ""}>'
+                      for i, u in enumerate(fs)) or '<i></i>'
+        if len(fs) > 1: img += '<b class="dots">' + "<u></u>" * len(fs) + "</b>"
         return (f'<a class="np" data-t="{html.escape(d["tipo"])}" href="{html.escape(d["url"])}" target="_blank" rel="noopener">'
-                f'<span class="ph">{img}</span><span class="tg">{html.escape(d["tipo"])}</span>'
+                f'<span class="ph{" sl" if len(fotos(d)) > 1 else ""}">{img}</span><span class="tg">{html.escape(d["tipo"])}</span>'
                 f'<strong>{html.escape(d["nome"])}</strong><span class="pr">{preco(d.get("preco"))}</span>'
                 f'<em>Ver na loja ↗</em></a>')
 
@@ -108,12 +143,22 @@ def gerar():
         blocos = '<section class="box"><p class="m">As novidades aparecem aqui assim que chegam à loja online.</p></section>'
     fontes, estilos = concha()
     url = f"{BASE}/novidades/"
-    desc = ("Os produtos que acabaram de chegar à Weatherlight, em Évora: TCG, figuras de anime, blind boxes, "
-            "Gunpla, peluches e acessórios. Atualizado automaticamente.")
+    desc = ("Novidades da Weatherlight, loja de hobby em Évora (Alentejo, Portugal): figuras de anime, TCG, blind boxes, "
+            "Gunpla, peluches e acessórios acabados de chegar. Atualizado de hora a hora.")
     og = next((d["imagem"] for d in vis if d.get("imagem")), "")
-    ld = {"@context": "https://schema.org", "@type": "ItemList", "name": "Acabou de chegar — Weatherlight",
-          "url": url, "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": d["url"], "name": d["nome"]}
-                                          for i, d in enumerate(vis[:50])]}
+    ld_loja = loja_ld(); ld_loja["@id"] = LOJA + "/#loja"
+
+    def produto(d):
+        x = {"@type": "Product", "name": d["nome"], "url": d["url"], "image": fotos(d)[:3] or None,
+             "brand": {"@type": "Brand", "name": d["marca"]} if d.get("marca") else None, "gtin13": d.get("gtin") or None,
+             "offers": {"@type": "Offer", "price": d.get("preco"), "priceCurrency": "EUR", "url": d["url"],
+                        "seller": {"@id": ld_loja["@id"]}} if d.get("preco") is not None else None}
+        return {k: v for k, v in x.items() if v}
+    ld = {"@context": "https://schema.org", "@graph": [ld_loja, {
+        "@type": "CollectionPage", "name": "Acabou de chegar — Weatherlight, Évora", "url": url, "inLanguage": "pt-PT",
+        "about": {"@id": ld_loja["@id"]}, "spatialCoverage": {"@type": "Place", "name": "Évora, Alentejo, Portugal"},
+        "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": produto(d)}
+                                                                for i, d in enumerate(vis[:50])]}}]}
     css = (".chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.4rem}"
            ".chip{font:inherit;font-size:.9rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}"
            ".chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}"
@@ -121,14 +166,23 @@ def gerar():
            ".grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1rem}"
            ".np{display:flex;flex-direction:column;gap:.35rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.7rem;color:inherit;text-decoration:none;transition:transform .15s,box-shadow .15s}"
            ".np:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(40,70,85,.12)}"
-           ".ph{display:block;aspect-ratio:1;background:#fff;border-radius:8px;overflow:hidden}"
-           ".ph img{width:100%;height:100%;object-fit:contain;display:block;transform:scale(1.25)}.ph i{display:block;width:100%;height:100%;background:var(--foam)}"
+           ".ph{display:block;position:relative;aspect-ratio:1;background:#fff;border-radius:8px;overflow:hidden}"
+           ".ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;transform:scale(1.25);opacity:0;transition:opacity .35s}"
+           ".ph img.on{opacity:1}.dots{position:absolute;left:0;right:0;bottom:6px;display:flex;justify-content:center;gap:5px}"
+           ".dots u{width:6px;height:6px;border-radius:50%;background:var(--line);text-decoration:none}.dots u.on{background:var(--ink)}"
+           ".intro{display:block;margin:0 0 1.2rem}.intro a{display:inline}.ph i{display:block;width:100%;height:100%;background:var(--foam)}"
            ".tg{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}"
            ".np strong{font-weight:500;font-size:.92rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}"
            ".pr{font-weight:600;color:var(--brass)}.np em{font-style:normal;font-size:.85rem;color:var(--link);margin-top:auto}"
            ".hid{display:none!important}"
            "@media (max-width:480px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}}")
-    js = ("document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));"
+    js = ("document.querySelectorAll('.ph.sl').forEach(ph=>{const im=[...ph.querySelectorAll('img')],dt=[...ph.querySelectorAll('.dots u')];let i=0,t=null,x=null,sw=false;"
+          "const ir=n=>{i=(n+im.length)%im.length;im.forEach((m,k)=>m.classList.toggle('on',k===i));dt.forEach((m,k)=>m.classList.toggle('on',k===i))};ir(0);"
+          "ph.addEventListener('mouseenter',()=>{ir(1);t=setInterval(()=>ir(i+1),1100)});ph.addEventListener('mouseleave',()=>{clearInterval(t);ir(0)});"
+          "ph.addEventListener('touchstart',e=>{x=e.touches[0].clientX;sw=false},{passive:true});"
+          "ph.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x;if(Math.abs(d)>30){sw=true;ir(i+(d<0?1:-1))}});"
+          "ph.closest('a').addEventListener('click',e=>{if(sw){e.preventDefault();sw=false}})});"
+          "document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));"
           "const t=b.dataset.t;document.querySelectorAll('.np').forEach(c=>c.classList.toggle('hid',!!t&&c.dataset.t!==t));"
           "document.querySelectorAll('.dia').forEach(s=>s.classList.toggle('hid',!s.querySelector('.np:not(.hid)')))});")
     page = f"""<!doctype html>
@@ -136,11 +190,11 @@ def gerar():
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Acabou de chegar: novidades da Weatherlight em Évora</title>
+<title>Acabou de chegar: novidades da Weatherlight | Évora, Alentejo, Portugal</title>
 <meta name="description" content="{html.escape(desc)}">
 <link rel="canonical" href="{url}">
 <link rel="alternate" type="application/rss+xml" title="Novidades Weatherlight" href="{url}feed.xml">
-<meta property="og:type" content="website"><meta property="og:title" content="Acabou de chegar — Weatherlight">
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_PT"><meta property="og:site_name" content="Weatherlight Games &amp; Collectibles"><meta property="og:title" content="Acabou de chegar — Weatherlight, Évora">
 <meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{url}">
 {f'<meta property="og:image" content="{html.escape(og)}">' if og else ''}
 <link rel="icon" type="image/png" sizes="32x32" href="/app/favicon-32.png">
@@ -154,18 +208,19 @@ def gerar():
   <div class="wrap">
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › Novidades</span>
     <h1>Acabou de chegar</h1>
-    <p class="sub">Os produtos novos da Weatherlight, assim que chegam à loja online</p>
+    <p class="sub">Os produtos novos da Weatherlight, a tua loja de hobby em Évora, no Alentejo</p>
     <div class="info"><a href="{LOJA}/" target="_blank" rel="noopener">🛒 Loja online</a><a href="https://discord.com/channels/685894659855220743/1573781369597861978" target="_blank" rel="noopener">🔔 Alertas no Discord</a><a href="{url}feed.xml">RSS</a><a href="/">📅 Eventos</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
+    <p class="intro">Figuras de anime, cartas de TCG, blind boxes, Gunpla e peluches: tudo o que chega à Weatherlight aparece aqui, no próprio dia. Encontras na nossa <a href="{LOJA}/" target="_blank" rel="noopener">loja online</a> e na loja física em Évora.</p>
     <div class="chips">{filtros}</div>
     {blocos}
     <p class="m small">Atualizado automaticamente de hora a hora. Preços e stock confirmados na loja online.</p>
   </div>
 </main>
-<footer><div class="wrap"><p class="close">Queres saber primeiro? Ativa as notificações do canal ✨│novidades-wl no nosso <a href="https://discord.com/channels/685894659855220743/1573781369597861978" target="_blank" rel="noopener">Discord</a>.</p></div></footer>
+<footer><div class="wrap"><p class="close">Weatherlight Games &amp; Collectibles · {html.escape(ld_loja.get("address", {}).get("streetAddress", ""))}, {html.escape(ld_loja.get("address", {}).get("postalCode", ""))} Évora · Alentejo, Portugal</p><p class="close">Queres saber primeiro? Ativa as notificações do canal ✨│novidades-wl no nosso <a href="https://discord.com/channels/685894659855220743/1573781369597861978" target="_blank" rel="noopener">Discord</a>.</p></div></footer>
 <script>{js}</script>
 </body>
 </html>
