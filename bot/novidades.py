@@ -9,7 +9,7 @@ e publica-os no canal ✨│novidades-wl através de um webhook (segredo DISCORD
 
 Uso: python3 bot/novidades.py <ficheiro de estado> [--teste URL_DO_PRODUTO ...]
 """
-import json, os, re, sys, time, urllib.error, urllib.request, xml.etree.ElementTree as ET
+import gzip, json, os, re, sys, time, urllib.error, urllib.request, xml.etree.ElementTree as ET
 from html import unescape
 
 SITE = "https://www.weatherlightgames.pt"
@@ -25,7 +25,9 @@ def get(url):
         try:
             req = urllib.request.Request(url, headers=UA)
             with urllib.request.urlopen(req, timeout=30) as r:
-                return r.read().decode("utf-8", "replace")
+                b = r.read()
+                if b[:2] == b"\x1f\x8b": b = gzip.decompress(b)  # sitemaps .xml.gz
+                return b.decode("utf-8", "replace")
         except urllib.error.HTTPError as e:
             if e.code not in (429, 503) or espera == 90: raise
             print(f"{e.code} em {url}; nova tentativa daqui a pouco")
@@ -46,7 +48,7 @@ def produtos_do_sitemap():
         for loc in root.iter(NS + "loc"):
             u = (loc.text or "").strip()
             if root.tag.endswith("sitemapindex"):
-                fila.append(u)
+                if "product" in u.rsplit("/", 1)[-1]: fila.append(u)  # só os sitemaps de produtos
             elif "/product/" in u:
                 urls.add(u.split("?")[0].rstrip("/"))
     return urls
