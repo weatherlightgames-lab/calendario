@@ -1,0 +1,45 @@
+# Anuncia no Discord (#novidades-wl) os produtos novos do site, de hora a hora.
+# O estado (produtos já vistos) fica no ramo `novidades-estado`, para não mexer no site do calendário.
+name: Novidades no Discord
+on:
+  schedule:
+    - cron: "17 * * * *"   # de hora a hora, ao minuto 17
+  workflow_dispatch:
+    inputs:
+      teste:
+        description: "Só mostrar o que publicaria (não envia nem guarda)"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: novidades
+  cancel-in-progress: false
+jobs:
+  novidades:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: bot
+      - name: Buscar estado
+        run: |
+          mkdir -p bot/estado
+          if git fetch --depth 1 origin novidades-estado 2>/dev/null; then
+            git show FETCH_HEAD:vistos.json > bot/estado/vistos.json
+          fi
+      - name: Procurar produtos novos e anunciar
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: python3 bot/novidades.py ${{ inputs.teste && '--teste' || '' }}
+      - name: Guardar estado
+        if: ${{ !inputs.teste }}
+        run: |
+          cd bot/estado
+          git init -q -b novidades-estado
+          git config user.name "Weatherlight Novidades"
+          git config user.email "noreply@weatherlightgames.pt"
+          git add vistos.json
+          git commit -q -m "Estado das novidades $(date -u +%FT%TZ)"
+          git push -q -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" novidades-estado
