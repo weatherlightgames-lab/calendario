@@ -7,10 +7,17 @@ e publica-os no canal ✨│novidades-wl através de um webhook (segredo DISCORD
 - Um produto já visto nunca é anunciado outra vez (mesmo que seja escondido e volte).
 - Vários produtos novos de uma vez: até 10 por mensagem (limite do Discord).
 
-Uso: python3 bot/novidades.py <ficheiro de estado> [--teste URL_DO_PRODUTO ...]
+Os produtos anunciados também entram na página "Acabou de chegar" (novidades/, ver bot/pagina.py).
+
+Uso: python3 bot/novidades.py <ficheiro de estado> [--teste URL ...] [--adicionar URL ...]
+  --teste      publica esses produtos no Discord (e na página) já
+  --adicionar  junta esses produtos só à página, sem os publicar no Discord
 """
 import gzip, json, os, re, sys, time, urllib.error, urllib.request, xml.etree.ElementTree as ET
 from html import unescape
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pagina
 
 SITE = "https://www.weatherlightgames.pt"
 COR = 0x46677A
@@ -119,12 +126,14 @@ def publicar(webhook, produtos):
 def main():
     estado_f = sys.argv[1]
     webhook = os.environ.get("DISCORD_WEBHOOK", "").strip()
-    if "--teste" in sys.argv:  # publica os produtos indicados (para experimentar o formato)
-        urls = sys.argv[sys.argv.index("--teste") + 1:]
-        ds = [dados_produto(u) for u in urls]
-        print(json.dumps([embed(d) for d in ds], ensure_ascii=False, indent=1))
-        if webhook: publicar(webhook, ds)
-        return
+    for modo in ("--teste", "--adicionar"):  # produtos indicados à mão
+        if modo in sys.argv:
+            urls = [u.split("?")[0].rstrip("/") for u in sys.argv[sys.argv.index(modo) + 1:]]
+            ds = [dados_produto(u) for u in urls]
+            print(json.dumps([embed(d) for d in ds], ensure_ascii=False, indent=1))
+            if modo == "--teste" and webhook: publicar(webhook, ds)
+            print(f"Página: {pagina.acrescentar(ds)} produtos juntados."); pagina.gerar()
+            return
     atuais = produtos_do_sitemap()
     if len(atuais) < 50:
         sys.exit(f"Sitemap com só {len(atuais)} produtos: algo correu mal, não faço nada.")
@@ -142,6 +151,7 @@ def main():
             try: ds.append(dados_produto(u))
             except Exception as e: print("Falhou", u, e)
         publicar(webhook, ds)
+        pagina.acrescentar(ds); pagina.gerar()
         vistos |= set(novos)
         json.dump(sorted(vistos), open(estado_f, "w"), indent=0)
 

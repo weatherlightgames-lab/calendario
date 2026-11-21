@@ -6,7 +6,7 @@
 - imagens de partilha (Open Graph) em /og/ e as respetivas meta tags em todas as páginas
 - sitemap.xml com todas as páginas
 """
-import json, os, re, html, datetime as dt
+import json, os, re, sys, html, datetime as dt
 from PIL import Image, ImageDraw, ImageFont
 import series
 from series import (UNIVERSOS, universo_card, BASE, MAPS, CA, GL, DISCORD, PL, DIA_NOME, MESES, PASTA, MARCAS, CENTRAL, APPS, PAGA, GRATIS,
@@ -256,7 +256,7 @@ def llms(SER, FUT, S):
          "- Email: weatherlightgames@gmail.com", "- Horário: " + "; ".join(f"{d}: {h}" for d, h in HORARIO), "- Loja online: https://www.weatherlightgames.pt/", f"- Mapa: {MAPS}",
          "- Instagram: https://www.instagram.com/weatherlightgames/", f"- Discord (comunidade): {DISCORD}", "",
          "## Calendário", f"- [Calendário da semana]({BASE}/): {S['semana']}, atualizado todas as semanas.",
-         f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", f"- [English page for visitors]({BASE}/en/): weekly events, how to join, opening hours.", "",
+         f"- [Calendário para subscrever (.ics)]({BASE}/calendario.ics)", f"- [Primeira vez num evento]({BASE}/primeira-vez/): check-in, aplicações por jogo, o que levar.", f"- [English page for visitors]({BASE}/en/): weekly events, how to join, opening hours.", f"- [Acabou de chegar]({BASE}/novidades/): produtos que acabaram de chegar à loja (TCG, figuras, blind boxes, Gunpla, peluches), atualizado de hora a hora; RSS em {BASE}/novidades/feed.xml.", "",
          "## Eventos regulares (todas as semanas; em feriados e férias confirmar no calendário)"]
     for s in sorted(SER, key=lambda s: (list(PL).index(s['dia']), s['hora'])):
         L.append(f"- [{s['titulo']} — {s['nome_jogo']}]({BASE}/{s['slug']}/): {PL[s['dia']].lower()} às {s['hora']}, {preco_txt(float(s['preco']))}" + (" (em pausa de momento)" if s.get('pausa') else ""))
@@ -499,6 +499,7 @@ def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao, serie_de=lambda e: None, m
     ja_fizemos(passados)
     urls += primeira_vez(SER)
     import ingles; urls += ingles.pagina(SER, FUT)
+    sys.path.insert(0, os.path.join(RAIZ, 'bot')); import pagina as novidades; urls.append(novidades.gerar())
     feeds(FEED); llms(SER, FUT, S)
     # páginas antigas que mudaram de endereço (redirects.json: {"antigo": "novo"})
     RD = os.path.join(AQUI, 'redirects.json')
@@ -527,7 +528,7 @@ def gerar(tpl, SER, DET, S, FUT, FEED, ld, inscricao, serie_de=lambda e: None, m
     import glob as _g
     hor = '<p class="close hor">🕒 Horário da loja: ' + ' · '.join(f'{d} {h.replace(" – ", "–") if h[0].isdigit() else h.lower()}' for d, h in [HORARIO[1], HORARIO[2], HORARIO[0]]) + '</p>'
     for fn in _g.glob(os.path.join(RAIZ, '**', 'index.html'), recursive=True):
-        if os.sep + 'en' + os.sep in fn or os.sep + 'gerador' + os.sep in fn: continue
+        if any(os.sep + d + os.sep in fn for d in ('en', 'gerador', 'novidades')): continue
         p = open(fn).read()
         if 'class="close hor"' in p or '</footer>' not in p: continue
         k = p.rfind('</div></footer>') if '</div></footer>' in p else -1

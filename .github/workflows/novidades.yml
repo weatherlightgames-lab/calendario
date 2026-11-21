@@ -9,6 +9,10 @@ on:
         description: "URL(s) de produto para publicar como teste (separados por espaço). Vazio = execução normal."
         required: false
         default: ""
+      adicionar:
+        description: "URL(s) de produto para juntar só à página Acabou de chegar, sem publicar no Discord."
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -22,8 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          sparse-checkout: bot
       - name: Estado (ramo estado-novidades)
         run: |
           git fetch origin estado-novidades:estado-novidades 2>/dev/null || true
@@ -36,14 +38,26 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           TESTE: ${{ github.event.inputs.teste }}
+          ADICIONAR: ${{ github.event.inputs.adicionar }}
         run: |
           if [ -n "$TESTE" ]; then
             python3 bot/novidades.py estado/vistos.json --teste $TESTE
+          elif [ -n "$ADICIONAR" ]; then
+            python3 bot/novidades.py estado/vistos.json --adicionar $ADICIONAR
           else
             python3 bot/novidades.py estado/vistos.json
           fi
+      - name: Publicar página Acabou de chegar
+        run: |
+          git config user.name "Weatherlight Bot"
+          git config user.email "noreply@github.com"
+          git add novidades
+          if ! git diff --cached --quiet; then
+            git commit -m "Novidades: $(date -u +%F\ %H:%M)"
+            for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
+          fi
       - name: Guardar estado
-        if: ${{ github.event.inputs.teste == '' }}
+        if: ${{ github.event.inputs.teste == '' && github.event.inputs.adicionar == '' }}
         run: |
           cd estado
           git config user.name "Weatherlight Bot"
