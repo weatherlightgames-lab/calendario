@@ -82,7 +82,7 @@ def embed(d):
     if preco_txt(d["preco"]): campos.append({"name": "Preço", "value": preco_txt(d["preco"]), "inline": True})
     if d["stock"] == "OutOfStock": campos.append({"name": "Estado", "value": "Esgotado", "inline": True})
     if campos: e["fields"] = campos
-    if d["imagem"]: e["image"] = {"url": d["imagem"]}
+    if d["imagem"]: e["thumbnail"] = {"url": d["imagem"]}  # miniatura à direita (mais pequena que "image")
     return e
 
 
