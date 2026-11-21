@@ -9,19 +9,26 @@ e publica-os no canal ✨│novidades-wl através de um webhook (segredo DISCORD
 
 Uso: python3 bot/novidades.py <ficheiro de estado> [--teste URL_DO_PRODUTO ...]
 """
-import json, os, re, sys, time, urllib.request, xml.etree.ElementTree as ET
+import json, os, re, sys, time, urllib.error, urllib.request, xml.etree.ElementTree as ET
 from html import unescape
 
 SITE = "https://www.weatherlightgames.pt"
 COR = 0x46677A
-UA = {"User-Agent": "WeatherlightNovidadesBot/1.0 (+https://www.weatherlightgames.pt)"}
+UA = {"User-Agent": "Mozilla/5.0 (compatible; WeatherlightNovidadesBot/1.0; +https://www.weatherlightgames.pt)", "Accept": "text/html,application/xml;q=0.9,*/*;q=0.8"}
 NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 
 
 def get(url):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return r.read().decode("utf-8", "replace")
+    """GET com pausas: a loja responde 429 a pedidos muito seguidos."""
+    for espera in (0, 15, 45, 90):
+        time.sleep(espera or 1)
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 503) or espera == 90: raise
+            print(f"{e.code} em {url}; nova tentativa daqui a pouco")
 
 
 def produtos_do_sitemap():
