@@ -30,3 +30,4 @@ One Piece: Pirate Lounge e Pirate Party são Standard; Extra Regulation só quan
 
 ## Novidades
 - O bot de novidades do Discord e a página "Acabou de chegar" passaram para o repositório `weatherlightgames-lab/novidades` (site novidades.weatherlightgames.pt). Aqui só fica o link "🆕 Novidades" no cabeçalho do calendário e a linha no llms.txt.
+- **Produtos que chegaram à loja**: as páginas dos jogos mostram até 5 produtos desse jogo e as páginas dos eventos especiais podem mostrar os da coleção. Os dados vêm do site das novidades (`https://novidades.weatherlightgames.pt/dados.json`), lidos no browser; sem produtos, a caixa fica escondida. Termos por jogo em `NOV_JOGO` (`series.py`). Num evento especial, acrescentar em `futuros.json` `"novidades": "OP18|DP-13"` (termos separados por |) e, opcional, `"novidades_titulo"`.
