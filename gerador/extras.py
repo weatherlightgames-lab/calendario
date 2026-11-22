@@ -128,6 +128,7 @@ def especiais(DET, FUT, inscricao):
     {f'<p class="m">Código Companion: <span class="code">{html.escape(f["companion"])}</span> (na app, toca em <em>Enter Event Code</em>)</p>' if f.get('companion') and not passou else ''}
     <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes em breve! Entretanto, acompanha o nosso Discord.")}</p></div>{img}</section>
     {f'<section class="box" style="margin-top:1.2rem"><h2>Leaders permitidas</h2>{series.lideres_html(f["lideres"],f.get("lideres_fonte"))}</section>' if f.get('lideres') else ''}
+    {novidades_html(f.get('novidades'), f.get('novidades_titulo'))}
     <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{a}</dd>' for q, a in perg)}</dl></section>
     <section class="sec"><h2>Mais eventos</h2><div class="rel">
       <a class="card" href="/{pasta}/"><strong>Eventos de {html.escape(f['nome_jogo'])}</strong><span>Regulares e especiais</span><em>Ver página →</em></a>
@@ -244,6 +245,35 @@ def feeds(FEED):
         if os.path.isdir(os.path.join(RAIZ, pasta)):
             escreve(os.path.join(RAIZ, pasta, 'calendario.ics'), f"Weatherlight · {NOMES.get(g, pasta.replace('-', ' ').title())}",
                     [v for v in vistos.values() if v[0] == g])
+
+
+# ---------------- produtos do site das novidades ----------------
+NOVIDADES = "https://novidades.weatherlightgames.pt"
+
+
+def novidades_html(q, titulo=None):
+    """Caixa com os produtos relacionados que chegaram à loja (lidos do site das novidades no browser).
+    q: termos separados por | (ex. "OP18|DP-13"). A caixa fica escondida se não houver produtos."""
+    if not q: return ""
+    titulo = titulo or "Produtos que chegaram à loja"
+    js = ("(async()=>{const s=document.currentScript.previousElementSibling,g=s.querySelector('.nvd-g');"
+          "try{const d=await fetch('" + NOVIDADES + "/dados.json').then(r=>r.json());const rx=new RegExp(s.dataset.q,'i');"
+          "const l=d.filter(p=>rx.test(p.nome)).slice(0,8);if(!l.length)return;"
+          "const e=t=>String(t??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));"
+          "const sq=u=>u.replace(/\\/media\\/images\\/(thumb\\/|square\\/)?/,'/media/images/square/');"
+          "const pr=v=>v==null?'':Number(v).toFixed(2).replace('.',',')+' €';"
+          "const ut=u=>u+(u.includes('?')?'&':'?')+'utm_source=eventos&utm_medium=site&utm_campaign=novidades';"
+          "g.innerHTML=l.map(p=>{const im=(p.imagens&&p.imagens[0])||p.imagem;return '<a class=\"nvd-c\" href=\"'+e(ut(p.url))+'\" target=\"_blank\" rel=\"noopener\">'"
+          "+(im?'<span class=\"nvd-i\"><img src=\"'+e(sq(im))+'\" alt=\"\" loading=\"lazy\"></span>':'')+'<strong>'+e(p.nome)+'</strong><span class=\"price\">'+pr(p.preco)+'</span></a>'}).join('');"
+          "s.hidden=false}catch(x){}})();")
+    css = ("<style>.nvd{margin-top:1.2rem}.nvd-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin:.6rem 0}"
+           ".nvd-c{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.6rem}"
+           ".nvd-c:hover{border-color:var(--sea-2)}.nvd-i{display:block;aspect-ratio:1;background:#fff;border-radius:6px;overflow:hidden}"
+           ".nvd-i img{width:100%;height:100%;object-fit:contain;transform:scale(1.25)}.nvd-c strong{font-weight:500;font-size:.9rem;line-height:1.3}"
+           ".nvd-c .price{color:var(--brass);margin-top:auto}</style>")
+    return (f'<section class="box nvd" data-q="{html.escape(q)}" hidden><h2>{html.escape(titulo)}</h2>{css}<div class="nvd-g"></div>'
+            f'<p class="m small">Vê tudo o que chegou nas <a href="{NOVIDADES}/" target="_blank" rel="noopener">Novidades Weatherlight</a>.</p></section>'
+            f'<script>{js}</script>')
 
 
 # ---------------- llms.txt ----------------
