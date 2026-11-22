@@ -292,6 +292,40 @@ main a:not(.card),footer a{{color:var(--link)}}
 # ---------- Página de cada jogo: /<jogo>/ (destino dos links das páginas de marca da loja) ----------
 PASTA={"magic":"magic","poke":"pokemon","op":"one-piece","ygo":"yu-gi-oh","rift":"riftbound","digi":"digimon",
        "gundam":"gundam","assemble":"gundam-assemble","champ":"pokemon-champions","cyber":"cyberpunk","lorcana":"lorcana","swu":"star-wars"}
+# ---------------- produtos do site das novidades ----------------
+NOVIDADES = "https://novidades.weatherlightgames.pt"
+
+
+def novidades_html(q, titulo=None, maximo=8):
+    """Caixa com os produtos relacionados que chegaram à loja (lidos do site das novidades no browser).
+    q: termos separados por | (ex. "OP18|DP-13"). A caixa fica escondida se não houver produtos."""
+    if not q: return ""
+    titulo = titulo or "Produtos que chegaram à loja"
+    js = ("(async()=>{const s=document.currentScript.previousElementSibling,g=s.querySelector('.nvd-g');"
+          "try{const d=await fetch('" + NOVIDADES + "/dados.json').then(r=>r.json());const rx=new RegExp(s.dataset.q,'i');"
+          "const l=d.filter(p=>rx.test(p.nome)).slice(0," + str(maximo) + ");if(!l.length)return;"
+          "const e=t=>String(t??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));"
+          "const sq=u=>u.replace(/\\/media\\/images\\/(thumb\\/|square\\/)?/,'/media/images/square/');"
+          "const pr=v=>v==null?'':Number(v).toFixed(2).replace('.',',')+' €';"
+          "const ut=u=>u+(u.includes('?')?'&':'?')+'utm_source=eventos&utm_medium=site&utm_campaign=novidades';"
+          "g.innerHTML=l.map(p=>{const im=(p.imagens&&p.imagens[0])||p.imagem;return '<a class=\"nvd-c\" href=\"'+e(ut(p.url))+'\" target=\"_blank\" rel=\"noopener\">'"
+          "+(im?'<span class=\"nvd-i\"><img src=\"'+e(sq(im))+'\" alt=\"\" loading=\"lazy\"></span>':'')+'<strong>'+e(p.nome)+'</strong><span class=\"price\">'+pr(p.preco)+'</span></a>'}).join('');"
+          "s.hidden=false}catch(x){}})();")
+    css = ("<style>.nvd{margin-top:1.2rem}.nvd-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;margin:.6rem 0}"
+           ".nvd-c{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.6rem}"
+           ".nvd-c:hover{border-color:var(--sea-2)}.nvd-i{display:block;aspect-ratio:1;background:#fff;border-radius:6px;overflow:hidden}"
+           ".nvd-i img{width:100%;height:100%;object-fit:contain;transform:scale(1.25)}.nvd-c strong{font-weight:500;font-size:.9rem;line-height:1.3}"
+           ".nvd-c .price{color:var(--brass);margin-top:auto}</style>")
+    return (f'<section class="box nvd" data-q="{html.escape(q)}" hidden><h2>{html.escape(titulo)}</h2>{css}<div class="nvd-g"></div>'
+            f'<p class="m small">Vê tudo o que chegou nas <a href="{NOVIDADES}/" target="_blank" rel="noopener">Novidades Weatherlight</a>.</p></section>'
+            f'<script>{js}</script>')
+
+
+# Termos de cada jogo para a caixa de produtos nas páginas dos jogos
+NOV_JOGO = {"magic": "Magic", "poke": "Pok[eé]mon (TCG|Trading|Card|Booster|Elite|ETB|Scarlet|Mega)", "op": "One Piece Card Game", "ygo": "Yu-?Gi-?Oh",
+            "rift": "Riftbound", "digi": "Digimon", "gundam": "Gundam Card Game", "assemble": "Gundam Assemble", "cyber": "Cyberpunk"}
+
+
 def gerar_jogos(SER,DET,S,style,fonts,css2):
     import datetime as dt
     FP=os.path.join(AQUI,'futuros.json'); FUT=json.load(open(FP)) if os.path.exists(FP) else []
@@ -373,6 +407,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
     {sec("Esta semana",sem)}
     {sec("Eventos que não podes perder",esp,'<p class="m small">Detalhes, inscrições e calendário no <a href="/">Calendário Weatherlight</a>.</p>')}
     {sec(f"Outros eventos de {html.escape(nome)}",outros,'<p class="m small">Datas anunciadas no <a href="/">Calendário Weatherlight</a> e no nosso Instagram.</p>')}
+    {novidades_html(NOV_JOGO.get(g), f"Produtos de {nome} que chegaram à loja", 5)}
   </div>
 </main>
 <footer><div class="wrap"><p class="close">Tens dúvidas? Vê a <a href="/primeira-vez/">página para quem vem pela primeira vez</a>, a <a href="{CA}">Central de Ajuda</a> ou junta-te à nossa comunidade no <a href="{DISCORD}">Discord</a>!</p></div></footer>
