@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Weatherlight//Calendario//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:2026-12-04-digi-bt27-ignition-of-x-release-event@eventos.weatherlightgames.pt
+DTSTAMP:20261127T172823Z
+DTSTART:20261204T190000Z
+DTEND:20261204T220000Z
+SUMMARY:BT27 Ignition of X Release Event · Digimon Card Game (Weatherlight)
+DESCRIPTION:Inscrição: https://www.bandai-tcg-plus.com/event/7118234\nDetalhes: https://eventos.weatherlightgames.pt/digimon/bt27-ignition-of-x-release-event/
+LOCATION:Weatherlight Games & Collectibles\, Rua Frei José Maria Évora\, Nº2\, 7005-495 Évora
+URL:https://eventos.weatherlightgames.pt/digimon/bt27-ignition-of-x-release-event/
+END:VEVENT
+END:VCALENDAR

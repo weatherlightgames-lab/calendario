@@ -22,9 +22,9 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:semanal-yu-gi-oh-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261122T165814Z
-DTSTART;TZID=Europe/Lisbon:20261125T200000
-DTEND;TZID=Europe/Lisbon:20261125T230000
+DTSTAMP:20261127T172823Z
+DTSTART;TZID=Europe/Lisbon:20261202T200000
+DTEND;TZID=Europe/Lisbon:20261202T230000
 RRULE:FREQ=WEEKLY;BYDAY=WE
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
 DESCRIPTION:Evento semanal. Em feriados e férias o horário pode mudar: confirma sempre em https://eventos.weatherlightgames.pt/\nDetalhes: https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/

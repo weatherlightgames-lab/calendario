@@ -721,5 +721,26 @@
   "substitui": [
    "Night City Brawl"
   ]
+ },
+ {
+  "iso": "2026-12-04",
+  "hora": "19:00",
+  "jogo": "digi",
+  "nome_jogo": "Digimon Card Game",
+  "evento": "BT27 Ignition of X Release Event",
+  "preco": 30,
+  "modelo": "Release Event (Digimon)",
+  "arte": "bt27",
+  "story": "bt27",
+  "recorte": [
+   0.62,
+   0.58,
+   1.0
+  ],
+  "inscricao": "https://www.bandai-tcg-plus.com/event/7118234",
+  "tipo": "Release Event",
+  "substitui": [
+   "Tamer Party"
+  ]
  }
 ]
