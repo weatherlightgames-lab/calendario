@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-27-digi-tamer-party@eventos.weatherlightgames.pt
-DTSTAMP:20261128T104929Z
+DTSTAMP:20261128T110753Z
 DTSTART:20261127T200000Z
 DTEND:20261127T230000Z
 SUMMARY:Tamer Party · Digimon Card Game (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/digimon/tamer-party/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-04-digi-bt27-ignition-of-x-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261128T104930Z
+DTSTAMP:20261128T110753Z
 DTSTART:20261204T190000Z
 DTEND:20261204T220000Z
 SUMMARY:BT27 Ignition of X Release Event · Digimon Card Game (Weatherlight)
