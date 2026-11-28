@@ -28,6 +28,23 @@ LOJA = {"@context": "https://schema.org", "@type": "GameStore", "name": "Weather
 LOJA_P = os.path.join(AQUI, 'loja.json')   # horário (openingHoursSpecification) e outros dados, quando existirem
 if os.path.exists(LOJA_P): LOJA.update(json.load(open(LOJA_P)))
 
+# Páginas dos sets no site das novidades: eventos de lançamento → página do set (nome do evento → slug)
+SETS_NOV = [(r"\bOP-?18\b", "op18", "OP18 The Dominance of God"), (r"\bBT-?27\b", "bt-27", "BT-27 Ignition of X"),
+            (r"Delta Reign", "delta-reign", "Pokémon Delta Reign"), (r"Star Trek", "star-trek", "Magic Star Trek"),
+            (r"Beyond the Brave", "beyond-the-brave", "Yu-Gi-Oh! Beyond the Brave"), (r"\bGD-?06\b", "gd06", "GD06 Stardust Trails"),
+            (r"Pre-?Rift.*Radiance|Radiance.*Pre-?Rift", "radiance", "Riftbound Radiance")]  # Riftbound: o evento de lançamento é o Pre-Rift
+
+
+def set_html(f):
+    import re as _re
+    alvo = f.get('evento', '')
+    for rx, slug, nome in SETS_NOV:
+        if _re.search(rx, alvo, _re.I):
+            return (f'<section class="sec"><h2>Sobre o set</h2><div class="rel"><a class="card" href="https://novidades.weatherlightgames.pt/sets/{slug}/" target="_blank" rel="noopener">'
+                    f'<strong>🃏 {html.escape(nome)} na Weatherlight</strong><span>Produtos, lista de cartas e todos os eventos do set</span><em>Ver página →</em></a></div></section>')
+    return ''
+
+
 # O que é preciso para participar, por jogo (resumo de APPS, confirmado pela equipa)
 PRECISA = {"magic": "App Magic: The Gathering Companion e conta Wizards (entras com o código do evento)",
            "poke": "Player ID da Pokémon (se não tens, fazemos contigo na loja); recomendamos a app Pokémon Access",
@@ -129,6 +146,7 @@ def especiais(DET, FUT, inscricao):
     <section class="intro"><div class="box"><h2>Como funciona</h2><p class="pre">{html.escape(txt or "Detalhes em breve! Entretanto, acompanha o nosso Discord.")}</p></div>{img}</section>
     {f'<section class="box" style="margin-top:1.2rem"><h2>Leaders permitidas</h2>{series.lideres_html(f["lideres"],f.get("lideres_fonte"))}</section>' if f.get('lideres') else ''}
     {novidades_html(f.get('novidades'), f.get('novidades_titulo'))}
+    {set_html(f)}
     <section class="box faq"><h2>Perguntas frequentes</h2><dl>{''.join(f'<dt>{html.escape(q)}</dt><dd>{a}</dd>' for q, a in perg)}</dl></section>
     <section class="sec"><h2>Mais eventos</h2><div class="rel">
       <a class="card" href="/{pasta}/"><strong>Eventos de {html.escape(f['nome_jogo'])}</strong><span>Regulares e especiais</span><em>Ver página →</em></a>

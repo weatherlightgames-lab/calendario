@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-25-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261125T160000Z
 DTEND:20261125T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-25-magic-modern@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261125T200000Z
 DTEND:20261125T230000Z
 SUMMARY:Modern · Magic: The Gathering (Weatherlight)
@@ -30,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/magic/modern/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-25-ygo-duelist-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261125T200000Z
 DTEND:20261125T230000Z
 SUMMARY:Duelist Lounge · Yu-Gi-Oh! (Weatherlight)
@@ -40,7 +40,7 @@ URL:https://eventos.weatherlightgames.pt/yu-gi-oh/duelist-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-25-op-pirate-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261125T203000Z
 DTEND:20261125T233000Z
 SUMMARY:Pirate Lounge · One Piece Card Game (Weatherlight)
@@ -50,7 +50,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/pirate-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-27-rift-nexus-night@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261127T200000Z
 DTEND:20261127T230000Z
 SUMMARY:Nexus Night · Riftbound: League of Legends TCG (Weatherlight)
@@ -60,7 +60,7 @@ URL:https://eventos.weatherlightgames.pt/riftbound/nexus-night/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-27-digi-tamer-party@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261127T200000Z
 DTEND:20261127T230000Z
 SUMMARY:Tamer Party · Digimon Card Game (Weatherlight)
@@ -70,7 +70,7 @@ URL:https://eventos.weatherlightgames.pt/digimon/tamer-party/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-27-gundam-pilot-lounge@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261127T210000Z
 DTEND:20261128T000000Z
 SUMMARY:Pilot Lounge · Gundam Card Game (Weatherlight)
@@ -80,7 +80,7 @@ URL:https://eventos.weatherlightgames.pt/gundam/pilot-lounge/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-cyber-night-city-showdown@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Night City Showdown · Cyberpunk TCG (Weatherlight)
@@ -90,7 +90,7 @@ URL:https://eventos.weatherlightgames.pt/cyberpunk/night-city-showdown/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-op-heroines-battle-vol-2@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261128T150000Z
 DTEND:20261128T180000Z
 SUMMARY:Heroines Battle Vol.2 · One Piece Card Game (Weatherlight)
@@ -100,7 +100,7 @@ URL:https://eventos.weatherlightgames.pt/one-piece/heroines-battle-vol-2/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-28-gundam-pilot-party@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261128T180000Z
 DTEND:20261128T210000Z
 SUMMARY:Pilot Party · Gundam Card Game (Weatherlight)
@@ -110,7 +110,7 @@ URL:https://eventos.weatherlightgames.pt/gundam/pilot-party/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-cup-1@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261129T100000Z
 DTEND:20261129T130000Z
 SUMMARY:League Cup #1 · Pokémon TCG (Weatherlight)
@@ -120,7 +120,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-cup-1/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-magic-booster-draft-reality-fracture@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261129T150000Z
 DTEND:20261129T180000Z
 SUMMARY:Booster Draft Reality Fracture · Magic: The Gathering (Weatherlight)
@@ -130,7 +130,7 @@ URL:https://eventos.weatherlightgames.pt/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-rift-nexus-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261129T150000Z
 DTEND:20261129T180000Z
 SUMMARY:Nexus Afternoon · Riftbound: League of Legends TCG (Weatherlight)
@@ -140,7 +140,7 @@ URL:https://eventos.weatherlightgames.pt/riftbound/nexus-afternoon/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-poke-league-challenge-novembro@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261129T170000Z
 DTEND:20261129T200000Z
 SUMMARY:League Challenge Novembro · Pokémon TCG (Weatherlight)
@@ -150,7 +150,7 @@ URL:https://eventos.weatherlightgames.pt/pokemon/league-challenge-novembro/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-12-04-digi-bt27-ignition-of-x-release-event@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110753Z
+DTSTAMP:20261128T113740Z
 DTSTART:20261204T190000Z
 DTEND:20261204T220000Z
 SUMMARY:BT27 Ignition of X Release Event · Digimon Card Game (Weatherlight)
