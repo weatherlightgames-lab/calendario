@@ -111,8 +111,8 @@ def especiais(DET, FUT, inscricao):
 <header>
   <div class="wrap">
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › <a href="/{pasta}/">{html.escape(f['nome_jogo'])}</a></span>
-    <h1>{html.escape(f['evento'])}</h1>
-    <p class="sub">{html.escape(f['nome_jogo'])} em Évora · {quando}</p>
+    <h1>{html.escape(f['evento'])} <em>em Évora</em></h1>
+    <p class="sub">{html.escape(f['nome_jogo'])} na Weatherlight · {quando}</p>
   </div>
 </header>
 <main>

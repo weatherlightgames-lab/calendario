@@ -10,7 +10,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 X-PUBLISHED-TTL:PT12H
 BEGIN:VEVENT
 UID:2026-11-25-magic-commander-afternoon@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110555Z
+DTSTAMP:20261128T110735Z
 DTSTART:20261125T160000Z
 DTEND:20261125T190000Z
 SUMMARY:Commander Afternoon · Magic: The Gathering (Weatherlight)
@@ -20,7 +20,7 @@ URL:https://eventos.weatherlightgames.pt/magic/commander-afternoon/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-25-magic-modern@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110555Z
+DTSTAMP:20261128T110735Z
 DTSTART:20261125T200000Z
 DTEND:20261125T230000Z
 SUMMARY:Modern · Magic: The Gathering (Weatherlight)
@@ -30,7 +30,7 @@ URL:https://eventos.weatherlightgames.pt/magic/modern/
 END:VEVENT
 BEGIN:VEVENT
 UID:2026-11-29-magic-booster-draft-reality-fracture@eventos.weatherlightgames.pt
-DTSTAMP:20261128T110555Z
+DTSTAMP:20261128T110735Z
 DTSTART:20261129T150000Z
 DTEND:20261129T180000Z
 SUMMARY:Booster Draft Reality Fracture · Magic: The Gathering (Weatherlight)

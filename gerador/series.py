@@ -250,8 +250,8 @@ main a:not(.card),footer a{{color:var(--link)}}
 <header>
   <div class="wrap">
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › <a href="/{s['slug'].split('/')[0]}/">{html.escape(s['nome_jogo'])}</a></span>
-    <h1>{html.escape(s['titulo'])}</h1>
-    <p class="sub">{html.escape(s['nome_jogo'])} em Évora · {quando}</p>
+    <h1>{html.escape(s['titulo'])} <em>em Évora</em></h1>
+    <p class="sub">{html.escape(s['nome_jogo'])} na Weatherlight · {quando}</p>
   </div>
 </header>
 <main>
@@ -396,7 +396,7 @@ def gerar_jogos(SER,DET,S,style,fonts,css2):
   <div class="wrap">
     <span class="crumbs"><a href="/">Calendário Weatherlight</a> › {html.escape(nome)}</span>
     <h1>Eventos de {html.escape(nome)} <em>em Évora</em></h1>
-    <p class="sub">Não percas estes eventos na Weatherlight em Évora, no Alentejo</p>
+    <p class="sub">Não percas estes eventos na Weatherlight, no Alentejo</p>
     {f'<a class="hd-cta" href="{marca}">Produtos de {html.escape(nome)} na loja ↗</a>' if marca else ''}{f'<a class="hd-cta" href="{UNIVERSOS[g]["url"]}">🤖 {html.escape(UNIVERSOS[g]["titulo"])} ↗</a>' if g in UNIVERSOS else ''}
     <p class="subcal" id="subscrever">📅 Subscreve os eventos de {html.escape(nome)}: <a href="https://calendar.google.com/calendar/render?cid=webcal%3A%2F%2Feventos.weatherlightgames.pt%2F{pasta}%2Fcalendario.ics">Google</a> · <a href="webcal://eventos.weatherlightgames.pt/{pasta}/calendario.ics">Apple / Outlook</a></p>
   </div>
