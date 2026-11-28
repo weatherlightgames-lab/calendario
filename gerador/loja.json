@@ -49,5 +49,71 @@
    "opens": "00:00",
    "closes": "00:00"
   }
+ ],
+ "areaServed": [
+  {
+   "@type": "City",
+   "name": "Évora"
+  },
+  {
+   "@type": "City",
+   "name": "Arraiolos"
+  },
+  {
+   "@type": "City",
+   "name": "Montemor-o-Novo"
+  },
+  {
+   "@type": "City",
+   "name": "Vendas Novas"
+  },
+  {
+   "@type": "City",
+   "name": "Mora"
+  },
+  {
+   "@type": "City",
+   "name": "Estremoz"
+  },
+  {
+   "@type": "City",
+   "name": "Borba"
+  },
+  {
+   "@type": "City",
+   "name": "Redondo"
+  },
+  {
+   "@type": "City",
+   "name": "Vila Viçosa"
+  },
+  {
+   "@type": "City",
+   "name": "Reguengos de Monsaraz"
+  },
+  {
+   "@type": "City",
+   "name": "Mourão"
+  },
+  {
+   "@type": "City",
+   "name": "Portel"
+  },
+  {
+   "@type": "City",
+   "name": "Viana do Alentejo"
+  },
+  {
+   "@type": "City",
+   "name": "Alvito"
+  },
+  {
+   "@type": "City",
+   "name": "Beja"
+  },
+  {
+   "@type": "AdministrativeArea",
+   "name": "Alentejo"
+  }
  ]
 }
